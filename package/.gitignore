@@ -1,0 +1,6 @@
+/node_modules
+dist
+bundle-analysis.html
+.rollup.cache
+tsconfig.tsbuildinfo
+auera-ui-0.1.0.tgz

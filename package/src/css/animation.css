@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .border-image {
+    border-image: initial;
+  }
+  .animate-slideIn {
+    animation: slideIn 0.5s ease-in-out;
+  }
+  .animate-slideOut {
+    animation: slideOut 0.5s ease-in-out;
+  }
+  .animate-dropIn {
+    animation: dropIn 0.5s ease-in-out;
+  }
+  .animate-dropOut {
+    animation: dropOut 0.5s ease-in-out;
+  }
+  .animate-walkIn {
+    animation: walkIn 0.5s ease-in-out;
+  }
+  .animate-walkOut {
+    animation: walkOut 0.5s ease-in-out;
+  }
+  .animate-slideInLeft {
+    animation: slideInLeft 0.5s ease-in-out;
+  }
+  .animate-slideOutLeft {
+    animation: slideOutLeft 0.5s ease-in-out;
+  }
+}
+
+/* Modal Animation */
+@keyframes slideIn {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slideOut {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes walkIn {
+  from {
+    scale: 0.2;
+    opacity: 0;
+  }
+  to {
+    scale: 1;
+    opacity: 1;
+  }
+}
+@keyframes walkOut {
+  from {
+    scale: 1;
+    opacity: 1;
+  }
+  to {
+    scale: 0.2;
+    opacity: 0;
+  }
+}
+
+@keyframes dropIn {
+  from {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes dropOut {
+  from {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+}
+
+/* Drawer Slide Animation */
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slideOutLeft {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
