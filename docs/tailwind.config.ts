@@ -13,7 +13,10 @@ const config: Config = {
         foreground: "var(--foreground)",
         ...tailwindExtend.colors,
       },
-      backgroundColor: { ...tailwindExtend.backgroundColor },
+      backgroundColor: {
+        ...tailwindExtend.backgroundColor,
+        navbar: "var(--nav-bar)",
+      },
       boxShadow: { ...tailwindExtend.boxShadow },
       borderColor: { ...tailwindExtend.borderColor },
     },
