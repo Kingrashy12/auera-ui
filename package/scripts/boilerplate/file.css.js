@@ -165,7 +165,7 @@ html[color-scheme="dark"] {
   --corprate-light-danger-hover: var(--slate-900);
   --corprate-light-warn-hover: var(--slate-900);
 
-  background: #000005;
+  background: #000;
 }
 html[color-scheme="light"] {
   --frost-light-danger: var(--red-100);
@@ -210,7 +210,7 @@ html[color-scheme="light"] {
   --corprate-light-danger-hover: var(--red-200);
   --corprate-light-warn-hover: var(--yellow-200);
 
-  background: #fffff5;
+  background: #fff;
 }
 
 
