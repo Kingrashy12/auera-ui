@@ -9,7 +9,7 @@ const Hero = () => {
       <Box className="gap-3" fullWidth centered>
         <Box direction="column" className="gap-3 py-3 w-full" centered>
           <h1 className="font-bold text-5xl font-montserrat leading-tight text-text-color">
-            Build beautiful UIs, effortlessly.
+            Build <span className="colored">beautiful</span> UIs, effortlessly.
           </h1>
           <p className="font-inter-tight font-medium text-lg text-dim text-center">
             Streamline your workflow with customizable, modern components <br />

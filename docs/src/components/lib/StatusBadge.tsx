@@ -19,7 +19,7 @@ type StatusBadgeProps = {
   /**
    * Optional children to be rendered inside the badge.
    */
-  children: React.ReactNode;
+  children?: React.ReactNode;
   /**
    * Optional custom class to be applied to the badge.
    */

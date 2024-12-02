@@ -21,7 +21,7 @@ const Drawer = ({ position, type }: DrawerProps & DrawerPanelProps) => {
       <D value="default">
         <D.Panel position={position} type={type}>
           <D.Header>
-            <h1 className="font-medium text-lg">Notification</h1>
+            <h1 className="font-medium text-lg">Notifications</h1>
             <D.Trigger type="close" value="">
               <IconButton variants="outline">
                 <IoClose />
@@ -36,12 +36,25 @@ const Drawer = ({ position, type }: DrawerProps & DrawerPanelProps) => {
                 <Box
                   key={index}
                   direction="column"
-                  className="gap-1 border-b border-b-neutral-300"
+                  className="
+                  gap-2 p-4 rounded-xl cursor-pointer 
+                  border border-neutral-200 
+                  hover:bg-gradient-to-r hover:from-indigo-50 hover:to-purple-50 
+                  transition-all duration-300 ease-in-out shadow-md 
+                  hover:shadow-lg transform hover:scale-105 mb-2
+                "
                 >
-                  <p className="font-medium">{item.title}</p>
-                  <StatusBadge badgeClassName="right-0">
-                    <span>{item.message}</span>
-                  </StatusBadge>
+                  <Box fullWidth className="flex justify-between items-center">
+                    <p className="font-semibold text-lg text-neutral-800">
+                      {item.title}
+                    </p>
+                    {!item.seen && (
+                      <StatusBadge badgeClassName="relative right-0 animate-pulse" />
+                    )}
+                  </Box>
+                  <span className="text-neutral-600 text-sm">
+                    {item.message}
+                  </span>
                 </Box>
               )}
               groupByKey={(item) => item.timestamp}

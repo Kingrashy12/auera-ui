@@ -20,3 +20,10 @@ html[color-scheme="dark"] {
   --cmd-bg: #19191c;
   --cmd-code: white;
 }
+
+.colored {
+  background: linear-gradient(to bottom, var(--blue-400), var(--blue-700));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

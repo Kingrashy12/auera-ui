@@ -1,3 +1,4 @@
+import { storyBookPath } from "@/constant/url";
 import { Box } from "auera-ui";
 import Link from "next/link";
 import React from "react";
@@ -14,7 +15,7 @@ const NavLinks = ({
     <Box direction={direction} className={tw("gap-3", className as string)}>
       <LinkItem label="Docs" link="/docs" />
       <LinkItem label="Components" link="/docs/components" />
-      <LinkItem label="Storybook" ex link="http://localhost:6006/?" />
+      <LinkItem label="Storybook" ex link={storyBookPath} />
     </Box>
   );
 };
