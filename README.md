@@ -1,11 +1,11 @@
 <div align='center'>
-<img src='../images/logo.png' width="160" height="160" alt="Auera UI" />
+<img src='./images/logo.png' width="160" height="160" alt="Auera UI" />
 
 <div align='center'>
 <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="../images/logo-dark.png" />
-    <source media="(prefers-color-scheme: light)" srcset="../images/logo-light.png" />
-    <img alt="Auera UI" src='../images/logo-light.png' width="230" height="70" style="max-width:100%;" />
+    <source media="(prefers-color-scheme: dark)" srcset="./images/logo-dark.png" />
+    <source media="(prefers-color-scheme: light)" srcset="./images/logo-light.png" />
+    <img alt="Auera UI" src='./images/logo-light.png' width="230" height="70" style="max-width:100%;" />
 </picture> 
 </div>
 

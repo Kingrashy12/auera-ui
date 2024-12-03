@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { DrawerContext } from "../../context/drawer";
 import { ContextProviderProps } from "../../types/auera-context";
+import { getDisplayName } from "@/utils/displayname";
 
 const DrawerProvider = ({ children }: ContextProviderProps) => {
   const [activeDrawerValue, setActiveDrawerValue] = useState("");
@@ -29,3 +30,4 @@ const DrawerProvider = ({ children }: ContextProviderProps) => {
 };
 
 export default DrawerProvider;
+DrawerProvider.displayName = getDisplayName("DrawerProvider");

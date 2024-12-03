@@ -24,6 +24,7 @@ type StatusBadgeProps = {
    * Optional custom class to be applied to the badge.
    */
   badgeClassName?: string;
+  placement?: "right-top" | "right-bottom" | "left-top" | "left-bottom";
 };
 
 const statusBadgeColorScheme = {
@@ -45,10 +46,17 @@ const StatusBadge = ({
   className,
   children,
   badgeClassName,
+  placement = "left-top",
 }: StatusBadgeProps) => {
   const basicClass = defineClass(
-    "absolute block border-white border-[1.5px] rounded-full top-0 left-0"
+    "absolute block border-white border-[1.5px] rounded-full"
   );
+  const position = {
+    "left-top": defineClass("top-0 left-0"),
+    "left-bottom": defineClass("bottom-0 left-0"),
+    "right-top": defineClass("right-0 top-0"),
+    "right-bottom": defineClass("right-0 bottom-0"),
+  };
   const Badge = createStyle("div").classname(
     "relative w-auto flex flex-shrink-0"
   );
@@ -57,6 +65,7 @@ const StatusBadge = ({
       basicClass,
       merge.single(statusBadgeSize, size),
       merge.single(statusBadgeColorScheme, status),
+      merge.single(position, placement),
       badgeClassName as string
     )
   );

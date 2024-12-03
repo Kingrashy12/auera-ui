@@ -32,7 +32,8 @@
     "react",
     "ui-kit",
     "design-system",
-    "react-component"
+    "react-component",
+    "tailwindcss"
   ],
   "author": "Rapheal Chizitere",
   "license": "Apache-2.0",

@@ -1,0 +1,313 @@
+
+
+import { Meta } from "@storybook/blocks";
+import { LogoDark, LogoLight } from './assets';
+import Image from 'next/image';
+
+<Meta title="Auera Docs" />
+
+<div className="flex items-center w-full justify-center flex-col">
+<Image src={'/logo.png'} width={150} height={150} alt="Auera UI" />
+<picture>
+    <source media="(prefers-color-scheme: dark)" src={LogoDark}/>
+    <source media="(prefers-color-scheme: light)" srcset={LogoLight}/>
+    <Image alt="Auera UI" src={LogoLight.src} width={250} height={70} className="max-w-full"/>
+</picture> 
+ <h1 className="font-bold text-5xl font-montserrat leading-tight text-text-color header">
+   Build <span className="colored">beautiful</span> UIs, effortlessly.
+  </h1>
+</div> 
+
+---
+# Auera UI Quick Documentation
+
+- [Introduction](#introduction)
+- [Installation](#installation)
+- [Provider](#provider)
+- [Extending Tailwind Config](#extending-tailwind-config)
+- [Importing CSS](#importing-css)
+- [CLI Tool](#cli-tool)
+- [System Design Variants (Flavours)](#system-design-variants-flavours)
+- [Usage](#usage)
+- [Components](#components)
+
+---
+
+<div className="flex flex-col w-full font-inter-tight">
+  <div className="flex flex-col mb-6">
+    ## Introduction
+    <p className="font-montserrat font-medium text-3xl">
+      Auera UI is an open-source UI library designed to empower you with a vast array of flexible and high-quality design components.
+    </p>
+  </div>
+
+{" "}
+
+<div className="flex flex-col">
+  ## Installation
+  <p className="font-montserrat font-medium text-lg">
+    To install Auera UI, run the following command:
+  </p>
+```bash
+ npm install auera-ui 
+```
+</div>
+
+ <div className="flex flex-col mb-6">
+    ## Provider
+    <p className="font-montserrat font-medium text-lg">
+      Most of Auera UI components depend's on the `Provider` to share global settings and themes. 
+      Wrapping your application with the `Provider` ensures consistent styling and functionality.
+    </p>
+
+    ### Usage Example
+```typescript
+import { Provider } from 'auera-ui';
+
+function RootLayout() {
+  return (
+    <Provider theme="light">
+      {/* Your application components */}
+    </Provider>
+  );
+}
+```
+
+    ### Why Use the Provider?
+    <ul className="list-disc pl-6 mt-4">
+      <li><strong>Global Theme Management:</strong> Applies consistent themes across all components.</li>
+      <li><strong>State Management:</strong> Centralizes shared state or configuration settings.</li>
+      <li><strong>Customization:</strong> Easily configure settings like default colors, fonts, and behavior.</li>
+    </ul>
+  </div>
+
+   <div className="flex flex-col mb-6">
+    ## Extending Tailwind Config
+    <p className="font-montserrat font-medium text-lg">
+      You can extend the Tailwind configuration to customize styles and integrate Auera UI's default theme.
+    </p>
+
+    ### Steps:
+   ```javascript
+// tailwind.config.js or tailwind.config.ts
+/** @type {import('tailwindcss').Config} */
+import { tailwindExtend } from "auera-ui";
+
+module.exports = {
+  content: [
+    './src/**/*.{js,jsx,ts,tsx}',
+    './node_modules/auera-ui/**/*.{js,ts,jsx,tsx}',
+  ],
+  theme: {
+    extend: {
+      backgroundColor: {
+        ...tailwindExtend.backgroundColor,
+      },
+      boxShadow: {
+        ...tailwindExtend.boxShadow,
+      },
+      colors: {
+        ...tailwindExtend.colors,
+      },
+      borderColor: {
+        ...tailwindExtend.borderColor,
+      },
+    },
+  },
+  plugins: [],
+};
+```
+</div>
+
+   <div className="flex flex-col mb-6">
+    ## Importing CSS
+    <p className="font-montserrat font-medium text-lg">
+      Auera UI comes with its own CSS file that you can import to apply default styles globally.
+    </p>
+
+    ### Importing in your project:
+
+```javascript
+import 'auera-ui/dist/auera.css';
+
+// or in your main CSS file
+@import 'auera-ui/dist/auera.css';
+```
+</div>
+
+ <div className="flex flex-col mb-6">
+    ## CLI Tool
+    <p className="font-montserrat font-medium text-lg">
+      Auera UI provides a CLI tool to eject and customize default configurations and CSS.
+    </p>
+
+    ### Run the CLI:
+  ```bash
+   npx auera-ui eject
+```
+
+    ### CLI Workflow:
+    When you run the `eject` command, you'll be prompted to select what you want to eject:
+
+    ```bash
+    ? What do you want to eject? (Use arrow keys)
+    ❯ auera.css
+      tailwind.extend.ts
+    ```
+
+    - **`auera.css`:** Ejects the default CSS file from Auera UI for manual customization.
+    - **`tailwind.extend.ts`:** Generates a Tailwind configuration file with default themes and extensions.
+
+    ### Example:
+    If you choose `auera.css`, it will create a local copy of the CSS file in your project directory:
+    ```bash
+    Ejected auera.css to ./styles/auera.css
+    ```
+
+    ### Benefits:
+    - **Customization:** Easily adjust the default styles and Tailwind config to suit your project.
+    - **Flexibility:** Allows you to fine-tune the framework without modifying the core library.
+  </div>
+
+   <div className="flex flex-col mb-6">
+    ## System Design Variants (Flavours)
+    <p className="font-montserrat font-medium text-lg">
+      Auera UI provides multiple **System Design Variants** or **Flavours**, each offering a distinct design style suited to different applications. These flavours are designed to cater to various design philosophies, allowing you to pick the one that fits your project best.
+    </p>
+
+    ### Available Flavours:
+    - **`corporate`:** A professional and clean design perfect for enterprise applications. It focuses on simplicity and readability.
+    - **`frost`:** Inspired by glassmorphism, this flavour uses frosted-glass effects to create a sleek, modern look with semi-transparent elements.
+    - **`neumorphic`:** This flavour features soft, 3D-style components with inner and outer shadows, mimicking physical objects and creating a soft, tactile feel.
+
+    ### Switching Between Flavours
+    To switch between flavours, you can use the `Provider` component and pass the desired flavour as a prop.
+
+    ### Example:
+    ```tsx
+    import { Provider } from 'auera-ui';
+
+    function RootLayout() {
+      return (
+        // Switch to the 'frost' flavour for a frosted-glass effect
+        <Provider flavour="frost">
+          {/* Your application components */}
+        </Provider>
+      );
+    }
+    ```
+
+    ### How to Customize a Flavour:
+    - **Override Styles:** You can extend the default Tailwind config to modify the look of the selected flavour.
+   
+    ### Customizing Flavour Styles:
+    To tailor the visual styles of a flavour, customize both the **`auera.css`** file and the **Tailwind configuration**.
+
+    #### Steps to Customize:
+    1. **Eject `auera.css`:**
+       Use the CLI to eject the default CSS:
+       ```bash
+       npx auera-ui eject
+       ```
+       Select the option to eject `auera.css`:
+       ```bash
+       ? What do you want to eject? (Use arrow keys)
+       ❯ auera.css
+         tailwind.extend.ts
+       ```
+
+    2. **Modify `auera.css`:**
+       Adjust the styles directly in `auera.css` to change specific component designs, colors, or layouts.
+
+    3. **Extend Tailwind Config:**
+       Customize the Tailwind configuration in the `tailwind.extend.ts` file to override or extend default styles.
+       ```typescript
+       // tailwind.extend.ts
+       export const tailwindExtend = {
+        boxShadow:{...},
+        colors:{...},
+        borderColor:{...},
+        backgroundColor:{...},
+       };
+       ```
+
+
+    ### Benefits of Customization:
+    - **Control:** Fine-tune the default flavour to match your brand identity.
+    - **Scalability:** Create consistent, reusable design patterns across your application.
+    - **Flexibility:** Combine custom CSS and extended Tailwind themes for a fully personalized UI experience.
+  </div>
+
+   ### ⚠️ **Important Notice:**
+    If you customize either **`auera.css`** or **`tailwind.extend.ts`**, you must update your imports in both **`tailwind.config.js`** and your main **CSS file**:
+
+    #### Example:
+    **`tailwind.config.ts`:**
+    ```typescript
+    import { tailwindExtend } from "./tailwind.extend";
+
+    module.exports = {
+      ...tailwindExtend,
+      content: [
+        './src/**/*.{js,ts,jsx,tsx}',
+      "./node_modules/auera-ui/**/*.{js,ts,jsx,tsx}"
+      ],
+    };
+    ```
+
+    **Main CSS File Import:**
+    ```css
+    @import './auera.css';  /* Ensure this points to your customized CSS */
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+    ```
+
+  <div className="flex flex-col mb-6">
+    ## Usage
+    <p className="font-montserrat font-medium text-lg">
+      Import and use components in your React project:
+    </p>
+
+```typescript
+import { Button } from "auera-ui";
+
+function App() {
+  return <Button>Click Me</Button>;
+}
+```
+
+  </div>
+
+## Components
+
+Auera UI includes a variety of components to help you build your application. These components are designed to be customizable and easily integrable into your projects.
+
+- [Button](#Button): A flexible and customizable button component to trigger actions.
+- [Card](#Card): A container component for displaying content in a structured format with options for customization.
+- [Modal](#Modal): A dialog window for presenting information or taking user input, with support for overlays and custom content.
+- [Drawer](#Drawer): A sliding panel for displaying additional content or options without navigating away from the current page.
+- [Input](#Input): A form element that allows users to enter text or data, with support for validation and various input types.
+- [Menu](#Menu): A popup menu component for displaying a list of actions or options.
+- [Stack](#Stack): A layout component that arranges elements in a flexible, vertical or horizontal stack, providing responsive spacing.
+- [Box](#Box): A simple container for wrapping elements, providing customization options for layout and styling.
+
+---
+
+### Additional Notes
+
+Each component is fully customizable and designed with accessibility and usability in mind. You can adjust styles, behavior, and layouts by extending Tailwind CSS or by modifying the components directly.
+
+For a full list of components and their usage, please refer to the [documentation](https://aueraui.vercel.app/components).
+
+
+</div>
+
+
+<style>
+{`
+.header {
+font-size: 38px;
+}
+`}
+</style>
