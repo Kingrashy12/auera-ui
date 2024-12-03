@@ -21,8 +21,13 @@ const config: Config = {
         navbar: "var(--nav-bar)",
         cmd: "var(--cmd-bg)",
         sidebar: "var(--sidebar)",
+        sideIcon: "var(--side-icon)",
       },
-      boxShadow: { ...tailwindExtend.boxShadow },
+      boxShadow: {
+        ...tailwindExtend.boxShadow,
+        // Add this to main extend
+        "input-outline": "0 0 0 1.8px var(--blue-500)",
+      },
       borderColor: {
         ...tailwindExtend.borderColor,
         sidebar: "var(--sidebar-border)",
@@ -32,6 +37,13 @@ const config: Config = {
         "inter-tight": '"Inter Tight", sans-serif',
         inter: '"Inter", serif',
         montserrat: '"Montserrat", serif',
+      },
+      transitionProperty: {
+        "border-color": "border-color 0.3s ease, box-shadow 0.3s ease",
+        layer: "background-color 0.3s ease, box-shadow 0.3s ease",
+      },
+      borderWidth: {
+        1.7: "1.7px",
       },
     },
   },

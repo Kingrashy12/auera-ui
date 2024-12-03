@@ -108,6 +108,12 @@ module.exports = {
       borderColor: {
         ...tailwindExtend.borderColor,
       },
+      transitionProperty: {
+        ...tailwindExtend.transitionProperty,
+      },
+      borderWidth: {
+        ...tailwindExtend.borderWidth,
+      },
     },
   },
   plugins: [],
