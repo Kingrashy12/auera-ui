@@ -1,5 +1,5 @@
 import { sb } from "@/constant/url";
-import { Box } from "auera-ui";
+import { Box, Drawer } from "auera-ui";
 import Link from "next/link";
 import React from "react";
 import { tw } from "stywind";
@@ -33,9 +33,11 @@ const LinkItem = ({
 }) => {
   return (
     <Link href={link} target={ex ? "_blank" : ""} rel="noreferel">
-      <p className="font-inter-tight font-medium hover:text-blue-600 text-base text-text-color">
-        {label}
-      </p>
+      <Drawer.Trigger value="" type="close">
+        <p className="font-inter-tight font-medium hover:text-blue-600 text-base text-text-color">
+          {label}
+        </p>
+      </Drawer.Trigger>
     </Link>
   );
 };
