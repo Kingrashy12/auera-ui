@@ -8,3 +8,5 @@ export const storyBookPaths = {
     drawer: `${sb_path}drawer--default`,
   },
 };
+
+export const github_url = "https://github.com/Kingrashy12/auera-ui";

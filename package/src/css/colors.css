@@ -139,7 +139,7 @@ html[color-scheme="dark"] {
   --corprate-dimmed-success: var(--soft-green);
   --corprate-dimmed-danger: var(--soft-red);
   --corprate-dimmed-warn: var(--soft-yellow);
-  --drawer-content: #000;
+  --drawer-content: black;
 
   /* Border color */
   --frost-light-danger-border: var(--soft-red);
@@ -184,7 +184,7 @@ html[color-scheme="light"] {
   --corprate-dimmed-success: var(--green-100);
   --corprate-dimmed-danger: var(--red-100);
   --corprate-dimmed-warn: var(--yellow-100);
-  --drawer-content: #fff;
+  --drawer-content: white;
 
   /* Border color */
   --frost-light-danger-border: var(--red-200);

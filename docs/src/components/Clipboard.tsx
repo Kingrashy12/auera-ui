@@ -8,7 +8,7 @@ const Clipboard = ({ content }: { content: string | number }) => {
   const copy = () => {
     setCopied(true);
     // toast.success("Code copied");
-    navigator.clipboard.writeText(content as string);
+    navigator.clipboard?.writeText(content as string);
     setTimeout(() => {
       setCopied(false);
     }, 2000);

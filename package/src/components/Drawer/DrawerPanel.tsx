@@ -29,7 +29,7 @@ const DrawerPanel = ({
   const drawerBackground = {
     light: defineClass("bg-white border border-neutral-200"),
     dark: tw(
-      defineClass("bg-[#0000] border-neutral-800"),
+      defineClass("bg-black border-neutral-800"),
       type === "float" ? "border-[1.33px]" : ""
     ),
   };
