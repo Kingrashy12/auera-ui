@@ -16,6 +16,11 @@ html[color-scheme="light"] {
   --scrollbar-thumb-hover: var(--neutral-500);
   --sidebar-border: var(--neutral-200);
   --sidebar: white;
+  --side-icon: var(--neutral-50);
+  --input-outline-bg: white;
+  --input-outline-border: var(--neutral-200);
+  --input-outline-fb: var(--blue-200);
+  --input-color: black;
 }
 html[color-scheme="dark"] {
   --nav-bar: rgb(0, 0, 0, 0.5);
@@ -28,6 +33,11 @@ html[color-scheme="dark"] {
   --sidebar-border: var(--neutral-800);
   /* --sidebar: #121212; */
   --sidebar: #000;
+  --side-icon: var(--slate-900);
+  --input-outline-bg: black;
+  --input-outline-border: var(--neutral-800);
+  --input-outline-fb: var(--blue-500);
+  --input-color: white;
 }
 
 .colored {
@@ -69,4 +79,15 @@ html[color-scheme="dark"] {
   transform: perspective(10px) rotateX(10deg) scale(1, 0.2);
   filter: blur(1em);
   opacity: 0.5;
+}
+
+@layer utilities {
+  .input-outline {
+    @apply bg-[var(--input-outline-bg)] 
+           border-[1.35px] border-[var(--input-outline-border)]
+           transition-all duration-300 ease-in-out 
+           hover:border-blue-400 
+           focus-within:border-blue-600
+           focus-within:shadow-[0_0_0_3px_rgba(59,130,246,0.3)];
+  }
 }

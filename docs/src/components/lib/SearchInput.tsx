@@ -8,7 +8,7 @@ interface SInputProps extends React.ComponentProps<"input"> {
   iconSize?: number;
 }
 
-const SearchInput = ({
+const TextInput = ({
   inputClass,
   className,
   icon,
@@ -17,10 +17,10 @@ const SearchInput = ({
   ...props
 }: SInputProps) => {
   const Container = createStyle("div").classname(
-    "flex justify-between w-full items-center gap-2 shadow-sm border border-neutral-200 rounded-lg px-3 py-2 h-[40px]"
+    "flex justify-between w-full items-center gap-2 shadow-sm input-outline rounded-lg px-3 py-2 h-[40px]"
   );
   const Input = createStyle("input").classname(
-    "w-full h-full outline-none border-none bg-transparent caret-blue-500 font-inter-tight font-medium placeholder:text-neutral-400 text-sm"
+    "w-full h-full outline-none border-none text-[var(--input-color)] bg-transparent caret-blue-500 font-inter-tight font-medium placeholder:text-neutral-400 text-sm"
   );
   return (
     <Container className={className}>
@@ -28,12 +28,12 @@ const SearchInput = ({
         <Icon icon={icon} className="text-neutral-400" size={iconSize || 20} />
       )}
       <Input
+        {...props}
         className={inputClass}
         placeholder={placeholder || "Type here..."}
-        {...props}
       />
     </Container>
   );
 };
 
-export default SearchInput;
+export default TextInput;

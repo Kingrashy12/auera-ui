@@ -168,4 +168,11 @@ export const tailwindExtend = {
     "corprate-light-warn-hover": "var(--corprate-light-warn-hover)",
     "corprate-light-success-hover": "var(--corprate-light-success-hover)",
   },
+  borderWidth: {
+    1.7: "1.7px",
+  },
+  transitionProperty: {
+    layer: "background-color 0.3s ease, box-shadow 0.3s ease",
+    "border-color": "border-color 0.3s ease, box-shadow 0.3s ease",
+  },
 };
