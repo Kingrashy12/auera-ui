@@ -9,8 +9,8 @@
 </picture> 
 </div>
 
- <h1 class='header'>
-   Build <span class='colored'>beautiful</span> UIs, effortlessly.
+ <h1 style="font-size: 25px;">
+   Build <span style="background: linear-gradient(to bottom, #60a5fa, #1d4ed8); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">beautiful</span> UIs, effortlessly.
   </h1>
 </div>
 
@@ -306,15 +306,3 @@ For a full list of components and their usage, please refer to the [documentatio
 ## License
 
 - Licensed under the [Apache-2.0](./LICENSE)
-
-<style>
-    .header{
-        font-size: 25px;
-    }
-    .colored{
-  background: linear-gradient(to bottom, #60a5fa, #1d4ed8);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-    }
-</style>
