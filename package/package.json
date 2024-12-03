@@ -38,6 +38,14 @@
   "author": "Rapheal Chizitere",
   "license": "Apache-2.0",
   "description": "A UI library designed to empower you with a vast array of flexible and high-quality design components.",
+  "homepage": "https://aueraui.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kingrashy12/auera-ui"
+  },
+  "bugs": {
+    "url": "https://github.com/Kingrashy12/auera-ui/issues"
+  },
   "peerDependencies": {
     "react": "^18.3.1 || ^19",
     "react-dom": "^18.3.1 || ^19",

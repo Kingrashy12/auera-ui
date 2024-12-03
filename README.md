@@ -1,11 +1,11 @@
 <div align='center'>
-<img src='./images/logo.png' width="160" height="160" alt="Auera UI" />
+<img src='https://github.com/Kingrashy12/auera-ui/blob/main/images/logo.png' width="160" height="160" alt="Auera UI" />
 
 <div align='center'>
 <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./images/logo-dark.png" />
-    <source media="(prefers-color-scheme: light)" srcset="./images/logo-light.png" />
-    <img alt="Auera UI" src='./images/logo-light.png' width="230" height="70" style="max-width:100%;" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Kingrashy12/auera-ui/blob/main/images/logo-dark.png" />
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/Kingrashy12/auera-ui/blob/main/images/logo-light.png" />
+    <img alt="Auera UI" src='https://github.com/Kingrashy12/auera-ui/blob/main/images/logo-light.png' width="230" height="70" style="max-width:100%;" />
 </picture> 
 </div>
 
@@ -78,7 +78,7 @@ function RootLayout() {
 - **State Management:** Centralizes shared state or configuration settings.
 - **Customization:** Easily configure settings like default colors, fonts, and behavior.
 
-# Extending Tailwind Config
+## Extending Tailwind Config
 
 You can extend the Tailwind configuration to customize styles and integrate Auera UI's default theme.
 
@@ -163,7 +163,7 @@ Ejected auera.css to ./styles/auera.css
 - **Customization:** Easily adjust the default styles and Tailwind config to suit your project.
 - **Flexibility:** Allows you to fine-tune the framework without modifying the core library.
 
-# System Design Variants (Flavours)
+## System Design Variants (Flavours)
 
 Auera UI provides multiple **System Design Variants** or **Flavours**, each offering a distinct design style suited to different applications. These flavours are designed to cater to various design philosophies, allowing you to pick the one that fits your project best.
 

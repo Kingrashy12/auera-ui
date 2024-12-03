@@ -8,11 +8,10 @@
     "start": "next start",
     "lint": "next lint",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "ui": "npm i ../package/auera-ui-0.1.0.tgz"
+    "build-storybook": "storybook build"
   },
   "dependencies": {
-    "auera-ui": "file:../package/auera-ui-0.1.0.tgz",
+    "auera-ui": "^0.1.0",
     "next": "14.2.18",
     "react": "^18",
     "react-dom": "^18",
