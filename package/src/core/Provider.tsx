@@ -24,7 +24,6 @@ const Provider = ({
         <ModalProvider>
           <DrawerProvider>{children}</DrawerProvider>
         </ModalProvider>
-        ;
       </ThemeProvider>
     </AueraContext.Provider>
   );

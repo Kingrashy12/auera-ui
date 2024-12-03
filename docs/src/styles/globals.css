@@ -12,6 +12,10 @@ html[color-scheme="light"] {
   --text-dim: var(--neutral-500);
   --cmd-bg: #eeeeef;
   --cmd-code: var(--gray-800);
+  --scrollbar-thumb: var(--neutral-300);
+  --scrollbar-thumb-hover: var(--neutral-500);
+  --sidebar-border: var(--neutral-200);
+  --sidebar: white;
 }
 html[color-scheme="dark"] {
   --nav-bar: rgb(0, 0, 0, 0.5);
@@ -19,6 +23,11 @@ html[color-scheme="dark"] {
   --text-dim: var(--gray-500);
   --cmd-bg: #19191c;
   --cmd-code: white;
+  --scrollbar-thumb: var(--neutral-500);
+  --scrollbar-thumb-hover: var(--neutral-700);
+  --sidebar-border: var(--neutral-800);
+  /* --sidebar: #121212; */
+  --sidebar: #000;
 }
 
 .colored {
@@ -26,4 +35,38 @@ html[color-scheme="dark"] {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+/* .enhanced-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 8px;
+} */
+
+.tag {
+  position: relative;
+}
+.tag::before {
+  content: "";
+  position: absolute;
+  top: 13rem;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: var(--blue-700);
+  transform: perspective(10px) rotateX(10deg) scale(1, 0.2);
+  filter: blur(1em);
+  opacity: 0.5;
 }

@@ -20,9 +20,13 @@ const config: Config = {
         ...tailwindExtend.backgroundColor,
         navbar: "var(--nav-bar)",
         cmd: "var(--cmd-bg)",
+        sidebar: "var(--sidebar)",
       },
       boxShadow: { ...tailwindExtend.boxShadow },
-      borderColor: { ...tailwindExtend.borderColor },
+      borderColor: {
+        ...tailwindExtend.borderColor,
+        sidebar: "var(--sidebar-border)",
+      },
       fontFamily: {
         poppins: '"Poppins", serif',
         "inter-tight": '"Inter Tight", sans-serif',

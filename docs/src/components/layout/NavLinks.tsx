@@ -13,7 +13,7 @@ const NavLinks = ({
 }) => {
   return (
     <Box direction={direction} className={tw("gap-3", className as string)}>
-      <LinkItem label="Docs" link="/docs" />
+      <LinkItem label="Docs" link="/docs/quick-start" />
       <LinkItem label="Components" link="/docs/components" />
       <LinkItem label="Storybook" ex link={sb} />
     </Box>
