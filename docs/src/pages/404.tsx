@@ -13,7 +13,7 @@ const PageNotFound = () => {
       <Box centered fullWidth direction="column" className="h-[80vh] gap-3">
         <Image
           src={"/logo.png"}
-          className="animate-pulse"
+          className="animate-bounce"
           alt="Logo"
           width={120}
           height={120}
@@ -33,7 +33,7 @@ const PageNotFound = () => {
           onClick={() => router.back()}
           leftIcon={HiOutlineArrowLeft}
         >
-          Return home
+          Return Back
         </Button>
       </Box>
     </>

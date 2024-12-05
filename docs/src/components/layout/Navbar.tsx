@@ -28,13 +28,16 @@ const Navbar = () => {
       <Container>
         <Box className="gap-5 items-center">
           <Link href="/">
-            <Image
-              src={mode === "light" ? LogoLight.src : LogoDark.src}
-              alt="Logo"
-              width={100}
-              height={100}
-              className="w-[120px]"
-            />
+            <Box className="items-center gap-1">
+              <Image src={"/logo.png"} alt="Logo" width={40} height={40} />
+              <Image
+                src={mode === "light" ? LogoLight.src : LogoDark.src}
+                alt="Logo"
+                width={70}
+                height={70}
+                className="w-[120px]"
+              />
+            </Box>
           </Link>
           <NavLinks className="max-[650px]:hidden" />
         </Box>

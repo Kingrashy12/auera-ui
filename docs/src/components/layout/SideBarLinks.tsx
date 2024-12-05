@@ -37,16 +37,14 @@ const SideBarLinks = () => {
                   "w-full py-2 px-3 hover:text-blue-600 hover:border-l-2 justify-between",
                   router.pathname === link.uri
                     ? "border-l-2 text-blue-600 border-l-blue-600"
-                    : "text-dim",
+                    : "text-dimBlack",
                   link.soon
                     ? "cursor-not-allowed pointer-events-none opacity-75"
                     : "cursor-pointer"
                 )}
                 fullWidth
               >
-                <p className="font-montserrat font-medium text-sm">
-                  {link.label}
-                </p>
+                <p className="font-inter font-medium text-sm">{link.label}</p>
                 <Badge
                   show={link.soon as boolean}
                   text="Soon"

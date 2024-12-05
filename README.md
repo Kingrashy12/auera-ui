@@ -68,7 +68,7 @@ Wrapping your application with the `Provider` ensures consistent styling and fun
 import { Provider } from "auera-ui";
 
 function RootLayout() {
-  return <Provider theme="light">{/* Your application components */}</Provider>;
+  return <Provider>{/* Your application components */}</Provider>;
 }
 ```
 

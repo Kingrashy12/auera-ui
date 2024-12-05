@@ -13,6 +13,7 @@ const config: Config = {
         "text-color": "var(--text-color)",
         dim: "var(--text-dim)",
         "cmd-code": "var(--cmd-code)",
+        dimBlack: "var(--dim-black)",
       },
       backgroundColor: {
         ...tailwindExtend.backgroundColor,

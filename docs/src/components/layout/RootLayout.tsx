@@ -10,7 +10,12 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
   const singleBar = ["/"];
   return (
-    <Box direction="column" fullWidth className="h-full">
+    <Box
+      direction="column"
+      fullWidth
+      className="h-full"
+      suppressHydrationWarning
+    >
       <Box direction="column" fullWidth className="sticky top-0 z-50">
         <Navbar />
         {singleBar.every((route) => route !== router.pathname) && <ToolBar />}
