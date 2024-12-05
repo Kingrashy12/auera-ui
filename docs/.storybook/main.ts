@@ -1,5 +1,7 @@
 import type { StorybookConfig } from "@storybook/nextjs";
+import { inject } from "@vercel/analytics";
 
+inject();
 const config: StorybookConfig = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
   addons: [

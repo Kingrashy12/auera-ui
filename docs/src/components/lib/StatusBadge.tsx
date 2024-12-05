@@ -25,6 +25,7 @@ type StatusBadgeProps = {
    */
   badgeClassName?: string;
   placement?: "right-top" | "right-bottom" | "left-top" | "left-bottom";
+  animate?: boolean;
 };
 
 const statusBadgeColorScheme = {
@@ -47,6 +48,7 @@ const StatusBadge = ({
   children,
   badgeClassName,
   placement = "left-top",
+  animate,
 }: StatusBadgeProps) => {
   const basicClass = defineClass(
     "absolute block border-white border-[1.5px] rounded-full"
@@ -66,7 +68,8 @@ const StatusBadge = ({
       merge.single(statusBadgeSize, size),
       merge.single(statusBadgeColorScheme, status),
       merge.single(position, placement),
-      badgeClassName as string
+      badgeClassName as string,
+      animate ? "animate-pulse" : ""
     )
   );
 

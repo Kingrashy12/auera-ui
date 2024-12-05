@@ -18,7 +18,7 @@ const Navbar = () => {
   };
   const I = merge.single(icon, mode);
   const Nav = createStyle("header").classname(
-    "w-full top-0 sticky h-auto border-b border-b-sidebar backdrop-blur-[6px] bg-navbar z-50 flex"
+    "w-full h-auto border-b border-b-sidebar backdrop-blur-[6px] bg-navbar flex"
   );
   const Container = createStyle("div").classname(
     "justify-between p-3 px-5 flex w-full"
@@ -26,7 +26,7 @@ const Navbar = () => {
   return (
     <Nav>
       <Container>
-        <Box className="gap-3 items-center">
+        <Box className="gap-5 items-center">
           <Link href="/">
             <Image
               src={mode === "light" ? LogoLight.src : LogoDark.src}

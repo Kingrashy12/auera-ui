@@ -17,7 +17,7 @@ const Hero = () => {
             crafted to enhance your React applications.
           </p>
           <Box className="mt-3 gap-3 items-center" wrap>
-            <Link href="/docs/quick-start">
+            <Link href="/docs/getting-started/quick-start">
               <Button
                 radius="lg"
                 className="font-inter"
