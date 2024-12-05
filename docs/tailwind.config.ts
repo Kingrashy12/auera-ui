@@ -9,8 +9,6 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
         ...tailwindExtend.colors,
         "text-color": "var(--text-color)",
         dim: "var(--text-dim)",
@@ -44,6 +42,9 @@ const config: Config = {
       },
       borderWidth: {
         1.7: "1.7px",
+      },
+      transitionDuration: {
+        "400": "400ms",
       },
     },
   },

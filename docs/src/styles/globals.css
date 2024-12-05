@@ -60,11 +60,6 @@ html[color-scheme="dark"] {
   background: var(--scrollbar-thumb-hover);
 }
 
-/* .enhanced-scrollbar::-webkit-scrollbar-thumb {
-  background: var(--scrollbar-thumb);
-  border-radius: 8px;
-} */
-
 .tag {
   position: relative;
 }
@@ -89,5 +84,11 @@ html[color-scheme="dark"] {
            hover:border-blue-400 
            focus-within:border-blue-600
            focus-within:shadow-[0_0_0_3px_rgba(59,130,246,0.3)];
+  }
+}
+
+@keyframes check-15 {
+  50% {
+    transform: scale(1.2);
   }
 }

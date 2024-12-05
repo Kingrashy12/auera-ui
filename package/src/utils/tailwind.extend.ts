@@ -1,3 +1,5 @@
+import { colors } from "./colors";
+
 /** @type {import('tailwindcss').Config} */
 export const tailwindExtend = {
   boxShadow: {
@@ -65,64 +67,7 @@ export const tailwindExtend = {
       "var(--neutral-800) 0 -1px 0 1px inset, var(--neutral-900) 0 1px 2px 0",
   },
   colors: {
-    blue: {
-      50: "var(--blue-50)",
-      100: "var(--blue-100)",
-      200: "var(--blue-200)",
-      400: "var(--blue-400)",
-      700: "var(--blue-700)",
-      800: "var(--blue-800)",
-      900: "var(--blue-900)",
-    },
-    red: {
-      50: "var(--red-50)",
-      100: "var(--red-100)",
-      200: "var(--red-200)",
-      400: "var(--red-400)",
-      700: "var(--red-700)",
-      800: "var(--red-800)",
-      900: "var(--red-900)",
-    },
-    green: {
-      50: "var(--green-50)",
-      100: "var(--green-100)",
-      200: "var(--green-200)",
-      400: "var(--green-400)",
-      700: "var(--green-700)",
-      800: "var(--green-800)",
-      900: "var(--green-900)",
-    },
-    yellow: {
-      50: "var(--yellow-50)",
-      100: "var(--yellow-100)",
-      200: "var(--yellow-200)",
-      400: "var(--yellow-400)",
-      700: "var(--yellow-700)",
-      800: "var(--yellow-800)",
-      900: "var(--yellow-900)",
-    },
-    gray: {
-      50: "var(--gray-50)",
-      100: "var(--gray-100)",
-      200: "var(--gray-200)",
-      400: "var(--gray-400)",
-      700: "var(--gray-700)",
-      800: "var(--gray-800)",
-      900: "var(--gray-900)",
-    },
-    neutral: {
-      50: "var(--neutral-50)",
-      100: "var(--neutral-100)",
-      200: "var(--neutral-200)",
-      400: "var(--neutral-400)",
-      700: "var(--neutral-700)",
-      800: "var(--neutral-800)",
-      900: "var(--neutral-900)",
-    },
-    slate: {
-      900: "var(--slate-900)",
-      950: "var(--slate-950)",
-    },
+    ...colors,
     "corprate-outline": "var(--corprate-outline)",
   },
   borderColor: {

@@ -13,7 +13,7 @@ const NavLinks = ({
 }) => {
   return (
     <Box direction={direction} className={tw("gap-3", className as string)}>
-      <LinkItem label="Docs" link="/docs/quick-start" />
+      <LinkItem label="Docs" link="/docs/getting-started/quick-start" />
       <LinkItem label="Components" link="/docs/components" />
       <LinkItem label="Storybook" ex link={sb} />
     </Box>
@@ -34,7 +34,7 @@ const LinkItem = ({
   return (
     <Link href={link} target={ex ? "_blank" : ""} rel="noreferel">
       <Drawer.Trigger value="" type="close">
-        <p className="font-inter-tight font-medium hover:text-blue-600 text-base text-text-color">
+        <p className="font-poppins font-medium hover:text-blue-600 text-sm text-text-color">
           {label}
         </p>
       </Drawer.Trigger>
