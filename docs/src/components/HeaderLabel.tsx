@@ -1,4 +1,3 @@
-import Link from "next/link";
 import React from "react";
 import { FaLink } from "react-icons/fa";
 import { tw } from "stywind";
@@ -8,12 +7,19 @@ type HeaderLabelType = {
   children: string | React.ReactNode;
   className?: string;
   as?: "h2" | "h3";
+  hideLink?: boolean;
 };
 
-const HeaderLabel = ({ id, children, className, as }: HeaderLabelType) => {
+const HeaderLabel = ({
+  id,
+  children,
+  className,
+  as,
+  hideLink,
+}: HeaderLabelType) => {
   return (
-    <Link href={`#${id}`} className="header-link">
-      <FaLink className="text-dim" size={16} />
+    <a href={`#${id}`} className="header-link">
+      {hideLink ? null : <FaLink className="text-dim" size={16} />}
       {as === "h3" ? (
         <h3 className={tw("header-3", className as string)} id={id}>
           {children}
@@ -23,7 +29,7 @@ const HeaderLabel = ({ id, children, className, as }: HeaderLabelType) => {
           {children}
         </h2>
       )}
-    </Link>
+    </a>
   );
 };
 

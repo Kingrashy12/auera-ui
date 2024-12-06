@@ -26,6 +26,9 @@ html[color-scheme="light"] {
   --dc-second-bg: var(--blue-50);
   --dc-border: var(--blue-200);
   --dim-black: #52535e;
+  --cb: var(--gray-100);
+  --cb-border: var(--neutral-200);
+  --block: #000;
 }
 html[color-scheme="dark"] {
   --nav-bar: rgb(0, 0, 0, 0.5);
@@ -47,6 +50,10 @@ html[color-scheme="dark"] {
   --dc-second-bg: var(--soft-blue);
   --dc-border: var(--blue-800);
   --dim-black: #aaa7b2;
+  --cb: var(--neutral-900);
+  --cb-border: var(--neutral-800);
+  --block: var(--neutral-900);
+  --block-border: var(--neutral-800);
 }
 
 .colored {
@@ -115,6 +122,12 @@ html[color-scheme="dark"] {
   }
   .header-2 {
     @apply text-text-color font-semibold leading-normal text-[1.45rem] font-inter tracking-[0.1px];
+  }
+  .code-block {
+    @apply border p-1 rounded-lg bg-[var(--cb)] border-[var(--cb-border)] font-normal text-sm text-text-color;
+  }
+  .block-cmd {
+    @apply border-[var(--block-border)] bg-[var(--block)];
   }
 }
 

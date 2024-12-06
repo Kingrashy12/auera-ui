@@ -20,7 +20,11 @@ const componentsDir = [
   // 'components/loaders/PageLoader',
 ];
 const hooksDir = ["hook", "context", "core"];
-const insertFiles = ["auera-ui.es.js", "auera-ui.cjs"];
+const insertFiles = [
+  "auera-ui.es.js",
+  "auera-ui.cjs",
+  "components/loader/LoadIndicator.d.ts",
+];
 const insertDir = [...componentsDir, ...hooksDir];
 
 // Add "use client" to all files
