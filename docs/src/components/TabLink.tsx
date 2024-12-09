@@ -13,7 +13,7 @@ const TabLink = ({ to, label, className }: TabLinkProps) => {
     <Link
       href={to}
       className={tw(
-        className,
+        className as string,
         "text-blue-600 text-base font-medium font-inter-tight tracking-wide relative tblink"
       )}
     >
