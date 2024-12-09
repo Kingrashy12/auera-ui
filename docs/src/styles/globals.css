@@ -1,4 +1,4 @@
-@import "auera-ui/dist/auera.css";
+/* @import "auera-ui/dist/auera.css"; */
 @import "./toc.css";
 @import url("https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
@@ -6,9 +6,8 @@
 @tailwind components;
 @tailwind utilities;
 
-html[color-scheme="light"] {
+html[data-theme="light"] {
   --nav-bar: rgb(255, 255, 255, 0.5);
-  background: white;
   --text-color: black;
   --text-dim: var(--neutral-500);
   --cmd-bg: #eeeeef;
@@ -18,19 +17,16 @@ html[color-scheme="light"] {
   --sidebar-border: var(--neutral-200);
   --sidebar: white;
   --side-icon: var(--neutral-50);
-  --input-outline-bg: white;
-  --input-outline-border: var(--neutral-200);
-  --input-outline-fb: var(--blue-200);
-  --input-color: black;
   --dc-first-bg: #fff;
   --dc-second-bg: var(--blue-50);
   --dc-border: var(--blue-200);
-  --dim-black: #52535e;
+  /* --dim-black: #52535e; */
+  --dim-black: #52525b;
   --cb: var(--gray-100);
   --cb-border: var(--neutral-200);
   --block: #000;
 }
-html[color-scheme="dark"] {
+html[data-theme="dark"] {
   --nav-bar: rgb(0, 0, 0, 0.5);
   --text-color: white;
   --text-dim: var(--gray-500);
@@ -39,17 +35,13 @@ html[color-scheme="dark"] {
   --scrollbar-thumb: var(--neutral-500);
   --scrollbar-thumb-hover: var(--neutral-700);
   --sidebar-border: var(--neutral-800);
-  /* --sidebar: #121212; */
   --sidebar: #000;
   --side-icon: var(--slate-900);
-  --input-outline-bg: black;
-  --input-outline-border: var(--neutral-800);
-  --input-outline-fb: var(--blue-500);
-  --input-color: white;
   --dc-first-bg: #000005;
   --dc-second-bg: var(--soft-blue);
   --dc-border: var(--blue-800);
-  --dim-black: #aaa7b2;
+  /* --dim-black: #aaa7b2; */
+  --dim-black: #b6bec9;
   --cb: var(--neutral-900);
   --cb-border: var(--neutral-800);
   --block: var(--neutral-900);
@@ -93,19 +85,14 @@ html[color-scheme="dark"] {
 }
 
 @layer utilities {
-  .input-outline {
-    @apply bg-[var(--input-outline-bg)] 
-           border-[1.35px] border-[var(--input-outline-border)]
-           transition-all duration-300 ease-in-out 
-           hover:border-blue-400 
-           focus-within:border-blue-600
-           focus-within:shadow-[0_0_0_3px_rgba(59,130,246,0.3)];
-  }
   .detailCard {
     background: linear-gradient(var(--dc-first-bg), var(--dc-second-bg));
     border-color: var(--dc-border);
   }
   .text {
+    /* @apply text-[#1A1E23] font-inter font-normal text-base; */
+    /* @apply text-[#b6bec9] font-inter font-normal text-base; */
+    /* @apply text-[#52525b] font-inter font-normal text-base; */
     @apply text-dimBlack font-inter font-normal text-base;
   }
   .header-link {
@@ -128,6 +115,21 @@ html[color-scheme="dark"] {
   }
   .block-cmd {
     @apply border-[var(--block-border)] bg-[var(--block)];
+  }
+  .nav-hover {
+    @apply relative after:absolute after:-bottom-0.5 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-blue-500 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100;
+  }
+  .tblink::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 1.3px;
+    background: var(--blue-300);
+    bottom: 1px;
+    z-index: 1;
+  }
+  .tblink:hover::before {
+    background: var(--blue-600);
   }
 }
 

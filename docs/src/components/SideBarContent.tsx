@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import TextInput from "./lib/SearchInput";
-import { Box, Icon, MapItems } from "auera-ui";
+import { Box, Icon, MapItems, TextInput } from "auera-ui";
 import { IoSearch } from "react-icons/io5";
 import { linksWithIcon } from "@/data/sidebar";
 import { tw } from "stywind";

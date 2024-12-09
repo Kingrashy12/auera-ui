@@ -19,15 +19,16 @@ const Hero = () => {
           <Box className="mt-3 gap-3 items-center" wrap>
             <Link href="/docs/getting-started/quick-start">
               <Button
-                radius="lg"
+                radius="xl"
                 className="font-inter"
-                size="lg"
+                size="xl"
+                flavour="frost"
                 rightIcon={FiArrowRight}
               >
                 Get Started
               </Button>
             </Link>
-            <Box className="bg-cmd p-2 rounded-lg w-fit flex items-center gap-1 px-2">
+            <Box className="bg-cmd p-2 rounded-xl w-fit flex items-center gap-1 px-2">
               <code className="font-medium font-mono text-sm text-cmd-code">
                 npm i auera-ui react-icons
               </code>

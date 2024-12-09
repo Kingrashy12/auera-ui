@@ -25,7 +25,7 @@ const MobileSideBar = () => {
             </Box>
           </Link>
           <Drawer.Trigger type="close" value="">
-            <IconButton variants="outline">
+            <IconButton variants="outline" radius="full">
               <IoClose size={18} />
             </IconButton>
           </Drawer.Trigger>

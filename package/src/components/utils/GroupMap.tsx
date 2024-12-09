@@ -1,5 +1,6 @@
 import React from "react";
 import Box from "../Box/Box";
+import { getDisplayName } from "@/utils/displayname";
 
 type GroupMapType<T> = {
   /**
@@ -124,3 +125,4 @@ const GroupMap = <T,>({
 };
 
 export default GroupMap;
+GroupMap.displayName = getDisplayName("GroupMap");

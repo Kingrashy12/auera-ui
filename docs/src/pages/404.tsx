@@ -18,10 +18,10 @@ const PageNotFound = () => {
           width={120}
           height={120}
         />
-        <h2 className="font-inter-tight text-text-color font-medium text-3xl">
+        <h2 className="font-inter-tight text-text-color font-medium text-2xl">
           404. Page not found
         </h2>
-        <p className="font-inter text-dim font-medium text-lg text-center">
+        <p className="font-inter text-dim font-medium text-base text-center">
           This page has been removed or is not yet available. Sorry for the
           inconvenience.
         </p>

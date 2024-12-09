@@ -61,5 +61,13 @@ export default {
       minimize: true,
     }),
   ],
-  external: ["react", "react-dom", "stywind", "react-icons", "inquirer"],
+  external: [
+    "react",
+    "react-dom",
+    "stywind",
+    "react-icons",
+    "inquirer",
+    "arg",
+    "prettier",
+  ],
 };

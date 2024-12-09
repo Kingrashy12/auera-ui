@@ -2,7 +2,7 @@ import React from "react";
 
 import { ButtonVariant, DesignFlavour, SchemeVariant } from "./auera-system";
 
-export type DivProps = React.HtmlHTMLAttributes<HTMLDivElement>;
+export type DivProps = React.HTMLAttributes<HTMLDivElement>;
 export type BtnProps = React.HtmlHTMLAttributes<HTMLButtonElement>;
 
 export interface BoxProps extends DivProps {
@@ -71,7 +71,7 @@ export interface ButtonProps extends BtnProps {
    *
    * @default "md"
    */
-  size?: "sm" | "md" | "lg" | "xl";
+  size?: "xs" | "sm" | "md" | "lg" | "xl";
 
   /**
    * Indicates if the button is in a loading state.
@@ -383,4 +383,126 @@ export interface DrawerTriggerType extends DivProps {
    * to correctly link the trigger to the drawer.
    */
   value: string;
+}
+
+export type SwitchProps = {
+  checked: boolean;
+  onToggle: () => void;
+  size?: "sm" | "md" | "lg" | "xl";
+  colorScheme?: "primary" | "danger" | "warning" | "success";
+  unCheckColor?: string;
+  color?: string;
+};
+
+export type CheckBoxProps = {
+  size?: "md" | "lg" | "xl";
+  checked: boolean;
+  onCheck: () => void;
+  radius?: "full" | "default";
+  colorScheme?: "primary" | "danger" | "warning" | "success";
+};
+
+export type TabsType = {
+  children?: React.ReactNode;
+  variant?: "line" | "solid";
+  mode?: "light" | "dark";
+  fullWidth?: boolean;
+  className?: string;
+  rounded?: boolean;
+  hideScrollBar?: boolean;
+  containerClass?: string;
+};
+
+export type TabHandleType = {
+  /**
+   * The content to be rendered inside the tab.
+   */
+  children?: React.ReactNode;
+  /**
+   * The color to be applied when the tab is active.
+   * @default "blue-500"
+   */
+  activeColor?: string;
+  /**
+   * The color to be applied when the tab is active on @param variant `solid`.
+   * @default "black"
+   */
+  activeSolidColor?: string;
+  /**
+   * The color to be applied when the tab is inactive.
+   * @default "neutral-400"
+   */
+  inActiveColor?: string;
+  /**
+   * The unique identifier or value for the tab, typically used to track the selected tab.
+   */
+  value: string;
+  /**
+   * The function to be called when the tab is clicked.
+   */
+  onClick?: () => void;
+  /**
+   * If true, disables the tab, preventing interaction.
+   */
+  disabled?: boolean;
+  /**
+   * Optional additional CSS class for styling the TabHandle.
+   */
+  className?: string;
+
+  /**
+   * Inline styles for the TabHandle.
+   */
+  style?: React.CSSProperties;
+
+  /**
+   * Indicates whether the TabHandle is currently active.
+   * @default false
+   */
+  isActive?: boolean;
+
+  /**
+   * The icon component to be rendered in the TabHandle.
+   * Can be any valid React component type.
+   */
+  icon?: React.ElementType;
+
+  /**
+   * The size of the icon in pixels.
+   * @default 16
+   */
+  iconSize?: number;
+};
+
+export interface StackProps extends BoxProps {
+  /**
+   * Specifies the alignment direction of the Stack component's children.
+   * `vertical` for stacking items one above the other (column),
+   * `horizontal` for stacking items side by side (row).
+   */
+  align?: "vertical" | "horizontal";
+  /**
+   * Enables wrapping for items if they exceed the available space in a row layout.
+   */
+  wrap?: boolean;
+}
+
+export interface CardProps extends BoxProps {
+  /**
+   * Whether the card should take up the full width of its container.
+   */
+  fullWidth?: boolean;
+  /**
+   * The direction of the card's content layout.
+   */
+  direction?: "row" | "column";
+  /**
+   * The visual mode of the card.
+   */
+  mode?: "light" | "dark";
+  /**
+   * The border color of the card.
+   */
+  borderColor?: string;
+  centerContent?: boolean;
 }

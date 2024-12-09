@@ -6,7 +6,7 @@ export default function Document() {
       <Head>
         <meta
           name="description"
-          content="Auera UI | Build beautiful UIs, effortlessly."
+          content="AueraUI | Build beautiful UIs, effortlessly."
         />
       </Head>
       <body className="antialiased">

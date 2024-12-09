@@ -11,8 +11,8 @@ type DetailCardProps = {
 const DetailCard = ({ description }: DetailCardProps) => {
   const router = useRouter();
   const str = router.pathname.split("/").filter((r) => r !== "");
-  const pageName = str[str.length - 1];
   const pageHeader = str[str.length - 2];
+  const pageName = router.query.slug;
   return (
     <Box
       fullWidth
@@ -23,7 +23,7 @@ const DetailCard = ({ description }: DetailCardProps) => {
           {StrFun.capitalize(pageHeader, "-", "-")}
         </span>
         <h1 className="font-inter font-bold text-3xl text-text-color">
-          {StrFun.capitalize(pageName, "-", " ")}
+          {StrFun.capitalize(pageName as string, "-", " ")}
         </h1>
         <p className="font-inter font-normal text-base text-dim w-[335px]">
           {description}

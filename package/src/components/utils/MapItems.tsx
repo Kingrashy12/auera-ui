@@ -1,6 +1,7 @@
 import React from "react";
 import { tw } from "stywind";
 import Box from "../Box/Box";
+import { getDisplayName } from "@/utils/displayname";
 
 type ListMap<T> = {
   /** An array of data items to be rendered. */
@@ -49,3 +50,4 @@ const MapItems = <T,>({
 };
 
 export default MapItems;
+MapItems.displayName = getDisplayName("MapItems");

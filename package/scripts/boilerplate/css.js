@@ -1,15 +1,19 @@
 import { logger } from "../logger.js";
-import { existsSync, mkdirSync, writeFileSync } from "fs";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
 import path, { dirname } from "path";
 import { fileURLToPath } from "url";
-import { cssTemp } from "./file.css.js";
+import prettier from "prettier";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+export const filename__ = fileURLToPath(import.meta.url);
+export const dirname__ = dirname(filename__);
 
-export const ejectCss = () => {
+export const ejectCss = async () => {
   try {
-    const sourcePath = path.resolve(__dirname, "../../dist/auera.css");
+    const sourcePath = path.resolve(dirname__, "../../dist/auera.css");
+    const content = readFileSync(sourcePath, "utf-8");
+    const formattedCss = await prettier.format(content, {
+      parser: "css",
+    });
     // Check for src or app directory
     const srcPath = existsSync(path.join(process.cwd(), "src"))
       ? path.join(process.cwd(), "src")
@@ -19,8 +23,6 @@ export const ejectCss = () => {
       ? path.join(srcPath, "styles")
       : path.join(process.cwd(), "styles");
 
-    // const stylePath = path.join(process.cwd(), "/styles");
-
     const cssFile = path.join(stylePath, "auera.css");
 
     //Create the stylePath if it does not exits
@@ -29,8 +31,7 @@ export const ejectCss = () => {
       logger.success("✔ Created styles directory");
     }
 
-    // Copy CSS From dist into styles/auera.css
-    writeFileSync(cssFile, cssTemp);
+    writeFileSync(cssFile, formattedCss);
     logger.success("✔ Added auera.css");
   } catch (error) {
     logger.warning(`⚠️  Error ejecting file: ${error.message}`);

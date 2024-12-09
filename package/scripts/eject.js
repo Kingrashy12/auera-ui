@@ -4,21 +4,50 @@ import inquirer from "inquirer";
 import { logger } from "./logger.js";
 import { ejectTailwind } from "./boilerplate/tailwind.ex.js";
 import { ejectCss } from "./boilerplate/css.js";
+import arg from "arg";
 
-inquirer
-  .prompt({
-    name: "eject opt",
-    type: "list",
-    message: "What do you want to eject?",
-    choices: ["auera.css", "tailwind.extend.ts"],
-  })
-  .then((ans) => {
-    if (ans["eject opt"] === "auera.css") {
+const runScript = async () => {
+  try {
+    const { ejectOpt } = await inquirer.prompt([
+      {
+        name: "ejectOpt",
+        type: "list",
+        message: "What do you want to eject?",
+        choices: ["auera.css", "tailwind.extend.ts"],
+      },
+    ]);
+
+    if (ejectOpt === "auera.css") {
       logger.info("Ejecting CSS...");
       ejectCss();
-    } else if (ans["eject opt"] === "tailwind.extend.ts") {
+    } else if (ejectOpt === "tailwind.extend.ts") {
       logger.info("Ejecting Tailwind configuration...");
       ejectTailwind();
     }
-  })
-  .catch(() => logger.warning("Eject operation canceled."));
+  } catch (error) {
+    logger.warning(`Eject operation canceled: ${error.message}`);
+  }
+};
+
+const parseArgs = () => {
+  return arg({
+    "--css": Boolean,
+    "--config": Boolean,
+  });
+};
+
+const start = () => {
+  const args = parseArgs();
+
+  if (args["--css"]) {
+    logger.info("Ejecting CSS...");
+    ejectCss();
+  } else if (args["--config"]) {
+    logger.info("Ejecting Tailwind configuration...");
+    ejectTailwind();
+  } else {
+    runScript();
+  }
+};
+
+start();

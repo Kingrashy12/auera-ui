@@ -27,7 +27,7 @@ const MobileMenu = () => {
             </Box>
           </Link>
           <Drawer.Trigger value="" type="close">
-            <IconButton variants="outline">
+            <IconButton variants="outline" radius="full">
               <IoClose size={18} />
             </IconButton>
           </Drawer.Trigger>

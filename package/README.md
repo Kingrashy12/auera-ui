@@ -114,6 +114,9 @@ module.exports = {
       borderWidth: {
         ...tailwindExtend.borderWidth,
       },
+      keyframes: { ...tailwindExtend.keyframes },
+      animation: { ...tailwindExtend.animation },
+      dropShadow: { ...tailwindExtend.dropShadow },
     },
   },
   plugins: [],

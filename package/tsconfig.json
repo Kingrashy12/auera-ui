@@ -25,6 +25,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src/**/*", "../docs/src/utils/router.ts"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]
 }

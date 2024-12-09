@@ -10,7 +10,10 @@ const DocsLayout = ({ children }: { children: React.ReactNode }) => {
       <SideBar />
       <Box fullWidth direction="column" className="gap-3 px-4 py-2">
         {children}
-        <PageNavigator />
+        <Box direction="column" className="gap-3 px-3 py-2">
+          <div className="w-full border-t border-t-sidebar" />
+          <PageNavigator />
+        </Box>
       </Box>
       <TableOfContent />
     </Box>

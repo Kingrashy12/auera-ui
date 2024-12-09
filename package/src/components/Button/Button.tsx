@@ -20,10 +20,11 @@ const rd = {
 };
 
 const sz = {
-  sm: defineClass("p-1"),
-  md: defineClass("p-2"),
-  lg: defineClass("p-3"),
-  xl: defineClass("p-4"),
+  xs: defineClass("p-[0_10px_0_10px] h-[32px]"),
+  sm: defineClass("p-[0_14px_0_14px] h-[36px]"),
+  md: defineClass("p-[0_16px_0_16px] h-[40px]"),
+  lg: defineClass("p-[0_18px_0_18px] h-[44px]"),
+  xl: defineClass("p-[0_20px_0_20px] h-[48px]"),
 };
 
 const Button = ({
