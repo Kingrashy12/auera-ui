@@ -16,7 +16,7 @@ const DetailCard = ({ description }: DetailCardProps) => {
   return (
     <Box
       fullWidth
-      className="p-8 rounded-lg detailCard border justify-between items-center"
+      className="p-8 rounded-lg detailCard border justify-between items-center max-[550px]:flex-col max-[550px]:items-start max-[550px]:gap-3 max-[550px]:p-5"
     >
       <Box direction="column" className="gap-3">
         <span className="text-blue-600 font-inter font-semibold text-base">
@@ -25,11 +25,17 @@ const DetailCard = ({ description }: DetailCardProps) => {
         <h1 className="font-inter font-bold text-3xl text-text-color">
           {StrFun.capitalize(pageName as string, "-", " ")}
         </h1>
-        <p className="font-inter font-normal text-base text-dim w-[335px]">
+        <p className="font-inter font-normal text-base text-dim w-[335px] max-[550px]:w-full">
           {description}
         </p>
       </Box>
-      <Image src={"/logo.png"} alt="Logo" width={80} height={60} />
+      <Image
+        src={"/logo.png"}
+        alt="Logo"
+        className="max-[550px]:hidden"
+        width={80}
+        height={60}
+      />
     </Box>
   );
 };

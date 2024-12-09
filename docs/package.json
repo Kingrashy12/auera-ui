@@ -10,7 +10,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "docs": "rmdir /s /q .next && npm run dev",
-    "ui": " npm i ../package/auera-ui-0.1.2.tgz --legacy-peer-deps"
+    "ui": " npm i ../package/auera-ui-0.1.2.tgz"
   },
   "overrides": {
     "react": "$react",
@@ -29,6 +29,7 @@
     "react": "^19.0.0-rc.1",
     "react-dom": "^19.0.0-rc.1",
     "react-icons": "^5.3.0",
+    "react-syntax-highlighter": "^15.6.1",
     "remark": "^15.0.1",
     "remark-rehype": "^11.1.1",
     "stywind": "^0.1.8"
@@ -46,6 +47,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/react-syntax-highlighter": "^15.5.13",
     "eslint": "^8",
     "eslint-config-next": "^15.0.3",
     "eslint-plugin-storybook": "^0.11.1",
