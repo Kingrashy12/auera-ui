@@ -14,16 +14,19 @@ const ToolBar = () => {
 
   return (
     <Bar>
-      <Box className="gap-4 items-center">
+      <Box className="gap-4 items-center w-full">
         <Drawer.Trigger value="tool-bar">
           <IconButton variants="ghost">
             <FiMenu size={19} />
           </IconButton>
         </Drawer.Trigger>
-        <Breadcrumb
-          separator="splash"
-          disableHref={["/docs", "/docs/getting-started"]}
-        />
+        <Box fullWidth className=" overflow-x-auto">
+          <Breadcrumb
+            separator="splash"
+            disableHref={["/docs", "/docs/getting-started"]}
+            exclude="Docs"
+          />
+        </Box>
       </Box>
       <IconButton variants="ghost" onClick={scrollToTop}>
         <HiArrowUp />

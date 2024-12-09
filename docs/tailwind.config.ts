@@ -33,10 +33,10 @@ const config: Config = {
         sidebar: "var(--sidebar-border)",
       },
       fontFamily: {
-        poppins: '"Poppins", serif',
-        "inter-tight": '"Inter Tight", sans-serif',
-        inter: '"Inter", serif',
-        montserrat: '"Montserrat", serif',
+        poppins: ["var(--font-poppins)", "sans-serif"],
+        "inter-tight": ["var(--font-inter-tight)", "sans-serif"],
+        inter: ["var(--font-inter)", "sans-serif"],
+        montserrat: ["var(--font-montserrat)", "sans-serif"],
       },
       transitionProperty: {
         "border-color": "border-color 0.3s ease, box-shadow 0.3s ease",

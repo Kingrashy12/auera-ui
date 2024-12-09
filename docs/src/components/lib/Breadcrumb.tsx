@@ -17,6 +17,7 @@ interface BreadcrumbProps {
   containerClass?: string;
   className?: string;
   disableHref?: string[];
+  exclude?: string;
 }
 
 const Breadcrumb: React.FC<BreadcrumbProps> = ({
@@ -25,6 +26,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
   className,
   containerClass,
   disableHref = [],
+  exclude,
 }) => {
   const separatorType = {
     splash: BsSlashLg,
@@ -62,25 +64,48 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
 
   return (
     <Box className={tw("gap-1", containerClass as string)}>
-      {items.map((item, index) => (
-        <Box
-          key={index}
-          className={tw("items-center gap-1", className as string)}
-        >
-          {index > 0 && (
-            <Icon
-              size={14}
-              className={tw(
-                "text-dim",
-                separator === "splash" ? "-rotate-[10deg]" : ""
-              )}
-              icon={separatorType[separator]}
-            />
-          )}
+      {items
+        .filter((item) => item.label !== exclude)
+        .map((item, index) => (
+          <Box
+            key={index}
+            className={tw("items-center gap-1", className as string)}
+          >
+            {index > 0 && (
+              <Icon
+                size={14}
+                className={tw(
+                  "text-dim",
+                  separator === "splash" ? "-rotate-[10deg]" : ""
+                )}
+                icon={separatorType[separator]}
+              />
+            )}
 
-          {item.href ? (
-            // Check if the current href is in the disableHref list
-            disableHref.includes(item.href) ? (
+            {item.href ? (
+              // Check if the current href is in the disableHref list
+              disableHref.includes(item.href) ? (
+                <span
+                  className={tw(
+                    "text-dim font-inter font-medium text-sm",
+                    itemClass as string
+                  )}
+                >
+                  {item.label}
+                </span>
+              ) : (
+                <a
+                  href={item.href}
+                  className={tw(
+                    item.href === pathname ? "text-text-color" : "text-dim",
+                    "font-inter font-medium text-sm",
+                    itemClass as string
+                  )}
+                >
+                  {item.label}
+                </a>
+              )
+            ) : (
               <span
                 className={tw(
                   "text-dim font-inter font-medium text-sm",
@@ -89,30 +114,9 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
               >
                 {item.label}
               </span>
-            ) : (
-              <a
-                href={item.href}
-                className={tw(
-                  item.href === pathname ? "text-text-color" : "text-dim",
-                  "font-inter font-medium text-sm",
-                  itemClass as string
-                )}
-              >
-                {item.label}
-              </a>
-            )
-          ) : (
-            <span
-              className={tw(
-                "text-dim font-inter font-medium text-sm",
-                itemClass as string
-              )}
-            >
-              {item.label}
-            </span>
-          )}
-        </Box>
-      ))}
+            )}
+          </Box>
+        ))}
     </Box>
   );
 };

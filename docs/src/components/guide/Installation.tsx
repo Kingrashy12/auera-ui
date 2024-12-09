@@ -5,6 +5,7 @@ import HeaderLabel from "../HeaderLabel";
 import CodeBlock from "../layout/code/Block";
 
 import { installationCodes } from "@/data/code/installation";
+import Bash from "../layout/code/Bash";
 
 const Installation = () => {
   return (
@@ -24,12 +25,7 @@ const Installation = () => {
           >
             Install <span className="code-block text-base">auera-ui</span>
           </HeaderLabel>
-          <CodeBlock
-            code="npm install auera-ui react-icons"
-            lg="bash"
-            showHeader={false}
-            fileName=""
-          />
+          <Bash code="npm install auera-ui react-icons" />
         </GuideContainer>
       </StepGuide>
       <StepGuide step={2} id="setup-provider">

@@ -6,7 +6,7 @@ const Details = ({ children, ...props }: BoxProps) => {
   return (
     <Box
       direction={props.direction || "column"}
-      className={tw(props.className as string, "gap-2 px-3")}
+      className={tw(props.className as string, "gap-2 px-3 max-[550px]:px-1")}
     >
       {children}
     </Box>
