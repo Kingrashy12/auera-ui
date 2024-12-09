@@ -1,6 +1,5 @@
 import React from "react";
-import Tabs from "../../lib/Tabs/Tabs";
-import { Card, TabsType } from "auera-ui";
+import { Card, TabsType, Tabs } from "auera-ui";
 
 const Tab = ({ variant, ...props }: TabsType) => {
   return (

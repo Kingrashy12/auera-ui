@@ -38,7 +38,6 @@ const SideBarLinks = () => {
             direction="column"
             className="ml-1 border-l border-l-sidebar !gap-0"
             renderItem={(link) => (
-              // <Link href={link.uri}>
               <Link
                 href={link.uri}
                 key={link.uri}

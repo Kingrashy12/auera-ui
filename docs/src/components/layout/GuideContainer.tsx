@@ -7,7 +7,7 @@ const GuideContainer = ({ children, ...props }: BoxProps) => {
     <Box
       direction="column"
       fullWidth
-      className={tw("gap-4 mb-4", props.className)}
+      className={tw("gap-4 mb-4", props.className as string)}
     >
       {children}
     </Box>
