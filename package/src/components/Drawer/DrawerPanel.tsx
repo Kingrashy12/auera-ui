@@ -1,4 +1,4 @@
-import { useFlavour, useMode } from "../../hook/use";
+import { useMode } from "../../hook/use";
 import { createStyle, defineClass, merge, tw } from "stywind";
 import { DrawerPanelProps } from "../../types/auera-ui";
 import { useDrawer } from "../../hook/useDrawer";
@@ -10,7 +10,6 @@ const DrawerPanel = ({
   children,
   ...props
 }: DrawerPanelProps) => {
-  const { currentFlavour } = useFlavour(flavour);
   const { isVisible } = useDrawer();
   const { currentMode } = useMode();
 

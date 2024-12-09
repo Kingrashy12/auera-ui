@@ -1,5 +1,6 @@
-import { tailwindExtend } from "auera-ui";
+// import { tailwindExtend } from "auera-ui";
 import type { Config } from "tailwindcss";
+import { tailwindExtend } from "./tailwind.extend";
 
 const config: Config = {
   content: [
@@ -13,6 +14,7 @@ const config: Config = {
         "text-color": "var(--text-color)",
         dim: "var(--text-dim)",
         "cmd-code": "var(--cmd-code)",
+        dimBlack: "var(--dim-black)",
       },
       backgroundColor: {
         ...tailwindExtend.backgroundColor,
@@ -24,7 +26,7 @@ const config: Config = {
       boxShadow: {
         ...tailwindExtend.boxShadow,
         // Add this to main extend
-        "input-outline": "0 0 0 1.8px var(--blue-500)",
+        // "input-outline": "0 0 0 1.8px var(--blue-500)",
       },
       borderColor: {
         ...tailwindExtend.borderColor,
@@ -46,6 +48,9 @@ const config: Config = {
       transitionDuration: {
         "400": "400ms",
       },
+      keyframes: { ...tailwindExtend.keyframes },
+      animation: { ...tailwindExtend.animation },
+      dropShadow: { ...tailwindExtend.dropShadow },
     },
   },
   plugins: [],

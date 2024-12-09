@@ -6,5 +6,6 @@ export const logger = {
   warning: (...args) => console.log(chalk.yellow(...args)),
   success: (...args) => console.log(chalk.green(...args)),
   highlight: (...args) => console.log(chalk.bgCyanBright(...args)),
+  bright: (...args) => console.log(chalk.white(...args)),
   debug: console.log,
 };

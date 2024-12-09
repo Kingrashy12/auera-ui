@@ -1,5 +1,3 @@
-"use client";
-
 import { StrFun } from "@/utils/fun";
 import { Router } from "@/utils/router";
 import { Box, Icon } from "auera-ui";

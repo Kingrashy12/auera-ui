@@ -8,7 +8,7 @@ import { useScrollTop } from "@/hooks/use";
 
 const ToolBar = () => {
   const Bar = createStyle("div").classname(
-    "hidden max-lg:flex bg-navbar border-b border-b-sidebar w-full h-auto px-4 py-3 justify-between items-center"
+    "hidden max-lg:flex bg-sidebar border-b border-b-sidebar w-full h-auto px-4 py-3 justify-between items-center"
   );
   const { scrollToTop } = useScrollTop();
 

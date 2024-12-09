@@ -283,3 +283,5 @@ export const colors = {
     900: "#263238",
   },
 };
+
+export const twColors = {};

@@ -1,11 +1,11 @@
 <div align='center'>
-<img src='https://github.com/Kingrashy12/auera-ui/blob/main/images/logo.png' width="160" height="160" alt="Auera UI" />
+<img src='https://github.com/Kingrashy12/auera-ui/blob/main/images/logo.png' width="160" height="160" alt="AueraUI" />
 
 <div align='center'>
 <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Kingrashy12/auera-ui/blob/main/images/logo-dark.png" />
     <source media="(prefers-color-scheme: light)" srcset="https://github.com/Kingrashy12/auera-ui/blob/main/images/logo-light.png" />
-    <img alt="Auera UI" src='https://github.com/Kingrashy12/auera-ui/blob/main/images/logo-light.png' width="230" height="70" style="max-width:100%;" />
+    <img alt="AueraUI" src='https://github.com/Kingrashy12/auera-ui/blob/main/images/logo-light.png' width="230" height="70" style="max-width:100%;" />
 </picture> 
 </div>
 
@@ -18,7 +18,7 @@
 
 For full documentation, visit:
 [Storybook](https://storybook-aueraui.vercel.app/),
-[Auera UI](https://aueraui.vercel.app/)
+[AueraUI](https://aueraui.vercel.app/)
 
 ## Table of Contents
 
@@ -37,7 +37,7 @@ For full documentation, visit:
 
 ### Prerequisites
 
-Before installing Auera UI, ensure you have:
+Before installing AueraUI, ensure you have:
 
 - React `>= 18.3.2`
 - ReactDOM `>= 18.3.2`
@@ -45,7 +45,7 @@ Before installing Auera UI, ensure you have:
 
 installed in your project.
 
-To install `Auera UI`, you can use npm or yarn:
+To install `AueraUI`, you can use npm or yarn:
 
 ```bash
 npm install auera-ui
@@ -59,7 +59,7 @@ yarn add auera-ui
 
 ## Provider
 
-Most of Auera UI components depend's on the `Provider` to share global settings and themes.
+Most of AueraUI components depend's on the `Provider` to share global settings and themes.
 Wrapping your application with the `Provider` ensures consistent styling and functionality.
 
 ### Usage Example
@@ -68,7 +68,7 @@ Wrapping your application with the `Provider` ensures consistent styling and fun
 import { Provider } from "auera-ui";
 
 function RootLayout() {
-  return <Provider theme="light">{/* Your application components */}</Provider>;
+  return <Provider>{/* Your application components */}</Provider>;
 }
 ```
 
@@ -80,7 +80,7 @@ function RootLayout() {
 
 ## Extending Tailwind Config
 
-You can extend the Tailwind configuration to customize styles and integrate Auera UI's default theme.
+You can extend the Tailwind configuration to customize styles and integrate AueraUI's default theme.
 
 ### Steps:
 
@@ -114,6 +114,9 @@ module.exports = {
       borderWidth: {
         ...tailwindExtend.borderWidth,
       },
+      keyframes: { ...tailwindExtend.keyframes },
+      animation: { ...tailwindExtend.animation },
+      dropShadow: { ...tailwindExtend.dropShadow },
     },
   },
   plugins: [],
@@ -122,7 +125,7 @@ module.exports = {
 
 ## Importing CSS
 
-Auera UI comes with its own CSS file that you can import to apply default styles globally.
+AueraUI comes with its own CSS file that you can import to apply default styles globally.
 
 ### Importing in your project:
 
@@ -135,7 +138,7 @@ import 'auera-ui/dist/auera.css';
 
 ## CLI Tool
 
-Auera UI provides a CLI tool to eject and customize default configurations and CSS.
+AueraUI provides a CLI tool to eject and customize default configurations and CSS.
 
 ### Run the CLI:
 
@@ -153,7 +156,7 @@ Auera UI provides a CLI tool to eject and customize default configurations and C
    tailwind.extend.ts
 ```
 
-- **`auera.css`:** Ejects the default CSS file from Auera UI for manual customization.
+- **`auera.css`:** Ejects the default CSS file from AueraUI for manual customization.
 - **`tailwind.extend.ts`:** Generates a Tailwind configuration file with default themes and extensions.
 
 ### Example:
@@ -171,7 +174,7 @@ Ejected auera.css to ./styles/auera.css
 
 ## System Design Variants (Flavours)
 
-Auera UI provides multiple **System Design Variants** or **Flavours**, each offering a distinct design style suited to different applications. These flavours are designed to cater to various design philosophies, allowing you to pick the one that fits your project best.
+AueraUI provides multiple **System Design Variants** or **Flavours**, each offering a distinct design style suited to different applications. These flavours are designed to cater to various design philosophies, allowing you to pick the one that fits your project best.
 
 ### Available Flavours:
 
@@ -286,7 +289,7 @@ function App() {
 
 ## Components
 
-Auera UI includes a variety of components to help you build your application. These components are designed to be customizable and easily integrable into your projects.
+AueraUI includes a variety of components to help you build your application. These components are designed to be customizable and easily integrable into your projects.
 
 - [Button](#Button): A flexible and customizable button component to trigger actions.
 - [Card](#Card): A container component for displaying content in a structured format with options for customization.

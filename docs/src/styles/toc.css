@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind utilities;
+
+@layer utilities {
+  .ul {
+    @apply list-none p-0;
+  }
+
+  .li {
+    @apply font-medium text-sm font-inter flex items-center gap-1;
+  }
+
+  .a {
+    @apply text-dim no-underline text-sm block hover:text-text-color hover:scale-105 transition-colors;
+  }
+
+  .a.active {
+    @apply font-normal text-blue-500 relative;
+  }
+
+  .level-h2 {
+    @apply pl-0;
+  }
+  .level-h2 .level-icon {
+    @apply hidden;
+  }
+
+  .level-h3 {
+    @apply relative;
+  }
+  .level-h3 .level-icon {
+    @apply block;
+  }
+}
+
+.level-h3 {
+  padding-left: 10px;
+}

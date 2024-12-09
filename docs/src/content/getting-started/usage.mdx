@@ -1,0 +1,118 @@
+---
+title: "Usage - AueraUI"
+description: "Learn how to effectively use the components and features of AueraUI to build your UI with ease."
+---
+
+<DetailCard description="Learn how to effectively use the components and features of AueraUI to build your UI with ease." />
+
+<Details id="basic-usage" className="mb-2">
+ <HeaderLabel id="basic-usage">Basic Usage</HeaderLabel>
+<p className="text">
+  After <TabLink to="/docs/getting-started/quick-start#installation" label="installation" />, 
+  you can import any AueraUI component and start playing around. For example, 
+  try changing the variant on the <TabLink to="/docs/components/button" label="Button" />
+</p>
+ <Tabs variant='solid' className='mt-2'>
+ <Tabs.Handle value="preview">Preview</Tabs.Handle>
+ <Tabs.Handle value="code">Code</Tabs.Handle>
+ <Tabs.Panel>
+<Card fullWidth>
+  <Stack fullWidth><Button>Hello world</Button></Stack>
+</Card>
+ </Tabs.Panel>
+ <Tabs.Panel>
+  <CodeBlock fileName='App.tsx' lg='ts' code={`import { Button } from 'auera-ui';
+
+export default function App() {
+  return <Button>Hello world</Button>;
+}`} />
+ </Tabs.Panel>
+ </Tabs>
+</Details>
+
+<Details id="globals">
+  <HeaderLabel id="globals">Globals</HeaderLabel>
+  <p className="text">Since AueraUI is built to function globally, you can control the look and behavior of your app using the <span className="code-block">Provider</span> and hooks.</p>
+</Details>
+
+<Details id="flavour">
+  <HeaderLabel id="flavour" as='h3'>Flavour</HeaderLabel>
+  <p className="text">AueraUI components are available in a variety of design flavors, offering high-quality looks and functionality.</p>
+<p className="text">
+  To change the default flavor, pass the <span className="code-block">flavour</span> prop to the Provider, or to a specific component.
+</p>
+  <Tabs variant='solid' className='mt-2'>
+ <Tabs.Handle value="preview">Preview</Tabs.Handle>
+ <Tabs.Handle value="code">Code</Tabs.Handle>
+ <Tabs.Panel>
+<Card fullWidth>
+  <Stack fullWidth wrap align='horizontal'>
+   <Button>Corporate</Button>
+   <Button flavour='frost'>Frost</Button>
+   <Button flavour='neumorphic'>Neumorphic</Button>
+  </Stack>
+</Card>
+ </Tabs.Panel>
+ <Tabs.Panel>
+  <CodeBlock fileName='ButtonFlavours.tsx' lg='ts' code={`import { Button, Stack } from 'auera-ui';
+
+export default function ButtonFlavours() {
+   return (
+     <Stack fullWidth wrap align='horizontal'>
+       <Button>Corporate</Button>
+       <Button flavour="frost">Frost</Button>
+       <Button flavour="neumorphic">Neumorphic</Button>
+     </Stack>
+   );
+}
+`} />
+ </Tabs.Panel>
+ </Tabs>
+</Details>
+
+<Details id='theme'>
+ <HeaderLabel id="theme" as='h3'>Theme</HeaderLabel>
+ <p className="text">AueraUI allows you to customize the look and feel of your application with its flexible theming system. 
+ The <span className="code-block">ThemeProvider</span> component enables global theme management, allowing you to apply consistent styling across your app.</p>
+</Details>
+
+<Details id="default-theme">
+ <HeaderLabel id="default-theme" as='h3'>Default Theme</HeaderLabel>
+<p className="text">By default, AueraUI detects the user's system theme and applies the appropriate theme. This provides a seamless experience for users,
+ as the UI will automatically align with their system settings.</p>
+</Details>
+
+<Details id="toggle-theme">
+ <HeaderLabel id="toggle-theme" as='h3'>ToggleTheme</HeaderLabel>
+<p className="text">
+AueraUI provides a toggle function that allows you to manually switch between the user's system theme and AueraUI's theme set.
+ The toggle function has two main options:
+ </p>
+
+ <ul className="text font-inter list-disc pl-3 gap-4 flex flex-col">
+    <li>
+        <span className="code-block">toggleTheme.system</span>: Switches to the user's system theme based on the user's operating system settings.
+    </li>
+    <li>
+        <span className="code-block">toggleTheme.main</span>: Switches to AueraUI's predefined theme set, 
+    </li>
+  </ul>
+  <p className='text'>
+  This toggleTheme functionality is useful when you want to give users the ability to manually switch between system preferences and the app's theme.
+  </p>
+  <h4 className="text-text-color">
+  **Example Usage:**
+  </h4>
+  <CodeBlock fileName='ThemeToggle.tsx' lg='ts' code={`import { useTheme, Button } from 'auera-ui';
+
+function ThemeToggle() {
+  const { toggleTheme } = useTheme();
+
+  return (
+    <div>
+      <Button onClick={() => toggleTheme.system()}>Use System Theme</Button>
+      <Button onClick={() => toggleTheme.main()}>Use AueraUI Theme</Button>
+    </div>
+  );
+}`} />
+</Details>

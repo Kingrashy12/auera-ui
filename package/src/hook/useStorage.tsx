@@ -6,19 +6,19 @@ type StorageActionType = {
 
 export const storageActions: StorageActionType = {
   get: (key) => {
-    if (typeof window !== "undefined" && window.localStorage) {
-      return window.localStorage.getItem(key);
+    if (typeof window !== "undefined") {
+      return localStorage.getItem(key);
     }
     return null;
   },
   set: (key, value) => {
-    if (typeof window !== "undefined" && window.localStorage) {
-      window.localStorage.setItem(key, value);
+    if (typeof window !== "undefined") {
+      localStorage.setItem(key, value);
     }
   },
   set_stringify: (key, value) => {
-    if (typeof window !== "undefined" && window.localStorage) {
-      window.localStorage.setItem(key, JSON.stringify(value));
+    if (typeof window !== "undefined") {
+      localStorage.setItem(key, JSON.stringify(value));
     }
   },
 };

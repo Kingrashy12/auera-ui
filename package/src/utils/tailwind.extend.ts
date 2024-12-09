@@ -65,6 +65,8 @@ export const tailwindExtend = {
       "var(--neutral-950) 0px -6px 0px inset, var(--neutral-800) 0px -4px 0px 6px inset, rgba(9, 11, 11, 0.1) 0px 6px 10px 0px, rgba(9, 11, 11, 0.1) 0px 1px 2px 0px",
     "frost-modal-dark":
       "var(--neutral-800) 0 -1px 0 1px inset, var(--neutral-900) 0 1px 2px 0",
+    "input-outline": "0 0 0 1.8px var(--blue-500)",
+    card: "0 4px 8px var(--card-sh)",
   },
   colors: {
     ...colors,
@@ -119,5 +121,100 @@ export const tailwindExtend = {
   transitionProperty: {
     layer: "background-color 0.3s ease, box-shadow 0.3s ease",
     "border-color": "border-color 0.3s ease, box-shadow 0.3s ease",
+  },
+  keyframes: {
+    slideIn: {
+      from: {
+        transform: "translateX(100%)",
+        opacity: "0",
+      },
+      to: {
+        transform: "translateX(0)",
+        opacity: "1",
+      },
+    },
+    slideOut: {
+      from: {
+        transform: "translateX(0)",
+        opacity: "1",
+      },
+      to: {
+        transform: "translateX(100%)",
+        opacity: "0",
+      },
+    },
+    walkIn: {
+      from: {
+        scale: "0.2",
+        opacity: "0",
+      },
+      to: {
+        scale: "1",
+        opacity: "1",
+      },
+    },
+    walkOut: {
+      from: {
+        scale: "1",
+        opacity: "1",
+      },
+      to: {
+        scale: "0.2",
+        opacity: "0",
+      },
+    },
+    dropIn: {
+      from: {
+        transform: "translateY(-50%)",
+        opacity: "0",
+      },
+      to: {
+        transform: "translateY(0%)",
+        opacity: "1",
+      },
+    },
+    dropOut: {
+      from: {
+        transform: "translateY(0%)",
+        opacity: "1",
+      },
+      to: {
+        transform: "translateY(-50%)",
+        opacity: "0",
+      },
+    },
+    slideInLeft: {
+      "0%": {
+        transform: "translateX(-100%)",
+        opacity: "0",
+      },
+      "100%": {
+        transform: "translateX(0)",
+        opacity: "1",
+      },
+    },
+    slideOutLeft: {
+      "0%": {
+        transform: "translateX(0)",
+        opacity: "1",
+      },
+      "100%": {
+        transform: "translateX(-100%)",
+        opacity: "0",
+      },
+    },
+  },
+  animation: {
+    slideIn: "slideIn 0.5s ease-in-out",
+    slideOut: "slideOut 0.5s ease-in-out",
+    dropIn: "dropIn 0.5s ease-in-out",
+    dropOut: "dropOut 0.5s ease-in-out",
+    walkIn: "walkIn 0.5s ease-in-out",
+    walkOut: "walkOut 0.5s ease-in-out",
+    slideInLeft: "slideInLeft 0.5s ease-in-out",
+    slideOutLeft: "slideOutLeft 0.5s ease-in-out",
+  },
+  dropShadow: {
+    tab: "0 1px 2px rgb(0 0 0 / 0.1), 0 1px 1px rgb(0 0 0 / 0.06)",
   },
 };

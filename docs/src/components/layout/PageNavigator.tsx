@@ -51,10 +51,9 @@ const PageNavigator = () => {
         <Link href={prevPage?.uri}>
           <Button
             leftIcon={IoIosArrowBack}
-            size="lg"
-            radius="lg"
-            variant="outline"
-            className="font-poppins"
+            radius="xl"
+            variant="ghost"
+            className="font-poppins text-[13px]"
           >
             {prevPage.label}
           </Button>
@@ -66,10 +65,9 @@ const PageNavigator = () => {
         <Link href={nextPage?.uri}>
           <Button
             rightIcon={IoIosArrowForward}
-            size="lg"
-            radius="lg"
-            variant="outline"
-            className="font-poppins"
+            radius="xl"
+            variant="ghost"
+            className="font-poppins text-[13px]"
           >
             {nextPage.label}
           </Button>

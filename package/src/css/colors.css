@@ -121,7 +121,7 @@
   --soft-blue: rgb(187, 222, 251, 0.2);
 }
 
-html[color-scheme="dark"] {
+html[data-theme="dark"] {
   --frost-light-danger: hsla(0, 100%, 50%, 0.4);
   --frost-light-danger-out: hsla(0, 100%, 55%, 0.5);
   --frost-light-primary: hsla(220, 90%, 60%, 0.4);
@@ -140,6 +140,11 @@ html[color-scheme="dark"] {
   --corprate-dimmed-danger: var(--soft-red);
   --corprate-dimmed-warn: var(--soft-yellow);
   --drawer-content: black;
+  --input-outline-bg: black;
+  --input-outline-border: var(--neutral-800);
+  --input-outline-fb: var(--blue-500);
+  --input-color: white;
+  --card-bg: black;
 
   /* Border color */
   --frost-light-danger-border: var(--soft-red);
@@ -148,6 +153,7 @@ html[color-scheme="dark"] {
   --frost-light-primary-border: var(--soft-blue);
   --frost-outline-border: var(--neutral-800);
   --corporate-outline-border: var(--neutral-800);
+  --card-border: var(--neutral-800);
 
   /* Hover color */
   --frost-light-danger-hover: var(--slate-900);
@@ -165,8 +171,11 @@ html[color-scheme="dark"] {
   --corprate-light-warn-hover: var(--slate-900);
 
   background: #000;
+
+  /* Shadow */
+  --card-sh: var(--neutral-900);
 }
-html[color-scheme="light"] {
+html[data-theme="light"] {
   --frost-light-danger: var(--red-100);
   --frost-light-danger-out: var(--red-200);
   --frost-light-primary: hsla(210, 100%, 90%, 0.4);
@@ -185,6 +194,11 @@ html[color-scheme="light"] {
   --corprate-dimmed-danger: var(--red-100);
   --corprate-dimmed-warn: var(--yellow-100);
   --drawer-content: white;
+  --input-outline-bg: white;
+  --input-outline-border: var(--neutral-200);
+  --input-outline-fb: var(--blue-200);
+  --input-color: black;
+  --card-bg: white;
 
   /* Border color */
   --frost-light-danger-border: var(--red-200);
@@ -193,6 +207,7 @@ html[color-scheme="light"] {
   --frost-light-primary-border: var(--blue-100);
   --frost-outline-border: var(--neutral-200);
   --corporate-outline-border: var(--neutral-300);
+  --card-border: var(--neutral-200);
 
   /* Hover color */
   --frost-light-danger-hover: var(--red-50);
@@ -210,4 +225,7 @@ html[color-scheme="light"] {
   --corprate-light-warn-hover: var(--yellow-200);
 
   background: #fff;
+
+  /* Shadow */
+  --card-sh: rgba(0, 0, 0, 0.05);
 }

@@ -4,7 +4,7 @@ import Title from "@/components/Title";
 export default function Home() {
   return (
     <>
-      <Title title="Auera UI" />
+      <Title title="AueraUI - Build beautiful UIs, effortlessly." />
       <HomePage />
     </>
   );

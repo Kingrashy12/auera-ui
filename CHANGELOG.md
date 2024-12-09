@@ -6,19 +6,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
-## [Unreleased]
+## [0.1.3] - 2024-12-09
 
-### Added
+### Docs
 
-- **Toast Component:** A customizable toast notification system to display success, error, and info messages.
-- **Menu Component:** New dropdown menu with enhanced accessibility and keyboard navigation support.
-- **TextInput Component:** A flexible and stylable text input field with built-in validation support.
-- **Flavour Integration:** Implemented flavour support for `Toast`, `Menu`, and `TextInput` components to allow theme-based customization.
+- Refactored documentation to use MDX format.
 
-### Changed
+### Features
 
-- Enhanced `Provider` to include flavour handling for the newly added components.
-- Updated component styles for consistency with the flavour theme.
+- Added `Tabs` component for tabbed navigation.
+- Added `Card` component for displaying content in a structured, card-like format.
 
 ---
 
