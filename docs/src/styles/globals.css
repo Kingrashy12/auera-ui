@@ -8,7 +8,7 @@
 html[data-theme="light"] {
   --nav-bar: rgb(255, 255, 255, 0.5);
   --text-color: black;
-  --text-dim: var(--neutral-500);
+  --text-muted: var(--slate-700);
   --cmd-bg: #eeeeef;
   --cmd-code: var(--gray-800);
   --scrollbar-thumb: var(--neutral-300);
@@ -19,7 +19,6 @@ html[data-theme="light"] {
   --dc-first-bg: #fff;
   --dc-second-bg: var(--blue-50);
   --dc-border: var(--blue-200);
-  /* --dim-black: #52535e; */
   --dim-black: #52525b;
   --cb: var(--gray-100);
   --cb-border: var(--neutral-200);
@@ -28,7 +27,7 @@ html[data-theme="light"] {
 html[data-theme="dark"] {
   --nav-bar: rgb(0, 0, 0, 0.5);
   --text-color: white;
-  --text-dim: var(--gray-500);
+  --text-muted: #a1a1aa;
   --cmd-bg: #19191c;
   --cmd-code: white;
   --scrollbar-thumb: var(--neutral-500);
@@ -39,12 +38,15 @@ html[data-theme="dark"] {
   --dc-first-bg: #000005;
   --dc-second-bg: var(--soft-blue);
   --dc-border: var(--blue-800);
-  /* --dim-black: #aaa7b2; */
   --dim-black: #b6bec9;
   --cb: var(--neutral-900);
   --cb-border: var(--neutral-800);
   --block: var(--neutral-900);
   --block-border: var(--neutral-800);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 .colored {
@@ -107,7 +109,7 @@ html[data-theme="dark"] {
     @apply text-text-color font-semibold leading-normal text-[1.45rem] font-inter tracking-[0.1px];
   }
   .code-block {
-    @apply border p-1 rounded-lg bg-[var(--cb)] border-[var(--cb-border)] font-normal text-sm text-text-color;
+    @apply border p-1 rounded-lg bg-[var(--cb)] border-[var(--cb-border)] font-normal text-sm !text-text-color;
   }
   .block-cmd {
     @apply border-[var(--block-border)] bg-[var(--block)];

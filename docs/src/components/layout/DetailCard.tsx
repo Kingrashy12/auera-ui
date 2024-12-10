@@ -25,7 +25,7 @@ const DetailCard = ({ description }: DetailCardProps) => {
         <h1 className="font-inter font-bold text-3xl text-text-color">
           {StrFun.capitalize(pageName as string, "-", " ")}
         </h1>
-        <p className="font-inter font-normal text-base text-dim w-[335px] max-[550px]:w-full">
+        <p className="font-inter font-normal text-base text-muted w-[335px] max-[550px]:w-full">
           {description}
         </p>
       </Box>

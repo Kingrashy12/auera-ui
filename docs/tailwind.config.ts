@@ -12,9 +12,9 @@ const config: Config = {
       colors: {
         ...tailwindExtend.colors,
         "text-color": "var(--text-color)",
-        dim: "var(--text-dim)",
+        muted: "var(--text-muted)",
         "cmd-code": "var(--cmd-code)",
-        dimBlack: "var(--dim-black)",
+        dimBlack: "var(--text-muted)",
       },
       backgroundColor: {
         ...tailwindExtend.backgroundColor,

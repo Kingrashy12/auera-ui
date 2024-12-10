@@ -28,23 +28,24 @@ const SideBarLinks = () => {
     <MapItems
       data={sideBarLinks}
       direction="column"
+      className="gap-4"
       renderItem={(item, index) => (
-        <Box key={index} className="gap-2" direction="column">
+        <Box key={index} className="gap-1" direction="column">
           <h4 className="font-montserrat text-text-color text-sm font-semibold">
             {item.header}
           </h4>
           <MapItems
             data={sortedItems(item.links)}
             direction="column"
-            className="ml-1 border-l border-l-sidebar !gap-0"
+            className="ml-2 border-l/ border-l-sidebar !gap-0"
             renderItem={(link) => (
               <Link
                 href={link.uri}
                 key={link.uri}
                 className={tw(
-                  "w-full py-2 px-3 hover:text-blue-600 hover:border-l-2 flex justify-between transition-transform duration-300",
+                  "w-full py-2 px-3 hover:text-blue-600 hover:border-l-1.7 flex justify-between transition-transform duration-300",
                   getActiveLink(link.uri)
-                    ? "border-l-2 text-blue-600 border-l-blue-600"
+                    ? "border-l-1.7 text-blue-600 border-l-blue-600"
                     : "text-dimBlack",
                   link.soon
                     ? "cursor-not-allowed pointer-events-none opacity-75"

@@ -31,6 +31,13 @@ export const sideBarLinks = [
     ],
   },
   {
+    header: "Customization",
+    links: [
+      { label: "Colors", uri: "/docs/" },
+      { label: "Overide styles", uri: "/docs/" },
+    ],
+  },
+  {
     header: "Components",
     links: [
       { label: "Button", uri: "/docs/components/button" },

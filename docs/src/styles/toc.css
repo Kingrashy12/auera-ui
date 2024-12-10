@@ -11,7 +11,7 @@
   }
 
   .a {
-    @apply text-dim no-underline text-sm block hover:text-text-color hover:scale-105 transition-colors;
+    @apply text-muted no-underline text-sm block hover:text-text-color hover:scale-105 transition-colors;
   }
 
   .a.active {

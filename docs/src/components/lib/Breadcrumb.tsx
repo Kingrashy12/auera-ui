@@ -1,6 +1,7 @@
 import { StrFun } from "@/utils/fun";
 import { Router } from "@/utils/router";
 import { Box, Icon } from "auera-ui";
+import Link from "next/link";
 import React, { useState, useMemo, useEffect } from "react";
 import { BsSlashLg } from "react-icons/bs";
 import { IoIosArrowForward } from "react-icons/io";
@@ -75,7 +76,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
               <Icon
                 size={14}
                 className={tw(
-                  "text-dim",
+                  "text-muted",
                   separator === "splash" ? "-rotate-[10deg]" : ""
                 )}
                 icon={separatorType[separator]}
@@ -87,14 +88,14 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
               disableHref.includes(item.href) ? (
                 <span
                   className={tw(
-                    "text-dim font-inter font-medium text-sm",
+                    "text-muted font-inter font-medium text-sm",
                     itemClass as string
                   )}
                 >
                   {item.label}
                 </span>
               ) : (
-                <a
+                <Link
                   href={item.href}
                   className={tw(
                     item.href === pathname ? "text-text-color" : "text-dim",
@@ -103,7 +104,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
                   )}
                 >
                   {item.label}
-                </a>
+                </Link>
               )
             ) : (
               <span
