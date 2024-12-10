@@ -145,6 +145,8 @@ html[data-theme="dark"] {
   --input-outline-fb: var(--blue-500);
   --input-color: white;
   --card-bg: black;
+  --text-color: white;
+  --text-muted: #a1a1aa;
 
   /* Border color */
   --frost-light-danger-border: var(--soft-red);
@@ -199,6 +201,8 @@ html[data-theme="light"] {
   --input-outline-fb: var(--blue-200);
   --input-color: black;
   --card-bg: white;
+  --text-color: black;
+  --text-muted: var(--slate-700);
 
   /* Border color */
   --frost-light-danger-border: var(--red-200);

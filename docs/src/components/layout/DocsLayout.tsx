@@ -11,7 +11,7 @@ const DocsLayout = ({ children }: { children: React.ReactNode }) => {
       <Box
         fullWidth
         direction="column"
-        className="gap-3 px-4 py-2 max-[550px]:px-3"
+        className="gap-8 px-4 py-2 max-[550px]:px-3"
       >
         {children}
         <Box direction="column" className="gap-3 px-3 py-2">
