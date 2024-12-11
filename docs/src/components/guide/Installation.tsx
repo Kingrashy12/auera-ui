@@ -6,6 +6,7 @@ import CodeBlock from "../layout/code/Block";
 
 import { installationCodes } from "@/data/code/installation";
 import Bash from "../layout/code/Bash";
+import CodeTag from "../CodeTag";
 
 const Installation = () => {
   return (
@@ -23,7 +24,7 @@ const Installation = () => {
             className="text-lg"
             hideLink
           >
-            Install <span className="code-block text-base">auera-ui</span>
+            Install <CodeTag className="cb text-base">auera-ui</CodeTag>
           </HeaderLabel>
           <Bash code="npm install auera-ui react-icons" />
         </GuideContainer>
@@ -39,13 +40,12 @@ const Installation = () => {
             Setup Provider
           </HeaderLabel>
           <p className="text">
-            It is essential to add the{" "}
-            <span className="code-block">Provider</span> at the root of your
-            application.
+            It is essential to add the <CodeTag>Provider</CodeTag> at the root
+            of your application.
           </p>
           <p className="text">
-            The <span className="code-block">Provider</span> component serves as
-            the global state manager for AueraUI
+            The <CodeTag>Provider</CodeTag> component serves as the global state
+            manager for AueraUI
           </p>
 
           <CodeBlock
@@ -54,22 +54,21 @@ const Installation = () => {
             fileName="layout.tsx"
           />
           <p className="text">
-            By wrapping your app with{" "}
-            <span className="code-block">Provider</span>, the following global
-            features will be automatically applied:
+            By wrapping your app with <CodeTag>Provider</CodeTag>, the following
+            global features will be automatically applied:
           </p>
           <ul className="text font-inter list-disc pl-3 gap-4 flex flex-col">
             <li>
-              <span className="code-block">ThemeProvider</span>: Manages the
-              global theme for your application.
+              <CodeTag>ThemeProvider</CodeTag>: Manages the global theme for
+              your application.
             </li>
             <li>
-              <span className="code-block">ModalProvider</span>: Manages modal
-              dialogs and their visibility.
+              <CodeTag>ModalProvider</CodeTag>: Manages modal dialogs and their
+              visibility.
             </li>
             <li>
-              <span className="code-block">DrawerProvider</span>: Manages side
-              drawers in your application.
+              <CodeTag>DrawerProvider</CodeTag>: Manages side drawers in your
+              application.
             </li>
           </ul>
         </GuideContainer>
@@ -88,7 +87,7 @@ const Installation = () => {
             hideLink
           >
             Update{" "}
-            <span className="code-block text-[15px]">tailwind.config.ts</span>
+            <CodeTag className="cb text-[15px]">tailwind.config.ts</CodeTag>
           </HeaderLabel>
           <p className="text">
             Next, update your Tailwind configuration to include AueraUI&apos;s
@@ -101,8 +100,8 @@ const Installation = () => {
             fileName="tailwind.config.ts"
           />
           <p className="text">
-            Then in your <span className="code-block">global.css</span> or{" "}
-            <span className="code-block">index.css</span>, add this:
+            Then in your <CodeTag>global.css</CodeTag> or{" "}
+            <CodeTag>index.css</CodeTag>, add this:
           </p>
           <CodeBlock
             code="@import 'auera-ui/dist/auera.css';"

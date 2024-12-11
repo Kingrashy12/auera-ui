@@ -9,10 +9,10 @@ const Hero = () => {
     <section className="flex px-8 py-4 h-screen max-[550px]:px-5">
       <Box className="gap-3 h-full" fullWidth centered>
         <Box direction="column" className="gap-3 py-3 w-full" centered>
-          <h1 className="font-bold tag text-5xl font-montserrat leading-tight text-text-color max-[550px]:text-4xl text-center">
+          <h1 className="font-bold tag text-5xl font-montserrat leading-tight text-primary max-[550px]:text-4xl text-center">
             Build <span className="colored">beautiful</span> UIs, effortlessly.
           </h1>
-          <p className="font-inter-tight font-medium text-lg text-dim text-center">
+          <p className="font-inter-tight font-medium text-lg text-muted text-center">
             Streamline your workflow with customizable, modern components <br />
             crafted to enhance your React applications.
           </p>

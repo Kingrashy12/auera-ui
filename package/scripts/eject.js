@@ -21,7 +21,7 @@ const runScript = async () => {
       logger.info("Ejecting CSS...");
       ejectCss();
     } else if (ejectOpt === "tailwind.extend.ts") {
-      logger.info("Ejecting Tailwind configuration...");
+      logger.info("Fetching Tailwind configuration...");
       ejectTailwind();
     }
   } catch (error) {
@@ -43,7 +43,7 @@ const start = () => {
     logger.info("Ejecting CSS...");
     ejectCss();
   } else if (args["--config"]) {
-    logger.info("Ejecting Tailwind configuration...");
+    logger.info("Fetching Tailwind configuration...");
     ejectTailwind();
   } else {
     runScript();

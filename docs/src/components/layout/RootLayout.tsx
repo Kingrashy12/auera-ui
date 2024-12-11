@@ -61,11 +61,9 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
   const singleBar = ["/"];
   return (
-    <Box
-      direction="column"
-      fullWidth
+    <div
       className={tw(
-        "h-full",
+        "h-full flex flex-col w-full",
         montserrat.variable,
         inter.variable,
         interTight.variable,
@@ -80,7 +78,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       {children}
       <MobileMenu />
       <MobileSideBar />
-    </Box>
+    </div>
   );
 };
 

@@ -1,6 +1,7 @@
 import { ModalHeaderType } from "../../types/auera-ui";
 import { useTheme } from "../../hook/useTheme";
 import { createStyle, defineClass, merge, tw } from "stywind";
+import { getDisplayName } from "@/utils/displayname";
 
 const DrawerHeader = ({
   children,
@@ -22,4 +23,4 @@ const DrawerHeader = ({
 };
 
 export default DrawerHeader;
-// displayname;
+DrawerHeader.displayName = getDisplayName("DrawerHeader");

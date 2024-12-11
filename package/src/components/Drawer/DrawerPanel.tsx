@@ -2,6 +2,7 @@ import { useMode } from "../../hook/use";
 import { createStyle, defineClass, merge, tw } from "stywind";
 import { DrawerPanelProps } from "../../types/auera-ui";
 import { useDrawer } from "../../hook/useDrawer";
+import { getDisplayName } from "@/utils/displayname";
 
 const DrawerPanel = ({
   flavour,
@@ -49,25 +50,11 @@ const DrawerPanel = ({
     },
   };
 
-  // const flavourStyle = {
-  //   light: {
-  //     neumorphic: defineClass("shadow-neumorphic-outline"),
-  //     frost: defineClass("shadow-frost-outline"),
-  //     corporate: defineClass("shadow-card-shadow-light"),
-  //   },
-  //   dark: {
-  //     neumorphic: defineClass("shadow-neumorphic-modal-dark"),
-  //     frost: defineClass("shadow-frost-modal-dark"),
-  //     corporate: defineClass("shadow-card-shadow-dark"),
-  //   },
-  // };
-
   const Container = createStyle("div").classname(
     tw(
       merge.single(animateClass, position),
       merge.single(drawerBackground, currentMode),
       merge.multi(drawer, type, position),
-      // merge.multi(flavourStyle, currentMode, currentFlavour),
       defineClass(
         "flex flex-col fixed w-[450px] transition-all duration-300 ease-in-out max-[1024px]:w-[60%] max-[768px]:w-[80%]"
       )
@@ -78,3 +65,4 @@ const DrawerPanel = ({
 };
 
 export default DrawerPanel;
+DrawerPanel.displayName = getDisplayName("DrawerPanel");

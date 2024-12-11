@@ -1,6 +1,6 @@
-// import { tailwindExtend } from "auera-ui";
 import type { Config } from "tailwindcss";
-import { tailwindExtend } from "./tailwind.extend";
+import { tailwindExtend } from "auera-ui";
+// import { tailwindExtend } from "./tailwind.extend";
 
 const config: Config = {
   content: [

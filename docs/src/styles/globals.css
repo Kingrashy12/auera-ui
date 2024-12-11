@@ -1,4 +1,4 @@
-/* @import "auera-ui/dist/auera.css"; */
+@import "auera-ui/dist/auera.css";
 @import "./toc.css";
 
 @tailwind base;
@@ -8,20 +8,20 @@
 html[data-theme="light"] {
   --nav-bar: rgb(255, 255, 255, 0.5);
   --text-color: black;
-  --text-muted: var(--slate-700);
+  --text-muted: var(--auera-slate-700);
   --cmd-bg: #eeeeef;
-  --cmd-code: var(--gray-800);
-  --scrollbar-thumb: var(--neutral-300);
-  --scrollbar-thumb-hover: var(--neutral-500);
-  --sidebar-border: var(--neutral-200);
+  --cmd-code: var(--auera-gray-800);
+  --scrollbar-thumb: var(--auera-neutral-300);
+  --scrollbar-thumb-hover: var(--auera-neutral-500);
+  --sidebar-border: var(--auera-neutral-200);
   --sidebar: white;
-  --side-icon: var(--neutral-50);
+  --side-icon: var(--auera-neutral-50);
   --dc-first-bg: #fff;
-  --dc-second-bg: var(--blue-50);
-  --dc-border: var(--blue-200);
+  --dc-second-bg: var(--auera-blue-50);
+  --dc-border: var(--auera-blue-200);
   --dim-black: #52525b;
-  --cb: var(--gray-100);
-  --cb-border: var(--neutral-200);
+  --cb: var(--auera-gray-100);
+  --cb-border: var(--auera-neutral-200);
   --block: #000;
 }
 html[data-theme="dark"] {
@@ -30,19 +30,19 @@ html[data-theme="dark"] {
   --text-muted: #a1a1aa;
   --cmd-bg: #19191c;
   --cmd-code: white;
-  --scrollbar-thumb: var(--neutral-500);
-  --scrollbar-thumb-hover: var(--neutral-700);
-  --sidebar-border: var(--neutral-800);
+  --scrollbar-thumb: var(--auera-neutral-500);
+  --scrollbar-thumb-hover: var(--auera-neutral-700);
+  --sidebar-border: var(--auera-neutral-800);
   --sidebar: #000;
-  --side-icon: var(--slate-900);
+  --side-icon: var(--auera-slate-900);
   --dc-first-bg: #000005;
-  --dc-second-bg: var(--soft-blue);
-  --dc-border: var(--blue-800);
+  --dc-second-bg: var(--auera-soft-blue);
+  --dc-border: var(--auera-blue-800);
   --dim-black: #b6bec9;
-  --cb: var(--neutral-900);
-  --cb-border: var(--neutral-800);
-  --block: var(--neutral-900);
-  --block-border: var(--neutral-800);
+  --cb: var(--auera-neutral-900);
+  --cb-border: var(--auera-neutral-800);
+  --block: var(--auera-neutral-900);
+  --block-border: var(--auera-neutral-800);
 }
 
 html {
@@ -50,7 +50,11 @@ html {
 }
 
 .colored {
-  background: linear-gradient(to bottom, var(--blue-400), var(--blue-700));
+  background: linear-gradient(
+    to bottom,
+    var(--auera-blue-400),
+    var(--auera-blue-700)
+  );
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -79,7 +83,7 @@ html {
   left: 0;
   height: 100%;
   width: 100%;
-  background: var(--blue-700);
+  background: var(--auera-blue-700);
   transform: perspective(10px) rotateX(10deg) scale(1, 0.2);
   filter: blur(1em);
   opacity: 0.5;
@@ -103,13 +107,13 @@ html {
     display: block;
   }
   .header-3 {
-    @apply text-text-color font-semibold leading-normal text-xl font-inter tracking-[0.1px];
+    @apply text-primary font-semibold leading-normal text-lg font-inter tracking-[0.1px];
   }
   .header-2 {
-    @apply text-text-color font-semibold leading-normal text-[1.45rem] font-inter tracking-[0.1px];
+    @apply text-primary font-semibold leading-normal text-[1.45rem] font-inter tracking-[0.1px];
   }
-  .code-block {
-    @apply border p-1 rounded-lg bg-[var(--cb)] border-[var(--cb-border)] font-normal text-sm !text-text-color;
+  .cb {
+    @apply border-[1.2px] p-[1px_5px_1px_5px] rounded-[0.37rem] bg-[var(--cb)] border-[var(--cb-border)] font-normal text-[13px] !text-primary;
   }
   .block-cmd {
     @apply border-[var(--block-border)] bg-[var(--block)];
@@ -122,12 +126,12 @@ html {
     content: "";
     width: 100%;
     height: 1.3px;
-    background: var(--blue-300);
+    background: var(--auera-blue-300);
     bottom: 1px;
     z-index: 1;
   }
   .tblink:hover::before {
-    background: var(--blue-600);
+    background: var(--auera-blue-600);
   }
 }
 

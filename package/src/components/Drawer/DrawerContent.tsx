@@ -1,19 +1,15 @@
 import { ModalContentType } from "../../types/auera-ui";
-import { createStyle, tw } from "stywind";
+import { useDrawer } from "./usedrawer";
+import { getDisplayName } from "@/utils/displayname";
 
 const DrawerContent = ({
   children,
   centerContent,
   ...props
 }: ModalContentType) => {
-  const Content = createStyle("div").classname(
-    tw(
-      "flex flex-col p-3 bg-drawer-content overflow-y-auto h-full m-[5px 0] gap-[16px]",
-      centerContent ? "items-center justify-center" : ""
-    )
-  );
+  const { Content } = useDrawer.content(props);
   return <Content {...props}>{children}</Content>;
 };
 
 export default DrawerContent;
-// displayname;
+DrawerContent.displayName = getDisplayName("DrawerContent");

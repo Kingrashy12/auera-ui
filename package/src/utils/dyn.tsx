@@ -21,11 +21,11 @@ import { LazyImportProps } from "@/types/utils";
  * // Usage in your application:
  *   <MyComponent />
  */
-export const dyn = (
-  importFunc: LazyImportProps["importFunc"],
-  loaderOptions?: LazyImportProps["loaderOptions"]
+export const dyn = <T,>(
+  importFunc: LazyImportProps<T>["importFunc"],
+  loaderOptions?: LazyImportProps<T>["loaderOptions"]
 ) => {
-  const DynComponent = () => (
+  const DynComponent: React.ComponentType<T> = () => (
     <LazyImport importFunc={importFunc} loaderOptions={loaderOptions} />
   );
 

@@ -27,7 +27,7 @@ const Navbar = () => {
   return (
     <Nav>
       <Container>
-        <Box className="gap-5 items-center">
+        <Box className="gap-5 items-center" fullWidth>
           <Link href="/">
             <Box className="items-center gap-1">
               <Image src={"/logo.png"} alt="Logo" width={40} height={40} />

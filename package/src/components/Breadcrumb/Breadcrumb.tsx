@@ -75,7 +75,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
               <Icon
                 size={14}
                 className={tw(
-                  "text-dim",
+                  "text-muted",
                   separator === "splash" ? "-rotate-[10deg]" : ""
                 )}
                 icon={separatorType[separator]}
@@ -87,7 +87,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
               disableHref.includes(item.href) ? (
                 <span
                   className={tw(
-                    "text-dim font-inter font-medium text-sm",
+                    "text-muted font-inter font-medium text-sm",
                     itemClass as string
                   )}
                 >
@@ -98,8 +98,8 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
                   href={item.href}
                   className={tw(
                     item.href === router.pathname
-                      ? "text-text-color"
-                      : "text-dim",
+                      ? "text-primary"
+                      : "text-muted",
                     "font-inter font-medium text-sm",
                     itemClass as string
                   )}
@@ -110,7 +110,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
             ) : (
               <span
                 className={tw(
-                  "text-dim font-inter font-medium text-sm",
+                  "text-muted font-inter font-medium text-sm",
                   itemClass as string
                 )}
               >

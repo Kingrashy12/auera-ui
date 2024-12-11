@@ -5,16 +5,15 @@ import React from "react";
 import { tw } from "stywind";
 import Badge from "./Badge";
 import Link from "next/link";
+import { HiArchive } from "react-icons/hi";
 
-// dim light:#585D77
-// dim dark:#AAA7B2
-const SideBarLinks = () => {
-  type Data = {
-    uri: string;
-    label: string;
-    soon?: boolean;
-  };
+type Data = {
+  uri: string;
+  label: string;
+  soon?: boolean;
+};
 
+const SideBarLinks = ({ data }: { data: typeof sideBarLinks }) => {
   const sortedItems = (data: Data[]) =>
     data.sort((a, b) => a.label.localeCompare(b.label));
   const router = useRouter();
@@ -26,18 +25,18 @@ const SideBarLinks = () => {
   };
   return (
     <MapItems
-      data={sideBarLinks}
+      data={data}
       direction="column"
       className="gap-4"
       renderItem={(item, index) => (
         <Box key={index} className="gap-1" direction="column">
-          <h4 className="font-montserrat text-text-color text-sm font-semibold">
+          <h4 className="font-montserrat text-primary text-sm font-semibold">
             {item.header}
           </h4>
           <MapItems
             data={sortedItems(item.links)}
             direction="column"
-            className="ml-2 border-l/ border-l-sidebar !gap-0"
+            className="ml-2 border-l-sidebar !gap-0"
             renderItem={(link) => (
               <Link
                 href={link.uri}
@@ -57,11 +56,16 @@ const SideBarLinks = () => {
                   Soon
                 </Badge>
               </Link>
-              // </Link>
             )}
           />
         </Box>
       )}
+      emptyListComponent={
+        <Box className="items-center gap-1" fullWidth direction="column">
+          <HiArchive size={40} className="text-muted" />
+          <h3 className="text font-semibold">Nothing is here</h3>
+        </Box>
+      }
     />
   );
 };

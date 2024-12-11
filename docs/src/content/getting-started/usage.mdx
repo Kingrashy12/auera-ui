@@ -1,5 +1,5 @@
 ---
-title: "Usage - AueraUI"
+title: "Usage | AueraUI"
 description: "Learn how to effectively use the components and features of AueraUI to build your UI with ease."
 ---
 
@@ -21,7 +21,7 @@ description: "Learn how to effectively use the components and features of AueraU
 </Card>
  </Tabs.Panel>
  <Tabs.Panel>
-  <CodeBlock fileName='App.tsx' lg='ts' code={`import { Button } from 'auera-ui';
+  <CodeBlock fileName='App.tsx' lg='tsx' code={`import { Button } from 'auera-ui';
 
 export default function App() {
   return <Button>Hello world</Button>;
@@ -32,14 +32,14 @@ export default function App() {
 
 <Details id="globals">
   <HeaderLabel id="globals">Globals</HeaderLabel>
-  <p className="text">Since AueraUI is built to function globally, you can control the look and behavior of your app using the <span className="code-block">Provider</span> and hooks.</p>
+  <p className="text">Since AueraUI is built to function globally, you can control the look and behavior of your app using the <CodeTag>Provider</CodeTag> and hooks.</p>
 </Details>
 
 <Details id="flavour">
   <HeaderLabel id="flavour" as='h3'>Flavour</HeaderLabel>
   <p className="text">AueraUI components are available in a variety of design flavors, offering high-quality looks and functionality.</p>
 <p className="text">
-  To change the default flavor, pass the <span className="code-block">flavour</span> prop to the Provider, or to a specific component.
+  To change the default flavor, pass the <CodeTag>flavour</CodeTag> prop to the Provider, or to a specific component.
 </p>
   <Tabs variant='solid' className='mt-2'>
  <Tabs.Handle value="preview">Preview</Tabs.Handle>
@@ -54,9 +54,9 @@ export default function App() {
 </Card>
  </Tabs.Panel>
  <Tabs.Panel>
-  <CodeBlock fileName='ButtonFlavours.tsx' lg='ts' code={`import { Button, Stack } from 'auera-ui';
+  <CodeBlock fileName='App.tsx' lg='tsx' code={`import { Button, Stack } from 'auera-ui';
 
-export default function ButtonFlavours() {
+export default function App() {
    return (
      <Stack fullWidth wrap align='horizontal'>
        <Button>Corporate</Button>
@@ -73,7 +73,7 @@ export default function ButtonFlavours() {
 <Details id='theme'>
  <HeaderLabel id="theme" as='h3'>Theme</HeaderLabel>
  <p className="text">AueraUI allows you to customize the look and feel of your application with its flexible theming system. 
- The <span className="code-block">ThemeProvider</span> component enables global theme management, allowing you to apply consistent styling across your app.</p>
+ The <CodeTag>ThemeProvider</CodeTag> component enables global theme management, allowing you to apply consistent styling across your app.</p>
 </Details>
 
 <Details id="default-theme">
@@ -91,21 +91,21 @@ AueraUI provides a toggle function that allows you to manually switch between th
 
  <ul className="text font-inter list-disc pl-3 gap-4 flex flex-col">
     <li>
-        <span className="code-block">toggleTheme.system</span>: Switches to the user's system theme based on the user's operating system settings.
+        <CodeTag>toggleTheme.system</CodeTag>: Switches to the user's system theme based on the user's operating system settings.
     </li>
     <li>
-        <span className="code-block">toggleTheme.main</span>: Switches to AueraUI's predefined theme set, 
+        <CodeTag>toggleTheme.main</CodeTag>: Switches to AueraUI's predefined theme set, 
     </li>
   </ul>
   <p className='text'>
   This toggleTheme functionality is useful when you want to give users the ability to manually switch between system preferences and the app's theme.
   </p>
-  <h4 className="text-text-color">
-  **Example Usage:**
+  <h4 className="text-primary font-inter font-semibold">
+  Example Usage:
   </h4>
-  <CodeBlock fileName='ThemeToggle.tsx' lg='ts' code={`import { useTheme, Button } from 'auera-ui';
+  <CodeBlock fileName='App.tsx' lg='tsx' code={`import { useTheme, Button } from 'auera-ui';
 
-function ThemeToggle() {
+export default function App() {
   const { toggleTheme } = useTheme();
 
   return (

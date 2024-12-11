@@ -1,39 +1,18 @@
-import Details from "@/components/Details";
-import HeaderLabel from "@/components/HeaderLabel";
-import DetailCard from "@/components/layout/DetailCard";
+// import DocsLayout from "@/components/layout/DocsLayout";
 import DocsLayout from "@/components/layout/DocsLayout";
 import LoadIndicator from "@/components/LoadIndicator";
 import Title from "@/components/Title";
+import { components, MDXRemote } from "@/constant/mdx.config";
 import { fetchContent } from "@/hooks/fetch_content";
-import { Box, Button, Card, Stack, Tabs } from "auera-ui";
 import { GetStaticPaths, GetStaticProps } from "next";
-import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
-import Link from "next/link";
+import { MDXRemoteSerializeResult } from "next-mdx-remote";
 import React, { Suspense } from "react";
-import { HiArrowTopRightOnSquare } from "react-icons/hi2";
-import Installation from "@/components/guide/Installation";
-import TabLink from "@/components/TabLink";
-import CodeBlock from "@/components/layout/code/Block";
 
 interface Props {
   mdxSource: MDXRemoteSerializeResult;
   frontmatter: Record<string, unknown>;
 }
-const components = {
-  DetailCard,
-  Box,
-  HeaderLabel,
-  Details,
-  Link,
-  HiArrowTopRightOnSquare,
-  Installation,
-  TabLink,
-  Card,
-  Button,
-  Tabs,
-  Stack,
-  CodeBlock,
-};
+
 const Page = ({ frontmatter, mdxSource }: Props) => {
   return (
     <Suspense fallback={<LoadIndicator />}>
@@ -53,7 +32,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const frontmatter = mdxSource?.frontmatter;
   return {
     props: { slug, mdxSource, frontmatter },
-    revalidate: 10, //TODO: Remove this from been add to production
   };
 };
 

@@ -9,7 +9,7 @@ const Bash = ({ code }: { code: string }) => {
       direction="column"
       className="w-full h-auto max-h-[480px] rounded-[5px] block-cmd border relative overflow-y-hidden"
     >
-      <Box className="w-10/12 h-full p-4 overflow-x-auto">
+      <Box className="w-10/12 max-[550px]:w-[80%] h-full p-4 overflow-x-auto">
         <Highlight theme={themes.vsDark} code={code} language="bash">
           {({ tokens, getLineProps, getTokenProps }) => (
             <pre

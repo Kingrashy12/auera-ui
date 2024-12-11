@@ -25,6 +25,7 @@ const CodeBlock = ({
     css: { icon: BiLogoTailwindCss, color: "blue" },
     bash: { icon: SiGnubash, color: "green" },
   };
+
   const icon = lgIcon[lg];
   return (
     <Box
@@ -42,7 +43,7 @@ const CodeBlock = ({
         <Icon icon={icon.icon} color={icon.color} size={19} />
         <p className="font-mono text-[#aaa7b2] text-xs">{fileName}</p>
       </Box>
-      <Box className="w-full h-full overflow-y-auto p-4">
+      <Box className="w-full h-full overflow-y-auto p-4 max-w-full">
         <Highlight theme={themes.vsDark} code={code} language={lg}>
           {({ tokens, getLineProps, getTokenProps }) => (
             <pre
@@ -52,7 +53,9 @@ const CodeBlock = ({
               {tokens.map((line, i) => (
                 <div key={i} {...getLineProps({ line })}>
                   {line.map((token, key) => (
-                    <span key={key} {...getTokenProps({ token })} />
+                    <span key={key} style={getTokenProps({ token }).style}>
+                      {getTokenProps({ token }).children}
+                    </span>
                   ))}
                 </div>
               ))}

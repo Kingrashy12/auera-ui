@@ -8,6 +8,7 @@ import Backdrop from "../Backdrop/Backdrop";
 import { useMode } from "../../hook/use";
 import DrawerPanel from "./DrawerPanel";
 import { FC } from "react";
+import { getDisplayName } from "@/utils/displayname";
 
 type DrawerComponents = {
   Header: typeof DrawerHeader;
@@ -45,7 +46,7 @@ const Drawer: FC<DrawerProps> & DrawerComponents = ({
 };
 
 export default Drawer;
-// displayname;
+Drawer.displayName = getDisplayName("Drawer");
 
 Drawer.Header = DrawerHeader;
 Drawer.Content = DrawerContent;

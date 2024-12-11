@@ -4,7 +4,7 @@
 
 @layer utilities {
   .card {
-    @apply border shadow-sm border-[var(--card-border)] shadow-card bg-[--card-bg];
+    @apply border border-[var(--auera-card-border)] shadow-card bg-[--auera-card-bg];
   }
 
   .border-image {
@@ -12,8 +12,8 @@
   }
 
   .input-outline {
-    @apply bg-[var(--input-outline-bg)]
-     border-[1.35px] border-[var(--input-outline-border)]
+    @apply bg-[var(--auera-input-outline-bg)]
+     border-[1.35px] border-[var(--auera-input-outline-border)]
      transition-all duration-300 ease-in-out
      hover:border-blue-400
      focus-within:border-blue-600

@@ -1,0 +1,80 @@
+---
+title: Design | AueraUI
+---
+
+<DetailCard description="A guide on customizing AueraUI styles and Tailwind config to fit your app's design." />
+
+<p className="text px-3">
+**What is design without flexibility?** That’s why AueraUI allows you to easily customize its default style variables, 
+giving you complete control over your application’s look and feel.
+</p>
+
+<Details id='customizing'>
+<HeaderLabel id="customizing">Customizing</HeaderLabel>
+<p className="text">Basically, there are two ways to customize AueraUI components: one gives you full control,
+ and the other is the more traditional approach.</p>
+</Details>
+
+<Details id='basic-approach'>
+ <HeaderLabel id="basic-approach" as='h3'>Basic approach</HeaderLabel>
+ <p className="text">This approach utilizes <CodeTag>className</CodeTag> or inline styles for a straightforward, 
+ customizable solution to modify components.</p>
+ <p className="text">
+ Let's override the default styles of the <TabLink to='/docs/components/button' label='Button' /> component.
+ </p>
+ <CodeBlock lg='tsx' fileName='App.tsx' code={`import { Button, Stack } from "auera-ui";
+
+export default function App() {
+  return (
+    <Stack>
+     <Button 
+      flavour='neumorphic'
+      className="relative rounded-full 
+      hover:-translate-y-1 px-12 transition-transform
+      shadow-[var(--auera-blue-900)_0px_6px_0px_inset,_rgba(9,11,11,0.1)
+      _0px_-6px_10px_0px,_rgba(9,11,11,0.1)_0px_1px_2px_0px]" 
+     >
+      Click me
+     </Button>
+    </Stack>
+  )
+}
+ `} />
+
+<Card>
+<Stack>
+<Button size='lg' 
+ className="relative rounded-full 
+ hover:-translate-y-1 px-12 transition-transform 
+ shadow-[var(--auera-blue-900)_0px_-6px_0px_inset,_rgba(9,11,11,0.1)_0px_6px_10px_0px,_rgba(9,11,11,0.1)_0px_1px_2px_0px]" 
+ flavour='neumorphic'
+ >
+ Click me
+ </Button>
+</Stack>
+</Card>
+</Details>
+
+
+<Details id="advanced-approach">
+   <HeaderLabel id="advanced-approach" as='h3'>Advanced Approach</HeaderLabel>
+ <p className="text">
+   This approach provides full control over component styles by ejecting default styles using AueraUI CLI. 
+   It allows you to modify or replace the underlying styles directly to achieve a completely custom design.
+ </p>
+</Details>
+
+<Details id="cli">
+   <HeaderLabel id="cli">CLI</HeaderLabel>
+  <p className="text">
+  AueraUI comes with a CLI tool which provides an easy way to customize styles and configuration.
+  Use the <CodeTag>eject</CodeTag> command to access and modify default styles or Tailwind's extended configuration.
+  </p>
+</Details>
+
+
+<Details id="using-the-cli">
+  <HeaderLabel id="using-the-cli">How to Use the CLI</HeaderLabel>
+   <CLI/>
+</Details>
+

@@ -34,7 +34,7 @@ const LinkItem = ({
   return (
     <Link href={link} target={ex ? "_blank" : ""} rel="noreferel">
       <Drawer.Trigger value="" type="close">
-        <p className="font-poppins font-medium hover:text-blue-600 text-sm text-text-color nav-hover">
+        <p className="font-poppins font-medium hover:text-blue-600 text-sm text-primary nav-hover">
           {label}
         </p>
       </Drawer.Trigger>

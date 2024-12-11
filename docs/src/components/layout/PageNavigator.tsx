@@ -17,27 +17,29 @@ const PageNavigator = () => {
 
   useEffect(() => {
     let found = false;
+    const links: LinkType[] = [];
     const getPage = () => {
       for (let i = 0; i < sideBarLinks.length; i++) {
         const currentLinks = sideBarLinks[i].links.filter((link) => !link.soon);
+        links.push(...currentLinks);
+      }
 
-        for (let j = 0; j < currentLinks.length; j++) {
-          const page = currentLinks[j];
+      for (let j = 0; j < links.length; j++) {
+        const page = links[j];
 
-          if (pathname === page.uri) {
-            //Prev page
-            if (j > 0) {
-              setPrevPage(currentLinks[j - 1]);
-            } else setPrevPage(null);
+        if (pathname === page.uri) {
+          //Prev page
+          if (j > 0) {
+            setPrevPage(links[j - 1]);
+          } else setPrevPage(null);
 
-            //Next page
-            if (j < currentLinks.length - 1) {
-              setNextPage(currentLinks[j + 1]);
-            } else setNextPage(null);
+          //Next page
+          if (j < links.length - 1) {
+            setNextPage(links[j + 1]);
+          } else setNextPage(null);
 
-            found = true;
-            break;
-          }
+          found = true;
+          break;
         }
 
         if (found) break;
