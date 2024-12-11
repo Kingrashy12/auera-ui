@@ -32,6 +32,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const frontmatter = mdxSource?.frontmatter;
   return {
     props: { slug, mdxSource, frontmatter },
+    revalidate: 60,
   };
 };
 
