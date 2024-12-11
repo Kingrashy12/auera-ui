@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { useDrawer } from "../../hook/useDrawer";
 import { DrawerTriggerType } from "../../types/auera-ui";
+import { getDisplayName } from "@/utils/displayname";
 
 const DrawerTrigger: FC<DrawerTriggerType> = ({
   value,
@@ -21,3 +22,4 @@ const DrawerTrigger: FC<DrawerTriggerType> = ({
 };
 
 export default DrawerTrigger;
+DrawerTrigger.displayName = getDisplayName("DrawerTrigger");

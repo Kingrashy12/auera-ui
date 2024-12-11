@@ -14,7 +14,7 @@ const OTPInput: FC<OTPInputProps> = ({ onComplete, length = 4, className }) => {
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
 
   // Style for each individual input box
-  const StyledInput = defineClass(`
+  const Input = defineClass(`
     w-12 h-12 p-4 rounded-lg border border-neutral-400 caret-black text-center text-lg focus:outline-none focus:border-2 shadow transition-all duration-500 focus:border-blue-500 
     appearance-none
     [&::-webkit-outer-spin-button]:appearance-none
@@ -73,7 +73,7 @@ const OTPInput: FC<OTPInputProps> = ({ onComplete, length = 4, className }) => {
           onChange={(e) => handleChange(e, index)}
           onKeyDown={(e) => handleKeyDown(e, index)}
           placeholder="⚬"
-          className={StyledInput}
+          className={Input}
         />
       ))}
     </div>

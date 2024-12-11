@@ -13,7 +13,7 @@ const Dev = () => {
             <Image alt="logo" src="/logo.png" width={130} height={130} />
           </div>
 
-          <p className="font-inter-tight text-text-color font-semibold text-2xl mb-4">
+          <p className="font-inter-tight text-primary font-semibold text-2xl mb-4">
             Hang Tight—Working Hard to Bring This to Life!
           </p>
           <p className="font-inter-tight text-dim font-medium text-lg">

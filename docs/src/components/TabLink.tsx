@@ -14,7 +14,7 @@ const TabLink = ({ to, label, className }: TabLinkProps) => {
       href={to}
       className={tw(
         className as string,
-        "text-blue-600 text-base font-medium font-inter-tight tracking-wide relative tblink"
+        "text-primary text-base font-semibold font-inter-tight tracking-wide relative tblink"
       )}
     >
       {label}

@@ -30,7 +30,7 @@ const MobileSideBar = () => {
             </IconButton>
           </Drawer.Trigger>
         </Drawer.Header>
-        <Drawer.Content className="px-[25px]">
+        <Drawer.Content className="!p-0">
           <SideBarContent />
         </Drawer.Content>
       </Drawer.Panel>

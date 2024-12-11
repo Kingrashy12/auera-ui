@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Box, Icon, MapItems, TextInput } from "auera-ui";
 import { IoSearch } from "react-icons/io5";
-import { linksWithIcon } from "@/data/sidebar";
+import { linksWithIcon, sideBarLinks } from "@/data/sidebar";
 import { tw } from "stywind";
 import StatusBadge from "./lib/StatusBadge";
 import SideBarLinks from "./layout/SideBarLinks";
@@ -10,9 +10,24 @@ import { useRouter } from "next/router";
 const SideBarContent = () => {
   const [query, setQuery] = useState("");
   const router = useRouter();
+
+  const filteredLinks = sideBarLinks.filter((links) =>
+    links.links.some((link) => {
+      const label = link.label.toLowerCase();
+      const keyword = query.toLowerCase();
+
+      return label.includes(keyword);
+    })
+  );
+
   return (
     <>
-      <Box fullWidth>
+      <Box
+        fullWidth
+        className={tw(
+          "sticky flex-shrink-0 px-3 top-0 py-4 bg-sidebar z-20 border-b border-b-sidebar"
+        )}
+      >
         <TextInput
           icon={IoSearch}
           iconSize={23}
@@ -22,7 +37,7 @@ const SideBarContent = () => {
           type="text"
         />
       </Box>
-      <Box direction="column" fullWidth className="gap-8 mt-4">
+      <Box direction="column" fullWidth className="gap-8 p-6 pl-3">
         <MapItems
           direction="column"
           data={linksWithIcon}
@@ -34,7 +49,7 @@ const SideBarContent = () => {
                 item.soon ? "pointer-events-none" : "cursor-pointer",
                 router.pathname.startsWith(`/${item.label.toLowerCase()}`)
                   ? "text-blue-600"
-                  : "text-text-color"
+                  : "text-primary"
               )}
               key={index}
               fullWidth
@@ -53,7 +68,7 @@ const SideBarContent = () => {
             </Box>
           )}
         />
-        <SideBarLinks />
+        <SideBarLinks data={filteredLinks} />
       </Box>
     </>
   );

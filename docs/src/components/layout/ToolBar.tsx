@@ -23,7 +23,11 @@ const ToolBar = () => {
         <Box fullWidth className=" overflow-x-auto">
           <Breadcrumb
             separator="splash"
-            disableHref={["/docs", "/docs/getting-started"]}
+            disableHref={[
+              "/docs",
+              "/docs/getting-started",
+              "/docs/customization",
+            ]}
             exclude="Docs"
           />
         </Box>

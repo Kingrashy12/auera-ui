@@ -32,10 +32,7 @@ export const sideBarLinks = [
   },
   {
     header: "Customization",
-    links: [
-      { label: "Colors", uri: "/docs/" },
-      { label: "Overide styles", uri: "/docs/" },
-    ],
+    links: [{ label: "Design ", uri: "/docs/customization/design" }],
   },
   {
     header: "Components",
@@ -43,13 +40,15 @@ export const sideBarLinks = [
       { label: "Button", uri: "/docs/components/button" },
       { label: "Backdrop", uri: "/docs/components/backdrop" },
       { label: "Box", uri: "/docs/components/box" },
+      { label: "Card", uri: "/docs/components/card" },
       { label: "Drawer", uri: "/docs/components/drawer" },
       { label: "IconButton", uri: "/docs/components/icon-button" },
       { label: "Icon", uri: "/docs/components/icon" },
       { label: "Modal", uri: "/docs/components/modal" },
       { label: "MapItems", uri: "/docs/components/map-items" },
       { label: "GroupMap", uri: "/docs/components/group-map" },
-      { label: "OTP Input", uri: "/docs/components/otp-input" },
+      { label: "OTPInput", uri: "/docs/components/otp-input" },
+      { label: "TextInput", uri: "/docs/components/textinput", soon: true },
       {
         label: "StatusBadge",
         uri: "/docs/components/status-badge",

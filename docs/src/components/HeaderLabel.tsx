@@ -19,7 +19,9 @@ const HeaderLabel = ({
 }: HeaderLabelType) => {
   return (
     <a href={`#${id}`} className="header-link">
-      {hideLink ? null : <FaLink className="text-dim" size={16} />}
+      {hideLink ? null : (
+        <FaLink className="text-dim" size={as === "h3" ? 14 : 16} />
+      )}
       {as === "h3" ? (
         <h3 className={tw("header-3", className as string)} id={id}>
           {children}

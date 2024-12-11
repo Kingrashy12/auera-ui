@@ -34,6 +34,6 @@ export const ejectCss = async () => {
     writeFileSync(cssFile, formattedCss);
     logger.success("✔ Added auera.css");
   } catch (error) {
-    logger.warning(`⚠️  Error ejecting file: ${error.message}`);
+    logger.error(`Error ejecting file: ${error.message}`);
   }
 };

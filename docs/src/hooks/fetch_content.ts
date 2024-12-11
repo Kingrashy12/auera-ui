@@ -1,6 +1,6 @@
 import { serialize } from "next-mdx-remote/serialize";
 import path from "path";
-import fs from "fs";
+import fs from "fs/promises";
 
 export const fetchContent = async (slug: string, folder: string) => {
   const filePath = path.join(
@@ -10,8 +10,10 @@ export const fetchContent = async (slug: string, folder: string) => {
   );
 
   try {
-    const mdxText = fs.readFileSync(filePath, "utf8");
+    const mdxText = await fs.readFile(filePath, "utf-8");
     const mdxSource = await serialize(mdxText, { parseFrontmatter: true });
+    console.log("Reading MDX file from:");
+    console.log("MDX file content:");
 
     return { mdxSource };
   } catch (error) {

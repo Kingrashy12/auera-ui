@@ -7,9 +7,16 @@ type StepGuideProps = {
   children: React.ReactNode;
   className?: string;
   id: string;
+  removeTrack?: boolean;
 };
 
-const StepGuide = ({ step, children, className, id }: StepGuideProps) => {
+const StepGuide = ({
+  step,
+  children,
+  className,
+  id,
+  removeTrack,
+}: StepGuideProps) => {
   return (
     <Box
       id={id}
@@ -24,11 +31,16 @@ const StepGuide = ({ step, children, className, id }: StepGuideProps) => {
         className="flex-shrink-0 items-center max-[550px]:hidden"
       >
         <Box className="bg-sidebar items-center justify-center h-8 p-3 flex-shrink-0 rounded-lg border-2 border-sidebar">
-          <p className="font-poppins font-medium text-sm text-text-color">
+          <p className="font-poppins font-medium text-sm text-primary">
             {step}
           </p>
         </Box>
-        <div className="border-l-[1.35px] border-l-sidebar h-full" />
+        <div
+          className={tw(
+            "border-l-[1.35px] border-l-sidebar h-full",
+            removeTrack ? "hidden" : "flex"
+          )}
+        />
       </Box>
       {children}
     </Box>

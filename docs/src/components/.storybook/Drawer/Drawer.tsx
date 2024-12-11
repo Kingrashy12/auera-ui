@@ -16,7 +16,6 @@ import { IoClose } from "react-icons/io5";
 import { notifications } from "@/data/notification";
 import { formatTime } from "@/utils/formatTime";
 import GroupMap from "@/utils/GroupMap";
-import "auera-ui/dist/auera.css";
 import StatusBadge from "@/components/lib/StatusBadge";
 
 const Drawer = ({ position, type }: DrawerProps & DrawerPanelProps) => {

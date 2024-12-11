@@ -71,6 +71,7 @@ export const tailwindExtend = {
   colors: {
     ...colors,
     "corprate-outline": "var(--corprate-outline)",
+    primary: "var(--auera-text-color)",
   },
   borderColor: {
     "frost-blue": "var(--blue-800)",

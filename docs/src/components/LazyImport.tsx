@@ -2,7 +2,7 @@ import { LazyImportProps } from "@/types/ui";
 import React from "react";
 import LoadIndicator from "./LoadIndicator";
 
-export const LazyImport: React.FC<LazyImportProps> = ({
+export const LazyImport: React.FC<LazyImportProps<unknown>> = ({
   importFunc,
   loaderOptions,
 }) => {

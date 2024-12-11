@@ -54,7 +54,7 @@ const TableOfContent = () => {
 
   return (
     <Table>
-      <p className="font-inter text-text-color font-semibold text-sm">
+      <p className="font-inter text-primary font-semibold text-sm">
         On this page
       </p>
       <Box direction="column" className="gap-3 mt-4">

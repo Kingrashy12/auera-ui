@@ -7,11 +7,11 @@
   }
 
   .li {
-    @apply font-medium text-sm font-inter flex items-center gap-1;
+    @apply font-medium text-xs font-inter flex items-center gap-1;
   }
 
   .a {
-    @apply text-muted no-underline text-sm block hover:text-text-color hover:scale-105 transition-colors;
+    @apply text-muted no-underline block hover:text-primary hover:scale-105 transition-colors;
   }
 
   .a.active {
