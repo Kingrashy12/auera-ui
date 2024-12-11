@@ -31,12 +31,12 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const frontmatter = mdxSource?.frontmatter;
   return {
     props: { slug, mdxSource, frontmatter },
-    revalidate: 5,
+    revalidate: 60,
   };
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const slugs = ["design", "overide-styles"];
+  const slugs = ["design"];
 
   const paths = slugs.map((slug) => ({
     params: { slug },
