@@ -23,6 +23,7 @@ const Hero = () => {
                 className="font-inter"
                 size="xl"
                 flavour="frost"
+                animate
                 rightIcon={FiArrowRight}
               >
                 Get Started

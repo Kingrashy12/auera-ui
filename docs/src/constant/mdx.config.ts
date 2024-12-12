@@ -10,6 +10,7 @@ import Link from "next/link";
 import CLI from "@/components/guide/CLI";
 import CodeTag from "@/components/CodeTag";
 import dynamic from "next/dynamic";
+import Mockups from "@/components/Mockups";
 
 export const components = {
   DetailCard,
@@ -27,6 +28,7 @@ export const components = {
   CodeBlock,
   CLI,
   CodeTag,
+  Mockups,
 };
 
 export const MDXRemote = dynamic(() =>

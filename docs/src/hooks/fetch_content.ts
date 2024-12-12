@@ -12,8 +12,6 @@ export const fetchContent = async (slug: string, folder: string) => {
   try {
     const mdxText = await fs.readFile(filePath, "utf-8");
     const mdxSource = await serialize(mdxText, { parseFrontmatter: true });
-    console.log("Reading MDX file from:");
-    console.log("MDX file content:");
 
     return { mdxSource };
   } catch (error) {

@@ -1,31 +1,8 @@
 import { ButtonProps } from "../../types/auera-ui";
-import { createStyle, defineClass, merge, tw } from "stywind";
 import { getDisplayName } from "../../utils/displayname";
 import Icon from "../Icon/Icon";
 import { TbLoader2 } from "react-icons/tb";
-import { useState } from "react";
-import { useProvider } from "../../hook/provider";
-import { useTheme } from "../../hook/useTheme";
-import { generateFrostButton } from "../../flavours/frost/button/button.class";
-import { generateNeumorphicButton } from "../../flavours/neumorphic/button/button.class";
-import { generateButtonClass } from "../../flavours/corporate/button/button.class";
-
-const rd = {
-  none: defineClass("rounded-none"),
-  sm: defineClass("rounded-[4px]"),
-  md: defineClass("rounded-[6px]"),
-  lg: defineClass("rounded-[8px]"),
-  xl: defineClass("rounded-[12px]"),
-  full: defineClass("rounded-full"),
-};
-
-const sz = {
-  xs: defineClass("p-[0_10px_0_10px] h-[32px]"),
-  sm: defineClass("p-[0_14px_0_14px] h-[36px]"),
-  md: defineClass("p-[0_16px_0_16px] h-[40px]"),
-  lg: defineClass("p-[0_18px_0_18px] h-[44px]"),
-  xl: defineClass("p-[0_20px_0_20px] h-[48px]"),
-};
+import { useButton } from "./use-button";
 
 const Button = ({
   children,
@@ -45,60 +22,17 @@ const Button = ({
   hideChildOnLoad,
   ...props
 }: ButtonProps) => {
-  const [moveIcon, setMoveIcon] = useState(false);
-  const enter = () => setMoveIcon(true);
-  const leave = () => setMoveIcon(false);
-  const { flavour: Flavour } = useProvider();
-  const { mode: AppMode } = useTheme();
-  const mainClass = defineClass(
-    "flex justify-center items-center flex-shrink-0 font-medium transition-layer duration-200 active:scale-95 gap-2"
-  );
-  const currentMode = mode ?? AppMode;
-  const disabled = props.isLoading || props.disabled;
-  const borderRadius = merge.single(rd, radius);
-  const buttonSize = merge.single(sz, size);
-  const bg_corp = generateButtonClass({ variant, colorScheme });
-  const frostFlavour = generateFrostButton({
+  const { Component } = useButton({
+    radius,
     variant,
+    size,
     colorScheme,
-    mode: currentMode,
+    flavour,
+    ...props,
   });
-  const neumorphic_flavour = generateNeumorphicButton({
-    variant,
-    colorScheme,
-    mode: currentMode,
-  });
-  const buttonStyle = {
-    frost: frostFlavour,
-    corporate: bg_corp,
-    neumorphic: tw(neumorphic_flavour, "active:scale-70"),
-  };
-  const animateIconDir = () => {
-    if (props.animate) {
-      if (leftIcon) {
-        return moveIcon ? "move-svg-left" : "move-svg-leave-left";
-      } else if (rightIcon && moveIcon) {
-        return "move-svg";
-      } else {
-        return "move-svg-leave";
-      }
-    }
-  };
-  const StyledButton = createStyle("button").classname(
-    tw(
-      merge.single(buttonStyle, flavour ?? Flavour),
-      borderRadius,
-      buttonSize,
-      mainClass,
-      animateIconDir() as string,
-      props.fullWidth ? "w-full" : "w-auto",
-      disabled
-        ? defineClass("cursor-not-allowed pointer-events-none opacity-75")
-        : ""
-    )
-  );
+
   return (
-    <StyledButton {...props} onMouseEnter={enter} onMouseLeave={leave}>
+    <Component {...props}>
       {props.isLoading ? (
         <>
           {spinner ?? <TbLoader2 size={20} className="animate-spin" />}
@@ -119,7 +53,7 @@ const Button = ({
           )}
         </>
       )}
-    </StyledButton>
+    </Component>
   );
 };
 
