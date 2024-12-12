@@ -17,8 +17,7 @@
     "build": "rm -rf .rollup.cache && rm -rf tsconfig.tsbuildinfo && rollup -c",
     "insert": "node scripts/insert-client.cjs",
     "postbuild": "npm run insert",
-    "eject": "node scripts/eject.js",
-    "release": "gh release create v0.1.0 --title 'Release v0.1.0' --notes \"$(git log -1 --pretty=%B)\""
+    "eject": "node scripts/eject.js"
   },
   "bin": {
     "auera-ui": "./scripts/cli.js"
