@@ -4,7 +4,7 @@ import { components, MDXRemote } from "@/constant/mdx.config";
 import { fetchContent } from "@/hooks/fetch_content";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { MDXRemoteSerializeResult } from "next-mdx-remote";
-import React from "react";
+import React, { Suspense } from "react";
 
 interface Props {
   mdxSource: MDXRemoteSerializeResult;
@@ -13,12 +13,12 @@ interface Props {
 
 const Page = ({ frontmatter, mdxSource }: Props) => {
   return (
-    <>
+    <Suspense>
       <Title title={frontmatter?.title as string} />
       <DocsLayout>
         <MDXRemote {...mdxSource} components={components} />
       </DocsLayout>
-    </>
+    </Suspense>
   );
 };
 
