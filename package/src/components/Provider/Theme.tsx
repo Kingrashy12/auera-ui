@@ -3,6 +3,7 @@ import { ThemeContext, ThemeContextType } from "../../context/theme";
 import { storageActions } from "../../hook/useStorage";
 import { ModeType } from "../../types/auera-system";
 import { getDisplayName } from "@/utils/displayname";
+import { WINDOW_ACTIVE } from "@/utils";
 
 type ThemeProviderProps = {
   children: ReactNode;
@@ -10,20 +11,20 @@ type ThemeProviderProps = {
 };
 
 const ThemeProvider = ({ children, mode: customMode }: ThemeProviderProps) => {
-  const [scheme, setScheme] = useState<ModeType>(() => {
-    const storedTheme = storageActions.get("auera-ui-theme") as ModeType;
-    return storedTheme || "light";
+  const THEME_KEY = "aueraui.theme";
+  const [mode, setMode] = useState<ModeType>(() => {
+    if (!WINDOW_ACTIVE) return "light";
+
+    const storedTheme = storageActions.get(THEME_KEY) as ModeType;
+    if (storedTheme) return storedTheme;
+
+    const systemPreference = window.matchMedia("(prefers-color-scheme: dark)")
+      .matches
+      ? "dark"
+      : "light";
+    storageActions.set(THEME_KEY, systemPreference);
+    return systemPreference;
   });
-
-  useEffect(() => {
-    setScheme(
-      window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "dark"
-        : "light"
-    );
-  }, []);
-
-  const [mode, setMode] = useState(scheme);
 
   useEffect(() => {
     if (customMode) setMode(customMode);
@@ -44,7 +45,7 @@ const ThemeProvider = ({ children, mode: customMode }: ThemeProviderProps) => {
     main: () => {
       setMode((prev) => {
         const newMode = prev === "light" ? "dark" : "light";
-        storageActions.set("auera-ui-theme", newMode);
+        storageActions.set(THEME_KEY, newMode);
         return newMode;
       });
     },

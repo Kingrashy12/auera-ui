@@ -98,7 +98,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
                   href={item.href}
                   className={tw(
                     item.href === router.pathname
-                      ? "text-primary"
+                      ? "text-primary pointer-events-none cursor-text"
                       : "text-muted",
                     "font-inter font-medium text-sm",
                     itemClass as string

@@ -6,11 +6,19 @@ import { tw } from "stywind";
 import StatusBadge from "./lib/StatusBadge";
 import SideBarLinks from "./layout/SideBarLinks";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 const SideBarContent = () => {
   const [query, setQuery] = useState("");
   const router = useRouter();
   const [menuLinks, setMenuLinks] = useState(sideBarLinks);
+  const { slug } = router.query;
+
+  const getActiveLink = (uri: string) => {
+    const current = router.pathname.split("[slug]").join(`${slug}`);
+    const isActive = uri === current ? true : false;
+    return isActive;
+  };
 
   useEffect(() => {
     const result: typeof sideBarLinks = sideBarLinks
@@ -51,16 +59,15 @@ const SideBarContent = () => {
           data={linksWithIcon}
           className="gap-3"
           renderItem={(item, index) => (
-            <Box
+            <Link
+              href={item.href}
               className={tw(
-                "items-center gap-3 hover:text-blue-600 justify-between",
+                "items-center gap-3 flex w-full hover:text-blue-600 justify-between",
                 item.soon ? "pointer-events-none" : "cursor-pointer",
-                router.pathname.startsWith(`/${item.label.toLowerCase()}`)
-                  ? "text-blue-600"
-                  : "text-primary"
+                getActiveLink(item.href) ? "text-blue-600" : "text-primary"
               )}
+              target={item.external ? "_blank" : ""}
               key={index}
-              fullWidth
             >
               <Box className="items-center gap-3">
                 <div className="p-[6px] bg-sideIcon rounded-md border shadow-sm border-sidebar">
@@ -73,7 +80,7 @@ const SideBarContent = () => {
               {item.soon && (
                 <StatusBadge status="away" badgeClassName="relative" animate />
               )}
-            </Box>
+            </Link>
           )}
         />
         <SideBarLinks data={menuLinks} />

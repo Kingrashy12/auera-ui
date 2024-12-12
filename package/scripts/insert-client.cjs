@@ -2,23 +2,17 @@
 
 const fs = require("fs");
 const path = require("path");
-const customChalk = require("./chalk.cjs");
 const { logger } = require("stywind");
 
 const componentsDir = [
   "components/Button",
   "components/Breadcrumb",
-  // 'components/Card',
   "components/Drawer",
   // 'components/Menu',
-  // 'components/Tabs',
   "components/Modal",
   "components/Input",
   // 'components/FilePicker',
-  // "components/Backdrop",
   "components/Provider",
-  // 'components/Checkbox',
-  // 'components/loaders/PageLoader',
 ];
 const hooksDir = ["hook", "context", "core"];
 const insertFiles = [
@@ -84,7 +78,7 @@ function addUseClientToFiles(dir) {
 if (fs.existsSync(Dir)) {
   checkDir();
   checkFile();
-  console.log(customChalk.green('\u2714 Modified with "use client".'));
+  logger.success('\u2714 Modified with "use client".');
 } else {
-  console.error(customChalk.red(`Directory ${Dir} does not exist.`));
+  console.error(`Directory ${Dir} does not exist.`);
 }
