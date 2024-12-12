@@ -9,7 +9,7 @@ import DetailCard from "@/components/layout/DetailCard";
 import Link from "next/link";
 import CLI from "@/components/guide/CLI";
 import CodeTag from "@/components/CodeTag";
-import { lazy } from "react";
+import dynamic from "next/dynamic";
 
 export const components = {
   DetailCard,
@@ -29,6 +29,6 @@ export const components = {
   CodeTag,
 };
 
-export const MDXRemote = lazy(() =>
+export const MDXRemote = dynamic(() =>
   import("next-mdx-remote").then((module) => ({ default: module.MDXRemote }))
 );
