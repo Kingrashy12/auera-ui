@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Icon, MapItems, TextInput } from "auera-ui";
 import { IoSearch } from "react-icons/io5";
 import { linksWithIcon, sideBarLinks } from "@/data/sidebar";
@@ -10,15 +10,23 @@ import { useRouter } from "next/router";
 const SideBarContent = () => {
   const [query, setQuery] = useState("");
   const router = useRouter();
+  const [menuLinks, setMenuLinks] = useState(sideBarLinks);
 
-  const filteredLinks = sideBarLinks.filter((links) =>
-    links.links.some((link) => {
-      const label = link.label.toLowerCase();
-      const keyword = query.toLowerCase();
+  useEffect(() => {
+    const result: typeof sideBarLinks = sideBarLinks
+      .map((currentGroup) => {
+        const queried = currentGroup.links.filter((link) => {
+          const label = link.label.toLowerCase();
+          const keyword = query.toLowerCase();
 
-      return label.includes(keyword);
-    })
-  );
+          return label.includes(keyword);
+        });
+        return { header: currentGroup.header, links: queried };
+      })
+      .filter((item) => item.links.length !== 0);
+
+    setMenuLinks(result);
+  }, [query]);
 
   return (
     <>
@@ -68,7 +76,7 @@ const SideBarContent = () => {
             </Box>
           )}
         />
-        <SideBarLinks data={filteredLinks} />
+        <SideBarLinks data={menuLinks} />
       </Box>
     </>
   );

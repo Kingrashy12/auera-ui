@@ -13,16 +13,25 @@ type Data = {
   soon?: boolean;
 };
 
+const EmptyList = () => (
+  <Box className="items-center gap-1" fullWidth direction="column">
+    <HiArchive size={40} className="text-muted" />
+    <h3 className="text font-semibold">Nothing is here</h3>
+  </Box>
+);
+
 const SideBarLinks = ({ data }: { data: typeof sideBarLinks }) => {
   const sortedItems = (data: Data[]) =>
     data.sort((a, b) => a.label.localeCompare(b.label));
   const router = useRouter();
   const { slug } = router.query;
+
   const getActiveLink = (uri: string) => {
     const current = router.pathname.split("[slug]").join(`${slug}`);
     const isActive = uri === current ? true : false;
     return isActive;
   };
+
   return (
     <MapItems
       data={data}
@@ -60,12 +69,7 @@ const SideBarLinks = ({ data }: { data: typeof sideBarLinks }) => {
           />
         </Box>
       )}
-      emptyListComponent={
-        <Box className="items-center gap-1" fullWidth direction="column">
-          <HiArchive size={40} className="text-muted" />
-          <h3 className="text font-semibold">Nothing is here</h3>
-        </Box>
-      }
+      emptyListComponent={<EmptyList />}
     />
   );
 };
