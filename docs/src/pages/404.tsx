@@ -11,13 +11,7 @@ const PageNotFound = () => {
     <>
       <Title title="Page Not Found" />
       <Box centered fullWidth direction="column" className="h-[80vh] gap-3">
-        <Image
-          src={"/logo.png"}
-          className="animate-bounce"
-          alt="Logo"
-          width={120}
-          height={120}
-        />
+        <Image src={"/logo.png"} alt="Logo" width={120} height={120} />
         <h2 className="font-inter-tight text-primary font-medium text-2xl">
           404. Page not found
         </h2>

@@ -1,12 +1,14 @@
 import React from "react";
-import Navbar from "./Navbar";
 import MobileMenu from "../Overlays/MobileMenu";
 import { Box } from "auera-ui";
-import ToolBar from "./ToolBar";
 import { useRouter } from "next/router";
 import MobileSideBar from "../Overlays/MobileSideBar";
 import localFont from "next/font/local";
 import { tw } from "stywind";
+import dynamic from "next/dynamic";
+
+const Navbar = dynamic(() => import("./Navbar"));
+const ToolBar = dynamic(() => import("./ToolBar"));
 
 export const poppins = localFont({
   src: [
