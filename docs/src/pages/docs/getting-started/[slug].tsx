@@ -1,12 +1,10 @@
-// import DocsLayout from "@/components/layout/DocsLayout";
-import DocsLayout from "@/components/layout/DocsLayout";
-import LoadIndicator from "@/components/LoadIndicator";
+import { DocsLayout } from "@/components";
 import Title from "@/components/Title";
 import { components, MDXRemote } from "@/constant/mdx.config";
 import { fetchContent } from "@/hooks/fetch_content";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { MDXRemoteSerializeResult } from "next-mdx-remote";
-import React, { Suspense } from "react";
+import React from "react";
 
 interface Props {
   mdxSource: MDXRemoteSerializeResult;
@@ -15,12 +13,12 @@ interface Props {
 
 const Page = ({ frontmatter, mdxSource }: Props) => {
   return (
-    <Suspense fallback={<LoadIndicator />}>
+    <>
       <Title title={frontmatter?.title as string} />
       <DocsLayout>
         <MDXRemote {...mdxSource} components={components} />
       </DocsLayout>
-    </Suspense>
+    </>
   );
 };
 
