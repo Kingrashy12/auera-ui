@@ -1,21 +1,24 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
+## [0.1.4] - 2024-12-12
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
+### Added
+
+- `Breadcrums` component for displaying hierarchical navigation.
+- `StatusBadge` a badge component for status representation.
+
+### Changed
+
+- Improved eject scripts for configuration management.
 
 ---
 
 ## [0.1.3] - 2024-12-09
 
-### Docs
+### Added
 
-- Refactored documentation to use MDX format.
-
-### Features
-
-- Added `Tabs` component for tabbed navigation.
-- Added `Card` component for displaying content in a structured, card-like format.
+- `Tabs` component for tabbed navigation.
+- `Card` component for displaying content in a structured, card-like format.
 
 ---
 
