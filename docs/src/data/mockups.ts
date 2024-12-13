@@ -78,6 +78,12 @@ export const mockups = [
     soon: true,
   },
   {
+    label: "Tabs",
+    uri: "/docs/components/tabs",
+    image: MockupsImage.Tabs,
+    size: 120,
+  },
+  {
     label: "StatusBadge",
     uri: "/docs/components/status-badge",
     image: MockupsImage.StatusBadge,
