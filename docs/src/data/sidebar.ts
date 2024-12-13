@@ -75,6 +75,7 @@ export const sideBarLinks = [
       { label: "GroupMap", uri: "/docs/components/group-map" },
       { label: "OTPInput", uri: "/docs/components/otp-input" },
       { label: "TextInput", uri: "/docs/components/textinput", soon: true },
+      { label: "Tabs", uri: "/docs/components/tabs" },
       {
         label: "StatusBadge",
         uri: "/docs/components/status-badge",

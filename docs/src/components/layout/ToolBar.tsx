@@ -27,6 +27,7 @@ const ToolBar = () => {
               "/docs",
               "/docs/getting-started",
               "/docs/customization",
+              "/docs/components",
             ]}
             exclude="Docs"
           />
