@@ -61,7 +61,7 @@ const SideBarLinks = ({ data }: { data: typeof sideBarLinks }) => {
                 )}
               >
                 <p className="font-inter font-medium text-sm">{link.label}</p>
-                <Badge show={link.soon as boolean} colorScheme="warning">
+                <Badge variant="ghost" show={link.soon as boolean}>
                   Soon
                 </Badge>
               </Link>

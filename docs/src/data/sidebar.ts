@@ -79,7 +79,6 @@ export const sideBarLinks = [
       {
         label: "StatusBadge",
         uri: "/docs/components/status-badge",
-        soon: true,
       },
       {
         label: "Breadcrumb",
