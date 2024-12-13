@@ -87,7 +87,6 @@ export const mockups = [
     label: "StatusBadge",
     uri: "/docs/components/status-badge",
     image: MockupsImage.StatusBadge,
-    soon: true,
     size: 50,
   },
   {
