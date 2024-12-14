@@ -1,6 +1,5 @@
 import type { Config } from "tailwindcss";
-import { tailwindExtend } from "auera-ui";
-// import { tailwindExtend } from "./tailwind.extend";
+import { aueraTw, tailwindExtend } from "auera-ui";
 
 const config: Config = {
   content: [
@@ -51,8 +50,9 @@ const config: Config = {
       keyframes: { ...tailwindExtend.keyframes },
       animation: { ...tailwindExtend.animation },
       dropShadow: { ...tailwindExtend.dropShadow },
+      data: {},
     },
   },
-  plugins: [],
+  plugins: [aueraTw],
 };
 export default config;

@@ -11,6 +11,19 @@ import CLI from "@/components/guide/CLI";
 import CodeTag from "@/components/CodeTag";
 import dynamic from "next/dynamic";
 import Mockups from "@/components/Mockups";
+import SimpleBackdrop from "@/components/example/backdrop/SimpleBackdrop";
+import APITable from "@/components/APITable";
+import BoxBasic from "@/components/example/box/Basic";
+import BoxWithDirection from "@/components/example/box/Direction";
+import ButtonDemo from "@/components/example/button/demo";
+import ButtonVariants from "@/components/example/button/variants";
+import ButtonColors from "@/components/example/button/colors";
+import ButtonRadius from "@/components/example/button/radius";
+import ButtonSizes from "@/components/example/button/sizes";
+import ButtonFlavours from "@/components/example/button/flavours";
+import LoadingButton from "@/components/example/button/loading";
+import CustomSpinner from "@/components/example/button/custom-spinner";
+import ButtonWithIcon from "@/components/example/button/icon";
 
 export const components = {
   DetailCard,
@@ -29,6 +42,19 @@ export const components = {
   CLI,
   CodeTag,
   Mockups,
+  SimpleBackdrop,
+  APITable,
+  BoxBasic,
+  BoxWithDirection,
+  ButtonDemo,
+  ButtonVariants,
+  ButtonColors,
+  ButtonRadius,
+  ButtonSizes,
+  ButtonFlavours,
+  LoadingButton,
+  CustomSpinner,
+  ButtonWithIcon,
 };
 
 export const MDXRemote = dynamic(() =>

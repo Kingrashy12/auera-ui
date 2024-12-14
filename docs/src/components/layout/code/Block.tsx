@@ -63,8 +63,11 @@ const CodeBlock = ({
           )}
         </Highlight>
       </Box>
-      <div className="h-auto absolute text-white p-3 hover:text-black right-0 -top-[2px]">
-        <Clipboard content={code} />
+      <div className="h-auto absolute text-white p-3 right-0 -top-[2px]">
+        <Clipboard
+          content={code}
+          className="theme-light:hover:bg-neutral-800"
+        />
       </div>
     </Box>
   );

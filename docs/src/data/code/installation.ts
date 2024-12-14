@@ -8,13 +8,13 @@ interface Props {
 export default function RootLayout({
  children
 }: Props) {
- return (
+ return ( 
   <Provider>
    {children}
   </Provider>
  )
 }`,
-  config: `import { tailwindExtend } from "auera-ui";
+  config: `import { tailwindExtend, aueraTw } from "auera-ui";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -47,6 +47,8 @@ const config: Config = {
       dropShadow: {...tailwindExtend.dropShadow},
     },
   },
-  plugins: [],
+  /* For enabling custom variants, This allows you use 'theme-light' &
+   'theme-dark' */
+  plugins: [aueraTw], 
 };`,
 };

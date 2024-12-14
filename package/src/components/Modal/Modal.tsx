@@ -3,33 +3,10 @@ import { useModal } from "../../hook/useModal";
 import { useTheme } from "../../hook/useTheme";
 import { ModalType } from "../../types/auera-ui";
 import Backdrop from "../Backdrop/Backdrop";
-import ModalContent from "./ModalContent";
-import ModalFooter from "./ModalFooter";
-import ModalHeader from "./ModalHeader";
-import ModalPanel from "./ModalPanel";
-import ModalTrigger from "./ModalTrigger";
 import { getDisplayName } from "@/utils/displayname";
 import { FC } from "react";
 
-declare module "./Modal" {
-  interface Modal {
-    Header: typeof ModalHeader;
-    Content: typeof ModalContent;
-    Footer: typeof ModalFooter;
-    Panel: typeof ModalPanel;
-    Trigger: typeof ModalTrigger;
-  }
-}
-
-type ModalComponents = {
-  Header: typeof ModalHeader;
-  Panel: typeof ModalPanel;
-  Content: typeof ModalContent;
-  Footer: typeof ModalFooter;
-  Trigger: typeof ModalTrigger;
-};
-
-const Modal: FC<ModalType> & ModalComponents = ({
+const Modal: FC<ModalType> = ({
   children,
   preventClose,
   intensity = "md",
@@ -59,12 +36,6 @@ const Modal: FC<ModalType> & ModalComponents = ({
     </Backdrop>
   );
 };
-
-Modal.Header = ModalHeader;
-Modal.Content = ModalContent;
-Modal.Footer = ModalFooter;
-Modal.Panel = ModalPanel;
-Modal.Trigger = ModalTrigger;
 
 export default Modal;
 Modal.displayName = getDisplayName("Modal");

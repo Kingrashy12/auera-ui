@@ -1,10 +1,7 @@
-import React, { useState } from "react";
-import { Card, TabsType, Tabs, TextInput } from "auera-ui";
-// import TextInput from "@/components/lib/TextInput";
+import React from "react";
+import { Card, TabsType, Tabs } from "auera-ui";
 
 const Tab = ({ variant, ...props }: TabsType) => {
-  const [value, setValue] = useState("");
-
   return (
     <>
       <Card fullWidth className="w-[250px]">
@@ -18,7 +15,6 @@ const Tab = ({ variant, ...props }: TabsType) => {
           <Tabs.Panel>Profile</Tabs.Panel>
           <Tabs.Panel>Security</Tabs.Panel>
         </Tabs>
-        <TextInput value={value} onChange={(e) => setValue(e.target.value)} />
       </Card>
     </>
   );

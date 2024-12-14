@@ -506,3 +506,20 @@ export interface CardProps extends BoxProps {
   borderColor?: string;
   centerContent?: boolean;
 }
+
+export type TootipProps = {
+  position?: "top" | "left" | "right" | "bottom";
+  children: React.ReactNode;
+  label: string;
+  className?: string;
+  labelClass?: string;
+  containerClass?: string;
+};
+
+export interface RadioProps {
+  checked: boolean;
+  className?: string;
+  onSelect: () => void;
+  name?: string;
+  size?: "sm" | "md" | "lg";
+}

@@ -27,8 +27,11 @@ const Bash = ({ code }: { code: string }) => {
           )}
         </Highlight>
       </Box>
-      <div className="h-auto absolute text-white p-3 hover:text-black bg-[var(--block)] right-0 -top-[2px]">
-        <Clipboard content={code} />
+      <div className="h-auto absolute text-white p-3 bg-[var(--block)] right-0 -top-[2px]">
+        <Clipboard
+          content={code}
+          className="theme-light:hover:bg-neutral-800"
+        />
       </div>
     </Box>
   );

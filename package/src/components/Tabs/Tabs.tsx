@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { createStyle, defineClass, merge, tw } from "stywind";
 import TabsProvider from "./Provider";
-import TabHandle from "./TabHandle";
-import TabPanel from "./TabPanel";
 import Box from "../Box/Box";
 import { getDisplayName } from "@/utils/displayname";
 import { useMode } from "@/hook/use";
 import { TabsType } from "../../types/auera-ui";
+import TabHandle from "./TabHandle";
+import TabPanel from "./TabPanel";
 
 const getStylesWithMode = (
   mode: TabsType["mode"],
@@ -30,10 +30,6 @@ const getStylesWithMode = (
 
   return merge.multi(styles, mode as string, variant);
 };
-type TabsChilds = {
-  Handle: typeof TabHandle;
-  Panel: typeof TabPanel;
-};
 
 const getTabWidth = (
   variant: TabsType["variant"],
@@ -49,7 +45,7 @@ const getTabWidth = (
   }
 };
 
-const Tabs: React.FC<TabsType> & TabsChilds = ({
+const Tabs: React.FC<TabsType> = ({
   children,
   variant = "line",
   mode,
@@ -127,9 +123,6 @@ const Tabs: React.FC<TabsType> & TabsChilds = ({
     </TabsProvider>
   );
 };
-
-Tabs.Handle = TabHandle;
-Tabs.Panel = TabPanel;
 
 export default Tabs;
 Tabs.displayName = getDisplayName("Tabs");
