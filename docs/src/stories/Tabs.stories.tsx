@@ -13,6 +13,18 @@ const meta = {
   parameters: {
     layout: "centered",
   },
+  argTypes: {
+    variant: {
+      type: "string",
+      control: "radio",
+      options: ["line", "solid"],
+    },
+    rounded: {
+      type: "boolean",
+      control: "boolean",
+      options: ["true", "false"],
+    },
+  },
   tags: ["docs"],
 } satisfies Meta<typeof Tab>;
 

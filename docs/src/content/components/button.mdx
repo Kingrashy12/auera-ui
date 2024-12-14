@@ -1,0 +1,66 @@
+---
+title: Button | AueraUI
+description: A basic component that is used to trigger an action.
+---
+
+<DetailCard description='A basic component that is used to trigger an action or event.'/>
+
+<Details>
+<ButtonDemo />
+</Details>
+
+<Details id='examples'>
+<HeaderLabel id='examples'>Examples</HeaderLabel>
+ <p className="text">Below are examples of how to use the Button component.</p>
+</Details>
+
+<Details id='variants'>
+<HeaderLabel id='variants' as='h3'>Variants</HeaderLabel>
+ <p className="text">Use the <CodeTag>variant</CodeTag> prop to change the visual style of the button.</p>
+ <ButtonVariants/>
+</Details>
+
+<Details id='sizes'>
+<HeaderLabel id='sizes' as='h3'>Sizes</HeaderLabel>
+ <p className="text">Use the <CodeTag>size</CodeTag> prop to change the Button size.</p>
+ <ButtonSizes />
+</Details>
+
+<Details id='colors'>
+<HeaderLabel id='colors' as='h3'>Colors</HeaderLabel>
+ <p className="text">Use the <CodeTag>colorScheme</CodeTag> prop to change the Button background.</p>
+ <ButtonColors />
+</Details>
+
+<Details id='radius'>
+<HeaderLabel id='radius' as='h3'>Radius</HeaderLabel>
+ <p className="text">Use the <CodeTag>radius</CodeTag> prop to change the Button border-radius.</p>
+ <ButtonRadius />
+</Details>
+
+<Details id='flavours'>
+<HeaderLabel id='flavours' as='h3'>Flavours</HeaderLabel>
+ <p className="text">Use the <CodeTag>flavour</CodeTag> prop to change the Button design style.</p>
+ <ButtonFlavours />
+</Details>
+
+<Details id='loading'>
+<HeaderLabel id='loading' as='h3'>Loading</HeaderLabel>
+ <p className="text">Pass the <CodeTag>isLoading</CodeTag> prop to display a loading indicator to the button.</p>
+ <LoadingButton />
+ <p className="text">You can also customize the loading spinner by passing a custom component to the
+ <CodeTag>spinner</CodeTag> prop.</p>
+ <CustomSpinner />
+</Details>
+
+<Details id='icon'>
+<HeaderLabel id='icon' as='h3'>Icon</HeaderLabel>
+ <p className="text">Add icon to the Button by using the <CodeTag>leftIcon</CodeTag> or <CodeTag>rightIcon</CodeTag> props</p>
+ <ButtonWithIcon />
+</Details>
+
+<Details id='api-reference'>
+<HeaderLabel id='api-reference'>API Reference</HeaderLabel>
+ <p className="text">See the comprehensive guide below for a complete reference to all of the props available to the components.</p>
+<APITable reference={buttonRef} />
+</Details>

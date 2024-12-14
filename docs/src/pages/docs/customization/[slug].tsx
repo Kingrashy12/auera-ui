@@ -26,11 +26,12 @@ export default Page;
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const { slug } = context.params as { slug: string };
-  const { mdxSource } = await fetchContent(slug, "customization");
+  const { mdxSource, notFound } = await fetchContent(slug, "customization");
   const frontmatter = mdxSource?.frontmatter;
   return {
     props: { slug, mdxSource, frontmatter },
     revalidate: 60,
+    notFound: notFound,
   };
 };
 
@@ -43,6 +44,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths,
-    fallback: true,
+    fallback: false,
   };
 };

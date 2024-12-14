@@ -1,24 +1,11 @@
 import { DrawerProps } from "../../types/auera-ui";
-import DrawerHeader from "./DrawerHeader";
-import DrawerContent from "./DrawerContent";
-import DrawerFooter from "./DrawerFooter";
-import DrawerTrigger from "./DrawerTrigger";
 import { useDrawer } from "../../hook/useDrawer";
 import Backdrop from "../Backdrop/Backdrop";
 import { useMode } from "../../hook/use";
-import DrawerPanel from "./DrawerPanel";
 import { FC } from "react";
 import { getDisplayName } from "@/utils/displayname";
 
-type DrawerComponents = {
-  Header: typeof DrawerHeader;
-  Panel: typeof DrawerPanel;
-  Content: typeof DrawerContent;
-  Footer: typeof DrawerFooter;
-  Trigger: typeof DrawerTrigger;
-};
-
-const Drawer: FC<DrawerProps> & DrawerComponents = ({
+const Drawer: FC<DrawerProps> = ({
   children,
   preventClose,
   intensity = "sm",
@@ -47,9 +34,3 @@ const Drawer: FC<DrawerProps> & DrawerComponents = ({
 
 export default Drawer;
 Drawer.displayName = getDisplayName("Drawer");
-
-Drawer.Header = DrawerHeader;
-Drawer.Content = DrawerContent;
-Drawer.Footer = DrawerFooter;
-Drawer.Trigger = DrawerTrigger;
-Drawer.Panel = DrawerPanel;

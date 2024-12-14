@@ -1,0 +1,34 @@
+---
+title: Box | AueraUI
+description: A flexible container
+---
+
+<DetailCard description='The Box component is a flexible container built with Flexbox for easy layout and alignment.'/>
+
+<Details id='usage'>
+<HeaderLabel id='usage'>Usage</HeaderLabel>
+ <p className="text">
+ The Box component differs from other containers available in AueraUI in that its usage is intended to be multipurpose
+ and open-ended. Components like <TabLink to='/docs/components/stack' label='Stack' /> and 
+ <TabLink to='/docs/components/card' label='Card' />, by contrast, feature usage-specific props that make them 
+ ideal for certain use cases: Stack for two-dimensional layouts, and Card for elevated surfaces.
+ </p>
+</Details>
+
+<Details id='basic'>
+<HeaderLabel id='basic' as='h3'>Basic</HeaderLabel>
+ <p className="text">Below is a basic usage of the Box component.</p>
+<BoxBasic />
+</Details>
+
+<Details id='direction'>
+<HeaderLabel id='direction' as='h3'>Direction</HeaderLabel>
+ <p className="text">Use the <CodeTag>direction</CodeTag> prop to change the layout direction.</p>
+<BoxWithDirection />
+</Details>
+
+<Details id='api-reference'>
+<HeaderLabel id='api-reference'>API Reference</HeaderLabel>
+ <p className="text">See the comprehensive guide below for a complete reference to all of the props available to the components.</p>
+<APITable reference={boxRef} />
+</Details>

@@ -4,12 +4,8 @@ import {
   Button,
   colors,
   Drawer as D,
-  DrawerContent,
-  DrawerHeader,
-  DrawerPanel,
   DrawerPanelProps,
   DrawerProps,
-  DrawerTrigger,
   IconButton,
 } from "auera-ui";
 import { IoClose } from "react-icons/io5";
@@ -22,16 +18,16 @@ const Drawer = ({ position, type }: DrawerProps & DrawerPanelProps) => {
   return (
     <>
       <D value="default">
-        <DrawerPanel position={position} type={type}>
-          <DrawerHeader>
+        <D.Panel position={position} type={type}>
+          <D.Header>
             <h1 className="font-medium text-lg">Notifications</h1>
-            <DrawerTrigger type="close" value="">
+            <D.Trigger type="close" value="">
               <IconButton variants="outline">
                 <IoClose />
               </IconButton>
-            </DrawerTrigger>
-          </DrawerHeader>
-          <DrawerContent>
+            </D.Trigger>
+          </D.Header>
+          <D.Content>
             <GroupMap
               data={notifications}
               className="gap-3"
@@ -72,12 +68,12 @@ const Drawer = ({ position, type }: DrawerProps & DrawerPanelProps) => {
                 </h1>
               )}
             />
-          </DrawerContent>
-        </DrawerPanel>
+          </D.Content>
+        </D.Panel>
       </D>
-      <DrawerTrigger value="default">
+      <D.Trigger value="default">
         <Button>Open Drawer</Button>
-      </DrawerTrigger>
+      </D.Trigger>
     </>
   );
 };

@@ -1,4 +1,5 @@
 import Clipboard from "@/components/Clipboard";
+
 import { Box, Button } from "auera-ui";
 import Link from "next/link";
 import React from "react";
@@ -23,7 +24,6 @@ const Hero = () => {
                 className="font-inter"
                 size="xl"
                 flavour="frost"
-                animate
                 rightIcon={FiArrowRight}
               >
                 Get Started

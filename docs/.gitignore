@@ -39,3 +39,5 @@ next-env.d.ts
 .cache
 
 /src/lab
+/src/components/lib/Skeleton.tsx
+/src/components/lib/Avatar.tsx

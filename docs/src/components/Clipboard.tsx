@@ -2,7 +2,13 @@ import { Icon, IconButton } from "auera-ui";
 import React, { useState } from "react";
 import { IoCheckmark, IoCopyOutline } from "react-icons/io5";
 
-const Clipboard = ({ content }: { content: string | number }) => {
+const Clipboard = ({
+  content,
+  className,
+}: {
+  content: string | number;
+  className?: string;
+}) => {
   const [copied, setCopied] = useState(false);
 
   const copy = () => {
@@ -14,7 +20,12 @@ const Clipboard = ({ content }: { content: string | number }) => {
     }, 2000);
   };
   return (
-    <IconButton onClick={copy} radius="lg" variants="ghost">
+    <IconButton
+      onClick={copy}
+      radius="lg"
+      variants="ghost"
+      className={className}
+    >
       <Icon icon={copied ? IoCheckmark : IoCopyOutline} />
     </IconButton>
   );

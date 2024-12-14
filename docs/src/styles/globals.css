@@ -121,6 +121,11 @@ html {
   .nav-hover {
     @apply relative after:absolute after:-bottom-0.5 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-blue-500 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100;
   }
+
+  .skeleton {
+    @apply overflow-hidden relative animate-pulse inline-block p-1 theme-light:bg-slate-200 theme-dark:bg-neutral-700;
+  }
+
   .tblink::before {
     position: absolute;
     content: "";
