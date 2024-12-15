@@ -3,16 +3,20 @@ import { createStyle, defineClass, merge, tw } from "stywind";
 import { DrawerPanelProps } from "../../types/auera-ui";
 import { useDrawer } from "../../hook/useDrawer";
 import { getDisplayName } from "@/utils/displayname";
+import { usePanel } from "@/hook/usePanel";
 
 const DrawerPanel = ({
   flavour,
   type = "sticky",
   position = "right",
   children,
+  mode,
   ...props
 }: DrawerPanelProps) => {
   const { isVisible } = useDrawer();
-  const { currentMode } = useMode();
+  const { currentMode } = useMode(mode);
+  const { collectMode } = usePanel();
+  collectMode(currentMode);
 
   const stickyShared = defineClass(
     "max-[550px]:w-full max-[550px]:rounded-none"

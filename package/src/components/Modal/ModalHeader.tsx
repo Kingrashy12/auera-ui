@@ -1,14 +1,14 @@
 import { createStyle, defineClass, merge, tw } from "stywind";
 import { ModalHeaderType } from "../../types/auera-ui";
-import { useTheme } from "../../hook/useTheme";
 import { getDisplayName } from "@/utils/displayname";
+import { usePanel } from "@/hook/usePanel";
 
 const ModalHeader = ({
   children,
   showBorder = true,
   ...props
 }: ModalHeaderType) => {
-  const { mode } = useTheme();
+  const { mode } = usePanel();
   const modeStyle = {
     light: defineClass("border-b border-b-neutral-200"),
     dark: defineClass("border-b border-b-neutral-800"),

@@ -1,7 +1,7 @@
 import { ModalFooterProps } from "../../types/auera-ui";
-import { useTheme } from "../../hook/useTheme";
 import { createStyle, defineClass, merge, tw } from "stywind";
 import { getDisplayName } from "@/utils/displayname";
+import { usePanel } from "@/hook/usePanel";
 
 const DrawerFooter = ({
   children,
@@ -9,7 +9,7 @@ const DrawerFooter = ({
   position,
   ...props
 }: ModalFooterProps) => {
-  const { mode } = useTheme();
+  const mode = usePanel().mode;
   const modeStyle = {
     light: defineClass("border-t border-t-neutral-200"),
     dark: defineClass("border-t border-t-neutral-800"),
