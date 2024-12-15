@@ -51,7 +51,7 @@ export default {
       extract: "auera.css",
       modules: false,
       plugins: [],
-      minimize: true,
+      // minimize: true,
     }),
   ],
   external: [
@@ -59,8 +59,7 @@ export default {
     "react-dom",
     "stywind",
     "react-icons",
-    "inquirer",
+    "@clack/prompts",
     "arg",
-    "prettier",
   ],
 };

@@ -7,6 +7,7 @@ interface SkeletonProps {
   fullWidth?: boolean;
   width?: number | string;
   height?: number | string;
+  style?: React.CSSProperties;
 }
 
 const rd = {
@@ -23,10 +24,11 @@ const Skeleton: React.FC<SkeletonProps> = ({
   className,
   width,
   height,
+  style,
 }) => {
   return (
     <div
-      style={{ width, height }}
+      style={{ ...style, width, height }}
       className={tw(className, "skeleton", merge.single(rd, radius))}
     />
   );
