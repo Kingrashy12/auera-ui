@@ -1,5 +1,27 @@
 # Changelog
 
+## [0.1.7] - 2024-12-15
+
+### Changed
+
+- Improved the `eject` process for better clarity and reliability during setup.
+
+## [0.1.5] - 2024-12-14
+
+### Added
+
+- **Avatar**: A component for displaying user profile pictures with optimized loading.
+- **Media**: A utility component for media assets like images and videos.
+- **Tooltip**: A lightweight component for hover-over hints.
+- **Skeleton**: Placeholder UI for loading states.
+- **BounceLoader**: Animated loader for dynamic interfaces.
+- **CircularProgress**: Circular progress indicator for tasks.
+- **aueraTw**: Utility for managing Tailwind CSS configurations.
+
+### Changed
+
+- **Drawer**, **Tabs**, **Modal**: Switched default export to namespace for improved import consistency and flexibility.
+
 ## [0.1.4] - 2024-12-12
 
 ### Added
@@ -18,7 +40,7 @@
 ### Added
 
 - `Tabs` component for tabbed navigation.
-- `Card` component for displaying content in a structured, card-like format.
+- `Card` Component for structured content display.
 
 ---
 

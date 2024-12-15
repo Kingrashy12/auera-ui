@@ -1,28 +1,35 @@
 import React, { useEffect } from "react";
-import { createStyle, tw } from "stywind";
+import { tw } from "stywind";
 import Skeleton from "../loader/Skeleton";
 import { ButtonProps } from "@/types/auera-ui";
 import { ReturnError } from "@/utils/error";
+import { getDisplayName } from "@/utils/displayname";
 
-interface MediaProps extends React.ComponentProps<"img"> {
+type ImgProps = React.ComponentProps<"img">;
+type VideoProps = React.ComponentProps<"video">;
+
+interface BaseMediaProps {
   fullWidth?: boolean;
   size?: number | string;
   radius?: ButtonProps["radius"];
   width: string | number;
   height: string | number;
+  loaderClass?: string;
+  loaderStyle?: React.CSSProperties;
+  as: "img" | "video";
 }
+
+type MediaProps = BaseMediaProps &
+  (BaseMediaProps["as"] extends "img" ? ImgProps : VideoProps);
 
 const Media: React.FC<MediaProps> = ({
   fullWidth,
   size,
   radius = "sm",
+  as = "img",
   ...props
 }) => {
   const [loaded, setLoaded] = React.useState(false);
-
-  const Image = createStyle("img").classname(
-    tw(props.className, "rounded-full", fullWidth && "w-full")
-  );
 
   const handleLoad = () => {
     setLoaded(true);
@@ -31,7 +38,7 @@ const Media: React.FC<MediaProps> = ({
   useEffect(() => {
     ReturnError.throw(
       !props.width || !props.height,
-      "width and height is required, when using the Media component"
+      "width and height are required when using the Media component"
     );
   }, []);
 
@@ -51,17 +58,23 @@ const Media: React.FC<MediaProps> = ({
           fullWidth={fullWidth}
           height={props.height}
           radius={radius}
+          className={props.loaderClass}
+          style={props.loaderStyle}
         />
       )}
-      <Image
-        onLoad={handleLoad}
-        loading="lazy"
-        alt={props.alt}
-        className={tw(loaded ? "block" : "hidden", props.className)}
-        {...props}
-      />
+      {React.createElement(
+        as,
+        {
+          onLoad: as === "img" ? handleLoad : undefined,
+          loading: as === "img" ? "lazy" : undefined,
+          className: tw(loaded ? "block" : "hidden", props.className),
+          ...props,
+        },
+        as === "video" ? props.children : null
+      )}
     </>
   );
 };
 
 export default Media;
+Media.displayName = getDisplayName("Media");

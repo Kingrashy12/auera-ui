@@ -19,9 +19,7 @@
      focus-within:border-blue-600
      focus-within:shadow-[0_0_0_3px_rgba(59,130,246,0.3)];
   }
-}
 
-@layer components {
   .skeleton {
     @apply overflow-hidden relative animate-pulse inline-block p-1 theme-light:bg-slate-200 theme-dark:bg-neutral-700;
   }
