@@ -5,13 +5,13 @@ import { fetchFile } from "./config.js";
 
 export const ejectTailwind = async () => {
   const isTypeScript = existsSync(join(process.cwd(), "tsconfig.json"));
+  const fileName = `✔ Created tailwind.extend${isTypeScript ? ".ts" : ".js"}`;
   try {
-    const file = await fetchFile();
+    const file = await fetchFile(fileName);
     writeFileSync(
       isTypeScript ? "./tailwind.extend.ts" : "./tailwind.extend.js",
       file
     );
-    logger.success(`✔ Created tailwind.extend${isTypeScript ? ".ts" : ".js"}`);
   } catch (error) {
     logger.error(error);
   }

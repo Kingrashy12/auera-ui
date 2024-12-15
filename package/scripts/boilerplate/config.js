@@ -1,26 +1,18 @@
+import { spinner } from "@clack/prompts";
+import chalk from "chalk";
+
+const s = spinner();
+
 const fileUrl =
   "https://raw.githubusercontent.com/Kingrashy12/auera-ui/main/package/src/utils/tailwind.extend.ts";
 
 let fetching = false;
 
 const showProcess = async () => {
-  let spinnerFrames = ["|", "/", "-", "\\"];
-  let currentFrame = 0;
-
-  let sign = "";
-
-  while (fetching) {
-    sign = `\r${spinnerFrames[currentFrame]}`;
-    process.stdout.write(sign);
-    currentFrame = (currentFrame + 1) % spinnerFrames.length;
-    await new Promise((resolve) => setTimeout(resolve, 100));
-  }
-  spinnerFrames = "";
-  sign = "";
-  currentFrame = null;
+  if (fetching) s.start("Fetching Tailwind configuration...");
 };
 
-export const fetchFile = async () => {
+export const fetchFile = async (fileName) => {
   try {
     fetching = true;
     showProcess();
@@ -35,5 +27,6 @@ export const fetchFile = async () => {
     throw new Error(`${error.message}`);
   } finally {
     fetching = false;
+    s.stop(chalk.greenBright(fileName));
   }
 };
