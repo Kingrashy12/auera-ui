@@ -304,6 +304,7 @@ export type ModalPanelType = {
    * Specifies the design flavour for the modal.
    */
   flavour?: DesignFlavour;
+  mode?: "light" | "dark";
 };
 
 export interface ModalContentType extends DivProps {
@@ -365,6 +366,7 @@ export interface DrawerPanelProps extends DivProps {
   position?: "left" | "right";
   type?: "float" | "sticky";
   flavour?: DesignFlavour;
+  mode?: "light" | "dark";
 }
 
 export interface DrawerTriggerType extends DivProps {

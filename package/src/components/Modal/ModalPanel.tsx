@@ -1,20 +1,24 @@
 import { createStyle, defineClass, merge, tw } from "stywind";
 import { ModalPanelType } from "../../types/auera-ui";
 import { useModal } from "../../hook/useModal";
-import { useTheme } from "../../hook/useTheme";
 import { useProvider } from "../../hook/provider";
 import { getDisplayName } from "@/utils/displayname";
+import { usePanel } from "@/hook/usePanel";
+import { useMode } from "@/hook/use";
 
 const ModalPanel = ({
   children,
   size = "auto",
   transition = "walkIn",
   align = "vertical",
+  mode,
   ...props
 }: ModalPanelType) => {
   const { isVisible } = useModal();
-  const { mode: currentMode } = useTheme();
+  const { currentMode } = useMode(mode);
   const { flavour } = useProvider();
+  const { collectMode } = usePanel();
+  collectMode(currentMode);
 
   const sizes = {
     auto: defineClass("w-auto max-[550px]:w-[95%]"),
@@ -44,7 +48,7 @@ const ModalPanel = ({
     },
   };
 
-  const mode = {
+  const Mode = {
     light: defineClass("border border-neutral-200 bg-white"),
     dark: defineClass("border border-neutral-800 bg-black"),
   };
@@ -56,7 +60,7 @@ const ModalPanel = ({
     tw(
       defualtStyle,
       merge.single(sizes, size),
-      merge.single(mode, currentMode),
+      merge.single(Mode, currentMode),
       merge.single(animate, transition),
       align === "vertical" ? "flex-col" : "flex-row",
       merge.multi(flavourStyle, currentMode, flavour)
