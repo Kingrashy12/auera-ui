@@ -5,6 +5,7 @@ import { AueraContext } from "../context/provider";
 import { useEffect, useState } from "react";
 import { getDisplayName } from "@/utils/displayname";
 import DrawerProvider from "@/components/Provider/Drawer";
+import PanelProvider from "@/components/Provider/Panel";
 
 const Provider = ({
   children,
@@ -21,9 +22,11 @@ const Provider = ({
   return (
     <AueraContext.Provider value={{ flavour, mode, changeFlavour }}>
       <ThemeProvider mode={mode}>
-        <ModalProvider>
-          <DrawerProvider>{children}</DrawerProvider>
-        </ModalProvider>
+        <PanelProvider>
+          <ModalProvider>
+            <DrawerProvider>{children}</DrawerProvider>
+          </ModalProvider>
+        </PanelProvider>
       </ThemeProvider>
     </AueraContext.Provider>
   );
