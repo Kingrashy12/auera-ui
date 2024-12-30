@@ -4,6 +4,17 @@ import { generateNeumorphicButton } from "@/flavours/neumorphic/button/button.cl
 import { useProvider, useTheme } from "@/hook";
 import { ButtonProps } from "@/types/auera-ui";
 import { createStyle, defineClass, merge, tw } from "stywind";
+import { ModalTrigger } from "../Modal";
+import { DrawerTrigger } from "../Drawer";
+
+import { TbLoader2 } from "react-icons/tb";
+import Icon from "../Icon/Icon";
+import { throwTriggerError } from "@/utils/component.err";
+
+const Trigger = {
+  modal: ModalTrigger,
+  drawer: DrawerTrigger,
+};
 
 const rd = {
   none: defineClass("rounded-none"),
@@ -28,6 +39,8 @@ const useButton = ({
   size = "md",
   colorScheme = "primary",
   flavour,
+  className,
+  trigger,
   ...props
 }: ButtonProps) => {
   const { flavour: Flavour } = useProvider();
@@ -57,8 +70,9 @@ const useButton = ({
     neumorphic: tw(neumorphic_flavour, "active:scale-70"),
   };
 
-  const Component = createStyle("button").classname(
+  const Button = createStyle("button").classname(
     tw(
+      className,
       merge.single(buttonStyle, flavour ?? Flavour),
       borderRadius,
       buttonSize,
@@ -68,7 +82,73 @@ const useButton = ({
     )
   );
 
-  return { Component };
+  const TriggerComponent = Trigger[trigger || "modal"];
+
+  const getContent = ({
+    spinner,
+    hideChildOnLoad,
+    children,
+    leftIcon,
+    leftIconColor,
+    leftIconSize,
+    rightIcon,
+    rightIconColor,
+    rightIconSize,
+  }: ButtonProps) => {
+    return (
+      <>
+        {props.isLoading ? (
+          <>
+            {spinner ?? <TbLoader2 size={20} className="animate-spin" />}
+            {!hideChildOnLoad && children}
+          </>
+        ) : (
+          <>
+            {leftIcon && (
+              <Icon size={leftIconSize} color={leftIconColor} icon={leftIcon} />
+            )}
+            {children}
+            {rightIcon && (
+              <Icon
+                size={rightIconSize}
+                color={rightIconColor}
+                icon={rightIcon}
+              />
+            )}
+          </>
+        )}
+      </>
+    );
+  };
+
+  const Component = ({
+    withTrigger,
+    trigger,
+    children,
+    triggerType,
+    triggerValue,
+    triggerClass,
+    ...props
+  }: ButtonProps & { triggerClass?: string }) => {
+    throwTriggerError(withTrigger, triggerType, triggerValue, trigger);
+    return (
+      <>
+        {withTrigger ? (
+          <TriggerComponent
+            className={triggerClass}
+            value={triggerValue as string}
+            type={triggerType}
+          >
+            <Button {...props}>{children}</Button>
+          </TriggerComponent>
+        ) : (
+          <Button {...props}>{children}</Button>
+        )}
+      </>
+    );
+  };
+
+  return { Component, getContent };
 };
 
 export { useButton };

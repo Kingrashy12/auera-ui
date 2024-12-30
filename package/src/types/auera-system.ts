@@ -1,3 +1,5 @@
+import { colors } from "../utils";
+
 export type DesignFlavour =
   | "corporate" // Professional and clean enterprise designs
   | "frost" // Represents glassmorphism or frosted-glass effect
@@ -21,3 +23,16 @@ export type ContextType = {
 };
 
 export type ModeType = "light" | "dark";
+
+// Get the top-level keys of `colors` (e.g., 'blue')
+type Colors = keyof typeof colors;
+
+// Get the keys of the nested objects (e.g., '100')
+type ColorsPair = keyof (typeof colors)[Colors];
+
+// Combine the two types into a string template (e.g., 'blue-100')
+export type ColorPair = `${Colors}-${ColorsPair}`;
+
+export type ModalPanelSize = "auto" | "sm" | "md" | "lg" | "xl" | "full";
+export type TransitionType = "walkIn" | "dropIn" | "slideIn";
+export type Trigger = "modal" | "drawer";

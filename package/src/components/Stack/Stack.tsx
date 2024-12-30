@@ -7,12 +7,13 @@ const Stack = ({
   children,
   wrap,
   align = "vertical",
+  className,
   ...props
 }: StackProps) => {
   return (
     <Box
       className={tw(
-        props.className as string,
+        className,
         align === "vertical" ? "flex-col" : "flex-row",
         "items-center justify-center gap-3 w-full"
       )}

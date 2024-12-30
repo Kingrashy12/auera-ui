@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import { createStyle, tw } from "stywind";
 import Skeleton from "../loader/Skeleton";
 
@@ -27,14 +27,16 @@ const Avatar: React.FC<AvatarProps> = ({ size = "sm", border, ...props }) => {
   const imageSize = imgSizes[size];
   const placeholderSize = placeholderSizes[size];
 
-  const Image = createStyle("img").classname(
-    tw(
-      imageSize,
-      "rounded-full",
-      border &&
-        "border-2 theme-dark:border-neutral-600 theme-light:border-neutral-200"
-    )
-  );
+  const Image = useMemo(() => {
+    return createStyle("img").classname(
+      tw(
+        imageSize,
+        "rounded-full",
+        border &&
+          "border-2 theme-dark:border-neutral-600 theme-light:border-neutral-200"
+      )
+    );
+  }, [border, imageSize]);
 
   const handleLoad = () => {
     setLoaded(true);
@@ -68,4 +70,4 @@ const Avatar: React.FC<AvatarProps> = ({ size = "sm", border, ...props }) => {
   );
 };
 
-export default Avatar;
+export default React.memo(Avatar);

@@ -128,10 +128,9 @@ const generateFrostButton = ({ variant, colorScheme, mode }: ButtonProps) => {
   const ghostVariant = tw(textColor, hoverVariantGhost);
   const outlineVariant = tw(
     baseButtonClass,
-    defineClass("border shadow-frost-outline border-frost-outline"),
-    mode === "light"
-      ? "text-black hover:bg-gray-100"
-      : "text-white hover:bg-slate-900"
+    defineClass(
+      "border shadow-frost-outline border-frost-outline auera-btn-outline-base"
+    )
   );
   const flatVariant = tw(
     "border border-none",

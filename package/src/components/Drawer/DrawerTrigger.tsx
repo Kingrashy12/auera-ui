@@ -7,15 +7,25 @@ const DrawerTrigger: FC<DrawerTriggerType> = ({
   value,
   children,
   type = "open",
+  onClick,
   ...props
 }) => {
   const { onOpen, onClose } = useDrawer();
 
-  function openModal() {
-    onOpen(value);
-  }
+  const handleClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    if (type === "open") {
+      onOpen(value);
+    } else {
+      onClose();
+    }
+
+    if (onClick) {
+      onClick(event);
+    }
+  };
+
   return (
-    <div onClick={type === "open" ? openModal : onClose} {...props}>
+    <div onClick={handleClick} {...props}>
       {children}
     </div>
   );

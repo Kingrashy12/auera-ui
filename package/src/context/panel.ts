@@ -7,3 +7,6 @@ type PanelProps = {
 };
 
 export const PanelContext = createContext<PanelProps | undefined>(undefined);
+export const DrawerPanelContext = createContext<PanelProps | undefined>(
+  undefined
+);
