@@ -51,7 +51,6 @@ export default {
       extract: "auera.css",
       modules: false,
       plugins: [],
-      // minimize: true,
     }),
   ],
   external: [
@@ -61,5 +60,7 @@ export default {
     "react-icons",
     "@clack/prompts",
     "arg",
+    "motion",
+    "motion/react",
   ],
 };

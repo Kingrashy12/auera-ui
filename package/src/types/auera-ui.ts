@@ -405,12 +405,11 @@ export interface DrawerTriggerType extends DivProps {
 }
 
 export type SwitchProps = {
-  checked: boolean;
-  onToggle: () => void;
+  isOn: boolean;
+  toggleOn: () => void;
   size?: "sm" | "md" | "lg" | "xl";
-  colorScheme?: "primary" | "danger" | "warning" | "success";
-  unCheckColor?: string;
-  color?: "purple-500" | "yellow-500" | string;
+  unCheckColor?: ColorPair;
+  color?: ColorPair;
 };
 
 export type CheckBoxProps = {
@@ -544,7 +543,7 @@ export interface RadioProps extends InputProps {
   name?: string;
   // size?: "sm" | "md" | "lg";
   size?: 16 | 20 | 24;
-  color?: ColorPair | "black" | "white";
+  color?: ColorPair;
 }
 
 export declare type ToastVariant =

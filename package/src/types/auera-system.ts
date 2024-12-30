@@ -31,7 +31,9 @@ type Colors = keyof typeof colors;
 type ColorsPair = keyof (typeof colors)[Colors];
 
 // Combine the two types into a string template (e.g., 'blue-100')
-export type ColorPair = `${Colors}-${ColorsPair}`;
+type Color = `${Colors}-${ColorsPair}`;
+
+export type ColorPair = Color | "black" | "white";
 
 export type ModalPanelSize = "auto" | "sm" | "md" | "lg" | "xl" | "full";
 export type TransitionType = "walkIn" | "dropIn" | "slideIn";

@@ -22,6 +22,7 @@ const insertFiles = [
   "components/Tabs/Provider.d.ts",
   "components/Tabs/Tabs.d.ts",
   "components/Toast/Toast.d.ts",
+  "components/Switch/Switch.d.ts",
 ];
 const insertDir = [...componentsDir, ...hooksDir];
 
