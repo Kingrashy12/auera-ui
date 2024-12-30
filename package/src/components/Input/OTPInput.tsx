@@ -6,6 +6,8 @@ interface OTPInputProps {
   length?: number;
   onComplete: (otp: string) => void;
   className?: string;
+  errorMessage?: string;
+  hasError?: boolean;
 }
 
 const OTPInput: FC<OTPInputProps> = ({ onComplete, length = 4, className }) => {

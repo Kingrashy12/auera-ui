@@ -1,4 +1,4 @@
-import { PanelContext } from "@/context/panel";
+import { DrawerPanelContext, PanelContext } from "@/context/panel";
 import { useMode } from "@/hook/use";
 import { ContextProviderProps } from "@/types/auera-context";
 import { ModeType } from "@/types/auera-system";
@@ -19,3 +19,15 @@ const PanelProvider = ({ children }: ContextProviderProps) => {
 
 export default PanelProvider;
 PanelProvider.displayName = getDisplayName("PanelProvider");
+
+export const DrawerPanelProvider = ({ children }: ContextProviderProps) => {
+  const { currentMode } = useMode();
+  const [mode, setMode] = useState<ModeType>(currentMode);
+  const collectMode = (value: ModeType) => setMode(value);
+
+  return (
+    <DrawerPanelContext.Provider value={{ mode, collectMode }}>
+      {children}
+    </DrawerPanelContext.Provider>
+  );
+};

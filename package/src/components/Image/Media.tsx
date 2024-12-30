@@ -6,9 +6,8 @@ import { ReturnError } from "@/utils/error";
 import { getDisplayName } from "@/utils/displayname";
 
 type ImgProps = React.ComponentProps<"img">;
-type VideoProps = React.ComponentProps<"video">;
 
-interface BaseMediaProps {
+interface MediaProps extends ImgProps {
   fullWidth?: boolean;
   size?: number | string;
   radius?: ButtonProps["radius"];
@@ -16,17 +15,12 @@ interface BaseMediaProps {
   height: string | number;
   loaderClass?: string;
   loaderStyle?: React.CSSProperties;
-  as: "img" | "video";
 }
-
-type MediaProps = BaseMediaProps &
-  (BaseMediaProps["as"] extends "img" ? ImgProps : VideoProps);
 
 const Media: React.FC<MediaProps> = ({
   fullWidth,
   size,
-  radius = "sm",
-  as = "img",
+  radius = "none",
   ...props
 }) => {
   const [loaded, setLoaded] = React.useState(false);
@@ -40,13 +34,14 @@ const Media: React.FC<MediaProps> = ({
       !props.width || !props.height,
       "width and height are required when using the Media component"
     );
-  }, []);
+  }, [props.width, props.height]);
 
   useEffect(() => {
     if (!loaded) {
-      setTimeout(() => {
+      const timer = setTimeout(() => {
         handleLoad();
       }, 3000);
+      return () => clearTimeout(timer);
     }
   }, [loaded]);
 
@@ -62,16 +57,12 @@ const Media: React.FC<MediaProps> = ({
           style={props.loaderStyle}
         />
       )}
-      {React.createElement(
-        as,
-        {
-          onLoad: as === "img" ? handleLoad : undefined,
-          loading: as === "img" ? "lazy" : undefined,
-          className: tw(loaded ? "block" : "hidden", props.className),
-          ...props,
-        },
-        as === "video" ? props.children : null
-      )}
+      <img
+        onLoad={handleLoad}
+        loading="lazy"
+        className={tw(loaded ? "block" : "hidden", props.className)}
+        {...props}
+      />
     </>
   );
 };

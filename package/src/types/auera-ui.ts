@@ -1,6 +1,13 @@
 import React from "react";
 
-import { ButtonVariant, DesignFlavour, SchemeVariant } from "./auera-system";
+import {
+  ButtonVariant,
+  ColorPair,
+  DesignFlavour,
+  SchemeVariant,
+  Trigger,
+} from "./auera-system";
+import { InputProps } from "stywind";
 
 export type DivProps = React.HTMLAttributes<HTMLDivElement>;
 export type BtnProps = React.HtmlHTMLAttributes<HTMLButtonElement>;
@@ -163,6 +170,11 @@ export interface ButtonProps extends BtnProps {
    * @default "light"
    */
   mode?: "light" | "dark";
+  withTrigger?: boolean;
+  triggerType?: "open" | "close";
+  triggerValue?: string;
+  trigger?: Trigger;
+  triggerClass?: string;
 }
 
 export interface Drop extends DivProps {
@@ -356,6 +368,11 @@ export interface IconButtonProps extends BtnProps {
   variants?: "subtle" | "outline" | "ghost";
   size?: "md" | "lg" | "xl";
   radius?: "md" | "lg" | "xl" | "full";
+  disabled?: boolean;
+  withTrigger?: boolean;
+  triggerType?: "open" | "close";
+  triggerValue?: string;
+  trigger?: Trigger;
 }
 
 export interface DrawerProps extends ModalType {
@@ -393,15 +410,17 @@ export type SwitchProps = {
   size?: "sm" | "md" | "lg" | "xl";
   colorScheme?: "primary" | "danger" | "warning" | "success";
   unCheckColor?: string;
-  color?: string;
+  color?: "purple-500" | "yellow-500" | string;
 };
 
 export type CheckBoxProps = {
-  size?: "md" | "lg" | "xl";
+  size?: "sm" | "md" | "lg" | "xl";
   checked: boolean;
   onCheck: () => void;
-  radius?: "full" | "default";
+  radius?: "none" | "sm" | "md" | "full";
   colorScheme?: "primary" | "danger" | "warning" | "success";
+  color?: ColorPair;
+  className?: string;
 };
 
 export type TabsType = {
@@ -424,17 +443,17 @@ export type TabHandleType = {
    * The color to be applied when the tab is active.
    * @default "blue-500"
    */
-  activeColor?: string;
+  activeColor?: ColorPair;
   /**
    * The color to be applied when the tab is active on @param variant `solid`.
    * @default "black"
    */
-  activeSolidColor?: string;
+  activeSolidColor?: ColorPair;
   /**
    * The color to be applied when the tab is inactive.
    * @default "neutral-400"
    */
-  inActiveColor?: string;
+  inActiveColor?: ColorPair;
   /**
    * The unique identifier or value for the tab, typically used to track the selected tab.
    */
@@ -518,10 +537,74 @@ export type TootipProps = {
   containerClass?: string;
 };
 
-export interface RadioProps {
+export interface RadioProps extends InputProps {
   checked: boolean;
   className?: string;
   onSelect: () => void;
   name?: string;
-  size?: "sm" | "md" | "lg";
+  // size?: "sm" | "md" | "lg";
+  size?: 16 | 20 | 24;
+  color?: ColorPair | "black" | "white";
+}
+
+export declare type ToastVariant =
+  | "info"
+  | "error"
+  | "success"
+  | "warning"
+  | "loading";
+export declare type ToastTransitionType =
+  | "dropIn"
+  | "slideIn"
+  | "popIn"
+  | "walkIn";
+export declare type ToastPositionType =
+  | "top-right"
+  | "top-left"
+  | "bottom-right"
+  | "bottom-left";
+
+export declare type ToastType = {
+  [key in ToastVariant]: (
+    message: string,
+    options?: {
+      position?: ToastPositionType;
+      className?: string;
+      transition?: ToastTransitionType;
+      key?: string;
+    }
+  ) => void;
+};
+
+export declare type ToastOptionsType = {
+  /**
+   * The position where the toast should appear on the screen.
+   */
+  position?: ToastPositionType;
+
+  /**
+   * Additional CSS class name(s) to be applied to the toast.
+   */
+  className?: string;
+
+  /**
+   * The animation transition effect for the toast's appearance.
+   */
+  transition?: "dropIn" | "slideIn" | "popIn" | "walkIn";
+  /**
+   * A unique key used exclusively for updating the message and type of a loading toast.
+   * This key is used to identify an existing loading toast and modify its content (e.g., updating the message or changing its type).
+   * It is important to use the same `key` as the original loading toast in order to update it.
+   * @example 'login-status' or 'register-status'.
+   */
+  key?: string;
+};
+
+export interface FabProps extends DivProps {
+  position?: "left" | "right";
+  type?: "fixed" | "relative" | "absolute" | "sticky" | "static";
+  color?: "primary" | "bold" | "soft";
+  size?: "sm" | "md" | "lg" | "xl";
+  disabled?: boolean;
+  zIndex?: "100" | "200" | "300" | "400" | "500" | "600";
 }

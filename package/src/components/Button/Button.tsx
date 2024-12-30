@@ -1,10 +1,8 @@
 import { ButtonProps } from "../../types/auera-ui";
 import { getDisplayName } from "../../utils/displayname";
-import Icon from "../Icon/Icon";
-import { TbLoader2 } from "react-icons/tb";
 import { useButton } from "./use-button";
 
-const Button = ({
+const Button: React.FC<ButtonProps> = ({
   children,
   variant = "solid",
   colorScheme = "primary",
@@ -20,39 +18,35 @@ const Button = ({
   spinner,
   mode,
   hideChildOnLoad,
+  className,
+  trigger,
+  withTrigger,
   ...props
-}: ButtonProps) => {
-  const { Component } = useButton({
+}) => {
+  const { Component, getContent } = useButton({
     radius,
     variant,
     size,
     colorScheme,
     flavour,
+    className,
+    trigger,
     ...props,
   });
 
   return (
-    <Component {...props}>
-      {props.isLoading ? (
-        <>
-          {spinner ?? <TbLoader2 size={20} className="animate-spin" />}
-          {!hideChildOnLoad && children}
-        </>
-      ) : (
-        <>
-          {leftIcon && (
-            <Icon size={leftIconSize} color={leftIconColor} icon={leftIcon} />
-          )}
-          {children}
-          {rightIcon && (
-            <Icon
-              size={rightIconSize}
-              color={rightIconColor}
-              icon={rightIcon}
-            />
-          )}
-        </>
-      )}
+    <Component withTrigger={withTrigger} trigger={trigger} {...props}>
+      {getContent({
+        spinner,
+        hideChildOnLoad,
+        children,
+        leftIcon,
+        leftIconColor,
+        leftIconSize,
+        rightIcon,
+        rightIconColor,
+        rightIconSize,
+      })}
     </Component>
   );
 };
