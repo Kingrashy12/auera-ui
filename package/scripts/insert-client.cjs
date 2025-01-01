@@ -5,6 +5,7 @@ const path = require("path");
 const { logger } = require("stywind");
 
 const componentsDir = [
+  "components/Box",
   "components/Button",
   "components/Breadcrumb",
   "components/Drawer",
