@@ -55,7 +55,7 @@ const Fab: React.FC<FabProps> = ({
           sticky: type === "sticky",
           static: type === "static",
         },
-        "flex items-center justify-center cursor-pointer rounded-full shadow transition-all duration-300 active:scale-95",
+        "flex items-center justify-center animate-walkIn cursor-pointer rounded-full shadow transition-all duration-300 active:scale-95",
         disabled && "pointer-events-none opacity-75 cursor-not-allowed"
       )}
       {...props}
