@@ -1,6 +1,7 @@
 import React from "react";
 import Box from "../Box/Box";
 import { getDisplayName } from "@/utils/displayname";
+import { BoxWithMotion } from "../../types/auera-motion";
 
 type GroupMapType<T> = {
   /**
@@ -95,7 +96,8 @@ const GroupMap = <T,>({
   dataMapdirection = "column",
   className,
   direction = "column",
-}: GroupMapType<T>) => {
+  ...props
+}: GroupMapType<T> & BoxWithMotion) => {
   // Group data based on the extracted key
   const groupedData: Record<string, T[]> = {};
 
@@ -115,7 +117,7 @@ const GroupMap = <T,>({
       {groupedArray.map(([key, group]) => (
         <Box key={key} direction={direction} className={className}>
           {showKeyOnHead && renderKey ? renderKey(key) : null}
-          <Box direction={dataMapdirection} className={dataMapClass}>
+          <Box direction={dataMapdirection} className={dataMapClass} {...props}>
             {group.length > 0 ? group.map(renderItem) : emptyListComponent}
           </Box>
         </Box>

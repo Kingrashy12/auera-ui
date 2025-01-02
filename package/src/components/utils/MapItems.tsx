@@ -2,6 +2,7 @@ import React from "react";
 import { tw } from "stywind";
 import Box from "../Box/Box";
 import { getDisplayName } from "@/utils/displayname";
+import { BoxWithMotion } from "../../types/auera-motion";
 
 type ListMap<T> = {
   /** An array of data items to be rendered. */
@@ -41,9 +42,20 @@ const MapItems = <T,>({
   emptyListComponent,
   className,
   direction,
-}: ListMap<T>) => {
+  animate,
+  variants,
+  initial,
+  ...props
+}: ListMap<T> & BoxWithMotion) => {
   return (
-    <Box direction={direction} className={tw("gap-2", className as string)}>
+    <Box
+      direction={direction}
+      className={tw("gap-2", className)}
+      animate={animate}
+      variants={variants}
+      initial={initial}
+      {...props}
+    >
       {data && data.length >= 1 ? data.map(renderItem) : emptyListComponent}
     </Box>
   );
