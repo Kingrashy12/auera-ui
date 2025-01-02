@@ -13,20 +13,20 @@ description: "Learn how to effectively use the components and features of AueraU
   try changing the variant on the <TabLink to="/docs/components/button" label="Button" />
 </p>
  <Tabs variant='solid' className='mt-2'>
- <Tabs.Handle value="preview">Preview</Tabs.Handle>
- <Tabs.Handle value="code">Code</Tabs.Handle>
- <Tabs.Panel>
+ <TabHandle value="preview">Preview</TabHandle>
+ <TabHandle value="code">Code</TabHandle>
+ <TabPanel>
 <Card fullWidth>
   <Stack fullWidth><Button>Hello world</Button></Stack>
 </Card>
- </Tabs.Panel>
- <Tabs.Panel>
+ </TabPanel>
+ <TabPanel>
   <CodeBlock fileName='App.tsx' lg='tsx' code={`import { Button } from 'auera-ui';
 
 export default function App() {
   return <Button>Hello world</Button>;
 }`} />
- </Tabs.Panel>
+ </TabPanel>
  </Tabs>
 </Details>
 
@@ -42,9 +42,9 @@ export default function App() {
   To change the default flavor, pass the <CodeTag>flavour</CodeTag> prop to the Provider, or to a specific component.
 </p>
   <Tabs variant='solid' className='mt-2'>
- <Tabs.Handle value="preview">Preview</Tabs.Handle>
- <Tabs.Handle value="code">Code</Tabs.Handle>
- <Tabs.Panel>
+ <TabHandle value="preview">Preview</TabHandle>
+ <TabHandle value="code">Code</TabHandle>
+ <TabPanel>
 <Card fullWidth>
   <Stack fullWidth wrap align='horizontal'>
    <Button>Corporate</Button>
@@ -52,8 +52,8 @@ export default function App() {
    <Button flavour='neumorphic'>Neumorphic</Button>
   </Stack>
 </Card>
- </Tabs.Panel>
- <Tabs.Panel>
+ </TabPanel>
+ <TabPanel>
   <CodeBlock fileName='App.tsx' lg='tsx' code={`import { Button, Stack } from 'auera-ui';
 
 export default function App() {
@@ -66,7 +66,7 @@ export default function App() {
    );
 }
 `} />
- </Tabs.Panel>
+ </TabPanel>
  </Tabs>
 </Details>
 

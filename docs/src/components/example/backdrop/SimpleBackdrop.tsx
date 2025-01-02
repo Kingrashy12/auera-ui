@@ -1,5 +1,14 @@
 import CodeBlock from "@/components/layout/code/Block";
-import { Backdrop, Button, Card, OTPInput, Stack, Tabs } from "auera-ui";
+import {
+  Backdrop,
+  Button,
+  Card,
+  OTPInput,
+  Stack,
+  Tabs,
+  TabHandle,
+  TabPanel,
+} from "auera-ui";
 import React, { useState } from "react";
 
 const code = `import { Backdrop, Button, OTPInput, Stack } from "auera-ui";
@@ -35,19 +44,19 @@ const SimpleBackdrop = () => {
   return (
     <Card>
       <Tabs variant="solid" rounded>
-        <Tabs.Handle value="preview">Preview</Tabs.Handle>
-        <Tabs.Handle value="code">Code</Tabs.Handle>
-        <Tabs.Panel>
+        <TabHandle value="preview">Preview</TabHandle>
+        <TabHandle value="code">Code</TabHandle>
+        <TabPanel>
           <Stack>
             <Button onClick={handleOpen}>Open Backdrop</Button>
           </Stack>
           <Backdrop open={open} onClose={handleClose} centerContent>
             <OTPInput onComplete={(otp) => console.log("You entered:", otp)} />
           </Backdrop>
-        </Tabs.Panel>
-        <Tabs.Panel>
+        </TabPanel>
+        <TabPanel>
           <CodeBlock fileName="SimpleBackdrop.tsx" lg="tsx" code={code} />
-        </Tabs.Panel>
+        </TabPanel>
       </Tabs>
     </Card>
   );

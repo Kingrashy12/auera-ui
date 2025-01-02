@@ -1,5 +1,5 @@
 import { LogoDark, LogoLight } from "@/assets";
-import { Box, Icon, IconButton, useTheme, Drawer } from "auera-ui";
+import { Box, Icon, IconButton, useTheme, DrawerTrigger } from "auera-ui";
 import Image from "next/image";
 import React from "react";
 import { IoMdMoon } from "react-icons/io";
@@ -43,14 +43,14 @@ const Navbar = () => {
           <NavLinks className="max-[650px]:hidden" />
         </Box>
         <Box className="gap-3 items-center">
-          <Drawer.Trigger
+          <DrawerTrigger
             value="mobile-menu"
             className="hidden max-[650px]:block"
           >
             <IconButton variants="outline" radius="full">
               <IoMenu size={18} />
             </IconButton>
-          </Drawer.Trigger>
+          </DrawerTrigger>
           <Community className="max-[650px]:hidden" />
           <IconButton
             variants="outline"

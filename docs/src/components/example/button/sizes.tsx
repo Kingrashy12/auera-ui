@@ -1,15 +1,15 @@
 import CodeBlock from "@/components/layout/code/Block";
 import { buttonCode } from "@/data/code/button";
-import { Button, Card, Stack, Tabs } from "auera-ui";
+import { Button, Card, Stack, Tabs, TabHandle, TabPanel } from "auera-ui";
 import React from "react";
 
 const ButtonSizes = () => {
   return (
     <Card>
       <Tabs variant="solid" rounded>
-        <Tabs.Handle value="preview">Preview</Tabs.Handle>
-        <Tabs.Handle value="code">Code</Tabs.Handle>
-        <Tabs.Panel>
+        <TabHandle value="preview">Preview</TabHandle>
+        <TabHandle value="code">Code</TabHandle>
+        <TabPanel>
           <Stack wrap align="horizontal">
             <Button size="xs">Extra Small</Button>
             <Button size="sm">Small</Button>
@@ -17,14 +17,14 @@ const ButtonSizes = () => {
             <Button size="lg">Large</Button>
             <Button size="xl">Extra Large</Button>
           </Stack>
-        </Tabs.Panel>
-        <Tabs.Panel>
+        </TabPanel>
+        <TabPanel>
           <CodeBlock
             fileName="ButtonSizes.tsx"
             code={buttonCode.sizes}
             lg="tsx"
           />
-        </Tabs.Panel>
+        </TabPanel>
       </Tabs>
     </Card>
   );

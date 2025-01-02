@@ -23,9 +23,9 @@ const CLI = () => {
             You will be prompted to select what you want to eject:
           </p>
           <Bash
-            code={`? What do you want to eject? (Use arrow keys)
- ❯ auera.css
- tailwind.extend.ts
+            code={`What do you want to eject?
+│  ● auera.css
+│  ○ tailwind.extend.ts
           `}
           />
         </GuideContainer>

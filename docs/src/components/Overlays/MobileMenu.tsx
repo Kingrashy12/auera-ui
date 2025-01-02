@@ -1,5 +1,14 @@
 import { LogoDark, LogoLight } from "@/assets";
-import { Box, Drawer, IconButton, useTheme } from "auera-ui";
+import {
+  Box,
+  Drawer,
+  DrawerContent,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerPanel,
+  IconButton,
+  useTheme,
+} from "auera-ui";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -12,8 +21,8 @@ const MobileMenu = () => {
 
   return (
     <Drawer value="mobile-menu">
-      <Drawer.Panel>
-        <Drawer.Header>
+      <DrawerPanel>
+        <DrawerHeader>
           <Link href="/">
             <Box className="items-center gap-1">
               <Image src={"/logo.png"} alt="Logo" width={40} height={40} />
@@ -26,19 +35,25 @@ const MobileMenu = () => {
               />
             </Box>
           </Link>
-          <Drawer.Trigger value="" type="close">
-            <IconButton variants="outline" radius="full">
-              <IoClose size={18} />
-            </IconButton>
-          </Drawer.Trigger>
-        </Drawer.Header>
-        <Drawer.Content>
+
+          <IconButton
+            withTrigger
+            trigger="drawer"
+            triggerType="close"
+            triggerValue="mobile-menu"
+            variants="outline"
+            radius="full"
+          >
+            <IoClose size={18} />
+          </IconButton>
+        </DrawerHeader>
+        <DrawerContent>
           <NavLinks direction="column" />
-        </Drawer.Content>
-        <Drawer.Footer>
+        </DrawerContent>
+        <DrawerFooter>
           <Community />
-        </Drawer.Footer>
-      </Drawer.Panel>
+        </DrawerFooter>
+      </DrawerPanel>
     </Drawer>
   );
 };

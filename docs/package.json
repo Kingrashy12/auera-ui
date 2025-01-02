@@ -9,7 +9,7 @@
     "lint": "next lint",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "docs": "npm run ui && rmdir /s /q .next && npm run dev"
+    "clear": "rmdir /s /q .next && npm run dev"
   },
   "overrides": {
     "react": "$react",
@@ -21,7 +21,7 @@
     "@mdx-js/react": "^3.1.0",
     "@next/mdx": "^15.0.4",
     "@vercel/analytics": "^1.4.1",
-    "auera-ui": "^0.1.6",
+    "auera-ui": "^0.1.20",
     "next": "^15.0.3",
     "next-mdx-remote": "^5.0.0",
     "prism-react-renderer": "^2.4.0",
@@ -31,7 +31,7 @@
     "react-syntax-highlighter": "^15.6.1",
     "remark": "^15.0.1",
     "remark-rehype": "^11.1.1",
-    "stywind": "^0.1.8"
+    "stywind": "^0.1.9"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.2",

@@ -125,7 +125,9 @@ html {
   .skeleton {
     @apply overflow-hidden relative animate-pulse inline-block p-1 theme-light:bg-slate-200 theme-dark:bg-neutral-700;
   }
-
+  .tblink {
+    position: relative;
+  }
   .tblink::before {
     position: absolute;
     content: "";

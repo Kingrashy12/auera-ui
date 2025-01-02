@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import MobileMenu from "../Overlays/MobileMenu";
 import { Box } from "auera-ui";
