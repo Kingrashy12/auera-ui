@@ -116,3 +116,45 @@ export default function App() {
   );
 }`} />
 </Details>
+
+<Details id="trigger">
+  <HeaderLabel id="trigger">Trigger</HeaderLabel>
+  <p className="text">Triggers in AueraUI are a set of components designed to let you open specific UI elements or components
+   from anywhere within your application seamlessly.</p>
+  <p className="text">Most components in AueraUI are designed to integrate seamlessly with Triggers, making it easy to
+   create dynamic and interactive user interfaces.</p> 
+</Details>
+
+<Details id="using-trigger">
+  <HeaderLabel id="using-trigger" as='h3'>Using Trigger</HeaderLabel>
+<p className="text">There are two ways to use a component trigger in AueraUI:</p>
+<ul className="text font-inter list-disc pl-3 gap-4 flex flex-col">
+  <li>
+    <b>Using component-based triggers</b>: These are specialized components like <CodeTag>ModalTrigger</CodeTag> and
+     <CodeTag>DrawerTrigger</CodeTag>, designed to directly open specific components.
+  </li>
+  <li>
+    <b>Using the <CodeTag>withTrigger</CodeTag> prop</b>: This prop is available for select components in AueraUI, such as
+     <CodeTag>Button</CodeTag> and <CodeTag>IconButton</CodeTag>, enabling them to act as triggers for specific components.
+  </li>
+</ul>
+</Details>
+
+<Details id="trigger-props">
+  <HeaderLabel id="trigger-props" as="h3">Trigger Props</HeaderLabel>
+  <p className="text">
+    When using the <CodeTag>withTrigger</CodeTag> prop, there are a set of required props that need to be provided:
+  </p>
+  <ul className="text font-inter list-disc pl-3 gap-4 flex flex-col">
+    <li>
+      <b><CodeTag>trigger</CodeTag></b>: Specifies the target component to trigger, such as <CodeTag>Modal</CodeTag> or <CodeTag>Drawer</CodeTag>.
+    </li>
+    <li>
+      <b><CodeTag>triggerType</CodeTag></b>: Determines the type of trigger action, either <CodeTag>open</CodeTag> or <CodeTag>close</CodeTag>.
+    </li>
+    <li>
+      <b><CodeTag>triggerValue</CodeTag></b>: A unique value used to identify the target component. This value must match the corresponding
+       value provided to the parent or "barrel" component (e.g., <CodeTag>Modal</CodeTag> or <CodeTag>Drawer</CodeTag>).
+    </li>
+  </ul>
+</Details>
