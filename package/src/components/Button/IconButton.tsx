@@ -31,13 +31,13 @@ const modeVariant = {
   },
   dark: {
     outline: defineClass(
-      "border-[1.36px] border-neutral-800 hover:bg-neutral-900 text-white"
+      "border-[1.36px] border-neutral-800 hover:bg-neutral-900"
     ),
     subtle: defineClass(
-      "bg-neutral-700 hover:bg-neutral-800 border-none outline-none text-white"
+      "bg-neutral-700 hover:bg-neutral-800 border-none outline-none"
     ),
     ghost: defineClass(
-      "bg-transparent hover:bg-neutral-800 border-none outline-none text-white"
+      "bg-transparent hover:bg-neutral-800 border-none outline-none"
     ),
   },
 };
@@ -91,7 +91,7 @@ const useIButton = (
   const Button = useMemo(() => {
     return createStyle("button").classname(
       tw(
-        "active:scale-95 flex items-center justify-center",
+        "active:scale-95 flex items-center justify-center theme-dark:text-white theme-light:text-black",
         className,
         disabled
           ? "cursor-not-allowed pointer-events-none opacity-75"
