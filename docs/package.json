@@ -9,8 +9,7 @@
     "lint": "next lint",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "docs": "npm run ui && rmdir /s /q .next && npm run dev",
-    "ui": " npm i ../package/auera-ui-0.1.4.tgz"
+    "docs": "npm run ui && rmdir /s /q .next && npm run dev"
   },
   "overrides": {
     "react": "$react",
