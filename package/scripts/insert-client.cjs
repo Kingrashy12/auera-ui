@@ -8,6 +8,7 @@ const componentsDir = [
   "components/Box",
   "components/Button",
   "components/Breadcrumb",
+  "components/Card",
   "components/Drawer",
   // 'components/Menu',
   "components/Modal",

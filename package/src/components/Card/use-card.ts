@@ -1,10 +1,11 @@
 import { useMemo } from "react";
 import { CardProps } from "../../types/auera-ui";
 import { createStyle, tw } from "stywind";
+import { motion } from "motion/react";
 
 export const useCard = (props: CardProps) => {
   const Base = useMemo(() => {
-    return createStyle("div").classname(
+    return createStyle(motion.div).classname(
       tw(
         props.className,
         "rounded-[10px] flex p-[20px] gap-[16px] card",
