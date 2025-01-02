@@ -90,4 +90,28 @@ export const buttonRef = [
     description: "Sets the color mode for the drop component.",
     default: "false",
   },
+  {
+    prop: "withTrigger",
+    type: "boolean",
+    description: "",
+    default: "false",
+  },
+  {
+    prop: "trigger",
+    type: '"drawer" | "modal"',
+    description: "",
+    default: "undefined",
+  },
+  {
+    prop: "triggerType",
+    type: '"open" | "close"',
+    description: "",
+    default: "undefined",
+  },
+  {
+    prop: "triggerValue",
+    type: "string",
+    description: "",
+    default: "undefined",
+  },
 ];
