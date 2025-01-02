@@ -1,3 +1,5 @@
+// const color = "${color}";
+
 export const installationCodes = {
   provider: `import { Provider } from "auera-ui";
 
@@ -14,7 +16,7 @@ export default function RootLayout({
   </Provider>
  )
 }`,
-  config: `import { tailwindExtend, aueraTw } from "auera-ui";
+  config: `import { tailwindExtend, aueraTw, SafeLists } from "auera-ui";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -22,6 +24,8 @@ const config: Config = {
     "./src/**/*.{js,jsx,ts,tsx}",
     "./node_modules/auera-ui/**/*.{js,ts,jsx,tsx}",
   ],
+  // Whitelist dynamic color classes.
+  safelist: [SafeLists().join(" ")],
   theme: {
     extend: {
       backgroundColor: {
