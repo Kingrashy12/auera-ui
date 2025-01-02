@@ -8,6 +8,7 @@ import {
   Tabs,
   TabHandle,
   TabPanel,
+  toast,
 } from "auera-ui";
 import React, { useState } from "react";
 
@@ -35,12 +36,24 @@ const  SimpleBackdrop = () => {
 `;
 const SimpleBackdrop = () => {
   const [open, setOpen] = useState(false);
+  const [otp, setOtp] = useState("");
   const handleClose = () => {
     setOpen(false);
   };
   const handleOpen = () => {
     setOpen(true);
   };
+
+  const handleCode = (code: string) => {
+    setOtp(code);
+    if (otp.length == 4) {
+      toast.success("OTP Verified Successfully");
+      setTimeout(() => {
+        setOpen(false);
+      }, 1000);
+    }
+  };
+
   return (
     <Card>
       <Tabs variant="solid" rounded>
@@ -51,7 +64,7 @@ const SimpleBackdrop = () => {
             <Button onClick={handleOpen}>Open Backdrop</Button>
           </Stack>
           <Backdrop open={open} onClose={handleClose} centerContent>
-            <OTPInput onComplete={(otp) => console.log("You entered:", otp)} />
+            <OTPInput onComplete={(otp) => handleCode(otp)} />
           </Backdrop>
         </TabPanel>
         <TabPanel>
