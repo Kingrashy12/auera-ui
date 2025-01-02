@@ -24,6 +24,7 @@ import ButtonFlavours from "@/components/example/button/flavours";
 import LoadingButton from "@/components/example/button/loading";
 import CustomSpinner from "@/components/example/button/custom-spinner";
 import ButtonWithIcon from "@/components/example/button/icon";
+import ButtonWithTrigger from "@/components/example/button/with-trigger";
 
 export const components = {
   DetailCard,
@@ -57,6 +58,7 @@ export const components = {
   LoadingButton,
   CustomSpinner,
   ButtonWithIcon,
+  ButtonWithTrigger,
 };
 
 export const MDXRemote = dynamic(() =>
