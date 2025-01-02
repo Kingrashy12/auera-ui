@@ -4,10 +4,10 @@ import { AueraPlugin } from "../types/plugin";
 export const aueraTw = ({ addVariant }: AueraPlugin["Tailwind"]) => {
   addVariant("theme-dark", '[data-theme="dark"] &');
   addVariant("theme-light", '[data-theme="light"] &');
-  addVariant("scrollbar-none", "[&::-webkit-scrollbar]:appearance-none");
   addVariant("scrollbar", "[&::-webkit-scrollbar] &");
   addVariant("scrollbar-thumb", "[&::-webkit-scrollbar-thumb] &");
   addVariant("scrollbar-track", "[&::-webkit-scrollbar-track] &");
+  addVariant("scrollbar-none", "[&::-webkit-scrollbar]:appearance-none");
 };
 
 export const SafeLists = () => [
