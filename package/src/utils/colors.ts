@@ -282,6 +282,4 @@ export const colors = {
     800: "#37474F",
     900: "#263238",
   },
-} as const;
-
-export const twColors = {};
+};
