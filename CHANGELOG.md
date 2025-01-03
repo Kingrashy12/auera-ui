@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.1.21] - 2025-01-03
+
+### Added
+
+- **Component**
+  - Integrated `motion/react` to the package for enhanced animations.
+  - Added support for `motion` props across components, enabling seamless customization of animations.
+  - Updated `Button` and `IconButton` to use the `withTrigger` prop for improved trigger handling and management.
+- **Plugin**
+  - Added the `SafeList` method to whitelist dynamic Tailwind CSS utility color classes.
+
 ## [0.1.7] - 2024-12-15
 
 ### Changed
