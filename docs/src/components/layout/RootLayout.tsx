@@ -1,13 +1,12 @@
 "use client";
 
 import React from "react";
-import MobileMenu from "../Overlays/MobileMenu";
 import { Box } from "auera-ui";
 import { useRouter } from "next/router";
-import MobileSideBar from "../Overlays/MobileSideBar";
 import localFont from "next/font/local";
 import { tw } from "stywind";
 import dynamic from "next/dynamic";
+import OverlayContainer from "../Overlays/OverlayContainer";
 
 const Navbar = dynamic(() => import("./Navbar"));
 const ToolBar = dynamic(() => import("./ToolBar"));
@@ -80,8 +79,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         {singleBar.every((route) => route !== router.pathname) && <ToolBar />}
       </Box>
       {children}
-      <MobileMenu />
-      <MobileSideBar />
+      <OverlayContainer />
     </div>
   );
 };
