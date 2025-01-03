@@ -9,16 +9,30 @@ const ButtonDemo = () => {
 const LoadingButton = () => {
   return <Button isLoading>Loading</Button>
 }`,
+  withTrigger: `import { Button } from "auera-ui";
+  
+const ButtonWithTrigger = () => {
+  return (
+    <Button
+      withTrigger
+      trigger="drawer"
+      triggerType="open"
+      triggerValue="drawer-demo"
+    >
+      View Notifications
+    </Button>
+  )
+}`,
   custom_spinner: `import { Button } from "auera-ui";
 import { CgSpinner } from "react-icons/cg";
   
 const CustomSpinner = () => {
   return (
-   <Button
-    isLoading
-    spinner={<CgSpinner size={20} className="animate-spin" />}
-   >
-     Loading
+    <Button
+      isLoading
+      spinner={<CgSpinner size={20} className="animate-spin" />}
+    >
+      Loading
     </Button>
   )
 }`,
@@ -26,12 +40,12 @@ const CustomSpinner = () => {
   
 const ButtonVariants = () => {
   return (
-   <Stack wrap align="horizontal">
-     <Button>Solid</Button>
-     <Button variant="outline">Outline</Button>
-     <Button variant="light">Light</Button>
-     <Button variant="ghost">Ghost</Button>
-     <Button variant="flat">Flat</Button>
+    <Stack wrap align="horizontal">
+      <Button>Solid</Button>
+      <Button variant="outline">Outline</Button>
+      <Button variant="light">Light</Button>
+      <Button variant="ghost">Ghost</Button>
+      <Button variant="flat">Flat</Button>
     </Stack>
   )
 }`,
@@ -39,50 +53,50 @@ const ButtonVariants = () => {
   
 const ButtonSizes = () => {
   return (
-   <Stack wrap align="horizontal">
-    <Button size="xs">Extra Small</Button>
-    <Button size="sm">Small</Button>
-    <Button size="md">Medium</Button>
-    <Button size="lg">Large</Button>
-    <Button size="xl">Extra Large</Button>
-   </Stack>
+    <Stack wrap align="horizontal">
+      <Button size="xs">Extra Small</Button>
+      <Button size="sm">Small</Button>
+      <Button size="md">Medium</Button>
+      <Button size="lg">Large</Button>
+      <Button size="xl">Extra Large</Button>
+    </Stack>
   )
 }`,
   radius: `import { Button, Stack } from "auera-ui";
   
 const ButtonRadius = () => {
   return (
-   <Stack wrap align="horizontal">
-    <Button radius="none">None</Button>
-    <Button radius="sm">Small</Button>
-    <Button radius="md">Medium</Button>
-    <Button radius="lg">Large</Button>
-    <Button radius="xl">Extra Large</Button>
-    <Button radius="full">Full</Button>
-   </Stack>
+    <Stack wrap align="horizontal">
+      <Button radius="none">None</Button>
+      <Button radius="sm">Small</Button>
+      <Button radius="md">Medium</Button>
+      <Button radius="lg">Large</Button>
+      <Button radius="xl">Extra Large</Button>
+      <Button radius="full">Full</Button>
+    </Stack>
   )
 }`,
   colors: `import { Button, Stack } from "auera-ui";
   
 const ButtonColors = () => {
   return (
-   <Stack wrap align="horizontal">
-    <Button>Primary</Button>
-    <Button colorScheme="danger">Danger</Button>
-    <Button colorScheme="warning">Warning</Button>
-    <Button colorScheme="success">Success</Button>
-   </Stack>
+    <Stack wrap align="horizontal">
+      <Button>Primary</Button>
+      <Button colorScheme="danger">Danger</Button>
+      <Button colorScheme="warning">Warning</Button>
+      <Button colorScheme="success">Success</Button>
+    </Stack>
   )
 }`,
   flavours: `import { Button, Stack } from "auera-ui";
   
 const ButtonFlavours = () => {
   return (
-   <Stack wrap align="horizontal">
-    <Button>Corporate</Button>
-    <Button flavour="frost">Frost</Button>
-    <Button flavour="neumorphic">Neumorphic</Button>
-   </Stack>
+    <Stack wrap align="horizontal">
+      <Button>Corporate</Button>
+      <Button flavour="frost">Frost</Button>
+      <Button flavour="neumorphic">Neumorphic</Button>
+    </Stack>
   )
 }`,
   icon: `import { Button, Stack } from "auera-ui";
@@ -90,18 +104,18 @@ import { HiOutlineMail, HiOutlineTrash } from "react-icons/hi";
   
 const ButtonWithIcon = () => {
   return (
-   <Stack wrap align="horizontal">
-    <Button leftIcon={HiOutlineMail} leftIconSize={20}>
-     Email
-    </Button>
-    <Button
-     colorScheme="danger"
-     rightIcon={HiOutlineTrash}
-     rightIconSize={20}
-    >
-     Delete
-    </Button>
-   </Stack>
+    <Stack wrap align="horizontal">
+      <Button leftIcon={HiOutlineMail} leftIconSize={20}>
+        Email
+      </Button>
+      <Button
+        colorScheme="danger"
+        rightIcon={HiOutlineTrash}
+        rightIconSize={20}
+      >
+        Delete
+      </Button>
+    </Stack>
   )
 }`,
 };

@@ -24,7 +24,7 @@ const ButtonWithTrigger = () => {
         <TabPanel>
           <CodeBlock
             fileName="with-trigger.tsx"
-            code={buttonCode.loading}
+            code={buttonCode.withTrigger}
             lg="tsx"
           />
         </TabPanel>
