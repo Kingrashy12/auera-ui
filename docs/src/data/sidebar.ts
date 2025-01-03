@@ -60,7 +60,7 @@ export const sideBarLinks = [
   {
     header: "Components",
     links: [
-      { label: "Button", uri: "/docs/components/button" },
+      { label: "Button", uri: "/docs/components/button", updated: true },
       { label: "Backdrop", uri: "/docs/components/backdrop" },
       { label: "Box", uri: "/docs/components/box" },
       { label: "Checkbox", uri: "/docs/components/checkbox" },
@@ -68,7 +68,11 @@ export const sideBarLinks = [
       { label: "Switch", uri: "/docs/components/switch" },
       { label: "Card", uri: "/docs/components/card" },
       { label: "Drawer", uri: "/docs/components/drawer" },
-      { label: "IconButton", uri: "/docs/components/icon-button" },
+      {
+        label: "IconButton",
+        uri: "/docs/components/icon-button",
+        updated: true,
+      },
       { label: "Icon", uri: "/docs/components/icon" },
       { label: "Modal", uri: "/docs/components/modal" },
       { label: "MapItems", uri: "/docs/components/map-items" },
@@ -76,6 +80,7 @@ export const sideBarLinks = [
       { label: "OTPInput", uri: "/docs/components/otp-input" },
       { label: "TextInput", uri: "/docs/components/textinput", soon: true },
       { label: "Tabs", uri: "/docs/components/tabs" },
+      { label: "ToolTip", uri: "/docs/components/tooltip" },
       {
         label: "StatusBadge",
         uri: "/docs/components/status-badge",
