@@ -9,7 +9,6 @@
     "lint": "next lint",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "pkg": "npm i ../package/auera-ui-0.1.20.tgz",
     "clear": "rmdir /s /q .next && npm run dev"
   },
   "overrides": {
