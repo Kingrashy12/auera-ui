@@ -125,6 +125,10 @@ html {
   .skeleton {
     @apply overflow-hidden relative animate-pulse inline-block p-1 theme-light:bg-slate-200 theme-dark:bg-neutral-700;
   }
+
+  .drawer-demo-card {
+    @apply theme-dark:bg-neutral-900 theme-light:bg-white theme-dark:hover:from-neutral-800 theme-dark:hover:to-slate-900;
+  }
   .tblink {
     position: relative;
   }
