@@ -1,13 +1,26 @@
 import { colors } from "@/utils";
 import { AueraPlugin } from "../types/plugin";
 
-export const aueraTw = ({ addVariant }: AueraPlugin["Tailwind"]) => {
+export const aueraTw = ({
+  addVariant,
+  addUtilities,
+}: AueraPlugin["Tailwind"]) => {
   addVariant("theme-dark", '[data-theme="dark"] &');
   addVariant("theme-light", '[data-theme="light"] &');
-  addVariant("scrollbar", "[&::-webkit-scrollbar] &");
-  addVariant("scrollbar-thumb", "[&::-webkit-scrollbar-thumb] &");
-  addVariant("scrollbar-track", "[&::-webkit-scrollbar-track] &");
-  addVariant("scrollbar-none", "[&::-webkit-scrollbar]:appearance-none");
+  addVariant("scrollbar", ["::-webkit-scrollbar&"]);
+  addVariant("scrollbar-thumb", ["::-webkit-scrollbar-thumb&"]);
+  addVariant("scrollbar-track", ["::-webkit-scrollbar-track&"]);
+
+  // Utilities
+  addUtilities({
+    ".scrollbar-none": {
+      "-ms-overflow-style": "none",
+      "scrollbar-width": "none",
+      "&::-webkit-scrollbar": {
+        display: "none",
+      },
+    },
+  });
 };
 
 export const SafeLists = () => [
