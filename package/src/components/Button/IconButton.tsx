@@ -87,10 +87,10 @@ const useIButton = (
   disabled?: boolean,
   size?: string,
   radius?: string,
-  variants?: string
+  variants?: string,
   mode?: ModeType
 ) => {
-  const { mode } = useMode();
+  const { currentMode } = useMode(mode);
   const Button = useMemo(() => {
     return createStyle("button").classname(
       tw(
@@ -101,7 +101,7 @@ const useIButton = (
           : "cursor-pointer ",
         merge.single(sizes, size || "lg"),
         merge.single(rounded, radius || "lg"),
-        merge.multi(modeVariant, mode, variants)
+        merge.multi(modeVariant, currentMode, variants)
       )
     );
   }, []);
