@@ -44,6 +44,18 @@ export const aueraTw = ({
     ".z-600": {
       zIndex: 600,
     },
+    ".z-700": {
+      zIndex: 700,
+    },
+    ".z-800": {
+      zIndex: 800,
+    },
+    ".z-900": {
+      zIndex: 900,
+    },
+    ".z-1000": {
+      zIndex: 1000,
+    },
   });
 };
 
