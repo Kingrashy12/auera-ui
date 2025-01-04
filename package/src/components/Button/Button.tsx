@@ -16,7 +16,6 @@ const Button: React.FC<ButtonProps> = ({
   leftIconSize,
   flavour,
   spinner,
-  mode,
   hideChildOnLoad,
   className,
   trigger,
