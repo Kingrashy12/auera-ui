@@ -1,11 +1,12 @@
 import { createStyle, defineClass, merge, tw } from "stywind";
 import { IconButtonProps } from "../../types/auera-ui";
-import { useTheme } from "../../hook/useTheme";
 import { getDisplayName } from "@/utils/displayname";
 import { FC, useMemo } from "react";
 import { ModalTrigger } from "../Modal";
 import { DrawerTrigger } from "../Drawer";
 import { throwTriggerError } from "@/utils/component.err";
+import { useMode } from "@/hook/use";
+import { ModeType } from "@/types/auera-system";
 
 const sizes = {
   md: "p-1",
@@ -58,6 +59,7 @@ const IconButton: FC<IconButtonProps> = ({
   withTrigger,
   triggerType,
   triggerValue,
+  mode,
   ...props
 }) => {
   throwTriggerError(withTrigger, triggerType, triggerValue, trigger);
@@ -86,8 +88,9 @@ const useIButton = (
   size?: string,
   radius?: string,
   variants?: string
+  mode?: ModeType
 ) => {
-  const { mode } = useTheme();
+  const { mode } = useMode();
   const Button = useMemo(() => {
     return createStyle("button").classname(
       tw(

@@ -373,6 +373,7 @@ export interface IconButtonProps extends BtnProps {
   triggerType?: "open" | "close";
   triggerValue?: string;
   trigger?: Trigger;
+  mode?: "light" | "dark";
 }
 
 export interface DrawerProps extends ModalType {
