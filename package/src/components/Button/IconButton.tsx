@@ -63,7 +63,14 @@ const IconButton: FC<IconButtonProps> = ({
   ...props
 }) => {
   throwTriggerError(withTrigger, triggerType, triggerValue, trigger);
-  const { Button } = useIButton(className, disabled, size, radius, variants);
+  const { Button } = useIButton(
+    className,
+    disabled,
+    size,
+    radius,
+    variants,
+    mode
+  );
   const TriggerComponent = Trigger[trigger || "modal"];
 
   return (
