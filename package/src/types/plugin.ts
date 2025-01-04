@@ -1,7 +1,10 @@
 interface RecursiveKeyValuePair<K extends keyof any = string, V = string> {
   [key: string]: V | RecursiveKeyValuePair<K, V>;
 }
-type CSSRuleObject = RecursiveKeyValuePair<string, null | string | string[]>;
+type CSSRuleObject = RecursiveKeyValuePair<
+  string,
+  null | string | string[] | number
+>;
 
 export interface AueraPlugin {
   Tailwind: {

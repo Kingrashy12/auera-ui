@@ -60,7 +60,7 @@ const Tabs: React.FC<TabsType> = ({
     "max-w-full overflow-x-auto flex items-center relative gap-[1px]"
   );
   const scrollBar = defineClass(
-    "[&::-webkit-scrollbar]:h-1 [&::-webkit-scrollbar-thumb]:cursor-pointer [&::-webkit-scrollbar-thumb]:rounded-[5px]"
+    "scrollbar:h-1 scrollbar-thumb:cursor-pointer scrollbar-thumb:rounded-[5px]"
   );
 
   const TabList = createStyle("div").classname(
@@ -68,9 +68,7 @@ const Tabs: React.FC<TabsType> = ({
       className as string,
       defaultStyle,
       getStylesWithMode(currentMode, variant, rounded),
-      hideScrollBar
-        ? "[&::-webkit-scrollbar]:appearance-none [&::-webkit-scrollbar]:hidden"
-        : scrollBar,
+      hideScrollBar ? "scrollbar-none" : scrollBar,
       getTabWidth(variant, fullWidth)
     )
   );

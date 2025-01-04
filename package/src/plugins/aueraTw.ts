@@ -20,6 +20,30 @@ export const aueraTw = ({
         display: "none",
       },
     },
+    ".z-80": {
+      zIndex: 80,
+    },
+    ".z-90": {
+      zIndex: 90,
+    },
+    ".z-100": {
+      zIndex: 100,
+    },
+    ".z-200": {
+      zIndex: 200,
+    },
+    ".z-300": {
+      zIndex: 300,
+    },
+    ".z-400": {
+      zIndex: 400,
+    },
+    ".z-500": {
+      zIndex: 500,
+    },
+    ".z-600": {
+      zIndex: 600,
+    },
   });
 };
 
