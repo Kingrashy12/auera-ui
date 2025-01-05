@@ -44,3 +44,10 @@ export type ColorPair = Color | "black" | "white";
 export type ModalPanelSize = "auto" | "sm" | "md" | "lg" | "xl" | "full";
 export type TransitionType = "walkIn" | "dropIn" | "slideIn";
 export type Trigger = "modal" | "drawer";
+
+export interface AueraElementProps {
+  tag?: keyof JSX.IntrinsicElements;
+  mode?: ModeType;
+  className?: string;
+  children?: React.ReactNode;
+}

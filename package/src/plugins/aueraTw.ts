@@ -5,8 +5,12 @@ export const aueraTw = ({
   addVariant,
   addUtilities,
 }: AueraPlugin["Tailwind"]) => {
+  // theme-*: for global styling
   addVariant("theme-dark", '[data-theme="dark"] &');
   addVariant("theme-light", '[data-theme="light"] &');
+  // tone-* for single base styling
+  addVariant("tone-dark", ['&[data-theme="dark"]&']);
+  addVariant("tone-light", ['&[data-theme="light"]&']);
   addVariant("scrollbar", ["::-webkit-scrollbar&"]);
   addVariant("scrollbar-thumb", ["::-webkit-scrollbar-thumb&"]);
   addVariant("scrollbar-track", ["::-webkit-scrollbar-track&"]);

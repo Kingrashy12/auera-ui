@@ -80,6 +80,7 @@ const useButton = ({
       buttonSize,
       mainClass,
       props.fullWidth ? "w-full" : "w-auto",
+      props.hidden && "hidden",
       disabled && "cursor-not-allowed pointer-events-none opacity-75"
     )
   );

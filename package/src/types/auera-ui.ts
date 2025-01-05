@@ -374,6 +374,7 @@ export interface IconButtonProps extends BtnProps {
   triggerValue?: string;
   trigger?: Trigger;
   mode?: "light" | "dark";
+  active?: boolean;
 }
 
 export interface DrawerProps extends ModalType {

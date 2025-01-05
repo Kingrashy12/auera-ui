@@ -1,12 +1,12 @@
-import { createStyle, defineClass, merge, tw } from "stywind";
+import { defineClass, merge, tw } from "stywind";
 import { IconButtonProps } from "../../types/auera-ui";
 import { getDisplayName } from "@/utils/displayname";
-import { FC, useMemo } from "react";
+import { FC } from "react";
 import { ModalTrigger } from "../Modal";
 import { DrawerTrigger } from "../Drawer";
 import { throwTriggerError } from "@/utils/component.err";
 import { useMode } from "@/hook/use";
-import { ModeType } from "@/types/auera-system";
+import { AueraButton } from "@/core/AueraElement";
 
 const sizes = {
   md: "p-1",
@@ -62,24 +62,41 @@ const IconButton: FC<IconButtonProps> = ({
   ...props
 }) => {
   throwTriggerError(withTrigger, triggerType, triggerValue, trigger);
-  const { Button } = useIButton(
-    className,
-    disabled,
-    size,
-    radius,
-    variants,
-    props.mode
-  );
+
   const TriggerComponent = Trigger[trigger || "modal"];
+
+  const { currentMode } = useMode(props.mode);
+
+  const SUB = variants === "ghost" || variants === "subtle";
+
+  const Cls = tw(
+    "active:scale-95 flex items-center justify-center tone-dark:text-white tone-light:text-black",
+    className,
+    disabled
+      ? "cursor-not-allowed pointer-events-none opacity-75"
+      : "cursor-pointer ",
+    merge.single(sizes, size || "lg"),
+    merge.single(rounded, radius || "lg"),
+    merge.multi(modeVariant, currentMode, variants),
+    {
+      "bg-gray-100 tone-dark:bg-neutral-800": props.active && SUB,
+      "bg-gray-100 tone-dark:bg-neutral-900":
+        props.active && variants === "outline",
+    }
+  );
 
   return (
     <>
       {withTrigger ? (
         <TriggerComponent type={triggerType} value={triggerValue as string}>
-          <Button {...props}>{children}</Button>
+          <AueraButton className={tw(Cls, className)} {...props}>
+            {children}
+          </AueraButton>
         </TriggerComponent>
       ) : (
-        <Button {...props}>{children}</Button>
+        <AueraButton className={tw(Cls, className)} {...props}>
+          {children}
+        </AueraButton>
       )}
     </>
   );
@@ -88,30 +105,30 @@ const IconButton: FC<IconButtonProps> = ({
 export default IconButton;
 IconButton.displayName = getDisplayName("IconButton");
 
-const useIButton = (
-  className?: string,
-  disabled?: boolean,
-  size?: string,
-  radius?: string,
-  variants?: string,
-  mode?: ModeType
-) => {
-  const { currentMode } = useMode(mode);
-  // TODO: Update mode props to use data-theme attribute for easy mode switching
-  const Button = useMemo(() => {
-    return createStyle("button").classname(
-      tw(
-        "active:scale-95 flex items-center justify-center theme-dark:text-white theme-light:text-black",
-        className,
-        disabled
-          ? "cursor-not-allowed pointer-events-none opacity-75"
-          : "cursor-pointer ",
-        merge.single(sizes, size || "lg"),
-        merge.single(rounded, radius || "lg"),
-        merge.multi(modeVariant, currentMode, variants)
-      )
-    );
-  }, []);
+// const useIButton = (
+//   className?: string,
+//   disabled?: boolean,
+//   size?: string,
+//   radius?: string,
+//   variants?: string,
+//   mode?: ModeType
+// ) => {
+//   const { currentMode } = useMode(mode);
+//   // TODO: Update mode props to use data-theme attribute for easy mode switching
+//   // const Button = useMemo(() => {
+//   //   return createStyle("button").classname(
+//   //     tw(
+//   //       "active:scale-95 flex items-center justify-center theme-dark:text-white theme-light:text-black",
+//   //       className,
+//   //       disabled
+//   //         ? "cursor-not-allowed pointer-events-none opacity-75"
+//   //         : "cursor-pointer ",
+//   //       merge.single(sizes, size || "lg"),
+//   //       merge.single(rounded, radius || "lg"),
+//   //       merge.multi(modeVariant, currentMode, variants)
+//   //     )
+//   //   );
+//   // }, []);
 
-  return { Button };
-};
+//   // return { Button };
+// };
