@@ -1,6 +1,5 @@
 import "./css/colors.css";
 import "./css/base.css";
-import "./css/button.css";
 
 export * from "./components";
 export * from "./utils";
