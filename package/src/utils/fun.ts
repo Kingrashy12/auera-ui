@@ -1,3 +1,5 @@
+import { Currency } from "../types/utils";
+
 /**
  * Utility functions for string manipulation.
  *
