@@ -7,10 +7,6 @@ export const aueraTw = ({
 }: AueraPlugin["Tailwind"]) => {
   addVariant("theme-dark", '[data-theme="dark"] &');
   addVariant("theme-light", '[data-theme="light"] &');
-
-  addVariant("mode-light", '[data-mode="light"] &');
-  addVariant("mode-dark", '[data-mode="dark"] &');
-
   addVariant("scrollbar", ["::-webkit-scrollbar&"]);
   addVariant("scrollbar-thumb", ["::-webkit-scrollbar-thumb&"]);
   addVariant("scrollbar-track", ["::-webkit-scrollbar-track&"]);
