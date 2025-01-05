@@ -103,7 +103,7 @@ const generateButtonClass = ({ variant, colorScheme }: ButtonProps) => {
   const ghostButton = tw(textColor, hoverDimmedBackground);
 
   const outlineButton = defineClass(
-    "border-1.7 border-corprate-outline auera-btn-outline-base shadow-sm"
+    "border-1.7 auera-btn-outline-base shadow-sm"
   );
 
   const flatButton = tw(

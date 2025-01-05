@@ -29,11 +29,11 @@
   } */
 
   .auera-btn-outline-base {
-    @apply bg-white text-black hover:bg-gray-100;
+    @apply bg-white text-black hover:bg-gray-100 border-neutral-300;
   }
 
   .auera-btn-outline-base[data-theme="dark"] {
-    @apply bg-black text-white hover:bg-slate-900;
+    @apply bg-black text-white hover:bg-slate-900 border-neutral-800;
   }
 
   .switch {
