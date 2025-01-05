@@ -50,4 +50,5 @@ export type AueraElementProps<T extends keyof JSX.IntrinsicElements> =
   React.ComponentPropsWithRef<T> & {
     tag?: keyof JSX.IntrinsicElements;
     mode?: ModeType;
+    hidden?: boolean;
   };

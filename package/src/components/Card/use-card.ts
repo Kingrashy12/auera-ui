@@ -11,7 +11,8 @@ export const useCard = (props: CardProps) => {
         "rounded-[10px] flex p-[20px] gap-[16px] card",
         props.centerContent ? "items-center justify-center" : "",
         props.fullWidth ? "w-full w-auto" : "",
-        props.direction === "row" ? "flex-row" : "flex-col"
+        props.direction === "row" ? "flex-row" : "flex-col",
+        props.hidden && "hidden"
       )
     );
   }, [props.direction, props.className, props.centerContent, props.fullWidth]);

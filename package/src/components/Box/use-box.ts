@@ -14,6 +14,7 @@ export const useBox = (props: BoxWithMotion) => {
         props.wrap ? "flex-wrap" : "flex-nowrap",
         props.fullWidth ? "w-full" : "w-auto",
         props.centered && "items-center justify-center",
+        props.hidden && "hidden",
         props.className
       )
     );

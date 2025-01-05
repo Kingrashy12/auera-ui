@@ -2,6 +2,7 @@ import { useMode } from "@/hook/use";
 import { AueraElementProps } from "@/types/auera-system";
 import { useProps } from "@/utils";
 import { getDisplayName } from "@/utils/displayname";
+import { tw } from "stywind";
 
 export const AueraElement = <T extends keyof JSX.IntrinsicElements>({
   tag: Element = "div",
@@ -14,7 +15,11 @@ export const AueraElement = <T extends keyof JSX.IntrinsicElements>({
   const Props = useProps(props, Element);
 
   return (
-    <Element data-theme={currentMode} {...Props}>
+    <Element
+      data-theme={currentMode}
+      className={tw(props.hidden && "hidden", props.className)}
+      {...Props}
+    >
       {children}
     </Element>
   );
