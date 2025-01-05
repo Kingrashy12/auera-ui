@@ -1,3 +1,4 @@
+import React from "react";
 import { colors } from "../utils";
 
 export type DesignFlavour =
@@ -45,9 +46,8 @@ export type ModalPanelSize = "auto" | "sm" | "md" | "lg" | "xl" | "full";
 export type TransitionType = "walkIn" | "dropIn" | "slideIn";
 export type Trigger = "modal" | "drawer";
 
-export interface AueraElementProps {
-  tag?: keyof JSX.IntrinsicElements;
-  mode?: ModeType;
-  className?: string;
-  children?: React.ReactNode;
-}
+export type AueraElementProps<T extends keyof JSX.IntrinsicElements> =
+  React.ComponentPropsWithRef<T> & {
+    tag?: keyof JSX.IntrinsicElements;
+    mode?: ModeType;
+  };
