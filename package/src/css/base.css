@@ -24,8 +24,16 @@
     @apply overflow-hidden relative animate-pulse inline-block p-1 theme-light:bg-slate-200 theme-dark:bg-neutral-700;
   }
 
-  .auera-btn-outline-base {
+  /* .auera-btn-outline-base {
     @apply theme-dark:bg-black theme-dark:text-white theme-dark:hover:bg-slate-900 theme-light:bg-white theme-light:text-black theme-light:hover:bg-gray-100;
+  } */
+
+  .auera-btn-outline-base {
+    @apply bg-white text-black hover:bg-gray-100;
+  }
+
+  .auera-btn-outline-base[data-theme="dark"] {
+    @apply bg-black text-white hover:bg-slate-900;
   }
 
   .switch {

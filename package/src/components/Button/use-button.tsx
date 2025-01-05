@@ -42,11 +42,10 @@ const useButton = ({
   flavour,
   className,
   trigger,
-  mode,
   ...props
 }: ButtonProps) => {
   const { flavour: Flavour } = useProvider();
-  const { currentMode } = useMode(mode);
+  const { currentMode } = useMode(props.mode);
 
   const mainClass = defineClass(
     "flex justify-center items-center flex-shrink-0 font-medium transition-layer duration-200 active:scale-95 gap-2"
@@ -133,6 +132,7 @@ const useButton = ({
     ...props
   }: ButtonProps & { triggerClass?: string }) => {
     throwTriggerError(withTrigger, triggerType, triggerValue, trigger);
+    const { currentMode } = useMode(props.mode);
     return (
       <>
         {withTrigger ? (
@@ -141,10 +141,14 @@ const useButton = ({
             value={triggerValue as string}
             type={triggerType}
           >
-            <Button {...props}>{children}</Button>
+            <Button {...props} data-theme={currentMode}>
+              {children}
+            </Button>
           </TriggerComponent>
         ) : (
-          <Button {...props}>{children}</Button>
+          <Button {...props} data-theme={currentMode}>
+            {children}
+          </Button>
         )}
       </>
     );

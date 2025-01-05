@@ -31,7 +31,6 @@ const Button: React.FC<ButtonProps> = ({
     flavour,
     className,
     trigger,
-    mode,
     ...props,
   });
 
