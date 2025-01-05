@@ -20,7 +20,6 @@ const Button: React.FC<ButtonProps> = ({
   className,
   trigger,
   withTrigger,
-  mode,
   ...props
 }) => {
   const { Component, getContent } = useButton({
