@@ -97,7 +97,6 @@ const useIButton = (
   variants?: string,
   mode?: ModeType
 ) => {
-  console.log("iconButton-mode: ", mode);
   const { currentMode } = useMode(mode);
   // TODO: Update mode props to use data-theme attribute for easy mode switching
   const Button = useMemo(() => {
