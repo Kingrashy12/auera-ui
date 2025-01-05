@@ -1,7 +1,7 @@
 import { generateButtonClass } from "@/flavours/corporate/button/button.class";
 import { generateFrostButton } from "@/flavours/frost/button/button.class";
 import { generateNeumorphicButton } from "@/flavours/neumorphic/button/button.class";
-import { useProvider, useTheme } from "@/hook";
+import { useProvider } from "@/hook";
 import { ButtonProps } from "@/types/auera-ui";
 import { createStyle, defineClass, merge, tw } from "stywind";
 import { ModalTrigger } from "../Modal";
@@ -10,6 +10,7 @@ import { DrawerTrigger } from "../Drawer";
 import { TbLoader2 } from "react-icons/tb";
 import Icon from "../Icon/Icon";
 import { throwTriggerError } from "@/utils/component.err";
+import { useMode } from "@/hook/use";
 
 const Trigger = {
   modal: ModalTrigger,
@@ -41,15 +42,16 @@ const useButton = ({
   flavour,
   className,
   trigger,
+  mode,
   ...props
 }: ButtonProps) => {
   const { flavour: Flavour } = useProvider();
-  const { mode: AppMode } = useTheme();
+  const { currentMode } = useMode(mode);
 
   const mainClass = defineClass(
     "flex justify-center items-center flex-shrink-0 font-medium transition-layer duration-200 active:scale-95 gap-2"
   );
-  const currentMode = props.mode ?? AppMode;
+
   const disabled = props.isLoading || props.disabled;
   const borderRadius = merge.single(rd, radius);
   const buttonSize = merge.single(sz, size);
