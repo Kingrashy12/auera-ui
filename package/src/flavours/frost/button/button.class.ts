@@ -129,7 +129,7 @@ const generateFrostButton = ({ variant, colorScheme, mode }: ButtonProps) => {
   const outlineVariant = tw(
     baseButtonClass,
     defineClass(
-      "shadow-frost-outline /border-frost-outline auera-btn-outline-base"
+      "auera-btn-outline-frost /border-frost-outline auera-btn-outline-base"
     )
   );
   const flatVariant = tw(
