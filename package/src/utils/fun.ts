@@ -1,7 +1,7 @@
 /**
  * Utility functions for string manipulation.
  *
- * Read more: [AueraUI Docs](https://aueraui.vercel.app/utils/strfun)
+ * Read more: [AueraUI Docs](https://aueraui.vercel.app/docs/utils/strfun)
  */
 export const StrFun = {
   /**
@@ -15,7 +15,17 @@ export const StrFun = {
   capitalize(str: string, reg: string, joinReg: string): string {
     return str
       .split(reg)
-      .map((w) => w.slice(0, 1).toUpperCase() + w.slice(1))
+      .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
       .join(joinReg);
   },
+};
+
+export const formatCurrency = <T extends Currency>(
+  value: number,
+  currency: T
+) => {
+  return value.toLocaleString("en-US", {
+    style: "currency",
+    currency: currency,
+  });
 };

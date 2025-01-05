@@ -71,10 +71,11 @@ const useButton = ({
     neumorphic: tw(neumorphic_flavour, "active:scale-70"),
   };
 
+  const buttonStyles = merge.single(buttonStyle, flavour ?? Flavour);
   const Button = createStyle("button").classname(
     tw(
       className,
-      merge.single(buttonStyle, flavour ?? Flavour),
+      variant === "unstyled" ? "" : buttonStyles,
       borderRadius,
       buttonSize,
       mainClass,

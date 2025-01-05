@@ -9,7 +9,13 @@ export type DesignFlavour =
 // | "creative"; // Playful, vibrant, or animated components
 
 export type SchemeVariant = "primary" | "success" | "danger" | "warning";
-export type ButtonVariant = "solid" | "flat" | "outline" | "light" | "ghost";
+export type ButtonVariant =
+  | "solid"
+  | "flat"
+  | "outline"
+  | "light"
+  | "ghost"
+  | "unstyled";
 
 export type ProviderProps = {
   flavour?: DesignFlavour;
