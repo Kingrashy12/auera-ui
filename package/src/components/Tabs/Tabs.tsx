@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { createStyle, defineClass, merge, tw } from "stywind";
 import TabsProvider from "./Provider";
 import Box from "../Box/Box";
@@ -54,6 +54,7 @@ const Tabs: React.FC<TabsType> = ({
   rounded,
   hideScrollBar,
   containerClass,
+  hideBorder,
 }) => {
   const { currentMode } = useMode(mode);
   const defaultStyle = defineClass(
@@ -63,15 +64,19 @@ const Tabs: React.FC<TabsType> = ({
     "scrollbar:h-1 scrollbar-thumb:cursor-pointer scrollbar-thumb:rounded-[5px]"
   );
 
-  const TabList = createStyle("div").classname(
-    tw(
-      className as string,
-      defaultStyle,
-      getStylesWithMode(currentMode, variant, rounded),
-      hideScrollBar ? "scrollbar-none" : scrollBar,
-      getTabWidth(variant, fullWidth)
-    )
-  );
+  const TabList = useMemo(() => {
+    return createStyle("div").classname(
+      tw(
+        className as string,
+        defaultStyle,
+        getStylesWithMode(currentMode, variant, rounded),
+        hideBorder && "border-none",
+        hideScrollBar ? "scrollbar-none" : scrollBar,
+        getTabWidth(variant, fullWidth)
+      )
+    );
+  }, [className, variant, rounded, currentMode]);
+
   const [activeTabIndex, setActiveTabIndex] = useState(0);
 
   const tabs = React.Children.toArray(children).filter(

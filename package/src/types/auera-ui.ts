@@ -433,6 +433,7 @@ export type TabsType = {
   rounded?: boolean;
   hideScrollBar?: boolean;
   containerClass?: string;
+  hideBorder?: boolean;
 };
 
 export type TabHandleType = {
