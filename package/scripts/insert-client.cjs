@@ -22,6 +22,7 @@ const insertFiles = [
   "auera-ui.cjs",
   "components/loader/LoadIndicator.d.ts",
   "components/Tabs/Provider.d.ts",
+  "components/Tabs/TabPanel.d.ts",
   "components/Tabs/Tabs.d.ts",
   "components/Toast/Toast.d.ts",
   "components/Switch/Switch.d.ts",

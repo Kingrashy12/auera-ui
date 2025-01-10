@@ -4,6 +4,7 @@ import { BoxProps, CardProps, StackProps } from "./auera-ui";
 export type BoxWithMotion = HTMLMotionProps<"div"> & BoxProps;
 export type CardWithMotion = HTMLMotionProps<"div"> & CardProps;
 export type StackWithMotion = HTMLMotionProps<"div"> & StackProps;
+export type TabPanelWithMotion = HTMLMotionProps<"div">;
 
 export type BasicMotionProps = {
   animate?: MotionProps["animate"];
