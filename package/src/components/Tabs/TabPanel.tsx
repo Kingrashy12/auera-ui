@@ -13,13 +13,13 @@ const TabPanel = forwardRef<HTMLDivElement, TabPanelWithMotion>(
   ({ children, ...props }, ref) => {
     return (
       <motion.div
-        {...props}
         ref={ref}
         initial="enter"
         animate="center"
         exit="exit"
         variants={motionVariants}
         transition={{ duration: 0.5 }}
+        {...props}
       >
         {children}
       </motion.div>
