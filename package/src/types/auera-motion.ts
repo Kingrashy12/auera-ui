@@ -5,7 +5,7 @@ export type BoxWithMotion = HTMLMotionProps<"div"> & BoxProps;
 export type CardWithMotion = HTMLMotionProps<"div"> & CardProps;
 export type StackWithMotion = HTMLMotionProps<"div"> & StackProps;
 export type TabPanelWithMotion = HTMLMotionProps<"div"> & {
-  animate?: boolean;
+  animatePanel?: boolean;
 };
 
 export type BasicMotionProps = {

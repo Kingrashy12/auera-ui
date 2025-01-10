@@ -10,14 +10,14 @@ const motionVariants = {
 };
 
 const TabPanel = forwardRef<HTMLDivElement, TabPanelWithMotion>(
-  ({ children, animate, ...props }, ref) => {
+  ({ children, animatePanel, ...props }, ref) => {
     const getAnimation = () => {
       const initial = "enter";
       const animate = "center";
       const exit = "exit";
       const variants = { motionVariants };
 
-      return animate ? { initial, animate, exit, variants } : {};
+      return animatePanel ? { initial, animate, exit, variants } : {};
     };
     return (
       <motion.div
