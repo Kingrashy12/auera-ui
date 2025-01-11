@@ -15,7 +15,7 @@ const TabPanel = forwardRef<HTMLDivElement, TabPanelWithMotion>(
       const initial = "enter";
       const animate = "center";
       const exit = "exit";
-      const variants = { motionVariants };
+      const variants = motionVariants;
 
       return animatePanel ? { initial, animate, exit, variants } : {};
     };

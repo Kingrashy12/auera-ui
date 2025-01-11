@@ -15,7 +15,7 @@ const getStylesWithMode = (
 ) => {
   const sharedStyle = {
     line: "bg-transparent rounded-none p-0 border-t-none border-b",
-    solid: `${rounded ? "rounded-full" : "rounded-md"} border-none p-[5px]`,
+    solid: `${rounded ? "rounded-full" : "rounded-[9px]"} border-none p-[3px]`,
   };
   const styles = {
     light: {
