@@ -1,11 +1,11 @@
 import { MenuProps } from "../../types/auera-ui";
 import React, { useRef, useState } from "react";
-import MenuTrigger from "./MenuTrigger";
-import MenuItem from "./MenuItem";
 import { MenuContext } from "@/context/menu";
-import { Box } from "auera-ui";
-import Menu from "./Menu";
+import { List as Menu } from "./List";
 import { getDisplayName } from "@/utils/displayname";
+import MenuItem from "./MenuItem";
+import MenuTrigger from "./MenuTrigger";
+import Box from "../Box/Box";
 
 const MenuProvider = ({ children, ...props }: MenuProps) => {
   const [isOpen, setIsOpen] = useState(false);

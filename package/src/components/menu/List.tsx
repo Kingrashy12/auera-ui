@@ -6,7 +6,7 @@ import { MenuProps } from "../../types/auera-ui";
 import { useMode } from "@/hook/use";
 import { getDisplayName } from "@/utils/displayname";
 
-const Menu: React.FC<MenuProps> = ({ ...props }) => {
+export const List: React.FC<MenuProps> = ({ ...props }) => {
   const { isOpen, onClose } = useMenu();
   const { currentMode } = useMode(props.mode);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -36,5 +36,4 @@ const Menu: React.FC<MenuProps> = ({ ...props }) => {
   );
 };
 
-export default Menu;
-Menu.displayName = getDisplayName("Menu");
+List.displayName = getDisplayName("Menu");

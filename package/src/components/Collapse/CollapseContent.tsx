@@ -1,6 +1,7 @@
 import { getDisplayName } from "@/utils/displayname";
-import { Box, BoxWithMotion } from "auera-ui";
 import React from "react";
+import Box from "../Box/Box";
+import { BoxWithMotion } from "@/types/auera-motion";
 
 const CollapseContent: React.FC<BoxWithMotion> = (props) => {
   return (

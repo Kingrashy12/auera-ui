@@ -1,5 +1,5 @@
 import { useMenu } from "@/hook/useMenu";
-import { DivProps } from "auera-ui";
+import { DivProps } from "../../types/auera-ui";
 import React from "react";
 
 /**
