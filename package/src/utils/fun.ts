@@ -20,6 +20,9 @@ export const StrFun = {
       .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
       .join(joinReg);
   },
+  truncate(text: string, len = 10): string {
+    return text.length > len ? text.slice(0, len) + "..." : text;
+  },
 };
 
 export const formatCurrency = <T extends Currency>(

@@ -18,3 +18,12 @@ export type Currency =
   | "CNY"
   | "SEK"
   | "NZD";
+
+type ReplaceReg = "/" | "-" | " " | "," | ":" | "";
+
+export type FormatDate = {
+  date: Date;
+  format?: "yyyy-mm-dd" | "mm-yyyy" | "dd-mmm";
+  locale?: "en-US" | "en-UK";
+  replaceFormat?: ReplaceReg;
+};
