@@ -5,8 +5,8 @@
 ### Added
 
 - **Components**
-- `Menu` Popup for displaying lsit of action
-- `MenuTrigger` Trigger component for `Menu`
+- `Menu` Popup for displaying a list of actions.
+- `MenuTrigger` Trigger component for `Menu`.
 - `MenuItem` Component for rendering Menu Item
 
 - **Plugin**
