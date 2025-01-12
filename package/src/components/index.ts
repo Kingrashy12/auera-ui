@@ -8,6 +8,7 @@ export * from "./Button";
 export * from "./Image";
 export * from "./loader";
 export * from "./Indicator";
+export * from "./menu";
 
 export { default as Backdrop } from "./Backdrop/Backdrop";
 export { default as GroupMap } from "./utils/GroupMap";

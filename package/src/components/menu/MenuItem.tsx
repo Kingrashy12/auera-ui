@@ -2,7 +2,6 @@ import { useMenu } from "@/hook/useMenu";
 import { MenuItemProps } from "../../types/auera-ui";
 import React from "react";
 import { useComputeMI } from "./use-menu";
-import { toast } from "auera-ui";
 import { useMode } from "@/hook/use";
 import { getDisplayName } from "@/utils/displayname";
 
@@ -11,7 +10,6 @@ const MenuItem: React.FC<MenuItemProps> = (props) => {
   const { onClose: closeMenu } = useMenu();
 
   const killMenu = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    toast.info("something");
     try {
       if (props.onClick) {
         props.onClick(event);
