@@ -1,9 +1,9 @@
 import { useMenu } from "@/hook/useMenu";
 import { MenuItemProps } from "../../types/auera-ui";
 import React from "react";
-import { useComputeMI } from "./use-menu";
 import { useMode } from "@/hook/use";
 import { getDisplayName } from "@/utils/displayname";
+import { useComputeMI } from "./use-menu";
 
 const MenuItem: React.FC<MenuItemProps> = (props) => {
   const { currentMode } = useMode(props.mode);

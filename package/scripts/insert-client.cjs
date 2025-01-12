@@ -10,13 +10,13 @@ const componentsDir = [
   "components/Breadcrumb",
   "components/Card",
   "components/Drawer",
-  // 'components/Menu',
+  "components/Menu",
   "components/Modal",
   "components/Input",
   // 'components/FilePicker',
   "components/Provider",
 ];
-const hooksDir = ["hook", "context", "core"];
+const hooksDir = ["hook", "context"];
 const insertFiles = [
   "auera-ui.es.js",
   "auera-ui.cjs",
@@ -26,6 +26,7 @@ const insertFiles = [
   "components/Tabs/Tabs.d.ts",
   "components/Toast/Toast.d.ts",
   "components/Switch/Switch.d.ts",
+  "core/Provider.d.ts",
 ];
 const insertDir = [...componentsDir, ...hooksDir];
 
