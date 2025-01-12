@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.23] - 2025-01-12
+
+### Added
+
+- **Components**
+- `Collapse`
+- `CollapseContent`
+
 ## [0.1.22] - 2025-01-12
 
 ### Added
