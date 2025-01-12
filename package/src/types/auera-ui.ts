@@ -33,6 +33,7 @@ export interface BoxProps extends DivProps {
    * @type {boolean}
    */
   fullWidth?: boolean;
+  between?: boolean;
 }
 
 export declare type SizeVariantType =

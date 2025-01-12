@@ -15,6 +15,7 @@ export const useBox = (props: BoxWithMotion) => {
         props.fullWidth ? "w-full" : "w-auto",
         props.centered && "items-center justify-center",
         props.hidden && "hidden",
+        props.between && "justify-between",
         props.className
       )
     );
@@ -24,6 +25,7 @@ export const useBox = (props: BoxWithMotion) => {
     props.fullWidth,
     props.centered,
     props.className,
+    props.between,
   ]);
 
   return { Base };
