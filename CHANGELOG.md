@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.1.22] - 2025-01-12
+
+### Added
+
+- **Components**
+- `Menu` Popup for displaying lsit of action
+- `MenuTrigger` Trigger component for `Menu`
+- `MenuItem` Component for rendering Menu Item
+
+- **Plugin**
+  - **aueraTw**: Added 5 new variants and 2 utility classes.
+
 ## [0.1.21] - 2025-01-03
 
 ### Added
