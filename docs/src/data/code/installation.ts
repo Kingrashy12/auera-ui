@@ -51,8 +51,14 @@ const config: Config = {
       dropShadow: {...tailwindExtend.dropShadow},
     },
   },
-  /* For enabling custom variants, This allows you use 'theme-light' &
-   'theme-dark' */
+  /* For enabling custom variants, This allows you use
+   'theme-*dark/light'
+   'tone-*light/dark'
+   'scrollbar'
+   'scrollbar-track'
+   'scrollbar-thumb'
+   'scrollbar-none'
+   */
   plugins: [aueraTw], 
 };`,
 };
