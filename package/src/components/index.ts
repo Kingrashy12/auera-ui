@@ -9,6 +9,7 @@ export * from "./Image";
 export * from "./loader";
 export * from "./Indicator";
 export * from "./Menu";
+export * from "./Collapse";
 
 export { default as Backdrop } from "./Backdrop/Backdrop";
 export { default as GroupMap } from "./utils/GroupMap";

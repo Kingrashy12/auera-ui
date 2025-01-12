@@ -651,3 +651,13 @@ export interface MenuItemProps extends DivProps {
   disabled?: boolean;
   type?: "full" | "curved";
 }
+
+export type CollapseProps = {
+  className?: string;
+  headerClass?: string;
+  header: string;
+  children?: React.ReactNode;
+  mode?: "light" | "dark";
+  openIcon?: React.ElementType;
+  closeIcon?: React.ElementType;
+};
