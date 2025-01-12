@@ -8,6 +8,7 @@ import {
   Trigger,
 } from "./auera-system";
 import { InputProps } from "stywind";
+import { zIndex } from "./keys";
 
 export type DivProps = React.HTMLAttributes<HTMLDivElement>;
 export type BtnProps = React.HtmlHTMLAttributes<HTMLButtonElement>;
@@ -609,4 +610,43 @@ export interface FabProps extends DivProps {
   size?: "sm" | "md" | "lg" | "xl";
   disabled?: boolean;
   zIndex?: "100" | "200" | "300" | "400" | "500" | "600";
+}
+
+export interface MenuProps extends React.HTMLAttributes<HTMLDivElement> {
+  /**
+   * Flag indicating whether the menu is initially open.
+   * @default false
+   */
+  open?: boolean;
+
+  /**
+   * Theme mode, either 'light' or 'dark'.
+   * @default 'light'
+   */
+  mode?: "light" | "dark";
+
+  /**
+   * Z-index value for positioning the menu.
+   * @default 100
+   */
+  zIndex?: zIndex;
+}
+
+export interface MenuItemProps extends DivProps {
+  /**
+   * Text color (e.g., 'black', 'red-500').
+   * @default 'black'
+   */
+  color?: ColorPair;
+
+  /**
+   * Theme mode, either 'light' or 'dark'.
+   * @default 'light'
+   */
+  mode?: "light" | "dark";
+  /**
+   * Indicates if the MenuItem is disabled.
+   */
+  disabled?: boolean;
+  type?: "full" | "curved";
 }

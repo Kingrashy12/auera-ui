@@ -1,0 +1,42 @@
+import { useMenu } from "@/hook/useMenu";
+import { MenuItemProps } from "../../types/auera-ui";
+import React from "react";
+import { useComputeMI } from "./use-menu";
+import { toast } from "auera-ui";
+import { useMode } from "@/hook/use";
+import { getDisplayName } from "@/utils/displayname";
+
+const MenuItem: React.FC<MenuItemProps> = (props) => {
+  const { currentMode } = useMode(props.mode);
+  const { onClose: closeMenu } = useMenu();
+
+  const killMenu = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    toast.info("something");
+    try {
+      if (props.onClick) {
+        props.onClick(event);
+      }
+    } catch (error) {
+      console.error("Error calling onClick:", error);
+    } finally {
+      closeMenu();
+    }
+  };
+
+  const Base = useComputeMI(props);
+
+  return (
+    <>
+      {props.type === "curved" ? (
+        <div className="w-full p-2">
+          <Base onClick={killMenu} data-theme={currentMode} {...props} />
+        </div>
+      ) : (
+        <Base onClick={killMenu} data-theme={currentMode} {...props} />
+      )}
+    </>
+  );
+};
+
+export default MenuItem;
+MenuItem.displayName = getDisplayName("MenuItem");
