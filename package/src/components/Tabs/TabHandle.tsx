@@ -56,7 +56,7 @@ const TabHandle: React.FC<TabHandleType> = ({
     solid: tw(
       isCurrent
         ? `text-${activeColorScheme} bg-white shadow-sm drop-shadow-tab`
-        : `text-${inActiveColor} bg-transparent`,
+        : `text-${inActiveColor} bg-transparent hover:bg-gray-200 tone-dark:hover:bg-gray-500`,
       rounded ? "rounded-full" : "rounded-md",
       disabled
         ? "opacity-50 cursor-default pointer-event-none"
@@ -83,7 +83,7 @@ const TabHandle: React.FC<TabHandleType> = ({
     )
   );
   return (
-    <Handle style={style} onClick={switchTab}>
+    <Handle style={style} onClick={switchTab} data-theme={themeMode}>
       {icon && <Icon icon={icon} size={iconSize} />}
       {children}
     </Handle>

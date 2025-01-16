@@ -75,7 +75,16 @@ const Tabs: React.FC<TabsType> = ({
         getTabWidth(variant, fullWidth)
       )
     );
-  }, [className, variant, rounded, currentMode]);
+  }, [
+    className,
+    variant,
+    rounded,
+    fullWidth,
+    currentMode,
+    hideBorder,
+    hideScrollBar,
+    mode,
+  ]);
 
   const [activeTabIndex, setActiveTabIndex] = useState(0);
 
