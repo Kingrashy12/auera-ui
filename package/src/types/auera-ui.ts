@@ -366,7 +366,7 @@ export interface ModalFooterProps extends DivProps {
   showBorder?: boolean;
 }
 
-export interface IconButtonProps extends BtnProps {
+export interface IconButtonProps {
   variants?: "subtle" | "outline" | "ghost";
   size?: "md" | "lg" | "xl";
   radius?: "md" | "lg" | "xl" | "full";
@@ -377,7 +377,12 @@ export interface IconButtonProps extends BtnProps {
   trigger?: Trigger;
   mode?: "light" | "dark";
   active?: boolean;
+  asChild?: false;
 }
+
+export type IconButtonPropsExtended<T extends boolean> = T extends true
+  ? IconButtonProps & DivProps
+  : IconButtonProps & BtnProps;
 
 export interface DrawerProps extends ModalType {
   backdropClass?: string;

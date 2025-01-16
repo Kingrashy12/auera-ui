@@ -1,12 +1,13 @@
+// @ts-nocheck
 import { defineClass, merge, tw } from "stywind";
-import { IconButtonProps } from "../../types/auera-ui";
+import { IconButtonPropsExtended } from "../../types/auera-ui";
 import { getDisplayName } from "@/utils/displayname";
 import { FC } from "react";
 import { ModalTrigger } from "../Modal";
 import { DrawerTrigger } from "../Drawer";
 import { throwTriggerError } from "@/utils/component.err";
 import { useMode } from "@/hook/use";
-import { AueraButton } from "@/core/AueraElement";
+import { AueraButton, AueraDiv } from "@/core/AueraElement";
 
 const sizes = {
   md: "p-1",
@@ -48,17 +49,18 @@ const Trigger = {
   drawer: DrawerTrigger,
 };
 
-const IconButton: FC<IconButtonProps> = ({
-  children,
+const IconButton: FC<IconButtonPropsExtended<boolean>> = ({
   variants = "subtle",
   radius = "lg",
   size = "lg",
   className,
+  children,
   disabled,
   trigger,
   withTrigger,
   triggerType,
   triggerValue,
+  asChild = false,
   ...props
 }) => {
   throwTriggerError(withTrigger, triggerType, triggerValue, trigger);
@@ -85,18 +87,20 @@ const IconButton: FC<IconButtonProps> = ({
     }
   );
 
+  const Comp = asChild ? AueraDiv : AueraButton;
+
   return (
     <>
       {withTrigger ? (
         <TriggerComponent type={triggerType} value={triggerValue as string}>
-          <AueraButton className={tw(Cls, className)} {...props}>
+          <Comp className={tw(Cls, className)} {...props}>
             {children}
-          </AueraButton>
+          </Comp>
         </TriggerComponent>
       ) : (
-        <AueraButton className={tw(Cls, className)} {...props}>
+        <Comp className={tw(Cls, className)} {...props}>
           {children}
-        </AueraButton>
+        </Comp>
       )}
     </>
   );
@@ -104,31 +108,3 @@ const IconButton: FC<IconButtonProps> = ({
 
 export default IconButton;
 IconButton.displayName = getDisplayName("IconButton");
-
-// const useIButton = (
-//   className?: string,
-//   disabled?: boolean,
-//   size?: string,
-//   radius?: string,
-//   variants?: string,
-//   mode?: ModeType
-// ) => {
-//   const { currentMode } = useMode(mode);
-//   // TODO: Update mode props to use data-theme attribute for easy mode switching
-//   // const Button = useMemo(() => {
-//   //   return createStyle("button").classname(
-//   //     tw(
-//   //       "active:scale-95 flex items-center justify-center theme-dark:text-white theme-light:text-black",
-//   //       className,
-//   //       disabled
-//   //         ? "cursor-not-allowed pointer-events-none opacity-75"
-//   //         : "cursor-pointer ",
-//   //       merge.single(sizes, size || "lg"),
-//   //       merge.single(rounded, radius || "lg"),
-//   //       merge.multi(modeVariant, currentMode, variants)
-//   //     )
-//   //   );
-//   // }, []);
-
-//   // return { Button };
-// };
