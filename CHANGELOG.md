@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.1.24] - 2025-01-16
+
+### Added
+
+- `Button`: Unstyle variant
+
 ## [0.1.23] - 2025-01-12
 
 ### Added
