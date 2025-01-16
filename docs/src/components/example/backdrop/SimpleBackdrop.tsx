@@ -12,7 +12,7 @@ import {
 } from "auera-ui";
 import React, { useState } from "react";
 
-const code = `import { Backdrop, Button, OTPInput, Stack } from "auera-ui";
+const code = `import { Backdrop, Button, OTPInput, toast } from "auera-ui";
 import React, { useState } from "react";
 
 const  SimpleBackdrop = () => {
@@ -21,14 +21,26 @@ const  SimpleBackdrop = () => {
   const handleClose = () => {
     setOpen(false);
    };
-    const handleOpen = () => {
-      setOpen(true);
-     };
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleCode = (code: string) => {
+   setOtp(code);
+    if (otp.length == 4) {
+      toast.success("OTP Verified Successfully");
+      setTimeout(() => {
+        setOpen(false);
+      }, 1000);
+    }
+  };
+
  return (
   <>
    <Button onClick={handleOpen}>Open Backdrop</Button>
    <Backdrop open={open} onClose={handleClose} centerContent>
-    <OTPInput onComplete={(otp) => console.log("You entered:", otp)} />
+    <OTPInput onComplete={(otp) => handleCode(otp)} />
    </Backdrop>
   </>
  )
