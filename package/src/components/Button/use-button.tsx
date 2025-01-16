@@ -75,7 +75,7 @@ const useButton = ({
   const Button = createStyle("button").classname(
     tw(
       className,
-      variant === "unstyled" ? "" : buttonStyles,
+      variant === "unstyled" ? "text-black tone-dark:text-white" : buttonStyles,
       borderRadius,
       buttonSize,
       mainClass,

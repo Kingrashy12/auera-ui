@@ -34,8 +34,6 @@
     tone-dark:shadow-[var(--auera-neutral-800)_0_-1px_0_1px_inset,_var(--auera-neutral-900)_0_1px_2px_0];
   }
 
-  /* ..... */
-
   .switch {
     @apply flex cursor-pointer  p-1 rounded-full data-[ison=true]:justify-end;
   }
