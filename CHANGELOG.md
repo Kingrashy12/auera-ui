@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.26] - 2025-01-16
+
+### Added
+
+- **IconButton** component now conditionally accepts BtnProps or DivProps based on the `asChild` prop.
+  - The component dynamically renders either `AueraButton` or `AueraDiv` depending on the `asChild` value.
+  - Introduced `IconButtonPropsExtended` to manage the conditional extension of types.
+
 ## [0.1.24] - 2025-01-16
 
 ### Added
