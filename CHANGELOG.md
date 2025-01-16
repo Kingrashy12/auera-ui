@@ -4,7 +4,12 @@
 
 ### Added
 
-- `Button`: Unstyle variant
+- **Hover styles** for TabHandle, improving visual feedback when hovering over tabs.
+- **Unstyled variant** for Button, allowing for more customization without default styles.
+
+### Updated
+
+- Adjusted Tabs component for better styling and interaction consistency.
 
 ## [0.1.23] - 2025-01-12
 
