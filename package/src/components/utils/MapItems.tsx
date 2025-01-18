@@ -19,7 +19,7 @@ type ListMap<T> = {
 
   /** Layout direction (row or column) for the container. */
   direction?: "row" | "column";
-};
+} & BoxWithMotion;
 
 /**
  * MapItems component displays a list of items with customizable rendering and layout.
@@ -36,19 +36,23 @@ type ListMap<T> = {
  * @returns {JSX.Element} The rendered list of items or the empty state component.
  */
 
-const MapItems = <T,>({
-  data,
-  renderItem,
-  emptyListComponent,
-  className,
-  direction,
-  animate,
-  variants,
-  initial,
-  ...props
-}: ListMap<T> & BoxWithMotion) => {
+const MapItems = <T,>(
+  {
+    data,
+    renderItem,
+    emptyListComponent,
+    className,
+    direction,
+    animate,
+    variants,
+    initial,
+    ...props
+  }: ListMap<T>,
+  ref?: React.Ref<HTMLDivElement>
+): JSX.Element => {
   return (
     <Box
+      ref={ref}
       direction={direction}
       className={tw("gap-2", className)}
       animate={animate}
