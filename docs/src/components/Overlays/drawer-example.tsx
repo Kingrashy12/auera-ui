@@ -14,7 +14,9 @@ const DrawerDemo = () => {
     <Drawer value="drawer-demo">
       <DrawerPanel>
         <DrawerHeader>
-          <h1 className="font-medium text-lg">Notifications</h1>
+          <h1 className="font-medium text-lg theme-dark:text-white">
+            Notifications
+          </h1>
 
           <IconButton
             withTrigger
