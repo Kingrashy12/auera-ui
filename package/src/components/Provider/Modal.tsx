@@ -3,12 +3,14 @@ import { ModalContext } from "../../context/modal";
 import { ContextProviderProps } from "../../types/auera-context";
 import { getDisplayName } from "@/utils/displayname";
 
+let onOpen: (value: string) => void;
+
 const ModalProvider = ({ children }: ContextProviderProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [activeModalValue, setActiveModalValue] = useState<string>("");
 
-  const onOpen = (value: string) => {
+  onOpen = (value: string) => {
     setIsOpen(true);
     setActiveModalValue(value);
     setIsVisible(true);
@@ -32,3 +34,4 @@ const ModalProvider = ({ children }: ContextProviderProps) => {
 
 export default ModalProvider;
 ModalProvider.displayName = getDisplayName("ModalProvider");
+export { onOpen as openModal };

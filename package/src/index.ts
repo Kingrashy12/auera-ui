@@ -11,3 +11,4 @@ export * from "./types/plugin";
 export * from "./types/utils";
 export type { ColorPair } from "./types/auera-system";
 export { default as Provider } from "./core/Provider";
+export * from "./components/Provider";
