@@ -4,6 +4,7 @@ import { ContextProviderProps } from "../../types/auera-context";
 import { getDisplayName } from "@/utils/displayname";
 
 let onOpen: (value: string) => void;
+let onClose: () => void;
 
 const DrawerProvider = ({ children }: ContextProviderProps) => {
   const [activeDrawerValue, setActiveDrawerValue] = useState("");
@@ -16,7 +17,7 @@ const DrawerProvider = ({ children }: ContextProviderProps) => {
     setActiveDrawerValue(value);
   };
 
-  const onClose = () => {
+  onClose = () => {
     setIsVisible(false);
     setTimeout(() => {
       setIsOpen(false);
@@ -34,4 +35,4 @@ const DrawerProvider = ({ children }: ContextProviderProps) => {
 export default DrawerProvider;
 DrawerProvider.displayName = getDisplayName("DrawerProvider");
 
-export { onOpen as openDrawer };
+export { onOpen as openDrawer, onClose as closeDrawer };

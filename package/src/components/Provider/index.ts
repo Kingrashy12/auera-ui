@@ -1,2 +1,2 @@
-export { openDrawer } from "./Drawer";
-export { openModal } from "./Modal";
+export { openDrawer, closeDrawer } from "./Drawer";
+export { openModal, closeModal } from "./Modal";
