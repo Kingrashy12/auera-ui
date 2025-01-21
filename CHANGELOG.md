@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.1.29] - 2025-01-21
+
+## Updated
+
+- **Component**
+  - `Avater`: Added lazy loading for the image using a `lazy` prop
+
+## [0.1.27] - 2025-01-20
+
+### Added
+
+- **Components**
+  - Exported main trigger methods: `openModal`, `openDrawer`, `closeModal`, `closeDrawer`
+
 ## [0.1.26] - 2025-01-16
 
 ### Added
