@@ -5,6 +5,7 @@ import Skeleton from "../loader/Skeleton";
 interface AvatarProps extends React.ComponentProps<"img"> {
   size?: "sm" | "md" | "lg" | "xl";
   border?: boolean;
+  lazy?: boolean;
 }
 
 const imgSizes = {
@@ -52,7 +53,7 @@ const Avatar: React.FC<AvatarProps> = ({ size = "sm", border, ...props }) => {
 
   return (
     <>
-      {!loaded && (
+      {props.lazy && !loaded && (
         <Skeleton
           width={placeholderSize}
           height={placeholderSize}
@@ -63,7 +64,13 @@ const Avatar: React.FC<AvatarProps> = ({ size = "sm", border, ...props }) => {
         onLoad={handleLoad}
         loading="lazy"
         alt={props.alt}
-        className={tw(loaded ? "block" : "hidden", props.className)}
+        className={tw(
+          {
+            block: props.lazy && loaded,
+            hidden: props.lazy && !loaded,
+          },
+          props.className
+        )}
         {...props}
       />
     </>
