@@ -3,17 +3,13 @@
 @tailwind utilities;
 
 @layer utilities {
-  .card {
-    @apply border border-[var(--auera-card-border)] shadow-card bg-[--auera-card-bg];
-  }
-
   .border-image {
     border-image: initial;
   }
 
   .input-outline {
     @apply bg-[var(--auera-input-outline-bg)]
-     border-[1.35px] border-[var(--auera-input-outline-border)]
+     border-1.7 border-[var(--auera-input-outline-border)]
      transition-all duration-300 ease-in-out
      hover:border-blue-400
      focus-within:border-blue-600
@@ -21,6 +17,38 @@
   }
 
   .skeleton {
-    @apply overflow-hidden relative animate-pulse inline-block p-1 theme-light:bg-slate-200 theme-dark:bg-neutral-700;
+    @apply overflow-hidden relative animate-pulse inline-block p-1
+    theme-light:bg-slate-200 theme-dark:bg-neutral-700;
   }
+
+  .switch {
+    @apply flex cursor-pointer  p-1 rounded-full data-[ison=true]:justify-end;
+  }
+}
+
+@keyframes dots {
+  0% {
+    content: ".";
+  }
+  20% {
+    content: "..";
+  }
+  40% {
+    content: "...";
+  }
+  60% {
+    content: "..";
+  }
+  80% {
+    content: ".";
+  }
+  100% {
+    content: ".";
+  }
+}
+
+.animate-dots::after {
+  animation: dots 1.5s steps(5) infinite;
+  position: absolute;
+  content: ".";
 }

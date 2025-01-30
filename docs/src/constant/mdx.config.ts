@@ -2,7 +2,7 @@ import { HiArrowTopRightOnSquare } from "react-icons/hi2";
 import Installation from "@/components/guide/Installation";
 import TabLink from "@/components/TabLink";
 import CodeBlock from "@/components/layout/code/Block";
-import { Box, Button, Card, Stack, Tabs } from "auera-ui";
+import { Box, Button, Card, Stack, Tabs, TabHandle, TabPanel } from "auera-ui";
 import Details from "@/components/Details";
 import HeaderLabel from "@/components/HeaderLabel";
 import DetailCard from "@/components/layout/DetailCard";
@@ -24,6 +24,8 @@ import ButtonFlavours from "@/components/example/button/flavours";
 import LoadingButton from "@/components/example/button/loading";
 import CustomSpinner from "@/components/example/button/custom-spinner";
 import ButtonWithIcon from "@/components/example/button/icon";
+import ButtonWithTrigger from "@/components/example/button/with-trigger";
+import OverlayStructure from "@/components/guide/overlay-structure";
 
 export const components = {
   DetailCard,
@@ -37,6 +39,8 @@ export const components = {
   Card,
   Button,
   Tabs,
+  TabHandle,
+  TabPanel,
   Stack,
   CodeBlock,
   CLI,
@@ -55,6 +59,8 @@ export const components = {
   LoadingButton,
   CustomSpinner,
   ButtonWithIcon,
+  ButtonWithTrigger,
+  OverlayStructure,
 };
 
 export const MDXRemote = dynamic(() =>

@@ -1,5 +1,69 @@
 # Changelog
 
+## [0.1.29] - 2025-01-21
+
+## Updated
+
+- **Component**
+  - `Avater`: Added lazy loading for the image using a `lazy` prop
+
+## [0.1.27] - 2025-01-20
+
+### Added
+
+- **Components**
+  - Exported main trigger methods: `openModal`, `openDrawer`, `closeModal`, `closeDrawer`
+
+## [0.1.26] - 2025-01-16
+
+### Added
+
+- **IconButton** component now conditionally accepts BtnProps or DivProps based on the `asChild` prop.
+  - The component dynamically renders either `AueraButton` or `AueraDiv` depending on the `asChild` value.
+  - Introduced `IconButtonPropsExtended` to manage the conditional extension of types.
+
+## [0.1.24] - 2025-01-16
+
+### Added
+
+- **Hover styles** for TabHandle, improving visual feedback when hovering over tabs.
+- **Unstyled variant** for Button, allowing for more customization without default styles.
+
+### Updated
+
+- Adjusted Tabs component for better styling and interaction consistency.
+
+## [0.1.23] - 2025-01-12
+
+### Added
+
+- **Components**
+- `Collapse`
+- `CollapseContent`
+
+## [0.1.22] - 2025-01-12
+
+### Added
+
+- **Components**
+- `Menu` Popup for displaying a list of actions.
+- `MenuTrigger` Trigger component for `Menu`.
+- `MenuItem` Component for rendering Menu Item
+
+- **Plugin**
+  - **aueraTw**: Added 5 new variants and 2 utility classes.
+
+## [0.1.21] - 2025-01-03
+
+### Added
+
+- **Component**
+  - Integrated `motion/react` to the package for enhanced animations.
+  - Added support for `motion` props across components, enabling seamless customization of animations.
+  - Updated `Button` and `IconButton` to use the `withTrigger` prop for improved trigger handling and management.
+- **Plugin**
+  - Added the `SafeList` method to whitelist dynamic Tailwind CSS utility color classes.
+
 ## [0.1.7] - 2024-12-15
 
 ### Changed

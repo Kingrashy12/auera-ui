@@ -1,4 +1,4 @@
-import { Box, Drawer, IconButton } from "auera-ui";
+import { Box, IconButton } from "auera-ui";
 import React from "react";
 import { FiMenu } from "react-icons/fi";
 import { createStyle } from "stywind";
@@ -15,11 +15,16 @@ const ToolBar = () => {
   return (
     <Bar>
       <Box className="gap-4 items-center w-full">
-        <Drawer.Trigger value="tool-bar">
-          <IconButton variants="ghost">
-            <FiMenu size={19} />
-          </IconButton>
-        </Drawer.Trigger>
+        <IconButton
+          withTrigger
+          trigger="drawer"
+          triggerType="open"
+          triggerValue="tool-bar"
+          variants="ghost"
+        >
+          <FiMenu size={19} />
+        </IconButton>
+
         <Box fullWidth className=" overflow-x-auto">
           <Breadcrumb
             separator="splash"

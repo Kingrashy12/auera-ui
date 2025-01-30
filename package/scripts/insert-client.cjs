@@ -5,22 +5,29 @@ const path = require("path");
 const { logger } = require("stywind");
 
 const componentsDir = [
+  "components/Box",
   "components/Button",
   "components/Breadcrumb",
+  "components/Card",
   "components/Drawer",
-  // 'components/Menu',
+  "components/Menu",
   "components/Modal",
   "components/Input",
   // 'components/FilePicker',
   "components/Provider",
 ];
-const hooksDir = ["hook", "context", "core"];
+const hooksDir = ["hook", "context"];
 const insertFiles = [
   "auera-ui.es.js",
   "auera-ui.cjs",
   "components/loader/LoadIndicator.d.ts",
   "components/Tabs/Provider.d.ts",
+  "components/Tabs/TabPanel.d.ts",
   "components/Tabs/Tabs.d.ts",
+  "components/Toast/Toast.d.ts",
+  "components/Switch/Switch.d.ts",
+  "components/Collapse/Collapse.d.ts",
+  "core/Provider.d.ts",
 ];
 const insertDir = [...componentsDir, ...hooksDir];
 

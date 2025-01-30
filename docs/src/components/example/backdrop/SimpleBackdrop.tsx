@@ -1,8 +1,18 @@
 import CodeBlock from "@/components/layout/code/Block";
-import { Backdrop, Button, Card, OTPInput, Stack, Tabs } from "auera-ui";
+import {
+  Backdrop,
+  Button,
+  Card,
+  OTPInput,
+  Stack,
+  Tabs,
+  TabHandle,
+  TabPanel,
+  toast,
+} from "auera-ui";
 import React, { useState } from "react";
 
-const code = `import { Backdrop, Button, OTPInput, Stack } from "auera-ui";
+const code = `import { Backdrop, Button, OTPInput, toast } from "auera-ui";
 import React, { useState } from "react";
 
 const  SimpleBackdrop = () => {
@@ -11,14 +21,26 @@ const  SimpleBackdrop = () => {
   const handleClose = () => {
     setOpen(false);
    };
-    const handleOpen = () => {
-      setOpen(true);
-     };
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleCode = (code: string) => {
+   setOtp(code);
+    if (otp.length == 4) {
+      toast.success("OTP Verified Successfully");
+      setTimeout(() => {
+        setOpen(false);
+      }, 1000);
+    }
+  };
+
  return (
   <>
    <Button onClick={handleOpen}>Open Backdrop</Button>
    <Backdrop open={open} onClose={handleClose} centerContent>
-    <OTPInput onComplete={(otp) => console.log("You entered:", otp)} />
+    <OTPInput onComplete={(otp) => handleCode(otp)} />
    </Backdrop>
   </>
  )
@@ -26,28 +48,40 @@ const  SimpleBackdrop = () => {
 `;
 const SimpleBackdrop = () => {
   const [open, setOpen] = useState(false);
+  const [otp, setOtp] = useState("");
   const handleClose = () => {
     setOpen(false);
   };
   const handleOpen = () => {
     setOpen(true);
   };
+
+  const handleCode = (code: string) => {
+    setOtp(code);
+    if (otp.length == 4) {
+      toast.success("OTP Verified Successfully");
+      setTimeout(() => {
+        setOpen(false);
+      }, 1000);
+    }
+  };
+
   return (
     <Card>
       <Tabs variant="solid" rounded>
-        <Tabs.Handle value="preview">Preview</Tabs.Handle>
-        <Tabs.Handle value="code">Code</Tabs.Handle>
-        <Tabs.Panel>
+        <TabHandle value="preview">Preview</TabHandle>
+        <TabHandle value="code">Code</TabHandle>
+        <TabPanel>
           <Stack>
             <Button onClick={handleOpen}>Open Backdrop</Button>
           </Stack>
           <Backdrop open={open} onClose={handleClose} centerContent>
-            <OTPInput onComplete={(otp) => console.log("You entered:", otp)} />
+            <OTPInput onComplete={(otp) => handleCode(otp)} />
           </Backdrop>
-        </Tabs.Panel>
-        <Tabs.Panel>
+        </TabPanel>
+        <TabPanel>
           <CodeBlock fileName="SimpleBackdrop.tsx" lg="tsx" code={code} />
-        </Tabs.Panel>
+        </TabPanel>
       </Tabs>
     </Card>
   );

@@ -87,13 +87,14 @@ You can extend the Tailwind configuration to customize styles and integrate Auer
 ```javascript
 // tailwind.config.js or tailwind.config.ts
 /** @type {import('tailwindcss').Config} */
-import { tailwindExtend } from "auera-ui";
+import { tailwindExtend, aueraTw, SafeLists } from "auera-ui";
 
 module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
     "./node_modules/auera-ui/**/*.{js,ts,jsx,tsx}",
   ],
+  safelist: [SafeLists().join(" ")],
   theme: {
     extend: {
       backgroundColor: {
@@ -119,7 +120,15 @@ module.exports = {
       dropShadow: { ...tailwindExtend.dropShadow },
     },
   },
-  plugins: [],
+  /* For enabling custom variants, This allows you use
+   'theme-*dark/light'
+   'tone-*light/dark'
+   'scrollbar'
+   'scrollbar-track'
+   'scrollbar-thumb'
+   'scrollbar-none'
+   */
+  plugins: [aueraTw],
 };
 ```
 

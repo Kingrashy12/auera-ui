@@ -1,19 +1,19 @@
 import React from "react";
-import { Card, TabsType, Tabs } from "auera-ui";
+import { Card, TabsType, Tabs, TabHandle, TabPanel } from "auera-ui";
 
 const Tab = ({ variant, ...props }: TabsType) => {
   return (
     <>
       <Card fullWidth className="w-[250px]">
         <Tabs fullWidth variant={variant} {...props} hideScrollBar>
-          <Tabs.Handle value="overview">Overview</Tabs.Handle>
-          <Tabs.Handle value="settinsg">Settings</Tabs.Handle>
-          <Tabs.Handle value="profile">Profile</Tabs.Handle>
-          <Tabs.Handle value="security">Security</Tabs.Handle>
-          <Tabs.Panel>Overview</Tabs.Panel>
-          <Tabs.Panel>Settings</Tabs.Panel>
-          <Tabs.Panel>Profile</Tabs.Panel>
-          <Tabs.Panel>Security</Tabs.Panel>
+          <TabHandle value="overview">Overview</TabHandle>
+          <TabHandle value="settinsg">Settings</TabHandle>
+          <TabHandle value="profile">Profile</TabHandle>
+          <TabHandle value="security">Security</TabHandle>
+          <TabPanel>Overview</TabPanel>
+          <TabPanel>Settings</TabPanel>
+          <TabPanel>Profile</TabPanel>
+          <TabPanel>Security</TabPanel>
         </Tabs>
       </Card>
     </>

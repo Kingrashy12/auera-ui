@@ -201,6 +201,26 @@ export const tailwindExtend = {
         opacity: "0",
       },
     },
+    popIn: {
+      "0%": {
+        transform: "translateY(50%)",
+        opacity: "0",
+      },
+      "100%": {
+        transform: "translateY(0%)",
+        opacity: "1",
+      },
+    },
+    popOut: {
+      "0%": {
+        transform: "translateY(0%)",
+        opacity: "1",
+      },
+      "100%": {
+        transform: "translateY(50%)",
+        opacity: "0",
+      },
+    },
   },
   animation: {
     slideIn: "slideIn 0.5s ease-in-out",
@@ -211,6 +231,8 @@ export const tailwindExtend = {
     walkOut: "walkOut 0.5s ease-in-out",
     slideInLeft: "slideInLeft 0.5s ease-in-out",
     slideOutLeft: "slideOutLeft 0.5s ease-in-out",
+    popIn: "popIn 0.5s ease-in-out",
+    popOut: "popOut 0.5s ease-in-out",
   },
   dropShadow: {
     tab: "0 1px 2px rgb(0 0 0 / 0.1), 0 1px 1px rgb(0 0 0 / 0.06)",

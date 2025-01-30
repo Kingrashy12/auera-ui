@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { createStyle, defineClass, merge, tw } from "stywind";
 import TabsProvider from "./Provider";
 import Box from "../Box/Box";
@@ -15,7 +15,7 @@ const getStylesWithMode = (
 ) => {
   const sharedStyle = {
     line: "bg-transparent rounded-none p-0 border-t-none border-b",
-    solid: `${rounded ? "rounded-full" : "rounded-md"} border-none p-[5px]`,
+    solid: `${rounded ? "rounded-full" : "rounded-[9px]"} border-none p-[3px]`,
   };
   const styles = {
     light: {
@@ -54,26 +54,39 @@ const Tabs: React.FC<TabsType> = ({
   rounded,
   hideScrollBar,
   containerClass,
+  hideBorder,
 }) => {
   const { currentMode } = useMode(mode);
   const defaultStyle = defineClass(
     "max-w-full overflow-x-auto flex items-center relative gap-[1px]"
   );
   const scrollBar = defineClass(
-    "[&::-webkit-scrollbar]:h-1 [&::-webkit-scrollbar-thumb]:cursor-pointer [&::-webkit-scrollbar-thumb]:rounded-[5px]"
+    "scrollbar:h-1 scrollbar-thumb:cursor-pointer scrollbar-thumb:rounded-[5px] \
+     scrollbar-track:bg-transparent scrollbar-thumb:bg-blue-500 scrollbar-thumb:hover:bg-blue-600"
   );
 
-  const TabList = createStyle("div").classname(
-    tw(
-      className as string,
-      defaultStyle,
-      getStylesWithMode(currentMode, variant, rounded),
-      hideScrollBar
-        ? "[&::-webkit-scrollbar]:appearance-none [&::-webkit-scrollbar]:hidden"
-        : scrollBar,
-      getTabWidth(variant, fullWidth)
-    )
-  );
+  const TabList = useMemo(() => {
+    return createStyle("div").classname(
+      tw(
+        className as string,
+        defaultStyle,
+        getStylesWithMode(currentMode, variant, rounded),
+        hideBorder && "border-none",
+        hideScrollBar ? "scrollbar-none" : scrollBar,
+        getTabWidth(variant, fullWidth)
+      )
+    );
+  }, [
+    className,
+    variant,
+    rounded,
+    fullWidth,
+    currentMode,
+    hideBorder,
+    hideScrollBar,
+    mode,
+  ]);
+
   const [activeTabIndex, setActiveTabIndex] = useState(0);
 
   const tabs = React.Children.toArray(children).filter(
@@ -93,7 +106,7 @@ const Tabs: React.FC<TabsType> = ({
     >
       <Box
         direction="column"
-        className={tw(containerClass as string, "gap-3")}
+        className={tw(containerClass as string, "gap-3 overflow-hidden")}
         fullWidth
       >
         <TabList>

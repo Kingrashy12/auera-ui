@@ -1,14 +1,33 @@
 import { getDisplayName } from "@/utils/displayname";
-import { ComponentProps, forwardRef } from "react";
+import { forwardRef } from "react";
+import { motion } from "motion/react";
+import { TabPanelWithMotion } from "../../types/auera-motion";
 
-type PanelProps = ComponentProps<"div">;
+const motionVariants = {
+  enter: { opacity: 0, x: 100 },
+  center: { opacity: 1, x: 0 },
+  exit: { opacity: 0, x: -100 },
+};
 
-const TabPanel = forwardRef<HTMLDivElement, PanelProps>(
-  ({ children, ...props }, ref) => {
+const TabPanel = forwardRef<HTMLDivElement, TabPanelWithMotion>(
+  ({ children, animatePanel, ...props }, ref) => {
+    const getAnimation = () => {
+      const initial = "enter";
+      const animate = "center";
+      const exit = "exit";
+      const variants = motionVariants;
+
+      return animatePanel ? { initial, animate, exit, variants } : {};
+    };
     return (
-      <div {...props} ref={ref}>
+      <motion.div
+        ref={ref}
+        {...getAnimation()}
+        transition={{ duration: 0.5 }}
+        {...props}
+      >
         {children}
-      </div>
+      </motion.div>
     );
   }
 );

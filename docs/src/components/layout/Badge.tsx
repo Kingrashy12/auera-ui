@@ -21,11 +21,11 @@ const Badge = ({
   const badgeColors = {
     solid: {
       primary: defineClass(
-        "bg-blue-100 border-blue-300 text-blue-500 data-[theme='dark']:bg-dark-soft-blue"
+        "bg-blue-100 text-blue-500 theme-dark:bg-dark-soft-blue"
       ),
-      danger: "bg-red-200 border-red-500 text-red-500",
-      warning: "bg-yellow-200 border-yellow-500 text-yellow-500",
-      success: "bg-green-200 border-green-500 text-green-500",
+      danger: "bg-red-200 text-red-500 theme-dark:bg-dark-soft-red",
+      warning: "bg-yellow-200 text-yellow-500 theme-dark:bg-dark-soft-yellow",
+      success: "bg-green-200 text-green-500 theme-dark:bg-dark-soft-green",
     },
     ghost: {
       primary: "text-blue-500",
@@ -39,11 +39,11 @@ const Badge = ({
     <div
       className={tw(
         className,
-        "font-inter-tight items-center p-2 rounded-lg h-6 w-auto flex-shrink-0 font-medium text-xs",
+        "font-inter items-center p-2 rounded-full h-6 w-auto flex-shrink-0 font-medium text-xs",
         merge.multi(badgeColors, variant, colorScheme),
         show ? "flex" : "hidden",
-        fadeOut && "opacity-75",
-        variant === "solid" ? "border" : "border-none"
+        fadeOut && "opacity-75"
+        // variant === "solid" ? "border" : "border-none"
       )}
     >
       {children}

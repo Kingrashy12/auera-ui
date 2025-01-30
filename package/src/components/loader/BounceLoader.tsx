@@ -1,7 +1,10 @@
-import { defineClass, tw } from "stywind";
+import { getDisplayName } from "@/utils/displayname";
+import { ColorPair } from "../../types/auera-system";
+import { defineClass, tw } from "@/utils";
+
 type BounceProps = {
   size?: "sm" | "md" | "lg";
-  color?: string;
+  color?: ColorPair;
 };
 const bounceSize = {
   sm: "w-2 h-2",
@@ -22,3 +25,5 @@ const BounceLoader = ({ size = "md", color = "blue-500" }: BounceProps) => {
 };
 
 export default BounceLoader;
+
+BounceLoader.displayName = getDisplayName("BounceLoader");

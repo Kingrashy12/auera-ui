@@ -2,6 +2,7 @@ import React from "react";
 import { tw } from "stywind";
 import Box from "../Box/Box";
 import { getDisplayName } from "@/utils/displayname";
+import { BoxWithMotion } from "../../types/auera-motion";
 
 type ListMap<T> = {
   /** An array of data items to be rendered. */
@@ -18,7 +19,7 @@ type ListMap<T> = {
 
   /** Layout direction (row or column) for the container. */
   direction?: "row" | "column";
-};
+} & BoxWithMotion;
 
 /**
  * MapItems component displays a list of items with customizable rendering and layout.
@@ -35,15 +36,30 @@ type ListMap<T> = {
  * @returns {JSX.Element} The rendered list of items or the empty state component.
  */
 
-const MapItems = <T,>({
-  data,
-  renderItem,
-  emptyListComponent,
-  className,
-  direction,
-}: ListMap<T>) => {
+const MapItems = <T,>(
+  {
+    data,
+    renderItem,
+    emptyListComponent,
+    className,
+    direction,
+    animate,
+    variants,
+    initial,
+    ...props
+  }: ListMap<T>,
+  ref?: React.Ref<HTMLDivElement>
+): JSX.Element => {
   return (
-    <Box direction={direction} className={tw("gap-2", className as string)}>
+    <Box
+      ref={ref}
+      direction={direction}
+      className={tw("gap-2", className)}
+      animate={animate}
+      variants={variants}
+      initial={initial}
+      {...props}
+    >
       {data && data.length >= 1 ? data.map(renderItem) : emptyListComponent}
     </Box>
   );

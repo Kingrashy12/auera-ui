@@ -1,16 +1,28 @@
 import { forwardRef } from "react";
 import { getDisplayName } from "@/utils/displayname";
-import { CardProps } from "../../types/auera-ui";
+import { useProps } from "@/utils";
+import { CardWithMotion } from "../../types/auera-motion";
 import { useCard } from "./use-card";
 
 /** Card component for displaying content in a styled container.*/
-const Card = forwardRef<HTMLDivElement, CardProps>((props, ref) => {
-  const { Base } = useCard(props);
+const Card = forwardRef<HTMLDivElement, CardWithMotion>((props, ref) => {
+  const { centerContent, fullWidth, className, hidden, direction, ...rest } =
+    props;
+
+  const Props = useProps(rest, "div");
+
+  const Component = useCard({
+    centerContent,
+    className,
+    hidden,
+    direction,
+    fullWidth,
+  });
 
   return (
-    <Base ref={ref} {...props}>
+    <Component ref={ref} {...Props}>
       {props.children}
-    </Base>
+    </Component>
   );
 });
 

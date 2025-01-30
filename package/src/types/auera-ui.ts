@@ -1,6 +1,15 @@
 import React from "react";
 
-import { ButtonVariant, DesignFlavour, SchemeVariant } from "./auera-system";
+import {
+  ButtonVariant,
+  ColorKey,
+  ColorPair,
+  DesignFlavour,
+  SchemeVariant,
+  Trigger,
+} from "./auera-system";
+import { InputProps } from "./element-props";
+import { zIndex } from "./keys";
 
 export type DivProps = React.HTMLAttributes<HTMLDivElement>;
 export type BtnProps = React.HtmlHTMLAttributes<HTMLButtonElement>;
@@ -25,6 +34,7 @@ export interface BoxProps extends DivProps {
    * @type {boolean}
    */
   fullWidth?: boolean;
+  between?: boolean;
 }
 
 export declare type SizeVariantType =
@@ -71,7 +81,7 @@ export interface ButtonProps extends BtnProps {
    *
    * @default "md"
    */
-  size?: "xs" | "sm" | "md" | "lg" | "xl";
+  size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
 
   /**
    * Indicates if the button is in a loading state.
@@ -163,6 +173,11 @@ export interface ButtonProps extends BtnProps {
    * @default "light"
    */
   mode?: "light" | "dark";
+  withTrigger?: boolean;
+  triggerType?: "open" | "close";
+  triggerValue?: string;
+  trigger?: Trigger;
+  triggerClass?: string;
 }
 
 export interface Drop extends DivProps {
@@ -199,10 +214,11 @@ export interface Drop extends DivProps {
    * - `"md"`: Medium intensity.
    * - `"lg"`: Large intensity.
    * - `"xl"`: Extra-large intensity.
+   * - `"2xl"`.
    *
    * @default "sm"
    */
-  intensity?: "none" | "sm" | "md" | "lg" | "xl";
+  intensity?: "none" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl";
 
   /**
    * Centers the content within the drop component.
@@ -217,6 +233,7 @@ export interface Drop extends DivProps {
    * @default false
    */
   preventClose?: boolean;
+  zIndex?: zIndex;
 }
 
 export type ModalType = {
@@ -352,11 +369,23 @@ export interface ModalFooterProps extends DivProps {
   showBorder?: boolean;
 }
 
-export interface IconButtonProps extends BtnProps {
+export interface IconButtonProps {
   variants?: "subtle" | "outline" | "ghost";
   size?: "md" | "lg" | "xl";
   radius?: "md" | "lg" | "xl" | "full";
+  disabled?: boolean;
+  withTrigger?: boolean;
+  triggerType?: "open" | "close";
+  triggerValue?: string;
+  trigger?: Trigger;
+  mode?: "light" | "dark";
+  active?: boolean;
+  asChild?: false;
 }
+
+export type IconButtonPropsExtended<T extends boolean> = T extends true
+  ? IconButtonProps & DivProps
+  : IconButtonProps & BtnProps;
 
 export interface DrawerProps extends ModalType {
   backdropClass?: string;
@@ -388,20 +417,21 @@ export interface DrawerTriggerType extends DivProps {
 }
 
 export type SwitchProps = {
-  checked: boolean;
-  onToggle: () => void;
+  isOn: boolean;
+  toggleOn: () => void;
   size?: "sm" | "md" | "lg" | "xl";
-  colorScheme?: "primary" | "danger" | "warning" | "success";
-  unCheckColor?: string;
-  color?: string;
+  unCheckColor?: ColorPair;
+  color?: ColorPair;
 };
 
 export type CheckBoxProps = {
-  size?: "md" | "lg" | "xl";
+  size?: "sm" | "md" | "lg" | "xl";
   checked: boolean;
   onCheck: () => void;
-  radius?: "full" | "default";
+  radius?: "none" | "sm" | "md" | "full";
   colorScheme?: "primary" | "danger" | "warning" | "success";
+  color?: ColorPair;
+  className?: string;
 };
 
 export type TabsType = {
@@ -413,6 +443,7 @@ export type TabsType = {
   rounded?: boolean;
   hideScrollBar?: boolean;
   containerClass?: string;
+  hideBorder?: boolean;
 };
 
 export type TabHandleType = {
@@ -424,17 +455,17 @@ export type TabHandleType = {
    * The color to be applied when the tab is active.
    * @default "blue-500"
    */
-  activeColor?: string;
+  activeColor?: ColorPair;
   /**
    * The color to be applied when the tab is active on @param variant `solid`.
    * @default "black"
    */
-  activeSolidColor?: string;
+  activeSolidColor?: ColorPair;
   /**
    * The color to be applied when the tab is inactive.
    * @default "neutral-400"
    */
-  inActiveColor?: string;
+  inActiveColor?: ColorPair;
   /**
    * The unique identifier or value for the tab, typically used to track the selected tab.
    */
@@ -516,12 +547,165 @@ export type TootipProps = {
   className?: string;
   labelClass?: string;
   containerClass?: string;
+  showPointer?: boolean;
 };
 
-export interface RadioProps {
+export interface RadioProps extends InputProps {
   checked: boolean;
   className?: string;
   onSelect: () => void;
   name?: string;
+  // size?: "sm" | "md" | "lg";
+  size?: 16 | 20 | 24;
+  color?: ColorPair;
+}
+
+export declare type ToastVariant =
+  | "info"
+  | "error"
+  | "success"
+  | "warning"
+  | "loading";
+export declare type ToastTransitionType =
+  | "dropIn"
+  | "slideIn"
+  | "popIn"
+  | "walkIn";
+export declare type ToastPositionType =
+  | "top-right"
+  | "top-left"
+  | "bottom-right"
+  | "bottom-left";
+
+export declare type ToastType = {
+  [key in ToastVariant]: (
+    message: string,
+    options?: {
+      position?: ToastPositionType;
+      className?: string;
+      transition?: ToastTransitionType;
+      key?: string;
+    }
+  ) => void;
+};
+
+export declare type ToastOptionsType = {
+  /**
+   * The position where the toast should appear on the screen.
+   */
+  position?: ToastPositionType;
+
+  /**
+   * Additional CSS class name(s) to be applied to the toast.
+   */
+  className?: string;
+
+  /**
+   * The animation transition effect for the toast's appearance.
+   */
+  transition?: "dropIn" | "slideIn" | "popIn" | "walkIn";
+  /**
+   * A unique key used exclusively for updating the message and type of a loading toast.
+   * This key is used to identify an existing loading toast and modify its content (e.g., updating the message or changing its type).
+   * It is important to use the same `key` as the original loading toast in order to update it.
+   * @example 'login-status' or 'register-status'.
+   */
+  key?: string;
+};
+
+export interface FabProps extends DivProps {
+  position?: "left" | "right";
+  type?: "fixed" | "relative" | "absolute" | "sticky" | "static";
+  color?: "primary" | "bold" | "soft";
+  size?: "sm" | "md" | "lg" | "xl";
+  disabled?: boolean;
+  zIndex?: zIndex;
+}
+
+export interface MenuProps extends React.HTMLAttributes<HTMLDivElement> {
+  /**
+   * Flag indicating whether the menu is initially open.
+   * @default false
+   */
+  open?: boolean;
+
+  /**
+   * Theme mode, either 'light' or 'dark'.
+   * @default 'light'
+   */
+  mode?: "light" | "dark";
+
+  /**
+   * Z-index value for positioning the menu.
+   * @default 100
+   */
+  zIndex?: zIndex;
+}
+
+export interface MenuItemProps extends DivProps {
+  /**
+   * Text color (e.g., 'black', 'red-500').
+   * @default 'black'
+   */
+  color?: ColorKey;
+
+  /**
+   * Theme mode, either 'light' or 'dark'.
+   * @default 'light'
+   */
+  mode?: "light" | "dark";
+  /**
+   * Indicates if the MenuItem is disabled.
+   */
+  disabled?: boolean;
+  type?: "full" | "curved";
+}
+
+export type CollapseProps = {
+  className?: string;
+  headerClass?: string;
+  header: string;
+  children?: React.ReactNode;
+  mode?: "light" | "dark";
+  openIcon?: React.ElementType;
+  closeIcon?: React.ElementType;
+};
+
+export type StatusBadgeProps = {
+  /**
+   * The status of the badge, one of 'online', 'offline', 'away', or 'busy'.
+   * @default 'online'
+   */
+  status?: "online" | "offline" | "away" | "busy";
+  /**
+   * The size of the badge, one of 'sm', 'md', or 'lg'.
+   * @default 'md'
+   */
   size?: "sm" | "md" | "lg";
+  /**
+   * Optional className to be applied to the badge container.
+   */
+  className?: string;
+  /**
+   * Optional children to be rendered inside the badge.
+   */
+  children?: React.ReactNode;
+  /**
+   * Optional custom class to be applied to the badge.
+   */
+  badgeClassName?: string;
+  /**
+   * Placement of the badge relative to the element.
+   * This defines the positioning of the badge in relation to its container.
+   */
+  placement?: "right-top" | "right-bottom" | "left-top" | "left-bottom";
+  animate?: boolean;
+};
+
+export interface MediaProps {
+  fullWidth?: boolean;
+  isLoading?: boolean;
+  radius?: ButtonProps["radius"];
+  loaderClass?: string;
+  loaderStyle?: React.CSSProperties;
 }

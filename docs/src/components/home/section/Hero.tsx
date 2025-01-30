@@ -33,7 +33,7 @@ const Hero = () => {
               <code className="font-medium font-mono text-sm text-cmd-code">
                 npm i auera-ui react-icons
               </code>
-              <Clipboard content="npm i auera-ui" />
+              <Clipboard content="npm i auera-ui react-icons" />
             </Box>
           </Box>
         </Box>

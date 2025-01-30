@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Box, Icon, MapItems, TextInput } from "auera-ui";
+import { Box, DrawerTrigger, Icon, MapItems, TextInput } from "auera-ui";
 import { IoSearch } from "react-icons/io5";
 import { linksWithIcon, sideBarLinks } from "@/data/sidebar";
 import { tw } from "stywind";
@@ -59,28 +59,43 @@ const SideBarContent = () => {
           data={linksWithIcon}
           className="gap-3"
           renderItem={(item, index) => (
-            <Link
-              href={item.href}
+            <DrawerTrigger
+              key={index}
+              value="tool-bar"
+              type="close"
               className={tw(
                 "items-center gap-3 flex w-full hover:text-blue-600 justify-between",
                 item.soon ? "pointer-events-none" : "cursor-pointer",
                 getActiveLink(item.href) ? "text-blue-600" : "text-primary"
               )}
-              target={item.external ? "_blank" : ""}
-              key={index}
             >
-              <Box className="items-center gap-3">
-                <div className="p-[6px] bg-sideIcon rounded-md border shadow-sm border-sidebar">
-                  <Icon icon={item.icon} color={item.color} />
-                </div>
-                <p className="font-inter-tight font-medium text-sm">
-                  {item.label}
-                </p>
-              </Box>
-              {item.soon && (
-                <StatusBadge status="away" badgeClassName="relative" animate />
-              )}
-            </Link>
+              <Link
+                href={item.href}
+                className={tw(
+                  "items-center gap-3 flex w-full hover:text-blue-600 justify-between",
+                  item.soon ? "pointer-events-none" : "cursor-pointer",
+                  getActiveLink(item.href) ? "text-blue-600" : "text-primary"
+                )}
+                target={item.external ? "_blank" : ""}
+                key={index}
+              >
+                <Box className="items-center gap-3">
+                  <div className="p-[6px] bg-sideIcon rounded-md border shadow-sm border-sidebar">
+                    <Icon icon={item.icon} color={item.color} />
+                  </div>
+                  <p className="font-inter-tight font-medium text-sm">
+                    {item.label}
+                  </p>
+                </Box>
+                {item.soon && (
+                  <StatusBadge
+                    status="away"
+                    badgeClassName="relative"
+                    animate
+                  />
+                )}
+              </Link>
+            </DrawerTrigger>
           )}
         />
         <SideBarLinks data={menuLinks} />

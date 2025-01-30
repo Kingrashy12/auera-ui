@@ -12,6 +12,13 @@ type ThemeProviderProps = {
 
 const ThemeProvider = ({ children, mode: customMode }: ThemeProviderProps) => {
   const THEME_KEY = "aueraui.theme";
+  const [system, setSystem] = useState(false);
+
+  const setSystemTheme = (isSystem: boolean) => {
+    setSystem(isSystem);
+    storageActions.set("aueraui.theme.isSystem", isSystem);
+  };
+
   const [mode, setMode] = useState<ModeType>(() => {
     if (!WINDOW_ACTIVE) return "light";
 
@@ -23,36 +30,62 @@ const ThemeProvider = ({ children, mode: customMode }: ThemeProviderProps) => {
       ? "dark"
       : "light";
     storageActions.set(THEME_KEY, systemPreference);
+    setSystemTheme(true);
     return systemPreference;
   });
 
   useEffect(() => {
-    if (customMode) setMode(customMode);
-  }, [customMode]);
+    if (customMode && customMode !== mode) {
+      setMode(customMode);
+    }
+  }, [customMode, mode]);
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", mode);
   }, [mode]);
 
+  useEffect(() => {
+    const isSystem = storageActions.get("aueraui.theme.isSystem") === "true";
+    setSystemTheme(isSystem);
+  }, []);
+
   const toggleTheme: ThemeContextType["toggleTheme"] = {
-    system: () => {
-      setMode(
-        window?.matchMedia("(prefers-color-scheme: dark)").matches
-          ? "dark"
-          : "light"
-      );
+    system() {
+      const newMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
+      storageActions.set(THEME_KEY, newMode);
+      setMode(newMode);
+      setSystemTheme(true);
     },
-    main: () => {
+    main() {
       setMode((prev) => {
         const newMode = prev === "light" ? "dark" : "light";
         storageActions.set(THEME_KEY, newMode);
+        setSystemTheme(false);
+        return newMode;
+      });
+    },
+    dark() {
+      setMode(() => {
+        const newMode = "dark";
+        storageActions.set(THEME_KEY, newMode);
+        setSystemTheme(false);
+        return newMode;
+      });
+    },
+    light() {
+      setMode(() => {
+        const newMode = "light";
+        storageActions.set(THEME_KEY, newMode);
+        setSystemTheme(false);
         return newMode;
       });
     },
   };
 
   return (
-    <ThemeContext.Provider value={{ mode, toggleTheme }}>
+    <ThemeContext.Provider value={{ mode, toggleTheme, system }}>
       {children}
     </ThemeContext.Provider>
   );

@@ -1,13 +1,17 @@
 import { ModalContentType } from "../../types/auera-ui";
-import { useDrawer } from "./usedrawer";
 import { getDisplayName } from "@/utils/displayname";
+import { useDrawerContent } from "./use-drawer";
 
 const DrawerContent = ({
   children,
   centerContent,
   ...props
 }: ModalContentType) => {
-  const { Content } = useDrawer.content(props);
+  const Content = useDrawerContent({
+    className: props.className,
+    centerContent,
+  });
+
   return <Content {...props}>{children}</Content>;
 };
 

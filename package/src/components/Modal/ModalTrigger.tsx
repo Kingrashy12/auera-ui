@@ -7,15 +7,24 @@ const ModalTrigger: FC<ModalTriggerType> = ({
   children,
   type = "open",
   value,
+  onClick,
   ...props
 }) => {
   const { onOpen, onClose } = useModal();
 
-  function openModal() {
-    onOpen(value);
-  }
+  const handleClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    if (type === "open") {
+      onOpen(value);
+    } else {
+      onClose();
+    }
+
+    if (onClick) {
+      onClick(event);
+    }
+  };
   return (
-    <div onClick={type === "open" ? openModal : onClose} {...props}>
+    <div onClick={handleClick} {...props}>
       {children}
     </div>
   );

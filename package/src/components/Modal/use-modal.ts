@@ -1,16 +1,46 @@
-import { ModalContentType } from "@/types/auera-ui";
-import { createStyle, tw } from "stywind";
+import { useMemo } from "react";
+import {
+  footer,
+  FooterVariants,
+  header,
+  HeaderVariants,
+  panel,
+  PanelVariants,
+} from "./modal-variants";
+import { createStyle } from "stywind";
 
-export const useModal = {
-  content: (props: ModalContentType) => {
-    const Base = createStyle("div").classname(
-      tw(
-        props.className,
-        "flex flex-col p-3 bg-drawer-content overflow-y-auto h-full m-[5px 0] gap-[16px]",
-        props.centerContent ? "items-center justify-center" : ""
-      )
-    );
+const useComputePanel = (props: PanelVariants) => {
+  const { className, align, transition, size, mode, flavour, isVisible } =
+    props;
 
-    return { Base };
-  },
+  return useMemo(
+    () =>
+      createStyle("div").classname(
+        panel({ className, align, transition, size, mode, flavour, isVisible })
+      ),
+    [className, align, transition, size, mode, flavour, isVisible]
+  );
 };
+
+const useComputeFooter = (props: FooterVariants) => {
+  const { className, position, showBorder, mode } = props;
+
+  return useMemo(
+    () =>
+      createStyle("div").classname(
+        footer({ className, position, showBorder, mode })
+      ),
+    [className, position, showBorder, mode]
+  );
+};
+
+const useComputeHeader = (props: HeaderVariants) => {
+  const { className, showBorder, mode } = props;
+
+  return useMemo(
+    () => createStyle("div").classname(header({ className, showBorder, mode })),
+    [className, showBorder, mode]
+  );
+};
+
+export { useComputePanel, useComputeFooter, useComputeHeader };

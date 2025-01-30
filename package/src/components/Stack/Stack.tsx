@@ -1,18 +1,19 @@
-import { StackProps } from "../../types/auera-ui";
 import Box from "../Box/Box";
 import { tw } from "stywind";
 import { getDisplayName } from "@/utils/displayname";
+import { StackWithMotion } from "../../types/auera-motion";
 
 const Stack = ({
   children,
   wrap,
   align = "vertical",
+  className,
   ...props
-}: StackProps) => {
+}: StackWithMotion) => {
   return (
     <Box
       className={tw(
-        props.className as string,
+        className,
         align === "vertical" ? "flex-col" : "flex-row",
         "items-center justify-center gap-3 w-full"
       )}

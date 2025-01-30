@@ -11,6 +11,7 @@ type Data = {
   uri: string;
   label: string;
   soon?: boolean;
+  updated?: boolean;
 };
 
 const EmptyList = () => (
@@ -61,8 +62,19 @@ const SideBarLinks = ({ data }: { data: typeof sideBarLinks }) => {
                 )}
               >
                 <p className="font-inter font-medium text-sm">{link.label}</p>
-                <Badge variant="ghost" show={link.soon as boolean}>
+                <Badge
+                  variant="ghost"
+                  colorScheme="warning"
+                  show={link.soon as boolean}
+                >
                   Soon
+                </Badge>
+                <Badge
+                  variant="solid"
+                  colorScheme="primary"
+                  show={link.updated as boolean}
+                >
+                  Updated
                 </Badge>
               </Link>
             )}

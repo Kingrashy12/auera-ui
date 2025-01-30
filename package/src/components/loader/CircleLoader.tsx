@@ -1,12 +1,15 @@
+import { getDisplayName } from "@/utils/displayname";
+import { ColorPair } from "../../types/auera-system";
 import { tw } from "stywind";
 type LoaderProps = {
-  size?: "sm" | "md";
-  color?: string;
-  innerColor?: string;
+  size?: "sm" | "md" | "lg";
+  color?: ColorPair;
+  innerColor?: ColorPair;
 };
 const bounceSize = {
   sm: "w-6 h-6 border-2",
   md: "w-10 h-10 border-4",
+  lg: "w-12 h-12 border-6",
 };
 const CircleLoader = ({
   size = "md",
@@ -18,7 +21,9 @@ const CircleLoader = ({
     `border-t-${color}`,
     `border-${innerColor}`
   );
-  return <div className={tw(LoaderClass, "rounded-full animate-spin")}></div>;
+  return <div className={tw(LoaderClass, "rounded-full animate-spin")} />;
 };
 
 export default CircleLoader;
+
+CircleLoader.displayName = getDisplayName("CircleLoader");

@@ -1,7 +1,7 @@
-import { createStyle, defineClass, merge, tw } from "stywind";
 import { ModalHeaderType } from "../../types/auera-ui";
 import { getDisplayName } from "@/utils/displayname";
 import { usePanel } from "@/hook/usePanel";
+import { useComputeHeader } from "./use-modal";
 
 const ModalHeader = ({
   children,
@@ -9,16 +9,13 @@ const ModalHeader = ({
   ...props
 }: ModalHeaderType) => {
   const { mode } = usePanel();
-  const modeStyle = {
-    light: defineClass("border-b border-b-neutral-200"),
-    dark: defineClass("border-b border-b-neutral-800"),
-  };
-  const Header = createStyle("div").classname(
-    tw(
-      "flex items-center justify-between p-[13px] w-full",
-      showBorder ? merge.single(modeStyle, mode) : ""
-    )
-  );
+
+  const Header = useComputeHeader({
+    mode,
+    showBorder,
+    className: props.className,
+  });
+
   return <Header {...props}>{children}</Header>;
 };
 

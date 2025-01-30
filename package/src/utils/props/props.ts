@@ -83,23 +83,19 @@ export const validElementProps = [
   "headers",
   "scope",
 
-  // List element attributes
-  "type", // for <ol> (ordered list)
+  "type",
 
-  // Script and Link element attributes
   "async",
   "defer",
   "integrity",
-  "crossOrigin", // for <script> and <link>
+  "crossOrigin",
 
-  // Meta element attributes
   "charset",
   "content",
   "httpEquiv",
   "name",
   "property",
 
-  // Miscellaneous attributes
   "role",
   "aria-*",
   "data-*",
@@ -108,7 +104,45 @@ export const validElementProps = [
   "itemType",
   "itemID",
   "itemRef",
-  "srcObject", // for <video> and <audio> elements
-  "allowFullScreen", // for <iframe> elements
-  "allow", // for <iframe> elements
+  "srcObject",
+  "allowFullScreen",
+  "allow",
+
+  // motion props
+  "animate",
+  "initial",
+  "exit",
+  "variants",
+  "whileHover",
+  "whileTap",
+  "whileDrag",
+  "drag",
+  "dragConstraints",
+  "dragElastic",
+  "dragMomentum",
+  "dragPropagation",
+  "dragTransition",
+  "layout",
+  "layoutId",
+  "transition",
+  "onAnimationStart",
+  "onAnimationComplete",
+  "onUpdate",
+  "onDragStart",
+  "onDragEnd",
+  "onDrag",
+  "onDirectionLock",
+  "onDragTransitionEnd",
+  "onHoverStart",
+  "onHoverEnd",
+  "onTapStart",
+  "onTap",
+  "onTapCancel",
+  "onPointerDown",
+  "onPointerUp",
+  "onPan",
+  "onPanStart",
+  "onPanEnd",
+  "onPanSessionStart",
+  "onPanSessionEnd",
 ];
