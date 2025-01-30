@@ -1,36 +1,6 @@
-import React from "react";
-import { createStyle, defineClass, merge, tw } from "stywind";
-
-type StatusBadgeProps = {
-  /**
-   * The status of the badge, one of 'online', 'offline', 'away', or 'busy'.
-   * @default 'online'
-   */
-  status?: "online" | "offline" | "away" | "busy";
-  /**
-   * The size of the badge, one of 'sm', 'md', or 'lg'.
-   * @default 'md'
-   */
-  size?: "sm" | "md" | "lg";
-  /**
-   * Optional className to be applied to the badge container.
-   */
-  className?: string;
-  /**
-   * Optional children to be rendered inside the badge.
-   */
-  children?: React.ReactNode;
-  /**
-   * Optional custom class to be applied to the badge.
-   */
-  badgeClassName?: string;
-  /**
-   * Placement of the badge relative to the element.
-   * This defines the positioning of the badge in relation to its container.
-   */
-  placement?: "right-top" | "right-bottom" | "left-top" | "left-bottom";
-  animate?: boolean;
-};
+import { getDisplayName } from "@/utils/displayname";
+import { StatusBadgeProps } from "../../types/auera-ui";
+import { defineClass, merge, tw } from "@/utils";
 
 const statusBadgeColorScheme = {
   online: "bg-green-500",
@@ -45,7 +15,7 @@ const statusBadgeSize = {
   lg: "w-[16px] h-[16px]",
 };
 
-const StatusBadge = ({
+const StatusBadge: React.FC<StatusBadgeProps> = ({
   status = "online",
   size = "md",
   className,
@@ -53,7 +23,7 @@ const StatusBadge = ({
   badgeClassName,
   placement = "left-top",
   animate,
-}: StatusBadgeProps) => {
+}) => {
   const basicClass = defineClass(
     "absolute block border-white border-[1.5px] rounded-full"
   );
@@ -63,26 +33,23 @@ const StatusBadge = ({
     "right-top": defineClass("right-0 top-0"),
     "right-bottom": defineClass("right-0 bottom-0"),
   };
-  const Badge = createStyle("div").classname(
-    "relative w-auto flex flex-shrink-0"
-  );
-  const BadgeStatus = createStyle("div").classname(
-    tw(
-      basicClass,
-      merge.single(statusBadgeSize, size),
-      merge.single(statusBadgeColorScheme, status),
-      merge.single(position, placement),
-      badgeClassName as string,
-      animate ? "animate-pulse" : ""
-    )
-  );
 
   return (
-    <Badge className={className}>
-      <BadgeStatus />
+    <div className={tw("relative w-auto flex flex-shrink-0", className)}>
+      <div
+        className={tw(
+          basicClass,
+          merge.single(statusBadgeSize, size),
+          merge.single(statusBadgeColorScheme, status),
+          merge.single(position, placement),
+          badgeClassName as string,
+          animate ? "animate-pulse" : ""
+        )}
+      />
       {children}
-    </Badge>
+    </div>
   );
 };
 
 export default StatusBadge;
+StatusBadge.displayName = getDisplayName("StatusBadge");

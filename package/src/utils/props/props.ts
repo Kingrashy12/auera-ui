@@ -83,23 +83,19 @@ export const validElementProps = [
   "headers",
   "scope",
 
-  // List element attributes
-  "type", // for <ol> (ordered list)
+  "type",
 
-  // Script and Link element attributes
   "async",
   "defer",
   "integrity",
-  "crossOrigin", // for <script> and <link>
+  "crossOrigin",
 
-  // Meta element attributes
   "charset",
   "content",
   "httpEquiv",
   "name",
   "property",
 
-  // Miscellaneous attributes
   "role",
   "aria-*",
   "data-*",
@@ -108,9 +104,9 @@ export const validElementProps = [
   "itemType",
   "itemID",
   "itemRef",
-  "srcObject", // for <video> and <audio> elements
-  "allowFullScreen", // for <iframe> elements
-  "allow", // for <iframe> elements
+  "srcObject",
+  "allowFullScreen",
+  "allow",
 
   // motion props
   "animate",

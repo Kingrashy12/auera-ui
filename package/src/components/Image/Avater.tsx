@@ -1,11 +1,13 @@
-import React, { useEffect, useMemo } from "react";
-import { createStyle, tw } from "stywind";
+import React from "react";
 import Skeleton from "../loader/Skeleton";
+import { tw } from "@/utils";
+import { getDisplayName } from "@/utils/displayname";
 
 interface AvatarProps extends React.ComponentProps<"img"> {
   size?: "sm" | "md" | "lg" | "xl";
   border?: boolean;
   lazy?: boolean;
+  isLoading?: boolean;
 }
 
 const imgSizes = {
@@ -23,52 +25,25 @@ const placeholderSizes = {
 };
 
 const Avatar: React.FC<AvatarProps> = ({ size = "sm", border, ...props }) => {
-  const [loaded, setLoaded] = React.useState(false);
-
   const imageSize = imgSizes[size];
   const placeholderSize = placeholderSizes[size];
 
-  const Image = useMemo(() => {
-    return createStyle("img").classname(
-      tw(
-        imageSize,
-        "rounded-full",
-        border &&
-          "border-2 theme-dark:border-neutral-600 theme-light:border-neutral-200"
-      )
-    );
-  }, [border, imageSize]);
-
-  const handleLoad = () => {
-    setLoaded(true);
-  };
-
-  useEffect(() => {
-    if (!loaded) {
-      setTimeout(() => {
-        handleLoad();
-      }, 3000);
-    }
-  }, [loaded]);
-
   return (
     <>
-      {props.lazy && !loaded && (
+      {props.isLoading && (
         <Skeleton
           width={placeholderSize}
           height={placeholderSize}
           radius="full"
         />
       )}
-      <Image
-        onLoad={handleLoad}
-        loading="lazy"
+      <img
         alt={props.alt}
         className={tw(
-          {
-            block: props.lazy && loaded,
-            hidden: props.lazy && !loaded,
-          },
+          imageSize,
+          "rounded-full",
+          border &&
+            "border-2 theme-dark:border-neutral-600 theme-light:border-neutral-200",
           props.className
         )}
         {...props}
@@ -77,4 +52,6 @@ const Avatar: React.FC<AvatarProps> = ({ size = "sm", border, ...props }) => {
   );
 };
 
-export default React.memo(Avatar);
+export default Avatar;
+
+Avatar.displayName = getDisplayName("Avatar");

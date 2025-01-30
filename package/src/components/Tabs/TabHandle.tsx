@@ -1,6 +1,6 @@
 import React from "react";
 import { useTabList } from "./Provider";
-import { createStyle, defineClass, merge, tw } from "stywind";
+import { createStyle, merge, tw } from "stywind";
 import { TabHandleType } from "../../types/auera-ui";
 import Icon from "../Icon/Icon";
 import { getDisplayName } from "@/utils/displayname";
@@ -45,7 +45,7 @@ const TabHandle: React.FC<TabHandleType> = ({
   const isCurrent = isActive as boolean;
   const variantStyle = {
     line: tw(
-      defineClass("bg-transparent border-b-2"),
+      "bg-transparent border-b-2",
       isCurrent
         ? `text-${activeColorScheme} border-b-${activeColorScheme}`
         : `text-${inActiveColor} border-b-transparent hover:border-b-gray-300`,
@@ -55,7 +55,7 @@ const TabHandle: React.FC<TabHandleType> = ({
     ),
     solid: tw(
       isCurrent
-        ? `text-${activeColorScheme} bg-white shadow-sm drop-shadow-tab`
+        ? `text-${activeColorScheme} bg-white shadow drop-shadow-tab`
         : `text-${inActiveColor} bg-transparent hover:bg-gray-200 tone-dark:hover:bg-gray-500`,
       rounded ? "rounded-full" : "rounded-md",
       disabled
@@ -70,13 +70,12 @@ const TabHandle: React.FC<TabHandleType> = ({
       onClick();
     }
   };
-  const defaultStyle = defineClass(
-    "gap-[7px] flex items-center outline-none font-medium whitespace-nowrap font-sans p-[9px] h-[30px] justify-center leading-[1.2rem] text-sm transition-all duration-500"
-  );
+
   const Handle = createStyle("button").classname(
     tw(
       className as string,
-      defaultStyle,
+      "gap-[7px] flex items-center outline-none font-medium whitespace-nowrap \
+       font-sans p-[9px] h-[30px] justify-center leading-[1.2rem] text-sm transition-all duration-500",
       merge.single(variantStyle, variant),
       fullWidth ? "w-full" : "w-auto",
       variant === "solid" ? "border-none" : ""

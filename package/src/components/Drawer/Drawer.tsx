@@ -24,7 +24,7 @@ const Drawer: FC<DrawerProps> = ({
       intensity={intensity}
       open={isOpen}
       onClose={onClose}
-      mode={currentMode as "light" | "dark"}
+      mode={currentMode}
       className={className}
     >
       {children}

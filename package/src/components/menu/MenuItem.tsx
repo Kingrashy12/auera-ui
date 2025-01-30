@@ -1,13 +1,18 @@
 import { useMenu } from "@/hook/useMenu";
 import { MenuItemProps } from "../../types/auera-ui";
 import React from "react";
-import { useMode } from "@/hook/use";
 import { getDisplayName } from "@/utils/displayname";
-import { useComputeMI } from "./use-menu";
+import { useComputeItem } from "./use-menu";
 
 const MenuItem: React.FC<MenuItemProps> = (props) => {
-  const { currentMode } = useMode(props.mode);
   const { onClose: closeMenu } = useMenu();
+
+  const Component = useComputeItem({
+    className: props.className,
+    disabled: props.disabled,
+    type: props.type,
+    color: props.color,
+  });
 
   const killMenu = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     try {
@@ -21,16 +26,14 @@ const MenuItem: React.FC<MenuItemProps> = (props) => {
     }
   };
 
-  const Base = useComputeMI(props);
-
   return (
     <>
       {props.type === "curved" ? (
         <div className="w-full p-2">
-          <Base onClick={killMenu} data-theme={currentMode} {...props} />
+          <Component onClick={killMenu} {...props} />
         </div>
       ) : (
-        <Base onClick={killMenu} data-theme={currentMode} {...props} />
+        <Component onClick={killMenu} {...props} />
       )}
     </>
   );

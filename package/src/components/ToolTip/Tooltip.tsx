@@ -22,11 +22,12 @@ const Tooltip = ({
   className,
   labelClass,
   containerClass,
+  showPointer = true,
 }: TootipProps) => {
   const PostionClass = tw(
     positions[position],
     className,
-    "theme-light:bg-black theme-dark:bg-neutral-800 p-2 rounded-md group-hover:flex hidden absolute z-[200]"
+    "theme-light:bg-black theme-dark:bg-neutral-800 p-2 rounded-lg group-hover:flex hidden absolute z-[200]"
   );
   const Pointer = tw(pointer[position], "bg-inherit rotate-45 p-1 absolute");
   return (
@@ -41,7 +42,7 @@ const Tooltip = ({
         >
           {label}
         </span>
-        <div className={Pointer}></div>
+        {showPointer && <div className={Pointer} />}
       </div>
     </div>
   );

@@ -2,12 +2,13 @@ import React from "react";
 
 import {
   ButtonVariant,
+  ColorKey,
   ColorPair,
   DesignFlavour,
   SchemeVariant,
   Trigger,
 } from "./auera-system";
-import { InputProps } from "stywind";
+import { InputProps } from "./element-props";
 import { zIndex } from "./keys";
 
 export type DivProps = React.HTMLAttributes<HTMLDivElement>;
@@ -80,7 +81,7 @@ export interface ButtonProps extends BtnProps {
    *
    * @default "md"
    */
-  size?: "xs" | "sm" | "md" | "lg" | "xl";
+  size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
 
   /**
    * Indicates if the button is in a loading state.
@@ -213,10 +214,11 @@ export interface Drop extends DivProps {
    * - `"md"`: Medium intensity.
    * - `"lg"`: Large intensity.
    * - `"xl"`: Extra-large intensity.
+   * - `"2xl"`.
    *
    * @default "sm"
    */
-  intensity?: "none" | "sm" | "md" | "lg" | "xl";
+  intensity?: "none" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl";
 
   /**
    * Centers the content within the drop component.
@@ -231,6 +233,7 @@ export interface Drop extends DivProps {
    * @default false
    */
   preventClose?: boolean;
+  zIndex?: zIndex;
 }
 
 export type ModalType = {
@@ -544,6 +547,7 @@ export type TootipProps = {
   className?: string;
   labelClass?: string;
   containerClass?: string;
+  showPointer?: boolean;
 };
 
 export interface RadioProps extends InputProps {
@@ -615,7 +619,7 @@ export interface FabProps extends DivProps {
   color?: "primary" | "bold" | "soft";
   size?: "sm" | "md" | "lg" | "xl";
   disabled?: boolean;
-  zIndex?: "100" | "200" | "300" | "400" | "500" | "600";
+  zIndex?: zIndex;
 }
 
 export interface MenuProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -643,7 +647,7 @@ export interface MenuItemProps extends DivProps {
    * Text color (e.g., 'black', 'red-500').
    * @default 'black'
    */
-  color?: ColorPair;
+  color?: ColorKey;
 
   /**
    * Theme mode, either 'light' or 'dark'.
@@ -666,3 +670,42 @@ export type CollapseProps = {
   openIcon?: React.ElementType;
   closeIcon?: React.ElementType;
 };
+
+export type StatusBadgeProps = {
+  /**
+   * The status of the badge, one of 'online', 'offline', 'away', or 'busy'.
+   * @default 'online'
+   */
+  status?: "online" | "offline" | "away" | "busy";
+  /**
+   * The size of the badge, one of 'sm', 'md', or 'lg'.
+   * @default 'md'
+   */
+  size?: "sm" | "md" | "lg";
+  /**
+   * Optional className to be applied to the badge container.
+   */
+  className?: string;
+  /**
+   * Optional children to be rendered inside the badge.
+   */
+  children?: React.ReactNode;
+  /**
+   * Optional custom class to be applied to the badge.
+   */
+  badgeClassName?: string;
+  /**
+   * Placement of the badge relative to the element.
+   * This defines the positioning of the badge in relation to its container.
+   */
+  placement?: "right-top" | "right-bottom" | "left-top" | "left-bottom";
+  animate?: boolean;
+};
+
+export interface MediaProps {
+  fullWidth?: boolean;
+  isLoading?: boolean;
+  radius?: ButtonProps["radius"];
+  loaderClass?: string;
+  loaderStyle?: React.CSSProperties;
+}

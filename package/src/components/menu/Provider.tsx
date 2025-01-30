@@ -1,7 +1,7 @@
 import { MenuProps } from "../../types/auera-ui";
 import React, { useRef, useState } from "react";
 import { MenuContext } from "@/context/menu";
-import { List as Menu } from "./List";
+import { Menu } from "./List";
 import { getDisplayName } from "@/utils/displayname";
 import MenuItem from "./MenuItem";
 import MenuTrigger from "./MenuTrigger";

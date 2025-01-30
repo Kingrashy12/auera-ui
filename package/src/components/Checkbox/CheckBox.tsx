@@ -1,7 +1,7 @@
 import { getDisplayName } from "@/utils/displayname";
 import { CheckBoxProps } from "../../types/auera-ui";
 import { IoCheckmark } from "react-icons/io5";
-import { createStyle, merge, tw } from "stywind";
+import { merge, tw } from "@/utils";
 
 const CheckBox = ({
   checked,
@@ -42,20 +42,19 @@ const CheckBox = ({
     }
   };
 
-  const Check = createStyle("div").classname(
-    tw(
-      className,
-      "cursor-pointer flex items-center justify-center border-2 active:scale-90 transition-all duration-300",
-      merge.single(radiusClass, radius),
-      merge.single(sizeClass, size),
-      checked ? getColorString() : "border-gray-400"
-    )
-  );
-
   return (
-    <Check onClick={onCheck}>
+    <div
+      className={tw(
+        className,
+        "cursor-pointer flex items-center justify-center border-2 active:scale-90 transition-all duration-300",
+        merge.single(radiusClass, radius),
+        merge.single(sizeClass, size),
+        checked ? getColorString() : "border-gray-400"
+      )}
+      onClick={onCheck}
+    >
       {checked && <IoCheckmark color="white" size={20} />}
-    </Check>
+    </div>
   );
 };
 

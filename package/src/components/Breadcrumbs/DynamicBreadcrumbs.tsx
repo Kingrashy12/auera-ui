@@ -7,12 +7,12 @@ import { tw } from "stywind";
 import Box from "../Box/Box";
 import Icon from "../Icon/Icon";
 
-interface BreadcrumbItem {
+interface DynamicBreadcrumbsItem {
   label: string;
   href?: string;
 }
 
-interface BreadcrumbProps {
+interface DynamicBreadcrumbsProps {
   separator?: "splash" | "arrow";
   itemClass?: string;
   containerClass?: string;
@@ -21,7 +21,7 @@ interface BreadcrumbProps {
   exclude?: string;
 }
 
-const Breadcrumb: React.FC<BreadcrumbProps> = ({
+const DynamicBreadcrumbs: React.FC<DynamicBreadcrumbsProps> = ({
   separator = "arrow",
   itemClass,
   className,
@@ -42,11 +42,11 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
     [router.pathname]
   );
 
-  const [items, setItems] = useState<BreadcrumbItem[]>([]);
+  const [items, setItems] = useState<DynamicBreadcrumbsItem[]>([]);
 
-  // A function used for updating breadcrumb array
+  // A function used for updating DynamicBreadcrumbs array
   const addLink = () => {
-    const newItems: BreadcrumbItem[] = [];
+    const newItems: DynamicBreadcrumbsItem[] = [];
     for (let i = 0; i < str.length; i++) {
       const basePath = str[i];
       const redirectPath = str.slice(0, i + 1).join("/");
@@ -123,4 +123,4 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
   );
 };
 
-export default Breadcrumb;
+export default DynamicBreadcrumbs;

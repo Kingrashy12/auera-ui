@@ -1,14 +1,11 @@
 import { useMenu } from "../../hook/useMenu";
-
 import React, { useEffect, useRef } from "react";
-import { useComputeMenu } from "./use-menu";
 import { MenuProps } from "../../types/auera-ui";
-import { useMode } from "@/hook/use";
 import { getDisplayName } from "@/utils/displayname";
+import { useComputeContainer, useComputeMenu } from "./use-menu";
 
-export const List: React.FC<MenuProps> = ({ ...props }) => {
+export const Menu: React.FC<MenuProps> = ({ ...props }) => {
   const { isOpen, onClose } = useMenu();
-  const { currentMode } = useMode(props.mode);
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -27,13 +24,18 @@ export const List: React.FC<MenuProps> = ({ ...props }) => {
     };
   }, [isOpen, onClose]);
 
-  const { MenuAui, MenuPanel } = useComputeMenu({ open: isOpen, ...props });
+  const List = useComputeMenu({
+    className: props.className,
+    zIndex: props.zIndex,
+  });
+
+  const Container = useComputeContainer({ open: isOpen, zIndex: props.zIndex });
 
   return (
-    <MenuPanel open={isOpen} ref={menuRef}>
-      <MenuAui data-theme={currentMode}>{props.children}</MenuAui>
-    </MenuPanel>
+    <Container ref={menuRef}>
+      <List>{props.children}</List>
+    </Container>
   );
 };
 
-List.displayName = getDisplayName("Menu");
+Menu.displayName = getDisplayName("Menu");

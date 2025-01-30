@@ -1,5 +1,3 @@
-// @ts-nocheck
-import { defineClass, merge, tw } from "stywind";
 import { IconButtonPropsExtended } from "../../types/auera-ui";
 import { getDisplayName } from "@/utils/displayname";
 import { FC } from "react";
@@ -8,6 +6,7 @@ import { DrawerTrigger } from "../Drawer";
 import { throwTriggerError } from "@/utils/component.err";
 import { useMode } from "@/hook/use";
 import { AueraButton, AueraDiv } from "@/core/AueraElement";
+import { defineClass, merge, tw } from "@/utils";
 
 const sizes = {
   md: "p-1",
@@ -93,14 +92,18 @@ const IconButton: FC<IconButtonPropsExtended<boolean>> = ({
     <>
       {withTrigger ? (
         <TriggerComponent type={triggerType} value={triggerValue as string}>
+          {/* @ts-ignore */}
           <Comp className={tw(Cls, className)} {...props}>
             {children}
           </Comp>
         </TriggerComponent>
       ) : (
-        <Comp className={tw(Cls, className)} {...props}>
-          {children}
-        </Comp>
+        <>
+          {/* @ts-ignore */}
+          <Comp className={tw(Cls, className)} {...props}>
+            {children}
+          </Comp>
+        </>
       )}
     </>
   );

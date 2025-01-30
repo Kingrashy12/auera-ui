@@ -1,22 +1,17 @@
 import { LogoDark, LogoLight } from "@/assets";
-import { Box, Icon, IconButton, useTheme } from "auera-ui";
+import { Box, IconButton, useTheme } from "auera-ui";
 import Image from "next/image";
 import React from "react";
-import { IoMdMoon } from "react-icons/io";
-import { MdWbSunny } from "react-icons/md";
+
 import { createStyle } from "stywind";
 import NavLinks from "./NavLinks";
 import Community from "./Community";
 import Link from "next/link";
 import { IoMenu } from "react-icons/io5";
+import ToggleTheme from "./ToggleTheme";
 
 const Navbar = () => {
-  const { mode, toggleTheme } = useTheme();
-
-  const icon = {
-    light: IoMdMoon,
-    dark: MdWbSunny,
-  };
+  const { mode } = useTheme();
 
   const Nav = createStyle("header").classname(
     "w-full h-auto border-b border-b-sidebar bg-sidebar flex"
@@ -56,14 +51,7 @@ const Navbar = () => {
           </IconButton>
 
           <Community className="max-[650px]:hidden" />
-          <IconButton
-            variants="outline"
-            size="lg"
-            radius="full"
-            onClick={toggleTheme.main}
-          >
-            <Icon icon={icon[mode]} size={18} />
-          </IconButton>
+          <ToggleTheme />
         </Box>
       </Container>
     </Nav>

@@ -1,6 +1,7 @@
-import { defineClass, merge, tw } from "stywind";
-import { ButtonProps } from "../../../types/auera-ui";
-import { ButtonVariant, SchemeVariant } from "../../../types/auera-system";
+import { cva } from "class-variance-authority";
+import { ButtonProps } from "@/types/auera-ui";
+import { SchemeVariant, VProps } from "@/types/auera-system";
+import { defineClass } from "stywind";
 
 // Background color schemes
 const backgroundSchemes = {
@@ -58,71 +59,45 @@ const hoverDimDarkSchemes = {
   warning: defineClass("hover:bg-corprate-light-warn-hover"),
 };
 
-// Main function to generate button classes based on variant and color schemes
-const generateButtonClass = ({ variant, colorScheme }: ButtonProps) => {
-  const textColor = merge.single(
-    textColorSchemes,
-    colorScheme as SchemeVariant
-  );
-  const borderColor = merge.single(
-    borderColorSchemes,
-    colorScheme as SchemeVariant
-  );
-  const dimmedBackground = merge.single(
-    dimmedBackgroundSchemes,
-    colorScheme as SchemeVariant
-  );
-  const hoverBackground = merge.single(
-    hoverBackgroundSchemes,
-    colorScheme as SchemeVariant
-  );
-  const lightHoverEffect = merge.single(
-    hoverDimDarkSchemes,
-    colorScheme as SchemeVariant
-  );
-  const hoverDimmedBackground = merge.single(
-    ghostHover,
-    colorScheme as SchemeVariant
-  );
-
-  // Define button variant with combined classes
-  const solidButton = tw(
-    merge.single(backgroundSchemes, colorScheme as SchemeVariant),
-    "text-white",
-    hoverBackground
-  );
-
-  const lightButton = tw(
-    textColor,
-    "border-[1.25px]",
-    dimmedBackground,
-    borderColor,
-    lightHoverEffect
-  );
-
-  const ghostButton = tw(textColor, hoverDimmedBackground);
-
-  const outlineButton = defineClass(
-    "border-2 auera-btn-outline-base shadow-sm"
-  );
-
-  const flatButton = tw(
-    "border-none",
-    dimmedBackground,
-    textColor,
-    lightHoverEffect
-  );
-
-  // Return the corresponding button class based on the variant
-  const buttonVariant = {
-    solid: solidButton,
-    light: lightButton,
-    ghost: ghostButton,
-    outline: outlineButton,
-    flat: flatButton,
-  };
-
-  return tw(merge.single(buttonVariant, variant as ButtonVariant));
+const button_corporate = ({ colorScheme }: ButtonProps) => {
+  return cva("", {
+    variants: {
+      variant: {
+        solid: [
+          backgroundSchemes[colorScheme as SchemeVariant],
+          "text-white",
+          hoverBackgroundSchemes[colorScheme as SchemeVariant],
+        ],
+        light: [
+          textColorSchemes[colorScheme as SchemeVariant],
+          "border-[1.25px]",
+          dimmedBackgroundSchemes[colorScheme as SchemeVariant],
+          borderColorSchemes[colorScheme as SchemeVariant],
+          hoverDimDarkSchemes[colorScheme as SchemeVariant],
+        ],
+        ghost: [
+          textColorSchemes[colorScheme as SchemeVariant],
+          ghostHover[colorScheme as SchemeVariant],
+        ],
+        outline: [
+          "border-2 shadow-sm bg-white text-black hover:bg-gray-100 \
+             border-neutral-300 tone-dark:bg-black tone-dark:text-white \
+              tone-dark:hover:bg-slate-900 tone-dark:border-neutral-800",
+        ],
+        flat: [
+          "border-none",
+          dimmedBackgroundSchemes[colorScheme as SchemeVariant],
+          textColorSchemes[colorScheme as SchemeVariant],
+          hoverDimDarkSchemes[colorScheme as SchemeVariant],
+        ],
+        unstyled: "text-black tone-dark:text-white",
+      },
+    },
+    defaultVariants: {
+      variant: "solid",
+    },
+  });
 };
 
-export { generateButtonClass };
+export default button_corporate;
+export type CorporateVariants = VProps<typeof button_corporate>;

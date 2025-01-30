@@ -1,8 +1,8 @@
 import { getDisplayName } from "@/utils/displayname";
 import React, { forwardRef } from "react";
-import { InputProps } from "stywind";
+import { InputProps } from "../../types/element-props";
 import Icon from "../Icon/Icon";
-import { Component, Input } from "./use-input";
+import { tw } from "@/utils";
 
 interface InputProp extends InputProps {
   inputClass?: string;
@@ -13,17 +13,27 @@ interface InputProp extends InputProps {
 const TextInput = forwardRef<HTMLInputElement, InputProp>((props, ref) => {
   const { icon, iconSize, inputClass, placeholder, ...remainingProps } = props;
   return (
-    <Component className={props.className}>
+    <div
+      className={tw(
+        "flex justify-between w-full items-center relative gap-2 shadow-sm input-outline rounded-lg px-3 py-2 h-[40px]",
+        props.className
+      )}
+    >
       {icon && (
         <Icon icon={icon} className="text-neutral-400" size={iconSize || 20} />
       )}
-      <Input
+      <input
         ref={ref}
-        className={inputClass}
+        className={tw(
+          "w-full h-full outline-none border-none flex-1 text-[var(--input-color)] \
+           bg-transparent caret-blue-500 font-inter-tight font-medium \
+          placeholder:text-neutral-400 text-sm",
+          inputClass
+        )}
         placeholder={placeholder || "Type here..."}
         {...remainingProps}
       />
-    </Component>
+    </div>
   );
 });
 

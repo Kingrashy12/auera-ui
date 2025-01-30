@@ -1,4 +1,4 @@
-import { defineClass } from "stywind";
+import { defineClass } from "@/utils";
 
 export const darkHoverStyles = {
   primary: defineClass("hover:bg-dark-soft-blue"),
@@ -7,7 +7,6 @@ export const darkHoverStyles = {
   warning: defineClass("hover:bg-dark-soft-yellow"),
 };
 
-// Base class for button styling with a thick flavour
 export const baseButtonClass = defineClass(
   "border-solid border-1.7 transition-layer border-image"
 );

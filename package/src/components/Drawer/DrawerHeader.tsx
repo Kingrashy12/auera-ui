@@ -1,6 +1,6 @@
 import { ModalHeaderType } from "../../types/auera-ui";
-import { createStyle, defineClass, merge, tw } from "stywind";
 import { getDisplayName } from "@/utils/displayname";
+import { useDrawerHeader } from "./use-drawer";
 import { useDrawerPanel } from "@/hook/usePanel";
 
 const DrawerHeader = ({
@@ -9,17 +9,14 @@ const DrawerHeader = ({
 
   ...props
 }: ModalHeaderType) => {
-  const currentMode = useDrawerPanel().mode;
-  const modeStyle = {
-    light: defineClass("border-b border-b-neutral-200"),
-    dark: defineClass("border-b border-b-neutral-800"),
-  };
-  const Header = createStyle("div").classname(
-    tw(
-      "flex items-center justify-between rounded-t-lg p-[13px] w-full bg-drawer-content",
-      showBorder ? merge.single(modeStyle, currentMode) : ""
-    )
-  );
+  const mode = useDrawerPanel().mode;
+
+  const Header = useDrawerHeader({
+    className: props.className,
+    showBorder,
+    mode,
+  });
+
   return <Header {...props}>{children}</Header>;
 };
 

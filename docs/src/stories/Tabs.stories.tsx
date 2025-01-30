@@ -21,8 +21,15 @@ const meta = {
     },
     rounded: {
       type: "boolean",
+      control: "radio",
+      options: ["true", "false"],
+      table: { defaultValue: { summary: "false" } },
+    },
+    hideScrollBar: {
+      type: "boolean",
       control: "boolean",
       options: ["true", "false"],
+      table: { defaultValue: { summary: "false" } },
     },
   },
   tags: ["docs"],

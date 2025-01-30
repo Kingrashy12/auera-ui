@@ -1,7 +1,7 @@
 import { ModalFooterProps } from "../../types/auera-ui";
-import { createStyle, defineClass, merge, tw } from "stywind";
 import { getDisplayName } from "@/utils/displayname";
 import { useDrawerPanel } from "@/hook/usePanel";
+import { useDrawerFooter } from "./use-drawer";
 
 const DrawerFooter = ({
   children,
@@ -10,17 +10,14 @@ const DrawerFooter = ({
   ...props
 }: ModalFooterProps) => {
   const mode = useDrawerPanel().mode;
-  const modeStyle = {
-    light: defineClass("border-t border-t-neutral-200"),
-    dark: defineClass("border-t border-t-neutral-800"),
-  };
-  const Footer = createStyle("div").classname(
-    tw(
-      showBorder ? merge.single(modeStyle, mode) : "",
-      position === "left" ? "justify-start" : "justify-end",
-      defineClass("flex w-full p-3 gap-3 rounded-b-lg bg-drawer-content")
-    )
-  );
+
+  const Footer = useDrawerFooter({
+    className: props.className,
+    showBorder,
+    position,
+    mode,
+  });
+
   return <Footer {...props}>{children}</Footer>;
 };
 

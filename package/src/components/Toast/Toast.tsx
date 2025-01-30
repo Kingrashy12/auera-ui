@@ -154,7 +154,6 @@ const Toast = () => {
   toast = {
     info: (msg: string, options?: ToastOptionsType) =>
       show({
-        // id: generateId(11),
         id: options?.key || generateId(11),
         message: msg,
         type: "info",
@@ -163,7 +162,6 @@ const Toast = () => {
       }),
     error: (msg: string, options?: ToastOptionsType) =>
       show({
-        // id: generateId(11),
         id: options?.key || generateId(11),
         message: msg,
         type: "error",
@@ -172,7 +170,6 @@ const Toast = () => {
       }),
     success: (msg: string, options?: ToastOptionsType) =>
       show({
-        // id: generateId(11),
         id: options?.key || generateId(11),
         message: msg,
         type: "success",
@@ -181,7 +178,6 @@ const Toast = () => {
       }),
     warning: (msg: string, options?: ToastOptionsType) =>
       show({
-        // id: generateId(11),
         id: options?.key || generateId(11),
         message: msg,
         type: "warning",

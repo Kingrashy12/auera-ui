@@ -62,5 +62,6 @@ export default {
     "arg",
     "motion",
     "motion/react",
+    "class-variance-authority",
   ],
 };

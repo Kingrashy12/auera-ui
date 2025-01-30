@@ -3,10 +3,6 @@
 @tailwind utilities;
 
 @layer utilities {
-  .card {
-    @apply border border-[var(--auera-card-border)] shadow-card bg-[--auera-card-bg];
-  }
-
   .border-image {
     border-image: initial;
   }
@@ -21,17 +17,8 @@
   }
 
   .skeleton {
-    @apply overflow-hidden relative animate-pulse inline-block p-1 theme-light:bg-slate-200 theme-dark:bg-neutral-700;
-  }
-
-  .auera-btn-outline-base {
-    @apply tone-light:bg-white tone-light:text-black tone-light:hover:bg-gray-100 tone-light:border-neutral-300
-    tone-dark:bg-black tone-dark:text-white tone-dark:hover:bg-slate-900 tone-dark:border-neutral-800;
-  }
-
-  .auera-btn-outline-frost {
-    @apply shadow-[var(--auera-neutral-100)_0_-1px_0_1px_inset,_var(--auera-neutral-200)_0_1px_2px_0]
-    tone-dark:shadow-[var(--auera-neutral-800)_0_-1px_0_1px_inset,_var(--auera-neutral-900)_0_1px_2px_0];
+    @apply overflow-hidden relative animate-pulse inline-block p-1
+    theme-light:bg-slate-200 theme-dark:bg-neutral-700;
   }
 
   .switch {

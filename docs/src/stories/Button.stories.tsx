@@ -47,6 +47,11 @@ const meta = {
       table: { defaultValue: { summary: "corporate" } },
       type: "string",
     },
+    mode: {
+      control: "radio",
+      options: ["light", "dark"],
+      type: "string",
+    },
   },
   args: { onClick: fn() },
 } satisfies Meta<typeof Button>;

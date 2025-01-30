@@ -1,5 +1,6 @@
 import { FabProps } from "../../types/auera-ui";
 import { getDisplayName } from "@/utils/displayname";
+import { zIndexKeys } from "@/utils/keys";
 import React from "react";
 import { tw } from "stywind";
 
@@ -21,15 +22,6 @@ const fabSize = {
   xl: "w-12 h-12",
 };
 
-const zIndx = {
-  100: "z-[100]",
-  200: "z-[200]",
-  300: "z-[300]",
-  400: "z-[400]",
-  500: "z-[500]",
-  600: "z-[600]",
-};
-
 const Fab: React.FC<FabProps> = ({
   type = "fixed",
   color = "primary",
@@ -47,7 +39,7 @@ const Fab: React.FC<FabProps> = ({
         colorScheme[color],
         fabPosition[position],
         fabSize[size],
-        zIndx[zIndex],
+        zIndexKeys[zIndex],
         {
           fixed: type === "fixed",
           relative: type === "relative",

@@ -1,5 +1,5 @@
 type StorageActionType = {
-  get: (key: string) => string | null;
+  get: (key: string) => string | boolean | unknown;
   set: (key: string, value: any) => void;
   set_stringify: (key: string, value: any) => void;
 };

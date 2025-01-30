@@ -1,21 +1,16 @@
 import { useMemo } from "react";
-import { CardProps } from "../../types/auera-ui";
-import { createStyle, tw } from "stywind";
-import { motion } from "motion/react";
+import card, { CardVariants } from "./card-variants";
+import { createStyle } from "stywind";
+import { AueraDivWithMotion } from "@/core/ElementWithmotion";
 
-export const useCard = (props: CardProps) => {
-  const Base = useMemo(() => {
-    return createStyle(motion.div).classname(
-      tw(
-        props.className,
-        "rounded-[10px] flex p-[20px] gap-[16px] card",
-        props.centerContent ? "items-center justify-center" : "",
-        props.fullWidth ? "w-full w-auto" : "",
-        props.direction === "row" ? "flex-row" : "flex-col",
-        props.hidden && "hidden"
-      )
-    );
-  }, [props.direction, props.className, props.centerContent, props.fullWidth]);
+export const useCard = (props: CardVariants) => {
+  const { centerContent, fullWidth, className, hidden, direction } = props;
 
-  return { Base };
+  return useMemo(
+    () =>
+      createStyle(AueraDivWithMotion).classname(
+        card({ centerContent, className, fullWidth, hidden, direction })
+      ),
+    [className, direction, fullWidth, hidden, centerContent]
+  );
 };

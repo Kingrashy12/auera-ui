@@ -1,19 +1,22 @@
+import { getDisplayName } from "@/utils/displayname";
 import { ColorPair } from "../../types/auera-system";
 import React from "react";
-import { tw } from "stywind";
+import { tw } from "@/utils";
 
 type DotProps = {
   isActive: boolean;
   onClick: () => void;
   size?: "sm" | "md" | "lg" | "xl";
-  color?: ColorPair | "black" | "white";
+  activeColor?: ColorPair;
+  inActiveColor?: ColorPair;
 };
 
 const ActiveDot: React.FC<DotProps> = ({
   isActive,
   onClick,
   size = "md",
-  color = "purple-500",
+  activeColor = "black",
+  inActiveColor = "gray-300",
 }) => {
   return (
     <div
@@ -25,7 +28,7 @@ const ActiveDot: React.FC<DotProps> = ({
           "w-5 h-5": size === "xl",
         },
         "rounded-full cursor-pointer",
-        isActive ? `bg-${color}` : "bg-gray-300"
+        isActive ? `bg-${activeColor}` : `bg-${inActiveColor}`
       )}
       onClick={onClick}
     />
@@ -33,3 +36,5 @@ const ActiveDot: React.FC<DotProps> = ({
 };
 
 export default ActiveDot;
+
+ActiveDot.displayName = getDisplayName("ActiveDot");
