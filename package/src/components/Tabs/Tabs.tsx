@@ -61,8 +61,8 @@ const Tabs: React.FC<TabsType> = ({
     "max-w-full overflow-x-auto flex items-center relative gap-[1px]"
   );
   const scrollBar = defineClass(
-    "scrollbar:h-1 scrollbar-thumb:cursor-pointer scrollbar-thumb:rounded-[5px] \
-     scrollbar-track:bg-transparent scrollbar-thumb:bg-blue-500 scrollbar-thumb:hover:bg-blue-600"
+    `scrollbar:h-1 scrollbar-thumb:cursor-pointer scrollbar-thumb:rounded-[5px]
+     scrollbar-track:bg-transparent scrollbar-thumb:bg-blue-500 scrollbar-thumb:hover:bg-blue-600`
   );
 
   const TabList = useMemo(() => {

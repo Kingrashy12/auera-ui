@@ -71,6 +71,7 @@ export type AueraElementProps<T extends keyof JSX.IntrinsicElements> =
     tag?: keyof JSX.IntrinsicElements;
     mode?: ModeType;
     hidden?: boolean;
+    disabled?: boolean;
   };
 
 export type AueraElementPropsWithMotion<T extends keyof HTMLElements> =
@@ -79,6 +80,8 @@ export type AueraElementPropsWithMotion<T extends keyof HTMLElements> =
     mode?: ModeType;
     hidden?: boolean;
   };
+
+export type TailwindClass = string;
 
 export interface HTMLElements {
   a: HTMLAnchorElement;

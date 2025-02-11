@@ -5,35 +5,41 @@ import { getDisplayName } from "@/utils/displayname";
 import { useComputeItem } from "./use-menu";
 
 const MenuItem: React.FC<MenuItemProps> = (props) => {
-  const { onClose: closeMenu } = useMenu();
+  const { children, className, disabled, color, type, ...rest } = props;
+  const { onClose } = useMenu();
 
   const Component = useComputeItem({
-    className: props.className,
-    disabled: props.disabled,
-    type: props.type,
-    color: props.color,
+    className,
+    disabled,
+    type,
+    color,
   });
 
   const killMenu = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    try {
-      if (props.onClick) {
-        props.onClick(event);
-      }
-    } catch (error) {
-      console.error("Error calling onClick:", error);
-    } finally {
-      closeMenu();
+    if (props.onClick) {
+      props.onClick(event);
     }
+    onClose();
+    // try {
+    // } catch (error) {
+    //   console.error("Error calling onClick:", error);
+    // } finally {
+    //   onClose();
+    // }
   };
 
   return (
     <>
       {props.type === "curved" ? (
         <div className="w-full p-2">
-          <Component onClick={killMenu} {...props} />
+          <Component onClick={killMenu} {...rest}>
+            {children}
+          </Component>
         </div>
       ) : (
-        <Component onClick={killMenu} {...props} />
+        <Component onClick={killMenu} {...rest}>
+          {children}
+        </Component>
       )}
     </>
   );

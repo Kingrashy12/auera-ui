@@ -41,7 +41,7 @@ const MobileMenu = () => {
             trigger="drawer"
             triggerType="close"
             triggerValue="mobile-menu"
-            variants="outline"
+            variant="outline"
             radius="full"
           >
             <IoClose size={18} />

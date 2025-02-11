@@ -1,4 +1,65 @@
 ---
 title: Card | AueraUI
-description: Displaying content in a styled container.
+description: A flexible container used to display content in an organized way
 ---
+ 
+<DetailCard description='A flexible container used to display content in an organized way'/>
+
+
+<Details className='max-w-full'>
+   <CardDemo/>
+</Details>
+
+<Details id='examples'>
+<HeaderLabel id='examples'>Examples</HeaderLabel>
+</Details>
+
+<Details id='card-with-image'>
+<HeaderLabel id='card-with-image' as='h3'>Card with Image</HeaderLabel>
+ <p className="text">You can add image to the card by using the <CodeTag>img</CodeTag> prop and set the <CodeTag>src</CodeTag> and <CodeTag>alt</CodeTag></p>
+ <CardWithImage />
+</Details>
+
+<Details id='card-with-custom-image-render'>
+<HeaderLabel id='card-with-custom-image-render' as='h3'>Card with Custom Image Render</HeaderLabel>
+ <p className="text">Render your own custom Image components using the <CodeTag>renderImage</CodeTag> prop</p>
+ <CardWithCustomImage />
+</Details>
+
+<Details id="feed-card">
+  <HeaderLabel id="feed-card" as="h3">Feed Card</HeaderLabel>
+  <p className="text">
+     This example demonstrates how to use the <CodeTag>Card</CodeTag> component to create a Feed Card for social media.
+  </p>
+  <FeedCard />
+</Details>
+
+<Details id="form-card">
+  <HeaderLabel id="form-card" as="h3">Form Card</HeaderLabel>
+  <p className="text">
+    You can use the <CodeTag>Card</CodeTag> as a form container
+  </p>
+  <CardWithForm />
+</Details>
+
+<Details id="web3-card">
+  <HeaderLabel id="web3-card" as="h3">Web3 Card</HeaderLabel>
+  <p className="text">
+   This component can be used to display web3 wallet connect card with header using the <CodeTag>renderHeader</CodeTag> prop and <TabLink to='/docs/components/iconbutton' label='IconButton' />.
+  </p>
+  <Web3Card />
+</Details>
+
+<Details id="pricing-card">
+  <HeaderLabel id="pricing-card" as="h3">Pricing card</HeaderLabel>
+  <p className="text">
+   You can display pricing of your product or service using this component.
+  </p>
+  <PricingCard />
+</Details>
+
+
+<Details id='api-reference'>
+<HeaderLabel id='api-reference'>API Reference</HeaderLabel>
+<APITable reference={cardRef} />
+</Details>

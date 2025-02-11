@@ -1,15 +1,9 @@
-import { DefaultVariantsProp } from "@/types/auera-system";
 import { cva, VariantProps } from "class-variance-authority";
 
-const card = cva(
-  "rounded-[10px] flex p-[20px] gap-[16px] \
-    border bg-white border-neutral-200 shadow-card \
-    tone-dark:bg-black tone-dark:border-neutral-800 ",
+const root = cva(
+  "rounded-[10px] flex gap-2 border-1.9 bg-white border-neutral-200 tone-dark:bg-black tone-dark:border-neutral-900",
   {
     variants: {
-      centerContent: {
-        true: "items-center justify-center",
-      },
       fullWidth: {
         true: "w-full",
         false: "w-auto",
@@ -21,16 +15,43 @@ const card = cva(
         row: "flex-row",
         column: "flex-col",
       },
+      variant: {
+        flat: "shadow-none",
+        raised:
+          "shadow-card tone-dark:shadow-[0_4px_8px_rgba(255,255,255,0.05)]",
+      },
     },
+
     defaultVariants: {
+      variant: "raised",
       direction: "column",
       fullWidth: false,
-      centerContent: false,
       hidden: false,
     },
   }
 );
 
-export default card;
+const body = cva("p-[20px] gap-[16px] flex flex-col", {
+  variants: {
+    centerContent: {
+      true: "items-center justify-center",
+    },
+  },
+  defaultVariants: {
+    centerContent: false,
+  },
+});
 
-export type CardVariants = VariantProps<typeof card> & DefaultVariantsProp;
+type CardClass = {
+  root?: string;
+  body?: string;
+};
+
+export type RootVariants = VariantProps<typeof root> & {
+  classNames?: CardClass;
+};
+export type BodyVariants = VariantProps<typeof body> & {
+  classNames?: CardClass;
+};
+
+export { root, body };

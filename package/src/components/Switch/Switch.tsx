@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "motion/react";
 import { tw } from "stywind";
-import { getDisplayName } from "@/utils/displayname";
+import { getDisplayName } from "../../utils/displayname";
 import { SwitchProps } from "../../types/auera-ui";
 
 const sizeClass = {
@@ -22,15 +22,31 @@ const Switch: React.FC<SwitchProps> = ({
   size = "md",
   color = "blue-500",
   unCheckColor = "gray-300",
-  isOn,
-  toggleOn,
+  onToggleSwitch,
+  disabled,
 }) => {
+  const [isOn, setIsOn] = useState(false);
+
+  const toggleOn = () => {
+    setIsOn((prev) => {
+      const newState = !prev;
+      if (onToggleSwitch) {
+        onToggleSwitch(newState);
+      }
+      return newState;
+    });
+  };
+
   return (
     <div
       className={tw(
-        "switch",
+        "flex cursor-pointer p-1 rounded-full data-[ison=true]:justify-end items-center transition-transform",
         sizeClass[size],
-        isOn ? `bg-${color}` : `bg-${unCheckColor}`
+        isOn ? `bg-${color}` : `bg-${unCheckColor}`,
+        {
+          "cursor-not-allowed pointer-events-none opacity-85 bg-gray-300":
+            disabled,
+        }
       )}
       data-ison={isOn}
       onClick={toggleOn}
@@ -38,16 +54,16 @@ const Switch: React.FC<SwitchProps> = ({
       <motion.div
         className={tw("bg-white rounded-full", handleSize[size])}
         layout
-        transition={spring}
+        transition={{
+          type: "spring",
+          bounce: 0.5,
+          visualDuration: 0.5,
+          damping: 30,
+          stiffness: 500,
+        }}
       />
     </div>
   );
-};
-
-const spring = {
-  type: "spring",
-  stiffness: 700,
-  damping: 30,
 };
 
 export default Switch;

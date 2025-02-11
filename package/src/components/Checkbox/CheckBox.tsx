@@ -1,22 +1,26 @@
-import { getDisplayName } from "@/utils/displayname";
+import { getDisplayName } from "../../utils/displayname";
 import { CheckBoxProps } from "../../types/auera-ui";
-import { IoCheckmark } from "react-icons/io5";
-import { merge, tw } from "@/utils";
+import { merge, tw } from "../../utils";
+import Box from "../Box/Box";
+import { BsCheckLg } from "react-icons/bs";
+import { useState } from "react";
 
-const CheckBox = ({
-  checked,
-  onCheck,
+const CheckBox: React.FC<CheckBoxProps> = ({
+  onCheckChange,
   radius = "sm",
   size = "sm",
   colorScheme = "primary",
   color,
-  className,
-}: CheckBoxProps) => {
+  classNames,
+  children,
+  disabled,
+}) => {
+  const [checked, setChecked] = useState(false);
+
   const sizeClass = {
+    xs: "w-4 h-4",
     sm: "w-5 h-5",
     md: "w-6 h-6",
-    lg: "w-7 h-7",
-    xl: "w-8 h-8",
   };
 
   const radiusClass = {
@@ -42,19 +46,41 @@ const CheckBox = ({
     }
   };
 
+  const check = () => {
+    setChecked((prev) => {
+      const newState = !prev;
+
+      if (onCheckChange) {
+        onCheckChange(newState);
+      }
+
+      return newState;
+    });
+  };
+
   return (
-    <div
+    <Box
       className={tw(
-        className,
-        "cursor-pointer flex items-center justify-center border-2 active:scale-90 transition-all duration-300",
-        merge.single(radiusClass, radius),
-        merge.single(sizeClass, size),
-        checked ? getColorString() : "border-gray-400"
+        "gap-2 items-center",
+        { "cursor-not-allowed pointer-events-none opacity-85": disabled },
+        classNames?.container
       )}
-      onClick={onCheck}
+      onClick={check}
     >
-      {checked && <IoCheckmark color="white" size={20} />}
-    </div>
+      <div
+        className={tw(
+          classNames?.checker,
+          "cursor-pointer flex items-center flex-shrink-0 justify-center border-2 active:scale-90 transition-all duration-300",
+          merge.single(radiusClass, radius),
+          merge.single(sizeClass, size),
+          checked ? getColorString() : "border-gray-400",
+          { "bg-neutral-400 border-neutral-400": disabled }
+        )}
+      >
+        {checked && <BsCheckLg color="white" size={20} />}
+      </div>
+      <>{children}</>
+    </Box>
   );
 };
 

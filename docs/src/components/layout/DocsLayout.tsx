@@ -12,8 +12,8 @@ const DocsLayout = ({ children, hideNavigator }: Props) => {
     <Box className="gap-0 px-3 max-[550px]:px-0" fullWidth>
       <SideBar />
       <Box
-        fullWidth
         direction="column"
+        fullWidth
         className={tw(
           "gap-8 px-4 py-2 max-[550px]:px-3",
           hideNavigator && "px-5 py-4"

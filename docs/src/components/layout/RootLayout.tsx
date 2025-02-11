@@ -60,6 +60,12 @@ export const montserrat = localFont({
   variable: "--font-montserrat",
 });
 
+const stencilFont = localFont({
+  src: "../../fonts/SairaStencilOne-Regular.ttf",
+  style: "normal",
+  variable: "--font-stencil-one",
+});
+
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
   const singleBar = ["/"];
@@ -70,7 +76,8 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         montserrat.variable,
         inter.variable,
         interTight.variable,
-        poppins.variable
+        poppins.variable,
+        stencilFont.variable
       )}
       suppressHydrationWarning
     >

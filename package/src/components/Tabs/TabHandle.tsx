@@ -74,8 +74,7 @@ const TabHandle: React.FC<TabHandleType> = ({
   const Handle = createStyle("button").classname(
     tw(
       className as string,
-      "gap-[7px] flex items-center outline-none font-medium whitespace-nowrap \
-       font-sans p-[9px] h-[30px] justify-center leading-[1.2rem] text-sm transition-all duration-500",
+      "gap-[7px] flex items-center outline-none font-medium whitespace-nowrap font-sans p-[9px] h-[30px] justify-center leading-[1.2rem] text-sm transition-all duration-500",
       merge.single(variantStyle, variant),
       fullWidth ? "w-full" : "w-auto",
       variant === "solid" ? "border-none" : ""

@@ -151,3 +151,19 @@ html {
     transform: scale(1.2);
   }
 }
+
+.shake {
+  animation: shake 0.2s ease-in-out;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(6px);
+  }
+  50% {
+    transform: translateX(-6px);
+  }
+  100% {
+    transform: translateX(6px);
+  }
+}

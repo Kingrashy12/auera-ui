@@ -1,5 +1,5 @@
 import Clipboard from "@/components/Clipboard";
-import { Box, Icon } from "auera-ui";
+import { Box, Icon, Tooltip } from "auera-ui";
 import { Highlight, themes } from "prism-react-renderer";
 import React from "react";
 import { BiLogoTailwindCss, BiLogoTypescript } from "react-icons/bi";
@@ -64,10 +64,12 @@ const CodeBlock = ({
         </Highlight>
       </Box>
       <div className="h-auto absolute text-white p-3 right-0 -top-[2px]">
-        <Clipboard
-          content={code}
-          className="theme-light:hover:bg-neutral-800"
-        />
+        <Tooltip label="Copy" position="left" showPointer={false}>
+          <Clipboard
+            content={code}
+            className="theme-light:hover:bg-neutral-800 !text-white"
+          />
+        </Tooltip>
       </div>
     </Box>
   );

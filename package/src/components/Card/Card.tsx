@@ -1,28 +1,58 @@
 import { forwardRef } from "react";
 import { getDisplayName } from "@/utils/displayname";
-import { useProps } from "@/utils";
-import { CardWithMotion } from "../../types/auera-motion";
+import { CardWithMotion, AueraMotionDivRef } from "../../types/auera-motion";
 import { useCard } from "./use-card";
+import { Media } from "../Image";
+import { tw } from "stywind";
 
 /** Card component for displaying content in a styled container.*/
 const Card = forwardRef<HTMLDivElement, CardWithMotion>((props, ref) => {
-  const { centerContent, fullWidth, className, hidden, direction, ...rest } =
-    props;
-
-  const Props = useProps(rest, "div");
-
-  const Component = useCard({
+  const {
     centerContent,
-    className,
+    fullWidth,
+    classNames,
+    variant,
+    hidden,
+    direction,
+    renderImage,
+    renderHeader,
+    img,
+    ...rest
+  } = props;
+
+  const { Root, Body } = useCard({
+    centerContent,
+    classNames,
     hidden,
     direction,
     fullWidth,
+    variant,
   });
 
+  const getImage = () => {
+    if (props.img) {
+      return (
+        <Media
+          src={img?.src}
+          alt={img?.alt}
+          width={img?.width}
+          height={img?.height}
+          className={tw(img?.className, "rounded-t-lg")}
+          style={img?.style}
+        />
+      );
+    } else if (renderImage) {
+      return renderImage();
+    }
+    return null;
+  };
+
   return (
-    <Component ref={ref} {...Props}>
-      {props.children}
-    </Component>
+    <Root ref={ref as AueraMotionDivRef} {...rest}>
+      {renderHeader && renderHeader()}
+      {getImage()}
+      <Body>{props.children}</Body>
+    </Root>
   );
 });
 

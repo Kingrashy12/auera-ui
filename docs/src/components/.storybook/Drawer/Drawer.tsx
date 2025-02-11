@@ -19,14 +19,16 @@ const Drawer = ({ position, type }: DrawerProps & DrawerPanelProps) => {
       <D value="default">
         <DrawerPanel position={position} type={type}>
           <DrawerHeader>
-            <h1 className="font-medium text-lg">Notifications</h1>
+            <h1 className="font-medium text-lg theme-dark:text-white">
+              Notifications
+            </h1>
 
             <IconButton
               withTrigger
               trigger="drawer"
               triggerType="close"
               triggerValue="default"
-              variants="outline"
+              variant="outline"
             >
               <IoClose />
             </IconButton>

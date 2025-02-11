@@ -9,7 +9,7 @@ const ButtonColors = () => {
       <Tabs variant="solid" rounded>
         <TabHandle value="preview">Preview</TabHandle>
         <TabHandle value="code">Code</TabHandle>
-        <TabPanel>
+        <TabPanel className="mt-3">
           <Stack wrap align="horizontal">
             <Button>Primary</Button>
             <Button colorScheme="danger">Danger</Button>

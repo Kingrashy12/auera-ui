@@ -1,5 +1,6 @@
 import { useScrollTop } from "@/hooks/use";
 import { Box } from "auera-ui";
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { HiOutlineArrowUpCircle } from "react-icons/hi2";
 import { IoIosArrowForward } from "react-icons/io";
@@ -14,17 +15,9 @@ type HeadingType = {
 const TableOfContent = () => {
   const [headings, setHeadings] = useState<HeadingType[]>([]);
   const [activeId, setActiveId] = useState("");
-  const [revalidate, setRevalidate] = useState(false);
   const { scrollToTop } = useScrollTop();
 
-  useEffect(() => {
-    const validateInterval = setInterval(() => {
-      setRevalidate((prev) => !prev);
-      // console.log("Revalidating...");
-    }, 1000);
-
-    return () => clearInterval(validateInterval);
-  }, []);
+  const router = useRouter();
 
   useEffect(() => {
     const headingElements = Array.from(document.querySelectorAll("h2, h3"));
@@ -56,7 +49,7 @@ const TableOfContent = () => {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [revalidate]);
+  }, [router]);
 
   const Table = createStyle("aside").classname(
     "h-[90vh] sticky bg-sidebar border-l/ flex flex-col border-l-sidebar px-6 py-4 top-16 overflow-y-auto z-20 w-[250px] flex-shrink-0 p-8 max-lg:hidden"

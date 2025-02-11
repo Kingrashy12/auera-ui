@@ -9,7 +9,7 @@ const ButtonVariants = () => {
       <Tabs variant="solid" rounded>
         <TabHandle value="preview">Preview</TabHandle>
         <TabHandle value="code">Code</TabHandle>
-        <TabPanel>
+        <TabPanel className="mt-3">
           <Stack wrap align="horizontal">
             <Button>Solid</Button>
             <Button variant="outline">Outline</Button>

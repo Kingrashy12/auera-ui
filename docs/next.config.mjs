@@ -4,6 +4,15 @@ import createMDX from "@next/mdx";
 const nextConfig = {
   reactStrictMode: true,
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
+  images: {
+    remotePatterns: [
+      {
+        hostname: "fastly.picsum.photos",
+        protocol: "https",
+        pathname: "**",
+      },
+    ],
+  },
 };
 
 const withMDX = createMDX({});

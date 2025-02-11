@@ -7,13 +7,14 @@ const { logger } = require("stywind");
 const componentsDir = [
   "components/Box",
   "components/Button",
-  "components/Breadcrumb",
+  "components/Breadcrumbs",
   "components/Card",
+  "components/Checkbox",
   "components/Drawer",
+  "components/File",
   "components/Menu",
   "components/Modal",
   "components/Input",
-  // 'components/FilePicker',
   "components/Provider",
 ];
 const hooksDir = ["hook", "context"];

@@ -1,31 +1,28 @@
-import { defineClass, tw } from "@/utils";
 import { getDisplayName } from "@/utils/displayname";
 import { ChangeEvent, FC, KeyboardEvent, useRef, useState } from "react";
+import { useComputeInput } from "./otp-input";
+import { useMode } from "@/hook/use";
+import { OTPInputProps } from "../../types/auera-ui";
 
-interface OTPInputProps {
-  length?: number;
-  onComplete: (otp: string) => void;
-  className?: string;
-  errorMessage?: string;
-  hasError?: boolean;
-}
-
-const OTPInput: FC<OTPInputProps> = ({ onComplete, length = 4, className }) => {
+const OTPInput: FC<OTPInputProps> = ({
+  onComplete,
+  length = 4,
+  className,
+  inputClass,
+  radius,
+  error,
+  mode,
+}) => {
+  const { currentMode } = useMode(mode);
   const [otp, setOtp] = useState<string[]>(new Array(length).fill(""));
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
 
-  const Input = defineClass(`
-    w-12 h-12 p-4 rounded-lg border border-neutral-400 caret-black text-center \
-    text-lg focus:outline-none focus:border-2 shadow transition-all duration-500 focus:border-blue-500 
-    appearance-none
-    [&::-webkit-outer-spin-button]:appearance-none
-    [&::-webkit-inner-spin-button]:appearance-none
-    [&::-moz-number-spin-box]:display-none
-  `);
-
-  const Container = defineClass(
-    "flex items-center p-4 gap-4 bg-white rounded-lg shadow-md"
-  );
+  const { Input, Interface } = useComputeInput({
+    error,
+    className,
+    radius,
+    inputClass,
+  });
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>, index: number) => {
     const value = e.target.value;
@@ -57,21 +54,22 @@ const OTPInput: FC<OTPInputProps> = ({ onComplete, length = 4, className }) => {
   };
 
   return (
-    <div className={tw(Container, className as string)}>
+    <Interface data-theme={currentMode}>
       {otp.map((digit, index) => (
-        <input
+        <Input
           key={index}
+          // @ts-expect-error gene
           ref={(el) => (inputRefs.current[index] = el)}
           type="text"
+          data-theme={currentMode}
           value={digit}
           maxLength={1}
           onChange={(e) => handleChange(e, index)}
           onKeyDown={(e) => handleKeyDown(e, index)}
           placeholder="⚬"
-          className={Input}
         />
       ))}
-    </div>
+    </Interface>
   );
 };
 

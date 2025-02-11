@@ -37,17 +37,19 @@ const Avatar: React.FC<AvatarProps> = ({ size = "sm", border, ...props }) => {
           radius="full"
         />
       )}
-      <img
-        alt={props.alt}
-        className={tw(
-          imageSize,
-          "rounded-full",
-          border &&
-            "border-2 theme-dark:border-neutral-600 theme-light:border-neutral-200",
-          props.className
-        )}
-        {...props}
-      />
+      {!props.isLoading && (
+        <img
+          alt={props.alt}
+          className={tw(
+            imageSize,
+            "rounded-full",
+            border &&
+              "border-2 theme-dark:border-neutral-600 theme-light:border-neutral-200",
+            props.className
+          )}
+          {...props}
+        />
+      )}
     </>
   );
 };

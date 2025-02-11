@@ -10,10 +10,10 @@ const Tab = ({ variant, ...props }: TabsType) => {
           <TabHandle value="settinsg">Settings</TabHandle>
           <TabHandle value="profile">Profile</TabHandle>
           <TabHandle value="security">Security</TabHandle>
-          <TabPanel>Overview</TabPanel>
-          <TabPanel>Settings</TabPanel>
-          <TabPanel>Profile</TabPanel>
-          <TabPanel>Security</TabPanel>
+          <TabPanel className="theme-dark:text-white">Overview</TabPanel>
+          <TabPanel className="theme-dark:text-white">Settings</TabPanel>
+          <TabPanel className="theme-dark:text-white">Profile</TabPanel>
+          <TabPanel className="theme-dark:text-white">Security</TabPanel>
         </Tabs>
       </Card>
     </>

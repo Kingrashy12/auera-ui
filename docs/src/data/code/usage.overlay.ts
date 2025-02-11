@@ -14,7 +14,7 @@ const AuthModal = () => {
               trigger="modal"
               triggerType="close"
               triggerValue="auth-modal"
-              variants="ghost"
+              variant="ghost"
             >
               <IoClose size={18} />
             </IconButton>

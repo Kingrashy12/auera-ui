@@ -15,7 +15,7 @@ const TabLink = ({ to, label, className }: TabLinkProps) => {
       href={to}
       target={isExternal ? "_blank" : undefined}
       className={tw(
-        className as string,
+        className,
         "text-primary text-base font-semibold font-inter-tight tracking-wide relative tblink"
       )}
     >

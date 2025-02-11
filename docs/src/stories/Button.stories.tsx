@@ -47,6 +47,11 @@ const meta = {
       table: { defaultValue: { summary: "corporate" } },
       type: "string",
     },
+    fullWidth: {
+      control: "radio",
+      options: ["true", "false"],
+      type: "boolean",
+    },
     mode: {
       control: "radio",
       options: ["light", "dark"],

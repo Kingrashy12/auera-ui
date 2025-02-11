@@ -5,8 +5,9 @@ import { tw } from "stywind";
 const Details = ({ children, ...props }: BoxProps) => {
   return (
     <Box
+      id={props.id}
       direction={props.direction || "column"}
-      className={tw(props.className as string, "gap-2 px-3 max-[550px]:px-1")}
+      className={tw(props.className as string, "gap-4 px-3 max-[550px]:px-1")}
     >
       {children}
     </Box>

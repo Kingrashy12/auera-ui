@@ -1,6 +1,6 @@
 export const tailwindExtend = {
   boxShadow: {
-    // Button :Frost
+    // Button: Frost
     "frost-blue":
       "var(--auera-blue-900) 0px 1px 0px inset, rgba(0, 77, 153, 0.4) 0px -1px 0px 1px inset, rgba(9, 11, 11, 0.1) 0px 2px 4px 0px",
     "frost-danger":
@@ -19,7 +19,7 @@ export const tailwindExtend = {
       "var(--auera-frost-light-success) 0 -1px 0 1px inset, var(--auera-frost-light-success-out) 0 1px 2px 0",
     "frost-light-warn":
       "var(--auera-frost-light-warn) 0 -1px 0 1px inset, var(--auera-frost-light-warn-out) 0 1px 2px 0",
-    // Button :Neumorphic design pattern
+    // Button: Neumorphic design
     "neumorphic-solid-primary":
       "var(--auera-blue-900) 0px -6px 0px inset,  rgba(0, 77, 153, 0.4) 0px -4px 0px 6px inset, rgba(9, 11, 11, 0.1) 0px 6px 10px 0px, rgba(9, 11, 11, 0.1) 0px 1px 2px 0px",
     "neumorphic-solid-danger":
@@ -62,8 +62,7 @@ export const tailwindExtend = {
       "var(--auera-neutral-950) 0px -6px 0px inset, var(--auera-neutral-800) 0px -4px 0px 6px inset, rgba(9, 11, 11, 0.1) 0px 6px 10px 0px, rgba(9, 11, 11, 0.1) 0px 1px 2px 0px",
     "frost-modal-dark":
       "var(--auera-neutral-800) 0 -1px 0 1px inset, var(--auera-neutral-900) 0 1px 2px 0",
-    "input-outline": "0 0 0 1.8px var(--auera-blue-500)",
-    card: "0 4px 8px var(--auera-card-sh)",
+    card: "0 4px 10px var(--auera-card-sh)",
   },
   colors: {
     "corprate-outline": "var(--auera-corprate-outline)",
@@ -115,6 +114,7 @@ export const tailwindExtend = {
   },
   borderWidth: {
     1.7: "1.7px",
+    1.9: "1.9px",
   },
   transitionProperty: {
     layer: "background-color 0.3s ease, box-shadow 0.3s ease",
@@ -221,6 +221,17 @@ export const tailwindExtend = {
         opacity: "0",
       },
     },
+    shake: {
+      " 0%": {
+        transform: "translateX(6px)",
+      },
+      "50%": {
+        transform: "translateX(-6px)",
+      },
+      "100%": {
+        transform: "translateX(6px)",
+      },
+    },
   },
   animation: {
     slideIn: "slideIn 0.5s ease-in-out",
@@ -233,6 +244,7 @@ export const tailwindExtend = {
     slideOutLeft: "slideOutLeft 0.5s ease-in-out",
     popIn: "popIn 0.5s ease-in-out",
     popOut: "popOut 0.5s ease-in-out",
+    shake: "shake 0.2s ease-in-out",
   },
   dropShadow: {
     tab: "0 1px 2px rgb(0 0 0 / 0.1), 0 1px 1px rgb(0 0 0 / 0.06)",

@@ -4,6 +4,9 @@ import { components, MDXRemote } from "@/constant/mdx.config";
 import { backdropRef } from "@/data/api-ref/backdrop";
 import { boxRef } from "@/data/api-ref/box";
 import { buttonRef } from "@/data/api-ref/button";
+import { cardRef } from "@/data/api-ref/card";
+import { checkboxRef } from "@/data/api-ref/checkbox";
+import { drawerRef } from "@/data/api-ref/drawer";
 import { fetchContent } from "@/hooks/fetch_content";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { MDXRemoteSerializeResult } from "next-mdx-remote";
@@ -19,6 +22,9 @@ const data = {
   backdropRef,
   boxRef,
   buttonRef,
+  cardRef,
+  checkboxRef,
+  drawerRef,
 };
 
 const Page = ({ frontmatter, mdxSource, slug }: Props) => {
@@ -46,7 +52,16 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const slugs = ["overview", "backdrop", "box", "button"];
+  const slugs = [
+    "overview",
+    "backdrop",
+    "box",
+    "button",
+    "card",
+    "checkbox",
+    "collapse",
+    "drawer",
+  ];
 
   const paths = slugs.map((slug) => ({
     params: { slug },

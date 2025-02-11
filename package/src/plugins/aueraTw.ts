@@ -24,6 +24,16 @@ export const aueraTw = ({
         display: "none",
       },
     },
+    ".outer-spin-none": {
+      "&::-webkit-outer-spin-button": {
+        appearance: "none",
+      },
+    },
+    ".inner-spin-none": {
+      "&::-webkit-inner-spin-button": {
+        appearance: "none",
+      },
+    },
     ".z-80": {
       zIndex: 80,
     },

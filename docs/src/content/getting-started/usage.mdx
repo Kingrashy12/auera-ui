@@ -35,41 +35,6 @@ export default function App() {
   <p className="text">Since AueraUI is built to function globally, you can control the look and behavior of your app using the <CodeTag>Provider</CodeTag> and hooks.</p>
 </Details>
 
-<Details id="flavour">
-  <HeaderLabel id="flavour" as='h3'>Flavour</HeaderLabel>
-  <p className="text">AueraUI components are available in a variety of design flavors, offering high-quality looks and functionality.</p>
-<p className="text">
-  To change the default flavor, pass the <CodeTag>flavour</CodeTag> prop to the Provider, or to a specific component.
-</p>
-  <Tabs variant='solid' className='mt-2'>
- <TabHandle value="preview">Preview</TabHandle>
- <TabHandle value="code">Code</TabHandle>
- <TabPanel>
-<Card fullWidth>
-  <Stack fullWidth wrap align='horizontal'>
-   <Button>Corporate</Button>
-   <Button flavour='frost'>Frost</Button>
-   <Button flavour='neumorphic'>Neumorphic</Button>
-  </Stack>
-</Card>
- </TabPanel>
- <TabPanel>
-  <CodeBlock fileName='App.tsx' lg='tsx' code={`import { Button, Stack } from 'auera-ui';
-
-export default function App() {
-   return (
-     <Stack fullWidth wrap align='horizontal'>
-       <Button>Corporate</Button>
-       <Button flavour="frost">Frost</Button>
-       <Button flavour="neumorphic">Neumorphic</Button>
-     </Stack>
-   );
-}
-`} />
- </TabPanel>
- </Tabs>
-</Details>
-
 <Details id='theme'>
  <HeaderLabel id="theme" as='h3'>Theme</HeaderLabel>
  <p className="text">AueraUI allows you to customize the look and feel of your application with its flexible theming system. 
@@ -131,10 +96,10 @@ export default function App() {
 <ul className="text font-inter list-disc pl-3 gap-4 flex flex-col">
   <li>
     <b>Using component-based triggers</b>: These are specialized components like <CodeTag>ModalTrigger</CodeTag> and
-     <CodeTag>DrawerTrigger</CodeTag>, designed to directly open specific components.
+     <CodeTag>DrawerTrigger</CodeTag>.
   </li>
   <li>
-    <b>Using the <CodeTag>withTrigger</CodeTag> prop</b>: This prop is available for select components in AueraUI, such as
+    <b>Using the <CodeTag>withTrigger</CodeTag> prop</b>: This prop is available for most components in AueraUI, such as
      <CodeTag>Button</CodeTag> and <CodeTag>IconButton</CodeTag>, enabling them to act as triggers for specific components.
   </li>
 </ul>

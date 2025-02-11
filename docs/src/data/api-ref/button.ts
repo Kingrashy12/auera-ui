@@ -1,7 +1,7 @@
 export const buttonRef = [
   {
     prop: "variant",
-    type: '"solid" | "light" | "flat" | "outline" | "ghost"',
+    type: '"solid" | "light" | "flat" | "outline" | "ghost" | "unstyled"',
     description: "Specifies the visual variant of the button.",
     default: "solid",
   },
@@ -87,8 +87,8 @@ export const buttonRef = [
   {
     prop: "mode",
     type: '"light" | "dark"',
-    description: "Sets the color mode for the drop component.",
-    default: "false",
+    description: "The visual mode of the button.",
+    default: "system",
   },
   {
     prop: "withTrigger",

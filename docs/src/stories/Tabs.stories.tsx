@@ -41,7 +41,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    variant: "line",
+    variant: "solid",
     fullWidth: true,
   },
 };

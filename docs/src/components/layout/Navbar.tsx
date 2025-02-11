@@ -1,5 +1,4 @@
-import { LogoDark, LogoLight } from "@/assets";
-import { Box, IconButton, useTheme } from "auera-ui";
+import { Box, IconButton } from "auera-ui";
 import Image from "next/image";
 import React from "react";
 
@@ -11,8 +10,6 @@ import { IoMenu } from "react-icons/io5";
 import ToggleTheme from "./ToggleTheme";
 
 const Navbar = () => {
-  const { mode } = useTheme();
-
   const Nav = createStyle("header").classname(
     "w-full h-auto border-b border-b-sidebar bg-sidebar flex"
   );
@@ -26,13 +23,9 @@ const Navbar = () => {
           <Link href="/">
             <Box className="items-center gap-1">
               <Image src={"/logo.png"} alt="Logo" width={40} height={40} />
-              <Image
-                src={mode === "light" ? LogoLight.src : LogoDark.src}
-                alt="Logo"
-                width={70}
-                height={70}
-                className="w-[120px]"
-              />
+              <h1 className="font-stencil-one theme-dark:text-white text-black text-3xl max-[550px]:text-2xl">
+                AueraUI
+              </h1>
             </Box>
           </Link>
           <NavLinks className="max-[650px]:hidden" />
@@ -43,7 +36,7 @@ const Navbar = () => {
             triggerValue="mobile-menu"
             trigger="drawer"
             triggerType="open"
-            variants="outline"
+            variant="outline"
             radius="full"
             className="hidden max-[650px]:block"
           >

@@ -5,14 +5,16 @@ import {
   ColorKey,
   ColorPair,
   DesignFlavour,
+  ModeType,
   SchemeVariant,
+  TailwindClass,
   Trigger,
 } from "./auera-system";
 import { InputProps } from "./element-props";
 import { zIndex } from "./keys";
 
 export type DivProps = React.HTMLAttributes<HTMLDivElement>;
-export type BtnProps = React.HtmlHTMLAttributes<HTMLButtonElement>;
+export type BtnProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export interface BoxProps extends DivProps {
   /**
@@ -166,7 +168,7 @@ export interface ButtonProps extends BtnProps {
    */
   hideChildOnLoad?: boolean;
   /**
-   * Sets the color mode for the drop component.
+   * The visual mode of the button.
    * - `"light"`: Light mode.
    * - `"dark"`: Dark mode.
    *
@@ -259,7 +261,7 @@ export type ModalType = {
    *
    * @default "sm"
    */
-  intensity?: "none" | "sm" | "md" | "lg" | "xl";
+  intensity?: "none" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl";
 
   /**
    * Sets the color mode for the modal.
@@ -272,7 +274,7 @@ export type ModalType = {
   /**
    * Provides the modal's value, typically used for managing the active state.
    *
-   * **Note:** Ensure the `value` is consistent between `Modal` and `Modal.Trigger`
+   * **Note:** Ensure the `value` is consistent between `Modal` and `ModalTrigger`
    * to correctly link the trigger to the modal.
    */
   value: string;
@@ -370,9 +372,9 @@ export interface ModalFooterProps extends DivProps {
 }
 
 export interface IconButtonProps {
-  variants?: "subtle" | "outline" | "ghost";
-  size?: "md" | "lg" | "xl";
-  radius?: "md" | "lg" | "xl" | "full";
+  variant?: "subtle" | "outline" | "ghost";
+  size?: "xs" | "sm" | "md" | "lg" | "xl";
+  radius?: "none" | "sm" | "md" | "lg" | "xl" | "2xl" | "full";
   disabled?: boolean;
   withTrigger?: boolean;
   triggerType?: "open" | "close";
@@ -380,7 +382,7 @@ export interface IconButtonProps {
   trigger?: Trigger;
   mode?: "light" | "dark";
   active?: boolean;
-  asChild?: false;
+  asChild?: boolean;
 }
 
 export type IconButtonPropsExtended<T extends boolean> = T extends true
@@ -417,21 +419,25 @@ export interface DrawerTriggerType extends DivProps {
 }
 
 export type SwitchProps = {
-  isOn: boolean;
-  toggleOn: () => void;
+  onToggleSwitch?: (state: boolean) => void;
   size?: "sm" | "md" | "lg" | "xl";
   unCheckColor?: ColorPair;
   color?: ColorPair;
+  disabled?: boolean;
 };
 
 export type CheckBoxProps = {
-  size?: "sm" | "md" | "lg" | "xl";
-  checked: boolean;
-  onCheck: () => void;
+  size?: "xs" | "sm" | "md";
   radius?: "none" | "sm" | "md" | "full";
+  onCheckChange?: (checked: boolean) => void;
   colorScheme?: "primary" | "danger" | "warning" | "success";
   color?: ColorPair;
-  className?: string;
+  disabled?: boolean;
+  classNames?: {
+    checker?: TailwindClass;
+    container?: TailwindClass;
+  };
+  children?: React.ReactNode;
 };
 
 export type TabsType = {
@@ -538,6 +544,21 @@ export interface CardProps extends BoxProps {
    */
   borderColor?: string;
   centerContent?: boolean;
+  variant?: "flat" | "raised";
+  img?: {
+    src: string;
+    alt: string;
+    className?: TailwindClass;
+    width?: string | number;
+    height?: string | number;
+    style?: React.CSSProperties;
+  };
+  renderImage?: () => React.ReactNode;
+  renderHeader?: () => React.ReactNode;
+  classNames?: {
+    root?: TailwindClass;
+    body?: TailwindClass;
+  };
 }
 
 export type TootipProps = {
@@ -662,13 +683,17 @@ export interface MenuItemProps extends DivProps {
 }
 
 export type CollapseProps = {
-  className?: string;
-  headerClass?: string;
-  header: string;
+  headerLabel: string;
   children?: React.ReactNode;
   mode?: "light" | "dark";
   openIcon?: React.ElementType;
   closeIcon?: React.ElementType;
+  classNames?: {
+    main?: string;
+    header?: string;
+    headerLabel?: string;
+  };
+  renderHeader?: () => React.ReactNode;
 };
 
 export type StatusBadgeProps = {
@@ -708,4 +733,65 @@ export interface MediaProps {
   radius?: ButtonProps["radius"];
   loaderClass?: string;
   loaderStyle?: React.CSSProperties;
+}
+
+export interface InputProp extends InputProps {
+  inputClass?: string;
+  icon?: React.ElementType;
+  iconSize?: number;
+  radius?: "none" | "sm" | "md" | "lg" | "xl" | "full";
+  variant?: "solid" | "outline" | "ghost" | "unstyled";
+  mode?: ModeType;
+}
+
+export type FileContruct = {
+  base64: string;
+  main: {
+    name: string;
+    type: string;
+    size: number;
+  };
+};
+
+export type FileData = FileContruct | FileContruct[];
+
+export type CatchFile = {
+  useFile: (file: FileData) => void;
+};
+
+export interface UploadDropzone {
+  accept?: string[];
+  maxSize?: number;
+  label: string;
+  description: string;
+  mode?: "dark" | "light";
+  disabled?: boolean;
+  labelClass?: string;
+  descriptionClass?: string;
+  className?: string;
+  exceedMessage?: string;
+}
+
+export interface FileListProps {
+  mode?: "light" | "dark";
+  removeAble?: boolean;
+  showSize?: boolean;
+}
+
+export interface UploadTrigger {
+  children: React.ReactNode;
+  accept?: string[];
+  maxSize?: number;
+  disabled?: boolean;
+  exceedMessage?: string;
+}
+
+export interface OTPInputProps {
+  length?: number;
+  onComplete: (otp: string) => void;
+  className?: string;
+  error?: boolean;
+  inputClass?: string;
+  radius?: "md" | "lg" | "xl" | "full";
+  mode?: "light" | "dark";
 }

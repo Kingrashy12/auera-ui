@@ -138,11 +138,6 @@
   --auera-corprate-dimmed-danger: var(--auera-red-100);
   --auera-corprate-dimmed-warn: var(--auera-yellow-100);
   --auera-drawer-content: white;
-  --auera-input-outline-bg: white;
-  --auera-input-outline-border: var(--auera-neutral-200);
-  --auera-input-outline-fb: var(--auera-blue-200);
-  --auera-input-color: black;
-  --auera-card-bg: white;
   --auera-text-color: black;
   --auera-text-muted: var(--auera-slate-700);
 
@@ -151,7 +146,6 @@
   --auera-frost-light-warn-border: var(--auera-yellow-200);
   --auera-frost-light-primary-border: var(--auera-blue-100);
   --auera-frost-outline-border: var(--auera-neutral-200);
-  /* --auera-corporate-outline-border: var(--auera-neutral-300); */
   --auera-card-border: var(--auera-neutral-200);
 
   --auera-frost-light-danger-hover: var(--auera-red-50);
@@ -192,11 +186,6 @@ html[data-theme="dark"] {
   --auera-corprate-dimmed-danger: var(--auera-soft-red);
   --auera-corprate-dimmed-warn: var(--auera-soft-yellow);
   --auera-drawer-content: black;
-  --auera-input-outline-bg: black;
-  --auera-input-outline-border: var(--auera-neutral-800);
-  --auera-input-outline-fb: var(--auera-blue-500);
-  --auera-input-color: white;
-  --auera-card-bg: black;
   --auera-text-color: white;
   --auera-text-muted: #a1a1aa;
 
@@ -206,7 +195,6 @@ html[data-theme="dark"] {
   --auera-frost-light-warn-border: var(--auera-soft-yellow);
   --auera-frost-light-primary-border: var(--auera-soft-blue);
   --auera-frost-outline-border: var(--auera-neutral-800);
-  /* --auera-corporate-outline-border: var(--auera-neutral-800); */
   --auera-card-border: var(--auera-neutral-800);
 
   /* Hover color */
@@ -227,5 +215,5 @@ html[data-theme="dark"] {
   background: #000;
 
   /* Shadow */
-  --auera-card-sh: var(--auera-neutral-900);
+  --auera-card-sh: var(--auera-slate-950);
 }

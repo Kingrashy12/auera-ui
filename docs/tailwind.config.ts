@@ -1,11 +1,12 @@
 import type { Config } from "tailwindcss";
-import { aueraTw, tailwindExtend } from "auera-ui";
+import { aueraTw, SafeLists, tailwindExtend } from "auera-ui";
 
 const config: Config = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx,mdx}",
     "./node_modules/auera-ui/**/*.{js,jsx,ts,tsx,mdx}",
   ],
+  safelist: [SafeLists().join(" ")],
   theme: {
     extend: {
       colors: {
@@ -24,8 +25,6 @@ const config: Config = {
       },
       boxShadow: {
         ...tailwindExtend.boxShadow,
-        // Add this to main extend
-        // "input-outline": "0 0 0 1.8px var(--blue-500)",
       },
       borderColor: {
         ...tailwindExtend.borderColor,
@@ -36,13 +35,14 @@ const config: Config = {
         "inter-tight": ["var(--font-inter-tight)", "sans-serif"],
         inter: ["var(--font-inter)", "sans-serif"],
         montserrat: ["var(--font-montserrat)", "sans-serif"],
+        "stencil-one": ["var(--font-stencil-one)", "sans-serif"],
       },
       transitionProperty: {
         "border-color": "border-color 0.3s ease, box-shadow 0.3s ease",
         layer: "background-color 0.3s ease, box-shadow 0.3s ease",
       },
       borderWidth: {
-        1.7: "1.7px",
+        ...tailwindExtend.borderWidth,
       },
       transitionDuration: {
         "400": "400ms",
@@ -50,7 +50,6 @@ const config: Config = {
       keyframes: { ...tailwindExtend.keyframes },
       animation: { ...tailwindExtend.animation },
       dropShadow: { ...tailwindExtend.dropShadow },
-      data: {},
     },
   },
   plugins: [aueraTw],

@@ -51,6 +51,7 @@ const SideBarContent = () => {
           value={query}
           placeholder="Search..."
           type="text"
+          mode="dark"
         />
       </Box>
       <Box direction="column" fullWidth className="gap-8 p-6 pl-3">

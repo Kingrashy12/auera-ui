@@ -23,7 +23,7 @@ const DrawerDemo = () => {
             trigger="drawer"
             triggerType="close"
             triggerValue="default"
-            variants="outline"
+            variant="outline"
           >
             <IoClose />
           </IconButton>

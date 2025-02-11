@@ -1,21 +1,29 @@
 import { CollapseProps } from "../../types/auera-ui";
-import { getDisplayName } from "@/utils/displayname";
+import { getDisplayName } from "../../utils/displayname";
 import React, { useState } from "react";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { tw } from "stywind";
 import Box from "../Box/Box";
 import Icon from "../Icon/Icon";
+import { useMode } from "../../hook/use";
 
 const Collapse: React.FC<CollapseProps> = ({
-  headerClass,
-  className,
-  header,
   children,
   mode,
   openIcon,
   closeIcon,
+  classNames,
+  headerLabel,
+  renderHeader,
 }) => {
   const [open, setOpen] = useState(false);
+  const [visible, setVisible] = useState(false);
+  const { currentMode } = useMode(mode);
+
+  const openVariant = {
+    open: { height: "auto", opacity: 1, transition: { duration: 0.5 } },
+    closed: { height: 0, opacity: 0, transition: { duration: 0.3 } },
+  };
 
   const getIcon = () => {
     const icon = open ? IoIosArrowUp : IoIosArrowDown;
@@ -25,46 +33,58 @@ const Collapse: React.FC<CollapseProps> = ({
   };
 
   const handleOpen = () => {
-    setOpen(!open);
+    if (!open) {
+      setOpen(!open);
+      setVisible(true);
+    } else {
+      setVisible(false);
+      setTimeout(() => {
+        setOpen(false);
+      }, 300);
+    }
   };
 
-  const openVariant = {
-    open: { height: "auto", opacity: 1, transition: { duration: 0.5 } },
-    closed: { height: 0, opacity: 0, transition: { duration: 0.3 } },
+  const getHeader = () => {
+    if (renderHeader) {
+      return renderHeader();
+    } else {
+      <>
+        <h4
+          data-theme={currentMode}
+          className={tw(
+            "font-medium text-lg text-black tone-dark:text-white",
+            classNames?.headerLabel
+          )}
+        >
+          {headerLabel}
+        </h4>
+        <Icon icon={getIcon() as React.ElementType} size={20} />
+      </>;
+    }
   };
 
   return (
-    <Box
-      data-theme={mode}
-      className={tw(
-        "flex-col rounded-lg w-auto border border-neutral-300 rounded-b-lg tone-dark:border-neutral-700",
-        className
-      )}
-    >
+    <Box direction="column" className={tw("gap-4", classNames?.main)}>
       <Box
-        data-theme={mode}
         className={tw(
-          "justify-between cursor-pointer px-4 py-4",
-          open
-            ? "rounded-t-lg border-b border-neutral-300 tone-dark:border-neutral-700"
-            : "rounded-lg border-primary"
+          "items-center justify-between cursor-pointer",
+          classNames?.header
         )}
         onClick={handleOpen}
-        centered
       >
-        <h2 className={tw("font-medium text-base font-poppins", headerClass)}>
-          {header}
-        </h2>
-        <Icon icon={getIcon() as React.ElementType} size={20} />
+        {getHeader()}
       </Box>
+
       <Box
         variants={openVariant}
         initial="closed"
-        animate={open ? "open" : "closed"}
+        animate={visible ? "open" : "closed"}
         style={{ overflow: "hidden" }}
+        className={tw(!open && "hidden")}
       >
         {children}
       </Box>
+      {/* <Divider className={dividerClass} /> */}
     </Box>
   );
 };

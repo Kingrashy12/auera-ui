@@ -32,7 +32,7 @@ export const Menu: React.FC<MenuProps> = ({ ...props }) => {
   const Container = useComputeContainer({ open: isOpen, zIndex: props.zIndex });
 
   return (
-    <Container ref={menuRef}>
+    <Container ref={menuRef as any}>
       <List>{props.children}</List>
     </Container>
   );

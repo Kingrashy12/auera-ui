@@ -1,0 +1,49 @@
+---
+title: Checkbox | AueraUI
+description: Used for selecting values from several options
+---
+
+<DetailCard description='Used for selecting values from several options'/>
+
+<Details>
+<CheckboxDemo />
+</Details>
+
+<Details id='examples'>
+<HeaderLabel id='examples'>Examples</HeaderLabel>
+</Details>
+
+<Details id='colors'>
+<HeaderLabel id='colors' as='h3'>Colors</HeaderLabel>
+<p className="text">You can change the color of the checkbox using the <CodeTag>color</CodeTag> prop, this is a predefined color pairs</p>
+<CheckboxColors/>
+</Details>
+
+<Details id='color-schemes'>
+<HeaderLabel id='color-schemes' as='h3'>ColorSchemes</HeaderLabel>
+<p className="text">You can also use the <CodeTag>colorScheme</CodeTag> prop to change the color, this option is limited to just four colors</p>
+<CheckboxColorSchemes/>
+</Details>
+
+<Details id='sizes'>
+<HeaderLabel id='sizes' as='h3'>Sizes</HeaderLabel>
+<p className="text">Use the <CodeTag>size</CodeTag> to change the checkbox size</p>
+<CheckboxSizes/>
+</Details>
+
+<Details id='radius'>
+<HeaderLabel id='radius' as='h3'>Radius</HeaderLabel>
+ <p className="text">Use the <CodeTag>radius</CodeTag> prop to change the checkbox border-radius.</p>
+<CheckboxRadius/>
+</Details>
+
+<Details id='onCheckChange'>
+<HeaderLabel id='onCheckChange' as='h3'>onCheckChange</HeaderLabel>
+ <p className="text">Use the <CodeTag>onCheckChange</CodeTag> function to get the checkbox status</p>
+<OnCheck />
+</Details>
+
+<Details id='api-reference'>
+<HeaderLabel id='api-reference'>API Reference</HeaderLabel>
+<APITable reference={checkboxRef} />
+</Details>

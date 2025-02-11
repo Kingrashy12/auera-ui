@@ -2,7 +2,7 @@ import React from "react";
 import Skeleton from "../loader/Skeleton";
 import { getDisplayName } from "@/utils/displayname";
 import { motion } from "motion/react";
-import { ImageWithMotion } from "@/types/auera-motion";
+import { ImageWithMotion } from "../../types/auera-motion";
 
 const Media: React.FC<ImageWithMotion> = ({
   fullWidth,

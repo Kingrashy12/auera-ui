@@ -21,7 +21,7 @@ const Mockups = () => {
           <Card
             key={index}
             className={tw(
-              "w-[214px] max-[768px]:w-[195px] max-[712px]:w-[185px] max-[422px]:w-[175px] max-[402px]:w-full h-[200px] !p-0",
+              "!w-[214px] max-[768px]:!w-[195px] max-[712px]:!w-[185px] max-[422px]:!w-[175px] max-[402px]:!w-full h-[200px] !p-0",
               item.soon
                 ? "cursor-not-allowed pointer-events-none"
                 : "cursor-pointer"

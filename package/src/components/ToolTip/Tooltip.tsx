@@ -27,9 +27,12 @@ const Tooltip = ({
   const PostionClass = tw(
     positions[position],
     className,
-    "theme-light:bg-black theme-dark:bg-neutral-800 p-2 rounded-lg group-hover:flex hidden absolute z-[200]"
+    "rounded-[10px] p-[10px] border-neutral-900 border-2 bg-black/90 theme-dark:bg-neutral-800 shadow-lg group-hover:flex hidden absolute z-[200]"
   );
-  const Pointer = tw(pointer[position], "bg-inherit rotate-45 p-1 absolute");
+  const Pointer = tw(
+    pointer[position],
+    "bg-black/90 theme-dark:bg-neutral-800 rotate-45 p-1 absolute"
+  );
   return (
     <div className={tw(containerClass, "group relative w-full cursor-pointer")}>
       <>{children}</>
@@ -37,7 +40,7 @@ const Tooltip = ({
         <span
           className={tw(
             labelClass,
-            "text-white whitespace-nowrap font-medium text-xs"
+            "text-white whitespace-nowrap font-medium text-xs font-mono"
           )}
         >
           {label}

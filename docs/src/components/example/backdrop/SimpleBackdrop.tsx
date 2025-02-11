@@ -12,7 +12,7 @@ import {
 } from "auera-ui";
 import React, { useState } from "react";
 
-const code = `import { Backdrop, Button, OTPInput, toast } from "auera-ui";
+const code = `import { Backdrop, Button, OTPInput, toast, Card } from "auera-ui";
 import React, { useState } from "react";
 
 const  SimpleBackdrop = () => {
@@ -40,7 +40,9 @@ const  SimpleBackdrop = () => {
   <>
    <Button onClick={handleOpen}>Open Backdrop</Button>
    <Backdrop open={open} onClose={handleClose} centerContent>
-    <OTPInput onComplete={(otp) => handleCode(otp)} />
+    <Card>
+     <OTPInput onComplete={(otp) => handleCode(otp)} />
+    </Card>
    </Backdrop>
   </>
  )
@@ -76,7 +78,9 @@ const SimpleBackdrop = () => {
             <Button onClick={handleOpen}>Open Backdrop</Button>
           </Stack>
           <Backdrop open={open} onClose={handleClose} centerContent>
-            <OTPInput onComplete={(otp) => handleCode(otp)} />
+            <Card>
+              <OTPInput onComplete={(otp) => handleCode(otp)} />
+            </Card>
           </Backdrop>
         </TabPanel>
         <TabPanel>

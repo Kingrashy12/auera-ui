@@ -43,20 +43,18 @@ const Toast = () => {
   const show = (newToast: ToastNotification, duration: number = 4000) => {
     setToasts((prevToasts) => {
       if (prevToasts.length === 0) {
-        return [newToast]; // If no toasts exist, return an array with the new toast
+        return [newToast];
       }
 
-      // Update the existing toast if it matches the ID, or add the new toast if it doesn't exist
       const updatedToasts = prevToasts.map((t) =>
         t.id === newToast.id ? { ...t, ...newToast } : t
       );
 
-      // If the new toast wasn't in the list, add it
       if (!updatedToasts.some((t) => t.id === newToast.id)) {
         updatedToasts.push(newToast);
       }
 
-      return updatedToasts; // Return the updated flat array of toasts
+      return updatedToasts;
     });
 
     setPosition(newToast?.position || "top-right");
@@ -67,16 +65,13 @@ const Toast = () => {
       } else return { ...t, isVisible: false };
     };
 
-    // Set timeout to make toast !visible
     const timeoutId = setTimeout(() => {
       setToasts((prevToasts) =>
-        // prevToasts.map((t) => (t.id === newToast.id ? update(t) : t))
         prevToasts.map((t) =>
           t.id === newToast.id && t.type !== "loading" ? update(t) : t
         )
       );
 
-      // Set another timeout to remove the toast from the state
       setTimeout(() => {
         setToasts((prevToasts) =>
           prevToasts.filter((t) => t.id !== newToast.id || t.type === "loading")
@@ -227,7 +222,7 @@ const Toast = () => {
           </ContentWrap>
           <CloseIcon>
             <IconButton
-              variants="ghost"
+              variant="ghost"
               className="hover:bg-neutral-100"
               onClick={() => removeToast(toast)}
             >

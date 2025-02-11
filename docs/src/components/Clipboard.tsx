@@ -23,7 +23,7 @@ const Clipboard = ({
     <IconButton
       onClick={copy}
       radius="lg"
-      variants="ghost"
+      variant="ghost"
       className={className}
     >
       <Icon icon={copied ? IoCheckmark : IoCopyOutline} />

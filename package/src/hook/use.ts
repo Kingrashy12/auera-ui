@@ -1,4 +1,3 @@
-// import { DOCUMENT_ACTIVE, WINDOW_ACTIVE } from "@/utils";
 import { DesignFlavour, ModeType } from "../types/auera-system";
 import { useProvider } from "./provider";
 import { useTheme } from "./useTheme";

@@ -70,19 +70,19 @@ export const sideBarLinks = [
       { label: "Drawer", uri: "/docs/components/drawer" },
       {
         label: "IconButton",
-        uri: "/docs/components/icon-button",
+        uri: "/docs/components/iconbutton",
         updated: true,
       },
       { label: "Icon", uri: "/docs/components/icon" },
       { label: "Modal", uri: "/docs/components/modal" },
-      { label: "MapItems", uri: "/docs/components/map-items" },
-      { label: "GroupMap", uri: "/docs/components/group-map" },
-      { label: "OTPInput", uri: "/docs/components/otp-input" },
+      { label: "MapItems", uri: "/docs/components/mapitems" },
+      { label: "GroupMap", uri: "/docs/components/groupmap" },
+      { label: "OTPInput", uri: "/docs/components/otpinput" },
       { label: "TextInput", uri: "/docs/components/textinput" },
       { label: "Tabs", uri: "/docs/components/tabs" },
       { label: "ToolTip", uri: "/docs/components/tooltip" },
       {
-        label: "StatusBadge",
+        label: "Status Badge",
         uri: "/docs/components/status-badge",
       },
       {
@@ -92,7 +92,7 @@ export const sideBarLinks = [
       },
       {
         label: "Collapse",
-        uri: "/docs/components/menu",
+        uri: "/docs/components/collapse",
       },
       {
         label: "Menu",

@@ -113,13 +113,12 @@ const panel = cva(
       },
     },
     compoundVariants: [
-      // Apply dark mode border for float type
       {
         type: "float",
         mode: "dark",
         class: "border-[1.33px]",
       },
-      // Animation for left position
+
       {
         isVisible: true,
         position: "left",
@@ -130,7 +129,7 @@ const panel = cva(
         position: "left",
         class: "animate-slideOutLeft",
       },
-      // Animation for right position
+
       {
         isVisible: true,
         position: "right",
@@ -141,25 +140,21 @@ const panel = cva(
         position: "right",
         class: "animate-slideOut",
       },
-      // Float type with left position
       {
         type: "float",
         position: "left",
         class: `${floatShared} top-2 left-3`,
       },
-      // Float type with right position
       {
         type: "float",
         position: "right",
         class: `${floatShared} top-2 right-3`,
       },
-      // Sticky type with left position
       {
         type: "sticky",
         position: "left",
         class: `${stickyShared} h-full left-0 top-0 bottom-0 border-r`,
       },
-      // Sticky type with right position
       {
         type: "sticky",
         position: "right",

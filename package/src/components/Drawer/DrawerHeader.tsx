@@ -6,7 +6,6 @@ import { useDrawerPanel } from "@/hook/usePanel";
 const DrawerHeader = ({
   children,
   showBorder = true,
-
   ...props
 }: ModalHeaderType) => {
   const mode = useDrawerPanel().mode;

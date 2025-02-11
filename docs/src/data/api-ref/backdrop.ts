@@ -28,13 +28,19 @@ export const backdropRef = [
     prop: "mode",
     type: '"light" | "dark"',
     description: "Sets the theme mode for the backdrop component.",
-    default: "light",
+    default: "system",
   },
   {
     prop: "intensity",
-    type: '"none" | "sm" | "md" | "lg" | "xl"',
+    type: '"none" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl"',
     description: "Controls the intensity of the drop component backdrop.",
     default: "sm",
+  },
+  {
+    prop: "zIndex",
+    type: '"80" | "100" | "150" | "200" | "250" | "300" | "350" | "400" | "450" | "500" | "550" | "600" | "650" | "700" | "750" | "800" | "850" | "900" | "950" | "1000"',
+    description: "Controls visibility order",
+    default: "500",
   },
   {
     prop: "centerContent",
@@ -46,7 +52,7 @@ export const backdropRef = [
     prop: "preventClose",
     type: "boolean",
     description:
-      "Prevents the backdrop component from closing when clicked outside or on the close button.",
+      "Prevents the backdrop component from closing when clicked outside",
     default: "false",
   },
 ];

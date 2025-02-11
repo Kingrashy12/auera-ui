@@ -8,21 +8,30 @@
   }
 
   .input-outline {
-    @apply bg-[var(--auera-input-outline-bg)]
-     border-1.7 border-[var(--auera-input-outline-border)]
+    @apply bg-white tone-dark:bg-black
+     border-2 border-neutral-200 tone-dark:border-neutral-800
      transition-all duration-300 ease-in-out
      hover:border-blue-400
      focus-within:border-blue-600
      focus-within:shadow-[0_0_0_3px_rgba(59,130,246,0.3)];
   }
 
+  .input-solid {
+    @apply shadow-[inset_0_2px_4px_#484848] tone-dark:shadow-[inset_0_2px_4px_#CCCCCC] border
+    text-[#333] tone-dark:text-white transition-layer tone-dark:bg-[#2E2E2E] bg-[#F9F9F9]
+    tone-dark:disabled:bg-[#3C3C3C] disabled:bg-neutral-200 focus-within:shadow-[0_0_0_1px_var(--auera-blue-500)]
+    focus-within:border-blue-500 tone-dark:hover:bg-[#3C3C3C] hover:bg-neutral-200;
+  }
+
+  .input-ghost {
+    @apply tone-dark:disabled:bg-neutral-700 disabled:bg-gray-100 bg-transparent transition-layer
+    focus-within:shadow-[0_0_0_1px_var(--auera-blue-500)] tone-dark:focus-within:bg-[#2E2E2E] focus-within:bg-[#F9F9F9]
+    text-[#333] tone-dark:text-white tone-dark:hover:bg-neutral-700 hover:bg-neutral-100;
+  }
+
   .skeleton {
     @apply overflow-hidden relative animate-pulse inline-block p-1
     theme-light:bg-slate-200 theme-dark:bg-neutral-700;
-  }
-
-  .switch {
-    @apply flex cursor-pointer  p-1 rounded-full data-[ison=true]:justify-end;
   }
 }
 

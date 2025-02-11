@@ -20,7 +20,7 @@ const ToolBar = () => {
           trigger="drawer"
           triggerType="open"
           triggerValue="tool-bar"
-          variants="ghost"
+          variant="ghost"
         >
           <FiMenu size={19} />
         </IconButton>
@@ -38,7 +38,7 @@ const ToolBar = () => {
           />
         </Box>
       </Box>
-      <IconButton variants="ghost" onClick={scrollToTop}>
+      <IconButton variant="ghost" onClick={scrollToTop}>
         <HiArrowUp />
       </IconButton>
     </Bar>

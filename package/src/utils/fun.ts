@@ -16,6 +16,7 @@ export const StrFun = {
    */
   capitalize(str: string, reg: string, joinReg: string): string {
     return str
+      .toLowerCase()
       .split(reg)
       .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
       .join(joinReg);

@@ -38,7 +38,7 @@ const MobileSideBar = () => {
             trigger="drawer"
             triggerType="close"
             triggerValue="tool-bar"
-            variants="outline"
+            variant="outline"
             radius="full"
           >
             <IoClose size={18} />
