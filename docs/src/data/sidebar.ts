@@ -78,7 +78,7 @@ export const sideBarLinks = [
       { label: "MapItems", uri: "/docs/components/mapitems" },
       { label: "GroupMap", uri: "/docs/components/groupmap" },
       { label: "OTPInput", uri: "/docs/components/otpinput" },
-      { label: "TextInput", uri: "/docs/components/textinput" },
+      { label: "TextInput", uri: "/docs/components/textinput", soon: true },
       { label: "Tabs", uri: "/docs/components/tabs" },
       { label: "ToolTip", uri: "/docs/components/tooltip" },
       {
@@ -101,6 +101,7 @@ export const sideBarLinks = [
       {
         label: "Fab",
         uri: "/docs/components/fab",
+        soon: true,
       },
     ],
   },

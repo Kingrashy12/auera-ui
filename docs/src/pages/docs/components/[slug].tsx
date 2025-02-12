@@ -6,7 +6,9 @@ import { boxRef } from "@/data/api-ref/box";
 import { buttonRef } from "@/data/api-ref/button";
 import { cardRef } from "@/data/api-ref/card";
 import { checkboxRef } from "@/data/api-ref/checkbox";
+import { collapseRef } from "@/data/api-ref/collapse";
 import { drawerRef } from "@/data/api-ref/drawer";
+import { groupMapRef } from "@/data/api-ref/group-map";
 import { fetchContent } from "@/hooks/fetch_content";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { MDXRemoteSerializeResult } from "next-mdx-remote";
@@ -25,6 +27,8 @@ const data = {
   cardRef,
   checkboxRef,
   drawerRef,
+  collapseRef,
+  groupMapRef,
 };
 
 const Page = ({ frontmatter, mdxSource, slug }: Props) => {
@@ -61,6 +65,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
     "checkbox",
     "collapse",
     "drawer",
+    "fab",
+    "groupmap",
   ];
 
   const paths = slugs.map((slug) => ({

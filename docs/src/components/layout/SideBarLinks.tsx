@@ -1,5 +1,5 @@
 import { sideBarLinks } from "@/data/sidebar";
-import { Box, MapItems } from "auera-ui";
+import { Box, closeDrawer, MapItems } from "auera-ui";
 import { useRouter } from "next/router";
 import React from "react";
 import { tw } from "stywind";
@@ -51,6 +51,7 @@ const SideBarLinks = ({ data }: { data: typeof sideBarLinks }) => {
               <Link
                 href={link.uri}
                 key={link.uri}
+                onClick={() => closeDrawer()}
                 className={tw(
                   "w-full py-2 px-3 hover:text-blue-600 hover:border-l-1.7 flex justify-between transition-transform duration-300",
                   getActiveLink(link.uri)
