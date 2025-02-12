@@ -1,6 +1,6 @@
 import { useMode } from "@/hook/use";
+import { tw } from "@/utils";
 import { getDisplayName } from "@/utils/displayname";
-import { tw } from "auera-ui";
 import React from "react";
 import { createStyle } from "stywind";
 

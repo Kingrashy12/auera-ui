@@ -683,7 +683,7 @@ export interface MenuItemProps extends DivProps {
 }
 
 export type CollapseProps = {
-  headerLabel: string;
+  headerLabel?: string;
   children?: React.ReactNode;
   mode?: "light" | "dark";
   openIcon?: React.ElementType;
@@ -693,7 +693,7 @@ export type CollapseProps = {
     header?: string;
     headerLabel?: string;
   };
-  renderHeader?: () => React.ReactNode;
+  renderHeader?: (open: boolean) => React.ReactNode;
 };
 
 export type StatusBadgeProps = {

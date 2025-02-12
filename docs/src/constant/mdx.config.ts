@@ -50,6 +50,10 @@ import {
   FloatDrawer,
   LeftDrawer,
 } from "@/components/example/drawer/references";
+import CollapseDemo from "@/components/example/collapse/demo";
+import CollapseWithCustomHeader from "@/components/example/collapse/render-header";
+import GroupMapDemo from "@/components/example/groupmap/demo";
+import GroupMapEmpty from "@/components/example/groupmap/empty-list";
 
 export const components = {
   DetailCard,
@@ -107,6 +111,10 @@ export const components = {
   Drawer__Content,
   FloatDrawer,
   LeftDrawer,
+  CollapseDemo,
+  CollapseWithCustomHeader,
+  GroupMapDemo,
+  GroupMapEmpty,
 };
 
 export const MDXRemote = dynamic(() =>

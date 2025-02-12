@@ -166,7 +166,7 @@ const DrawerDemo = () => {
  };`,
   position: `import { Stack, Button } from "auera-ui";
  
-const DrawerDemo = () => {
+const LeftDrawerDemo = () => {
    return (
     <Stack>
       <Button

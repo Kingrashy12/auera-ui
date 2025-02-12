@@ -1,7 +1,8 @@
-import { Box } from "auera-ui";
+import { Box, tw } from "auera-ui";
 import React from "react";
 import { createStyle } from "stywind";
 import CodeTag from "./CodeTag";
+import { ImMinus } from "react-icons/im";
 
 type ReferenceType = {
   reference: {
@@ -56,8 +57,16 @@ const APITable = ({ reference }: ReferenceType) => {
             </RefCell>
             <RefCell className="items-center">
               <Default className="default">Default:</Default>
-              <span className="text-blue-600 font-poppins font-normal text-[13px] tracking-wide">
-                {value.default}
+              <span
+                className={tw(
+                  "text-blue-600 font-poppins font-normal text-[13px] tracking-wide",
+                  {
+                    "text-neutral-600 theme-dark:text-neutral-800":
+                      value.default === "undefined",
+                  }
+                )}
+              >
+                {value.default === "undefined" ? <ImMinus /> : value.default}
               </span>
             </RefCell>
           </Box>
@@ -92,8 +101,16 @@ const APITable = ({ reference }: ReferenceType) => {
             </RefCell>
             <RefCell className="items-center">
               <Default className="default">Default:</Default>
-              <span className="text-blue-600 font-poppins font-normal text-[13px] tracking-wide">
-                {ref.default}
+              <span
+                className={tw(
+                  "text-blue-600 font-poppins font-normal text-[13px] tracking-wide",
+                  {
+                    "text-neutral-600 theme-dark:text-neutral-800":
+                      ref.default === "undefined",
+                  }
+                )}
+              >
+                {ref.default === "undefined" ? <ImMinus /> : ref.default}
               </span>
             </RefCell>
             {ref.properties && (

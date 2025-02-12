@@ -15,7 +15,7 @@ const DocsLayout = ({ children, hideNavigator }: Props) => {
         direction="column"
         fullWidth
         className={tw(
-          "gap-8 px-4 py-2 max-[550px]:px-3",
+          "gap-8 px-4 py-2 max-[550px]:px-3 overflow-x-hidden",
           hideNavigator && "px-5 py-4"
         )}
       >

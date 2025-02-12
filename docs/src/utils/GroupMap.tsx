@@ -111,14 +111,16 @@ const GroupMap = <T,>({
 
   return (
     <>
-      {groupedArray.map(([key, group]) => (
-        <Box key={key} direction={direction} className={className}>
-          {showKeyOnHead && renderKey ? renderKey(key) : null}
-          <Box direction={dataMapdirection} className={dataMapClass}>
-            {group.length > 0 ? group.map(renderItem) : emptyListComponent}
-          </Box>
-        </Box>
-      ))}
+      {groupedArray.length >= 1
+        ? groupedArray.map(([key, group]) => (
+            <Box key={key} direction={direction} className={className}>
+              {showKeyOnHead && renderKey ? renderKey(key) : null}
+              <Box direction={dataMapdirection} className={dataMapClass}>
+                {group.map(renderItem)}
+              </Box>
+            </Box>
+          ))
+        : emptyListComponent}
     </>
   );
 };

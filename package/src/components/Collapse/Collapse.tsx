@@ -46,20 +46,27 @@ const Collapse: React.FC<CollapseProps> = ({
 
   const getHeader = () => {
     if (renderHeader) {
-      return renderHeader();
+      return renderHeader(open);
     } else {
-      <>
-        <h4
-          data-theme={currentMode}
-          className={tw(
-            "font-medium text-lg text-black tone-dark:text-white",
-            classNames?.headerLabel
-          )}
-        >
-          {headerLabel}
-        </h4>
-        <Icon icon={getIcon() as React.ElementType} size={20} />
-      </>;
+      return (
+        <>
+          <p
+            data-theme={currentMode}
+            className={tw(
+              "font-medium text-base text-black tone-dark:text-white",
+              classNames?.headerLabel
+            )}
+          >
+            {headerLabel}
+          </p>
+          <Icon
+            icon={getIcon() as React.ElementType}
+            size={20}
+            data-theme={currentMode}
+            className="tone-dark:text-white"
+          />
+        </>
+      );
     }
   };
 

@@ -43,7 +43,7 @@ const CodeBlock = ({
         <Icon icon={icon.icon} color={icon.color} size={19} />
         <p className="font-mono text-[#aaa7b2] text-xs">{fileName}</p>
       </Box>
-      <Box className="w-full h-full overflow-y-auto p-4 max-w-full">
+      <Box className="w-full h-full overflow-y-auto p-4 max-w-full scrollbar:h-1">
         <Highlight theme={themes.vsDark} code={code} language={lg}>
           {({ tokens, getLineProps, getTokenProps }) => (
             <pre

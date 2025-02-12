@@ -1,6 +1,26 @@
 ---
 title: Collapse | AueraUI
-description:
+description: Expand and collapse additional content.
 ---
 
-<DetailCard description='An'/>
+<DetailCard description='Expand and collapse additional content.'/>
+
+<Details>
+<CollapseDemo />
+</Details>
+
+<Details id='examples'>
+<HeaderLabel id='examples'>Examples</HeaderLabel>
+</Details>
+
+<Details id='render-header'>
+<HeaderLabel id='render-header' as='h3'>Render Header</HeaderLabel>
+ <p className="text">Render your own custom Header component using the <CodeTag>renderHeader</CodeTag> prop</p>
+ <CollapseWithCustomHeader />
+</Details>
+
+<Details id='api-reference'>
+<HeaderLabel id='api-reference'>API Reference</HeaderLabel>
+<APITable reference={collapseRef} />
+</Details>
+
