@@ -7,24 +7,50 @@ import {
   TextInput_IVariants,
 } from "./textinput-variants";
 
+// const useComputeInput = (
+//   props: TextInput_IVariants & { inputClass?: string }
+// ) => {
+//   const { className, inputClass, variant, radius, disabled } = props;
+//   const Input = useMemo(
+//     () => createStyle(AueraInput).classname(input({ className: inputClass })),
+//     [inputClass]
+//   );
+
+//   const InputInterface = useMemo(
+//     () =>
+//       createStyle(AueraDiv).classname(
+//         input_interface({ variant, disabled, radius, className })
+//       ),
+//     [variant, disabled, radius, className]
+//   );
+
+//   return { Input, InputInterface };
+// };
+
 const useComputeInput = (
   props: TextInput_IVariants & { inputClass?: string }
 ) => {
   const { className, inputClass, variant, radius, disabled } = props;
-  const Input = useMemo(
-    () => createStyle(AueraInput).classname(input({ className: inputClass })),
+
+  const StyledInput = createStyle(AueraInput);
+  const StyledInterface = createStyle(AueraDiv);
+
+  const inputStyles = useMemo(
+    () => input({ className: inputClass }),
     [inputClass]
   );
-
-  const InputInterface = useMemo(
-    () =>
-      createStyle(AueraDiv).classname(
-        input_interface({ variant, disabled, radius, className })
-      ),
+  const interfaceStyles = useMemo(
+    () => input_interface({ variant, disabled, radius, className }),
     [variant, disabled, radius, className]
   );
 
-  return { Input, InputInterface };
+  return {
+    Input: useMemo(() => StyledInput.classname(inputStyles), [inputStyles]),
+    InputInterface: useMemo(
+      () => StyledInterface.classname(interfaceStyles),
+      [interfaceStyles]
+    ),
+  };
 };
 
 export { useComputeInput };

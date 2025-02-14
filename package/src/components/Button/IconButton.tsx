@@ -29,15 +29,14 @@ const IconButton: FC<IconButtonPropsExtended<boolean>> = ({
 
   const TriggerComponent = Trigger[trigger || "modal"];
 
-  const SUB = variant === "subtle" || variant === "ghost";
-
   const Comp = useComputeIButton({
     className,
     variant,
     radius,
     size,
     disabled,
-    sub_active: SUB && props.active,
+    ghost_active: props.active && variant === "ghost",
+    subtle_active: props.active && variant === "subtle",
     outline_active: props.active && variant === "outline",
     asChild,
   });

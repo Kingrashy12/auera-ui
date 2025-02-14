@@ -795,3 +795,16 @@ export interface OTPInputProps {
   radius?: "md" | "lg" | "xl" | "full";
   mode?: "light" | "dark";
 }
+
+export interface LoaderProp {
+  children: React.ReactNode;
+  isLoading: boolean;
+  size?: "sm" | "md" | "lg";
+  color?: ColorPair;
+  innerColor?: ColorPair;
+  spinner?: React.ReactNode;
+  loader?: "bounce" | "circle";
+  error?: boolean;
+  renderError?: React.ReactNode;
+  keepOut?: boolean;
+}

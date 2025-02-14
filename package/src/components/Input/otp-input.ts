@@ -37,18 +37,23 @@ export const useComputeInput = (
 ) => {
   const { className, error, radius } = props;
 
-  const Input = useMemo(
-    () => createStyle("input").classname(input({ error, className, radius })),
+  const StyledInput = createStyle("input");
+  const Interface = createStyle("div");
+
+  const inputStyles = useMemo(
+    () => input({ error, className, radius }),
     [className, error, radius]
   );
-
-  const Interface = useMemo(
-    () =>
-      createStyle("div").classname(
-        tw("flex items-center p-4 gap-4 bg-transparent", className)
-      ),
+  const interfaceStyles = useMemo(
+    () => tw("flex items-center p-4 gap-4 bg-transparent", className),
     [className]
   );
 
-  return { Interface, Input };
+  return {
+    Interface: useMemo(
+      () => Interface.classname(interfaceStyles),
+      [interfaceStyles]
+    ),
+    Input: useMemo(() => StyledInput.classname(inputStyles), [inputStyles]),
+  };
 };

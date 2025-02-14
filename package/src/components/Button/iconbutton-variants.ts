@@ -41,7 +41,10 @@ const ibutton = cva(
         true: "cursor-not-allowed pointer-events-none opacity-75",
         false: "cursor-pointer",
       },
-      sub_active: {
+      ghost_active: {
+        true: "bg-gray-100 tone-dark:bg-neutral-800",
+      },
+      subtle_active: {
         true: "bg-gray-100 tone-dark:bg-neutral-800",
       },
       outline_active: {
@@ -69,7 +72,8 @@ export const useComputeIButton = (props: IconButtonVariants) => {
     className,
     disabled,
     outline_active,
-    sub_active,
+    ghost_active,
+    subtle_active,
     size,
     radius,
   } = props;
@@ -83,7 +87,8 @@ export const useComputeIButton = (props: IconButtonVariants) => {
           radius,
           size,
           disabled,
-          sub_active,
+          ghost_active,
+          subtle_active,
           outline_active,
           asChild,
         })
@@ -95,7 +100,8 @@ export const useComputeIButton = (props: IconButtonVariants) => {
       radius,
       size,
       disabled,
-      sub_active,
+      ghost_active,
+      subtle_active,
       outline_active,
     ]
   );

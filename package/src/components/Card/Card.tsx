@@ -6,55 +6,58 @@ import { Media } from "../Image";
 import { tw } from "stywind";
 
 /** Card component for displaying content in a styled container.*/
-const Card = forwardRef<HTMLDivElement, CardWithMotion>((props, ref) => {
-  const {
-    centerContent,
-    fullWidth,
-    classNames,
-    variant,
-    hidden,
-    direction,
-    renderImage,
-    renderHeader,
-    img,
-    ...rest
-  } = props;
+const Card = forwardRef<HTMLDivElement, CardWithMotion>(
+  (
+    {
+      centerContent,
+      fullWidth,
+      classNames,
+      variant,
+      hidden,
+      direction,
+      renderImage,
+      renderHeader,
+      img,
+      ...props
+    },
+    ref
+  ) => {
+    const { Root, Body } = useCard({
+      centerContent,
+      classNames,
+      hidden,
+      direction,
+      fullWidth,
+      variant,
+    });
 
-  const { Root, Body } = useCard({
-    centerContent,
-    classNames,
-    hidden,
-    direction,
-    fullWidth,
-    variant,
-  });
+    const getImage = () => {
+      if (img) {
+        return (
+          <Media
+            src={img?.src}
+            alt={img?.alt}
+            width={img?.width}
+            height={img?.height}
+            className={tw(img?.className, "rounded-t-lg")}
+            style={img?.style}
+          />
+        );
+      } else if (renderImage) {
+        return renderImage();
+      }
+      return null;
+    };
 
-  const getImage = () => {
-    if (props.img) {
-      return (
-        <Media
-          src={img?.src}
-          alt={img?.alt}
-          width={img?.width}
-          height={img?.height}
-          className={tw(img?.className, "rounded-t-lg")}
-          style={img?.style}
-        />
-      );
-    } else if (renderImage) {
-      return renderImage();
-    }
-    return null;
-  };
-
-  return (
-    <Root ref={ref as AueraMotionDivRef} {...rest}>
-      {renderHeader && renderHeader()}
-      {getImage()}
-      <Body>{props.children}</Body>
-    </Root>
-  );
-});
+    return (
+      <Root ref={ref as AueraMotionDivRef} {...props}>
+        {renderHeader && renderHeader()}
+        {getImage()}
+        <Body>{props.children}</Body>
+      </Root>
+    );
+  }
+);
 
 export default Card;
 

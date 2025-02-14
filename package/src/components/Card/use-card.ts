@@ -7,27 +7,28 @@ export const useCard = (props: RootVariants & BodyVariants) => {
   const { fullWidth, classNames, variant, hidden, direction, centerContent } =
     props;
 
-  const Root = useMemo(
+  const StyledRoot = createStyle(AueraDivWithMotion);
+  const StyledChildren = createStyle("div");
+
+  const rootStyles = useMemo(
     () =>
-      createStyle(AueraDivWithMotion).classname(
-        root({
-          className: classNames?.root,
-          fullWidth,
-          hidden,
-          variant,
-          direction,
-        })
-      ),
+      root({
+        className: classNames?.root,
+        fullWidth,
+        hidden,
+        variant,
+        direction,
+      }),
     [fullWidth, classNames?.root, variant, hidden, direction]
   );
 
-  const Body = useMemo(
-    () =>
-      createStyle("div").classname(
-        body({ centerContent, className: classNames?.body })
-      ),
+  const bodyStyles = useMemo(
+    () => body({ centerContent, className: classNames?.body }),
     [centerContent, classNames]
   );
 
-  return { Root, Body };
+  return {
+    Root: useMemo(() => StyledRoot.classname(rootStyles), [rootStyles]),
+    Body: useMemo(() => StyledChildren.classname(bodyStyles), [bodyStyles]),
+  };
 };
