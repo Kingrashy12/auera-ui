@@ -292,6 +292,8 @@ export type ModalPanelType = {
    */
   size?: "auto" | "sm" | "md" | "lg" | "xl" | "full";
 
+  radius?: "md" | "lg" | "xl" | "2xl" | "3xl";
+
   /**
    * The content displayed within the modal panel.
    * Accepts any valid React nodes such as text, elements, or components.

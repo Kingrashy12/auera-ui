@@ -67,7 +67,7 @@ const header = cva("flex items-center justify-between p-[13px] w-full", {
 });
 
 const panel = cva(
-  "max-w-full max-h-[95%] h-auto flex rounded-[11px] relative z-[800] overflow-hidden gap-[10px]",
+  "max-w-full max-h-[95%] h-auto flex relative z-[800] overflow-hidden gap-[10px]",
   {
     variants: {
       align: {
@@ -90,6 +90,13 @@ const panel = cva(
         lg: "w-[500px] max-[550px]:w-[95%]",
         xl: "w-[600px] max-[550px]:w-[95%]",
         full: "w-10/12 max-[550px]:w-[95%]",
+      },
+      radius: {
+        md: "rounded-[12px]",
+        lg: "rounded-[15px]",
+        xl: "rounded-[19px]",
+        "2xl": "rounded-[23px]",
+        "3xl": "rounded-[27px]",
       },
       transition: {
         slideIn: "",
@@ -170,6 +177,7 @@ const panel = cva(
       size: "auto",
       transition: "walkIn",
       align: "vertical",
+      radius: "md",
     },
   }
 );

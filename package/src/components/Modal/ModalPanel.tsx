@@ -11,6 +11,7 @@ const ModalPanel = ({
   transition = "walkIn",
   align = "vertical",
   mode,
+  radius,
   ...props
 }: ModalPanelType) => {
   const { isVisible } = useModal();
@@ -27,6 +28,7 @@ const ModalPanel = ({
     align,
     size,
     isVisible,
+    radius,
   });
 
   return <Panel {...props}>{children}</Panel>;

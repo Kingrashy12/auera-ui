@@ -1,31 +1,11 @@
 import { AueraDiv, AueraInput } from "@/core/AueraElement";
 import { useMemo } from "react";
-import { createStyle } from "stywind";
+import { createStyle, tw } from "stywind";
 import {
   input,
   input_interface,
   TextInput_IVariants,
 } from "./textinput-variants";
-
-// const useComputeInput = (
-//   props: TextInput_IVariants & { inputClass?: string }
-// ) => {
-//   const { className, inputClass, variant, radius, disabled } = props;
-//   const Input = useMemo(
-//     () => createStyle(AueraInput).classname(input({ className: inputClass })),
-//     [inputClass]
-//   );
-
-//   const InputInterface = useMemo(
-//     () =>
-//       createStyle(AueraDiv).classname(
-//         input_interface({ variant, disabled, radius, className })
-//       ),
-//     [variant, disabled, radius, className]
-//   );
-
-//   return { Input, InputInterface };
-// };
 
 const useComputeInput = (
   props: TextInput_IVariants & { inputClass?: string }
@@ -35,12 +15,9 @@ const useComputeInput = (
   const StyledInput = createStyle(AueraInput);
   const StyledInterface = createStyle(AueraDiv);
 
-  const inputStyles = useMemo(
-    () => input({ className: inputClass }),
-    [inputClass]
-  );
+  const inputStyles = useMemo(() => tw(input(), inputClass), [inputClass]);
   const interfaceStyles = useMemo(
-    () => input_interface({ variant, disabled, radius, className }),
+    () => tw(input_interface({ variant, disabled, radius }), className),
     [variant, disabled, radius, className]
   );
 

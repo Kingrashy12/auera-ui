@@ -2,7 +2,7 @@ import { AueraButton, AueraDiv } from "../../core/AueraElement";
 import { VProps } from "../../types/auera-system";
 import { cva } from "class-variance-authority";
 import { useMemo } from "react";
-import { createStyle } from "stywind";
+import { createStyle, tw } from "stywind";
 
 const ibutton = cva(
   "active:scale-95 flex items-center tone-dark:text-white tone-light:text-black",
@@ -81,17 +81,19 @@ export const useComputeIButton = (props: IconButtonVariants) => {
   return useMemo(
     () =>
       createStyle(asChild ? AueraDiv : AueraButton).classname(
-        ibutton({
-          className,
-          variant,
-          radius,
-          size,
-          disabled,
-          ghost_active,
-          subtle_active,
-          outline_active,
-          asChild,
-        })
+        tw(
+          ibutton({
+            variant,
+            radius,
+            size,
+            disabled,
+            ghost_active,
+            subtle_active,
+            outline_active,
+            asChild,
+          }),
+          className
+        )
       ),
     [
       asChild,

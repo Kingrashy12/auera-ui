@@ -7,14 +7,14 @@ import {
   list,
   ListVariants,
 } from "./menu-variants";
-import { createStyle } from "stywind";
+import { createStyle, tw } from "stywind";
 import { AueraDiv } from "@/core/AueraElement";
 
 const useComputeMenu = (props: ListVariants) => {
   const { className, zIndex } = props;
 
   return useMemo(
-    () => createStyle(AueraDiv).classname(list({ className, zIndex })),
+    () => createStyle(AueraDiv).classname(tw(list({ zIndex }), className)),
     [className, zIndex]
   );
 };
@@ -25,7 +25,7 @@ const useComputeItem = (props: ItemVariants) => {
   return useMemo(
     () =>
       createStyle(AueraDiv).classname(
-        item({ className, disabled, type, color })
+        tw(item({ disabled, type, color }), className)
       ),
     [className, disabled, type, color]
   );
