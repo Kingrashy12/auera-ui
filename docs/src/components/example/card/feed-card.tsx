@@ -23,7 +23,7 @@ const FeedCard = () => {
                   size="md"
                   border
                 />
-                <Box between centered fullWidth>
+                <Box between fullWidth>
                   <Box className="flex-col gap-1">
                     <span className="font-poppins text-sm font-medium text-black theme-dark:text-white">
                       Elara Quinn

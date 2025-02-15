@@ -6,20 +6,28 @@ import { SchemeVariant, VProps } from "@/types/auera-system";
 
 const colorSchemeBackgrounds = {
   primary: tw(
-    "bg-blue-600 shadow-frost-blue border-frost-blue hover:bg-blue-700",
-    baseButtonClass
+    baseButtonClass,
+    defineClass(
+      "bg-blue-600 shadow-frost-blue border-frost-blue hover:bg-blue-700"
+    )
   ),
   success: tw(
-    "bg-green-600 shadow-frost-success border-frost_success hover:bg-green-700",
-    baseButtonClass
+    baseButtonClass,
+    defineClass(
+      "bg-green-600 shadow-frost-success border-frost_success hover:bg-green-700"
+    )
   ),
   danger: tw(
-    "bg-red-600 shadow-frost-danger border-frost-danger hover:bg-red-700",
-    baseButtonClass
+    baseButtonClass,
+    defineClass(
+      "bg-red-600 shadow-frost-danger border-frost-danger hover:bg-red-700"
+    )
   ),
   warning: tw(
-    "bg-yellow-500 shadow-frost-warn border-frost_warn hover:bg-yellow-700",
-    baseButtonClass
+    baseButtonClass,
+    defineClass(
+      "bg-yellow-500 shadow-frost-warn border-frost_warn hover:bg-yellow-700"
+    )
   ),
 };
 
@@ -32,20 +40,20 @@ const colorSchemeText = {
 
 const lightButtonStyles = {
   primary: tw(
-    "shadow-frost-light-primary border-frost-light-primary hover:bg-frost-light-hover",
-    baseButtonClass
+    baseButtonClass,
+    "shadow-frost-light-primary border-frost-light-primary hover:bg-frost-light-hover"
   ),
   success: tw(
-    "shadow-frost-light-success border-frost-light-success hover:bg-frost-success-hover",
-    baseButtonClass
+    baseButtonClass,
+    "shadow-frost-light-success border-frost-light-success hover:bg-frost-success-hover"
   ),
   danger: tw(
-    "shadow-frost-light-danger border-frost-light-danger hover:bg-frost-danger-hover",
-    baseButtonClass
+    baseButtonClass,
+    "shadow-frost-light-danger border-frost-light-danger hover:bg-frost-danger-hover"
   ),
   warning: tw(
-    "shadow-frost-light-warn border-frost-light-warn hover:bg-frost-warn-hover",
-    baseButtonClass
+    baseButtonClass,
+    "shadow-frost-light-warn border-frost-light-warn hover:bg-frost-warn-hover"
   ),
 };
 
