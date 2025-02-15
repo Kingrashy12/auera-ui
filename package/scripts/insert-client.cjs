@@ -15,6 +15,7 @@ const componentsDir = [
   "components/Menu",
   "components/Modal",
   "components/Input",
+  "components/Select",
   "components/Provider",
 ];
 const hooksDir = ["hook", "context"];

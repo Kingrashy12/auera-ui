@@ -56,8 +56,6 @@ export const tailwindExtend = {
       "var(--auera-yellow-400) 0px -6px 0px inset, var(--auera-yellow-200) 0px -4px 0px 6px inset, rgba(9, 11, 11, 0.1) 0px 6px 10px 0px, rgba(9, 11, 11, 0.1) 0px 1px 2px 0px",
     "neumorphic-flat-warn_hover":
       "var(--auera-yellow-400) 0px -3px 0px inset, var(--auera-yellow-200) 0px -2px 0px 3px inset, rgba(9, 11, 11, 0.1) 0px 4px 8px 0px, rgba(9, 11, 11, 0.1) 0px 1px 2px 0px",
-    "card-shadow-light": "0 4px 6px rgba(0, 0, 0, 0.1)",
-    "card-shadow-dark": "0 4px 6px var(--auera-neutral-900)",
     "neumorphic-modal-dark":
       "var(--auera-neutral-950) 0px -6px 0px inset, var(--auera-neutral-800) 0px -4px 0px 6px inset, rgba(9, 11, 11, 0.1) 0px 6px 10px 0px, rgba(9, 11, 11, 0.1) 0px 1px 2px 0px",
     "frost-modal-dark":

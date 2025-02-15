@@ -1,7 +1,6 @@
 import { ToastOptionsType, ToastPositionType } from "@/types/auera-ui";
 import { DivProps } from "../../types/element-props";
-import { createStyle } from "stywind";
-import { defineClass, merge, tw } from "@/utils";
+import { createStyle, defineClass, merge, tw } from "stywind";
 
 interface IStyleToast extends DivProps {
   position: ToastPositionType;
@@ -66,9 +65,9 @@ const getToast = () => {
   ) => {
     const ToastClass = defineClass(
       tw(
-        basicClass,
         isVisible ? "opacity-100" : "opacity-0",
-        getToastTransition(isVisible as boolean, transition)
+        getToastTransition(isVisible as boolean, transition),
+        basicClass
       )
     );
     const WrapClass = defineClass(

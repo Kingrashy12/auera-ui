@@ -279,6 +279,7 @@ export type ModalType = {
    */
   value: string;
   className?: string;
+  zIndex?: zIndex;
 };
 
 export type ModalPanelType = {
@@ -291,6 +292,8 @@ export type ModalPanelType = {
    * - "full": Full-screen panel.
    */
   size?: "auto" | "sm" | "md" | "lg" | "xl" | "full";
+
+  radius?: "md" | "lg" | "xl" | "2xl" | "3xl";
 
   /**
    * The content displayed within the modal panel.
@@ -794,4 +797,46 @@ export interface OTPInputProps {
   inputClass?: string;
   radius?: "md" | "lg" | "xl" | "full";
   mode?: "light" | "dark";
+}
+
+export interface LoaderProp {
+  children: React.ReactNode;
+  isLoading: boolean;
+  size?: "sm" | "md" | "lg";
+  color?: ColorPair;
+  innerColor?: ColorPair;
+  spinner?: React.ReactNode;
+  loader?: "bounce" | "circle";
+  error?: boolean;
+  renderError?: React.ReactNode;
+  keepOut?: boolean;
+}
+
+export interface SelectTriggerProps {
+  placeholder: string;
+  className?: string;
+}
+
+export interface SelectProps {
+  className?: string;
+  children?: React.ReactNode;
+  radius?: "none" | "sm" | "md" | "lg" | "xl" | "2xl";
+  mode?: "light" | "dark";
+}
+
+export interface SelectState {
+  select: (value: string) => void;
+}
+
+export interface SelectContentProps {
+  children?: React.ReactNode;
+  className?: string;
+  style?: React.CSSProperties;
+}
+
+export interface SelectItemProps {
+  value: string;
+  onSelect?: (value: string) => void;
+  children?: React.ReactNode;
+  className?: string;
 }

@@ -14,6 +14,7 @@ export const aueraTw = ({
   addVariant("scrollbar", ["::-webkit-scrollbar&"]);
   addVariant("scrollbar-thumb", ["::-webkit-scrollbar-thumb&"]);
   addVariant("scrollbar-track", ["::-webkit-scrollbar-track&"]);
+  addVariant("select-open", '[select-open="true"] &');
 
   // Utilities
   addUtilities({

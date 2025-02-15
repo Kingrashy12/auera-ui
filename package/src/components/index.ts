@@ -13,10 +13,12 @@ export * from "./Collapse";
 export * from "./Breadcrumbs";
 export * from "./File";
 export * from "./Form";
+export * from "./Select";
 
 export { default as Backdrop } from "./Backdrop/Backdrop";
 export { default as GroupMap } from "./utils/GroupMap";
 export { default as MapItems } from "./utils/MapItems";
+export { default as Loading } from "./utils/Loading";
 export { default as StatusBadge } from "./Badge/StatusBadge";
 export { default as Checkbox } from "./Checkbox/CheckBox";
 export { default as Switch } from "./Switch/Switch";

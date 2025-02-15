@@ -1,8 +1,7 @@
 import { useMode } from "@/hook/use";
-import { tw } from "@/utils";
 import { getDisplayName } from "@/utils/displayname";
 import React from "react";
-import { createStyle } from "stywind";
+import { createStyle, tw } from "stywind";
 
 interface LabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
   mode?: "dark" | "light";

@@ -10,15 +10,32 @@ import {
 import { createStyle } from "stywind";
 
 const useComputePanel = (props: PanelVariants) => {
-  const { className, align, transition, size, mode, flavour, isVisible } =
-    props;
+  const {
+    className,
+    align,
+    transition,
+    size,
+    mode,
+    flavour,
+    isVisible,
+    radius,
+  } = props;
 
   return useMemo(
     () =>
       createStyle("div").classname(
-        panel({ className, align, transition, size, mode, flavour, isVisible })
+        panel({
+          className,
+          align,
+          transition,
+          size,
+          mode,
+          flavour,
+          isVisible,
+          radius,
+        })
       ),
-    [className, align, transition, size, mode, flavour, isVisible]
+    [className, align, transition, size, mode, flavour, isVisible, radius]
   );
 };
 

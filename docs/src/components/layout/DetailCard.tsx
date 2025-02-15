@@ -6,9 +6,10 @@ import React from "react";
 
 type DetailCardProps = {
   description: string;
+  label?: string;
 };
 
-const DetailCard = ({ description }: DetailCardProps) => {
+const DetailCard = ({ description, label }: DetailCardProps) => {
   const router = useRouter();
   const str = router.pathname.split("/").filter((r) => r !== "");
   const pageHeader = str[str.length - 2];
@@ -23,7 +24,7 @@ const DetailCard = ({ description }: DetailCardProps) => {
           {StrFun.capitalize(pageHeader, "-", "-")}
         </span>
         <h1 className="font-inter font-bold text-3xl text-primary">
-          {StrFun.capitalize(pageName as string, "-", " ")}
+          {label ?? StrFun.capitalize(pageName as string, "-", " ")}
         </h1>
         <p className="font-inter font-normal text-base text-muted w-[335px] max-[550px]:w-full">
           {description}

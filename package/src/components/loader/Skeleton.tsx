@@ -29,7 +29,7 @@ const Skeleton: React.FC<SkeletonProps> = ({
   return (
     <div
       style={{ ...style, width, height }}
-      className={tw(className, "skeleton", merge.single(rd, radius))}
+      className={tw("skeleton", merge.single(rd, radius), className)}
     />
   );
 };

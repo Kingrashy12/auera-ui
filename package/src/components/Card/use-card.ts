@@ -1,33 +1,36 @@
 import { useMemo } from "react";
 import { RootVariants, root, body, BodyVariants } from "./card-variants";
-import { createStyle } from "stywind";
+import { createStyle, tw } from "stywind";
 import { AueraDivWithMotion } from "../../core/ElementWithmotion";
 
 export const useCard = (props: RootVariants & BodyVariants) => {
   const { fullWidth, classNames, variant, hidden, direction, centerContent } =
     props;
 
-  const Root = useMemo(
+  const StyledRoot = createStyle(AueraDivWithMotion);
+  const StyledChildren = createStyle("div");
+
+  const rootStyles = useMemo(
     () =>
-      createStyle(AueraDivWithMotion).classname(
+      tw(
         root({
-          className: classNames?.root,
           fullWidth,
           hidden,
           variant,
           direction,
-        })
+        }),
+        classNames?.root
       ),
     [fullWidth, classNames?.root, variant, hidden, direction]
   );
 
-  const Body = useMemo(
-    () =>
-      createStyle("div").classname(
-        body({ centerContent, className: classNames?.body })
-      ),
+  const bodyStyles = useMemo(
+    () => tw(body({ centerContent }), classNames?.body),
     [centerContent, classNames]
   );
 
-  return { Root, Body };
+  return {
+    Root: useMemo(() => StyledRoot.classname(rootStyles), [rootStyles]),
+    Body: useMemo(() => StyledChildren.classname(bodyStyles), [bodyStyles]),
+  };
 };

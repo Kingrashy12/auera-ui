@@ -54,6 +54,16 @@ import CollapseDemo from "@/components/example/collapse/demo";
 import CollapseWithCustomHeader from "@/components/example/collapse/render-header";
 import GroupMapDemo from "@/components/example/groupmap/demo";
 import GroupMapEmpty from "@/components/example/groupmap/empty-list";
+import IconDemo from "@/components/example/icon/demo";
+import DynamicSvg from "@/components/example/icon/dynamic-svg";
+import CustomSvg from "@/components/example/icon/custom-svg";
+import Note from "@/components/Note";
+import IButtonSizes from "@/components/example/i_button/sizes";
+import IButtonDemo from "@/components/example/i_button/demo";
+import IButtonVariants from "@/components/example/i_button/variants";
+import IButtonAsChild from "@/components/example/i_button/asChild";
+import IButtonRadius from "@/components/example/i_button/radius";
+import IButtonWithTrigger from "@/components/example/i_button/with-trigger";
 
 export const components = {
   DetailCard,
@@ -115,6 +125,16 @@ export const components = {
   CollapseWithCustomHeader,
   GroupMapDemo,
   GroupMapEmpty,
+  IconDemo,
+  DynamicSvg,
+  CustomSvg,
+  Note,
+  IButtonSizes,
+  IButtonDemo,
+  IButtonVariants,
+  IButtonAsChild,
+  IButtonRadius,
+  IButtonWithTrigger,
 };
 
 export const MDXRemote = dynamic(() =>

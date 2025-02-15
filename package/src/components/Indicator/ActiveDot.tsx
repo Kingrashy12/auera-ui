@@ -1,7 +1,7 @@
 import { getDisplayName } from "@/utils/displayname";
 import { ColorPair } from "../../types/auera-system";
 import React from "react";
-import { tw } from "@/utils";
+import { tw } from "stywind";
 
 type DotProps = {
   isActive: boolean;

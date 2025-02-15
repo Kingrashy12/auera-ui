@@ -13,6 +13,7 @@ const Modal: FC<ModalType> = ({
   mode,
   value,
   className,
+  zIndex,
 }) => {
   const { isOpen, onClose, activeModalValue } = useModal();
   const { mode: AppMode } = useTheme();
@@ -27,10 +28,8 @@ const Modal: FC<ModalType> = ({
       preventClose={preventClose}
       intensity={intensity}
       mode={currentMode as "light" | "dark"}
-      className={tw(
-        "flex items-center justify-center w-full",
-        className as string
-      )}
+      className={tw("flex items-center justify-center w-full", className)}
+      zIndex={zIndex}
     >
       {children}
     </Backdrop>

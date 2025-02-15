@@ -14,13 +14,13 @@ const Radio: React.FC<RadioProps> = ({
     <input
       className={tw(
         "cursor-pointer transition-all duration-500",
-        className,
         {
           "w-4 h-4": size === 16,
           "w-5 h-5": size === 20,
           "w-6 h-6": size === 24,
         },
-        `accent-${color}`
+        `accent-${color}`,
+        className
       )}
       type="radio"
       name={name}

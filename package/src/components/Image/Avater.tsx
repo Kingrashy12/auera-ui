@@ -1,7 +1,7 @@
 import React from "react";
 import Skeleton from "../loader/Skeleton";
-import { tw } from "@/utils";
 import { getDisplayName } from "@/utils/displayname";
+import { tw } from "stywind";
 
 interface AvatarProps extends React.ComponentProps<"img"> {
   size?: "sm" | "md" | "lg" | "xl";

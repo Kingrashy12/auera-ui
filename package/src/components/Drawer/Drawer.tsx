@@ -12,6 +12,7 @@ const Drawer: FC<DrawerProps> = ({
   mode,
   value,
   className,
+  zIndex,
 }) => {
   const { isOpen, onClose, activeDrawerValue } = useDrawer();
   const { currentMode } = useMode(mode);
@@ -26,6 +27,7 @@ const Drawer: FC<DrawerProps> = ({
       onClose={onClose}
       mode={currentMode}
       className={className}
+      zIndex={zIndex}
     >
       {children}
     </Backdrop>

@@ -63,14 +63,11 @@ const DynamicBreadcrumbs: React.FC<DynamicBreadcrumbsProps> = ({
   }, [router.pathname]);
 
   return (
-    <Box className={tw("gap-1", containerClass as string)}>
+    <Box className={tw("gap-1", containerClass)}>
       {items
         .filter((item) => item.label !== exclude)
         .map((item, index) => (
-          <Box
-            key={index}
-            className={tw("items-center gap-1", className as string)}
-          >
+          <Box key={index} className={tw("items-center gap-1", className)}>
             {index > 0 && (
               <Icon
                 size={14}
@@ -88,7 +85,7 @@ const DynamicBreadcrumbs: React.FC<DynamicBreadcrumbsProps> = ({
                 <span
                   className={tw(
                     "text-muted font-inter font-medium text-sm",
-                    itemClass as string
+                    itemClass
                   )}
                 >
                   {item.label}
@@ -101,7 +98,7 @@ const DynamicBreadcrumbs: React.FC<DynamicBreadcrumbsProps> = ({
                       ? "text-primary pointer-events-none cursor-text"
                       : "text-muted",
                     "font-inter font-medium text-sm",
-                    itemClass as string
+                    itemClass
                   )}
                 >
                   {item.label}
@@ -111,7 +108,7 @@ const DynamicBreadcrumbs: React.FC<DynamicBreadcrumbsProps> = ({
               <span
                 className={tw(
                   "text-muted font-inter font-medium text-sm",
-                  itemClass as string
+                  itemClass
                 )}
               >
                 {item.label}

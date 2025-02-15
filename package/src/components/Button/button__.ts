@@ -3,6 +3,7 @@ import button_corporate from "./button-corporate";
 import button_frost from "./button-frost";
 import button_neumorphic from "./button-neumorphic";
 import { ButtonVariant, SchemeVariant } from "@/types/auera-system";
+import { tw } from "stywind";
 
 type Cls = {
   colorScheme: SchemeVariant;
@@ -17,12 +18,17 @@ const generateButtonClass = ({ colorScheme, variant, className }: Cls) => {
     {
       variants: {
         flavour: {
-          corporate: button_corporate({ colorScheme })({ variant, className }),
-          frost: button_frost({ colorScheme })({ variant, className }),
-          neumorphic: button_neumorphic({ colorScheme })({
-            variant,
-            className,
-          }),
+          corporate: tw(
+            button_corporate({ colorScheme })({ variant }),
+            className
+          ),
+          frost: tw(button_frost({ colorScheme })({ variant }), className),
+          neumorphic: tw(
+            button_neumorphic({ colorScheme })({
+              variant,
+            }),
+            className
+          ),
         },
         radius: {
           none: "rounded-none",

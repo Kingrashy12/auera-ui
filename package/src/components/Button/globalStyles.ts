@@ -1,4 +1,4 @@
-import { defineClass } from "@/utils";
+import { defineClass } from "stywind";
 
 export const darkHoverStyles = {
   primary: defineClass("hover:bg-dark-soft-blue"),

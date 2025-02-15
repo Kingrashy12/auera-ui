@@ -8,12 +8,12 @@ import { IoSearchOutline } from "react-icons/io5";
 const Community = ({ className }: { className?: string }) => {
   return (
     <Box className={`gap-3 items-center ${className}`}>
-      <IconButton variant="ghost" radius="full">
+      <IconButton variant="ghost" radius="xl">
         <IoSearchOutline size={19} />
       </IconButton>
 
       <Link href={github_url} rel="noreferel" target="_blank">
-        <IconButton variant="outline" radius="full">
+        <IconButton variant="outline" radius="xl">
           <FaGithub size={19} />
         </IconButton>
       </Link>

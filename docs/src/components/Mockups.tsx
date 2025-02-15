@@ -11,7 +11,7 @@ const Mockups = () => {
   return (
     <MapItems
       data={sortedItems}
-      className="!flex-wrap !gap-5 max-[380px]:flex-col"
+      className="!flex-wrap !gap-5 max-[380px]:flex-col overflow-y-hidden"
       renderItem={(item, index) => (
         <Link
           href={item.uri}

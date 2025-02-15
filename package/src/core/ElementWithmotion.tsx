@@ -3,10 +3,11 @@ import {
   AueraElementPropsWithMotion,
   HTMLElements,
 } from "@/types/auera-system";
-import { tw, useProps } from "@/utils";
+import { useProps } from "@/utils";
 import { getDisplayName } from "@/utils/displayname";
 import { motion } from "motion/react";
 import { forwardRef } from "react";
+import { tw } from "stywind";
 
 const ElementWithmotion = <T extends keyof HTMLElements>({
   tag: Tag = "div",

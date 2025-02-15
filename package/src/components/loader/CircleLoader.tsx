@@ -1,6 +1,7 @@
 import { getDisplayName } from "@/utils/displayname";
 import { ColorPair } from "../../types/auera-system";
 import { tw } from "stywind";
+
 type LoaderProps = {
   size?: "sm" | "md" | "lg";
   color?: ColorPair;
@@ -9,7 +10,7 @@ type LoaderProps = {
 const bounceSize = {
   sm: "w-6 h-6 border-2",
   md: "w-10 h-10 border-4",
-  lg: "w-12 h-12 border-6",
+  lg: "w-12 h-12 !border-[6px]",
 };
 const CircleLoader = ({
   size = "md",

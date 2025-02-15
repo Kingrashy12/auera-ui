@@ -37,7 +37,7 @@ const Navbar = () => {
             trigger="drawer"
             triggerType="open"
             variant="outline"
-            radius="full"
+            radius="xl"
             className="hidden max-[650px]:block"
           >
             <IoMenu size={18} />

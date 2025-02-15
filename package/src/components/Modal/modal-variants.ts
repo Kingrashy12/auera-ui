@@ -67,7 +67,7 @@ const header = cva("flex items-center justify-between p-[13px] w-full", {
 });
 
 const panel = cva(
-  "max-w-full max-h-[95%] h-auto flex rounded-[11px] relative z-[800] overflow-hidden gap-[10px]",
+  "max-w-full max-h-[95%] h-auto flex relative z-[800] overflow-hidden gap-[10px]",
   {
     variants: {
       align: {
@@ -90,6 +90,13 @@ const panel = cva(
         lg: "w-[500px] max-[550px]:w-[95%]",
         xl: "w-[600px] max-[550px]:w-[95%]",
         full: "w-10/12 max-[550px]:w-[95%]",
+      },
+      radius: {
+        md: "rounded-[12px]",
+        lg: "rounded-[15px]",
+        xl: "rounded-[19px]",
+        "2xl": "rounded-[23px]",
+        "3xl": "rounded-[27px]",
       },
       transition: {
         slideIn: "",
@@ -132,7 +139,6 @@ const panel = cva(
         transition: "dropIn",
         class: "animate-dropOut",
       },
-      // neumorphic
       {
         mode: "light",
         flavour: "neumorphic",
@@ -143,7 +149,6 @@ const panel = cva(
         flavour: "neumorphic",
         class: "shadow-neumorphic-modal-dark",
       },
-      //   frost
       {
         mode: "light",
         flavour: "frost",
@@ -154,22 +159,22 @@ const panel = cva(
         flavour: "frost",
         class: "shadow-frost-modal-dark",
       },
-      //   corporate
       {
         mode: "light",
         flavour: "corporate",
-        class: "shadow-card-shadow-light",
+        class: "shadow-[0_4px_10px_rgba(0,0,0,0.1)]",
       },
       {
         mode: "dark",
         flavour: "corporate",
-        class: "shadow-card-shadow-dark",
+        class: "shadow-[0_4px_8px_rgba(255,255,255,0.05)]",
       },
     ],
     defaultVariants: {
       size: "auto",
       transition: "walkIn",
       align: "vertical",
+      radius: "md",
     },
   }
 );

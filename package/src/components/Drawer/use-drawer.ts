@@ -14,8 +14,15 @@ import { createStyle } from "stywind";
 const useDrawerContent = (props: DrawerContentVariants) => {
   const { centerContent, className } = props;
 
+  const StyledContent = createStyle("div");
+
+  const contentStyles = useMemo(
+    () => content({ centerContent, className }),
+    [centerContent, className]
+  );
+
   return useMemo(
-    () => createStyle("div").classname(content({ centerContent, className })),
+    () => StyledContent.classname(contentStyles),
     [centerContent, className]
   );
 };

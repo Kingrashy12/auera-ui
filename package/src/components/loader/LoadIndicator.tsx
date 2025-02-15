@@ -25,8 +25,8 @@ const LoadIndicator = ({ className, color }: LoadIndicatorProps) => {
         style={{ width: `${progress}%` }}
         className={tw(
           "h-[3px] rounded-r-md shadow",
-          className as string,
-          color ? `bg-${color}` : "bg-blue-500"
+          color ? `bg-${color}` : "bg-blue-500",
+          className
         )}
       />
     </div>
