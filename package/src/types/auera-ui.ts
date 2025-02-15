@@ -811,3 +811,32 @@ export interface LoaderProp {
   renderError?: React.ReactNode;
   keepOut?: boolean;
 }
+
+export interface SelectTriggerProps {
+  placeholder: string;
+  className?: string;
+}
+
+export interface SelectProps {
+  className?: string;
+  children?: React.ReactNode;
+  radius?: "none" | "sm" | "md" | "lg" | "xl" | "2xl";
+  mode?: "light" | "dark";
+}
+
+export interface SelectState {
+  select: (value: string) => void;
+}
+
+export interface SelectContentProps {
+  children?: React.ReactNode;
+  className?: string;
+  style?: React.CSSProperties;
+}
+
+export interface SelectItemProps {
+  value: string;
+  onSelect?: (value: string) => void;
+  children?: React.ReactNode;
+  className?: string;
+}

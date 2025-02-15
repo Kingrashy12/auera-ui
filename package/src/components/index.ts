@@ -13,6 +13,7 @@ export * from "./Collapse";
 export * from "./Breadcrumbs";
 export * from "./File";
 export * from "./Form";
+export * from "./Select";
 
 export { default as Backdrop } from "./Backdrop/Backdrop";
 export { default as GroupMap } from "./utils/GroupMap";
