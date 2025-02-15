@@ -139,7 +139,6 @@ const panel = cva(
         transition: "dropIn",
         class: "animate-dropOut",
       },
-      // neumorphic
       {
         mode: "light",
         flavour: "neumorphic",
@@ -150,7 +149,6 @@ const panel = cva(
         flavour: "neumorphic",
         class: "shadow-neumorphic-modal-dark",
       },
-      //   frost
       {
         mode: "light",
         flavour: "frost",
@@ -161,16 +159,15 @@ const panel = cva(
         flavour: "frost",
         class: "shadow-frost-modal-dark",
       },
-      //   corporate
       {
         mode: "light",
         flavour: "corporate",
-        class: "shadow-card-shadow-light",
+        class: "shadow-[0_4px_10px_rgba(0,0,0,0.1)]",
       },
       {
         mode: "dark",
         flavour: "corporate",
-        class: "shadow-card-shadow-dark",
+        class: "shadow-[0_4px_8px_rgba(255,255,255,0.05)]",
       },
     ],
     defaultVariants: {

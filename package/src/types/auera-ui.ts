@@ -279,6 +279,7 @@ export type ModalType = {
    */
   value: string;
   className?: string;
+  zIndex?: zIndex;
 };
 
 export type ModalPanelType = {

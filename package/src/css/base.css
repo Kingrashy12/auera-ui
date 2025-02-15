@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html[select-open="true"] {
+  overflow-y: hidden;
+}
+
 @layer utilities {
   .border-image {
     border-image: initial;

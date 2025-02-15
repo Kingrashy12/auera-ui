@@ -21,7 +21,7 @@ const ToggleTheme = () => {
   return (
     <Menu zIndex="200" className="right-5 !w-[150px]">
       <MenuTrigger>
-        <IconButton variant="outline" radius="full">
+        <IconButton variant="outline" radius="xl">
           <Icon icon={icon[mode]} size={18} />
         </IconButton>
       </MenuTrigger>

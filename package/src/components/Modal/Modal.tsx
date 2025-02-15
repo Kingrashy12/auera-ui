@@ -13,6 +13,7 @@ const Modal: FC<ModalType> = ({
   mode,
   value,
   className,
+  zIndex,
 }) => {
   const { isOpen, onClose, activeModalValue } = useModal();
   const { mode: AppMode } = useTheme();
@@ -31,6 +32,7 @@ const Modal: FC<ModalType> = ({
         "flex items-center justify-center w-full",
         className as string
       )}
+      zIndex={zIndex}
     >
       {children}
     </Backdrop>

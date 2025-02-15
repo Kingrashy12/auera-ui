@@ -8,7 +8,7 @@ type DrawerFooterVariants = VProps<typeof footer>;
 type DrawerPanelVariants = VProps<typeof panel>;
 
 const content = cva(
-  "flex flex-col p-3 bg-drawer-content overflow-y-auto h-full m-[5px 0] gap-[16px]",
+  "flex flex-col p-3 bg-drawer-content select-open:scrollbar-none overflow-y-auto h-full m-[5px 0] gap-[16px]",
   {
     variants: {
       centerContent: {

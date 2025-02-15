@@ -1,0 +1,41 @@
+---
+title: Icon | AueraUI
+description: Used for displaying an svg icon
+---
+
+<DetailCard description='Used for displaying an svg icon'/>
+
+<Details>
+<IconDemo />
+</Details>
+
+<Details id='examples'>
+<HeaderLabel id='examples'>Examples</HeaderLabel>
+</Details>
+
+<Details id='react-icons'>
+<HeaderLabel id='react-icons' as='h3'>React Icons</HeaderLabel>
+<p className='text'>It's recommended to use <TabLink to="https://react-icons.github.io/react-icons" label="React Icons" />
+ because it offers a large and versatile icon set.</p>
+</Details>
+
+<Details id='custom-svg'>
+<HeaderLabel id='custom-svg' as='h3'>Custom SVG</HeaderLabel>
+<p className='text'>You can also use a custom SVG, if you prefer not to use from React Icons library</p>
+<CustomSvg/>
+</Details>
+
+<Details id='dynamic-svg'>
+<HeaderLabel id='dynamic-svg' as='h3'>Dynamic SVG</HeaderLabel>
+<p className='text'>You can dynamically set the icon based on user interactions or props</p>
+<DynamicSvg/>
+</Details>
+
+<Details> 
+<Note note="Avoid wrapping the icon in a fragment (<>...</> or <FaUser/>) as this may cause the component to break." />
+</Details>
+
+<Details id='api-reference'>
+<HeaderLabel id='api-reference'>API Reference</HeaderLabel>
+<APITable reference={iconRef} />
+</Details>

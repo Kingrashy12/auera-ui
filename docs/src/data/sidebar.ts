@@ -60,6 +60,7 @@ export const sideBarLinks = [
   {
     header: "Components",
     links: [
+      { label: "Avatar", uri: "/docs/components/avatar", soon: true },
       { label: "Button", uri: "/docs/components/button", updated: true },
       { label: "Backdrop", uri: "/docs/components/backdrop" },
       { label: "Box", uri: "/docs/components/box" },
@@ -69,8 +70,13 @@ export const sideBarLinks = [
       { label: "Card", uri: "/docs/components/card" },
       { label: "Drawer", uri: "/docs/components/drawer" },
       {
-        label: "IconButton",
-        uri: "/docs/components/iconbutton",
+        label: "DynamicBreadcrumb",
+        uri: "/docs/components/dynamic-dreadcrumb",
+        soon: true,
+      },
+      {
+        label: "Icon Button",
+        uri: "/docs/components/icon-button",
         updated: true,
       },
       { label: "Icon", uri: "/docs/components/icon" },
@@ -79,6 +85,16 @@ export const sideBarLinks = [
       { label: "GroupMap", uri: "/docs/components/groupmap" },
       { label: "OTPInput", uri: "/docs/components/otpinput" },
       { label: "TextInput", uri: "/docs/components/textinput", soon: true },
+      { label: "Media", uri: "/docs/components/media", soon: true },
+      { label: "Skeleton", uri: "/docs/components/skeleton", soon: true },
+      { label: "Select", uri: "/docs/components/select", soon: true },
+      {
+        label: "PasswordInput",
+        uri: "/docs/components/password-input",
+        soon: true,
+      },
+      { label: "FileUpload", uri: "/docs/components/file-upload", soon: true },
+      { label: "Loading", uri: "/docs/components/loading", soon: true },
       { label: "Tabs", uri: "/docs/components/tabs" },
       { label: "ToolTip", uri: "/docs/components/tooltip" },
       {

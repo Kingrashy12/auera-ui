@@ -32,7 +32,7 @@ const MobileSideBar = () => {
             triggerType="close"
             triggerValue="tool-bar"
             variant="outline"
-            radius="full"
+            radius="xl"
           >
             <IoClose size={18} />
           </IconButton>
