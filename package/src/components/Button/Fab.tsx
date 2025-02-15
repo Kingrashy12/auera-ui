@@ -35,7 +35,6 @@ const Fab: React.FC<FabProps> = ({
   return (
     <div
       className={tw(
-        className,
         colorScheme[color],
         fabPosition[position],
         fabSize[size],
@@ -48,7 +47,8 @@ const Fab: React.FC<FabProps> = ({
           static: type === "static",
         },
         "flex items-center justify-center animate-walkIn cursor-pointer rounded-full shadow transition-all duration-300 active:scale-95",
-        disabled && "pointer-events-none opacity-75 cursor-not-allowed"
+        disabled && "pointer-events-none opacity-75 cursor-not-allowed",
+        className
       )}
       {...props}
     >

@@ -28,10 +28,7 @@ const Modal: FC<ModalType> = ({
       preventClose={preventClose}
       intensity={intensity}
       mode={currentMode as "light" | "dark"}
-      className={tw(
-        "flex items-center justify-center w-full",
-        className as string
-      )}
+      className={tw("flex items-center justify-center w-full", className)}
       zIndex={zIndex}
     >
       {children}

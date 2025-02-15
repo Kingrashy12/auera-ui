@@ -66,9 +66,9 @@ const getToast = () => {
   ) => {
     const ToastClass = defineClass(
       tw(
-        basicClass,
         isVisible ? "opacity-100" : "opacity-0",
-        getToastTransition(isVisible as boolean, transition)
+        getToastTransition(isVisible as boolean, transition),
+        basicClass
       )
     );
     const WrapClass = defineClass(

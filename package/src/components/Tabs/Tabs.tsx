@@ -19,12 +19,12 @@ const getStylesWithMode = (
   };
   const styles = {
     light: {
-      line: tw(sharedStyle.line, defineClass("border-b-neutral-200")),
-      solid: tw(sharedStyle.solid, defineClass("bg-gray-100")),
+      line: tw(sharedStyle.line, "border-b-neutral-200"),
+      solid: tw(sharedStyle.solid, "bg-gray-100"),
     },
     dark: {
-      line: tw(sharedStyle.line, defineClass("border-b-neutral-700")),
-      solid: tw(sharedStyle.solid, defineClass("bg-neutral-800")),
+      line: tw(sharedStyle.line, "border-b-neutral-700"),
+      solid: tw(sharedStyle.solid, "bg-neutral-800"),
     },
   };
 
@@ -68,12 +68,12 @@ const Tabs: React.FC<TabsType> = ({
   const TabList = useMemo(() => {
     return createStyle("div").classname(
       tw(
-        className as string,
         defaultStyle,
         getStylesWithMode(currentMode, variant, rounded),
         hideBorder && "border-none",
         hideScrollBar ? "scrollbar-none" : scrollBar,
-        getTabWidth(variant, fullWidth)
+        getTabWidth(variant, fullWidth),
+        className
       )
     );
   }, [
@@ -106,7 +106,7 @@ const Tabs: React.FC<TabsType> = ({
     >
       <Box
         direction="column"
-        className={tw(containerClass as string, "gap-3 overflow-hidden")}
+        className={tw("gap-3 overflow-hidden", containerClass)}
         fullWidth
       >
         <TabList>

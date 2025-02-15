@@ -1,6 +1,7 @@
 import { getDisplayName } from "@/utils/displayname";
 import { ColorPair } from "../../types/auera-system";
 import { tw } from "stywind";
+
 type LoaderProps = {
   size?: "sm" | "md" | "lg";
   color?: ColorPair;

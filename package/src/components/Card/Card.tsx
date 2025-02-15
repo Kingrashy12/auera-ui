@@ -39,7 +39,7 @@ const Card = forwardRef<HTMLDivElement, CardWithMotion>(
             alt={img?.alt}
             width={img?.width}
             height={img?.height}
-            className={tw(img?.className, "rounded-t-lg")}
+            className={tw("rounded-t-lg", img?.className)}
             style={img?.style}
           />
         );

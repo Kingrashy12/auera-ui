@@ -13,9 +13,9 @@ const Stack = ({
   return (
     <Box
       className={tw(
-        className,
         align === "vertical" ? "flex-col" : "flex-row",
-        "items-center justify-center gap-3 w-full"
+        "items-center justify-center gap-3 w-full",
+        className
       )}
       wrap={wrap}
       {...props}

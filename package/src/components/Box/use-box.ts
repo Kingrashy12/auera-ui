@@ -1,9 +1,8 @@
 import { useMemo } from "react";
-import { createStyle } from "stywind";
+import { createStyle, tw } from "stywind";
 import { motion } from "motion/react";
 import { BoxWithMotion } from "@/types/auera-motion";
 import box from "./box_variants";
-import { tw } from "@/utils";
 
 export const useBox = (props: BoxWithMotion) => {
   const { direction, fullWidth, wrap, centered, hidden, between, className } =

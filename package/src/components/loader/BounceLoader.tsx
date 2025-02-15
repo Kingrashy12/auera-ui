@@ -1,6 +1,6 @@
 import { getDisplayName } from "@/utils/displayname";
 import { ColorPair } from "../../types/auera-system";
-import { defineClass, tw } from "@/utils";
+import { tw } from "stywind";
 
 type BounceProps = {
   size?: "sm" | "md" | "lg";
@@ -12,8 +12,10 @@ const bounceSize = {
   lg: "w-4 h-4",
 };
 const BounceLoader = ({ size = "md", color = "blue-500" }: BounceProps) => {
-  const Loader = defineClass(
-    tw(bounceSize[size], "rounded-full animate-bounce", `bg-${color}`)
+  const Loader = tw(
+    bounceSize[size],
+    "rounded-full animate-bounce",
+    `bg-${color}`
   );
   return (
     <div className="flex flex-row gap-2">

@@ -4,35 +4,25 @@ import { ButtonProps } from "@/types/auera-ui";
 import { cva } from "class-variance-authority";
 import { SchemeVariant, VProps } from "@/types/auera-system";
 
-// Define background styles for different color schemes
 const colorSchemeBackgrounds = {
   primary: tw(
-    baseButtonClass,
-    defineClass(
-      "bg-blue-600 shadow-frost-blue border-frost-blue hover:bg-blue-700"
-    )
+    "bg-blue-600 shadow-frost-blue border-frost-blue hover:bg-blue-700",
+    baseButtonClass
   ),
   success: tw(
-    baseButtonClass,
-    defineClass(
-      "bg-green-600 shadow-frost-success border-frost_success hover:bg-green-700"
-    )
+    "bg-green-600 shadow-frost-success border-frost_success hover:bg-green-700",
+    baseButtonClass
   ),
   danger: tw(
-    baseButtonClass,
-    defineClass(
-      "bg-red-600 shadow-frost-danger border-frost-danger hover:bg-red-700"
-    )
+    "bg-red-600 shadow-frost-danger border-frost-danger hover:bg-red-700",
+    baseButtonClass
   ),
   warning: tw(
-    baseButtonClass,
-    defineClass(
-      "bg-yellow-500 shadow-frost-warn border-frost_warn hover:bg-yellow-700"
-    )
+    "bg-yellow-500 shadow-frost-warn border-frost_warn hover:bg-yellow-700",
+    baseButtonClass
   ),
 };
 
-// Define text color schemes for buttons
 const colorSchemeText = {
   primary: defineClass("text-blue-500"),
   success: defineClass("text-green-500"),
@@ -40,35 +30,25 @@ const colorSchemeText = {
   warning: defineClass("text-yellow-500"),
 };
 
-// Define styles for light button variant
 const lightButtonStyles = {
   primary: tw(
-    baseButtonClass,
-    defineClass(
-      "shadow-frost-light-primary border-frost-light-primary hover:bg-frost-light-hover"
-    )
+    "shadow-frost-light-primary border-frost-light-primary hover:bg-frost-light-hover",
+    baseButtonClass
   ),
   success: tw(
-    baseButtonClass,
-    defineClass(
-      "shadow-frost-light-success border-frost-light-success hover:bg-frost-success-hover"
-    )
+    "shadow-frost-light-success border-frost-light-success hover:bg-frost-success-hover",
+    baseButtonClass
   ),
   danger: tw(
-    baseButtonClass,
-    defineClass(
-      "shadow-frost-light-danger border-frost-light-danger hover:bg-frost-danger-hover"
-    )
+    "shadow-frost-light-danger border-frost-light-danger hover:bg-frost-danger-hover",
+    baseButtonClass
   ),
   warning: tw(
-    baseButtonClass,
-    defineClass(
-      "shadow-frost-light-warn border-frost-light-warn hover:bg-frost-warn-hover"
-    )
+    "shadow-frost-light-warn border-frost-light-warn hover:bg-frost-warn-hover",
+    baseButtonClass
   ),
 };
 
-// Define hover styles for dimmed buttons
 const hoverStylesGhost = {
   primary: defineClass("hover:bg-blue-100 tone-dark:hover:bg-dark-soft-blue"),
   success: defineClass("hover:bg-green-100 tone-dark:hover:bg-dark-soft-green"),
@@ -78,7 +58,6 @@ const hoverStylesGhost = {
   ),
 };
 
-// hover styles for flat buttons
 const flatHoverStyles = {
   primary: defineClass("hover:bg-blue-100 tone-dark:hover:bg-slate-900"),
   success: defineClass("hover:bg-green-100 tone-dark:hover:bg-slate-900"),

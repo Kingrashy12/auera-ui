@@ -69,12 +69,12 @@ const CheckBox: React.FC<CheckBoxProps> = ({
     >
       <div
         className={tw(
-          classNames?.checker,
           "cursor-pointer flex items-center flex-shrink-0 justify-center border-2 active:scale-90 transition-all duration-300",
           merge.single(radiusClass, radius),
           merge.single(sizeClass, size),
           checked ? getColorString() : "border-gray-400",
-          { "bg-neutral-400 border-neutral-400": disabled }
+          { "bg-neutral-400 border-neutral-400": disabled },
+          classNames?.checker
         )}
       >
         {checked && <BsCheckLg color="white" size={20} />}

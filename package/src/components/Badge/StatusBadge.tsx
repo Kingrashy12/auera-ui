@@ -38,12 +38,12 @@ const StatusBadge: React.FC<StatusBadgeProps> = ({
     <div className={tw("relative w-auto flex flex-shrink-0", className)}>
       <div
         className={tw(
-          basicClass,
           merge.single(statusBadgeSize, size),
           merge.single(statusBadgeColorScheme, status),
           merge.single(position, placement),
           badgeClassName as string,
-          animate ? "animate-pulse" : ""
+          animate && "animate-pulse",
+          basicClass
         )}
       />
       {children}
