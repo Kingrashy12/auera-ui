@@ -1,7 +1,6 @@
 import { ToastOptionsType, ToastPositionType } from "@/types/auera-ui";
 import { DivProps } from "../../types/element-props";
-import { createStyle } from "stywind";
-import { defineClass, merge, tw } from "@/utils";
+import { createStyle, defineClass, merge, tw } from "stywind";
 
 interface IStyleToast extends DivProps {
   position: ToastPositionType;

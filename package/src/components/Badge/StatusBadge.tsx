@@ -1,6 +1,6 @@
 import { getDisplayName } from "@/utils/displayname";
 import { StatusBadgeProps } from "../../types/auera-ui";
-import { defineClass, merge, tw } from "@/utils";
+import { defineClass, merge, tw } from "stywind";
 
 const statusBadgeColorScheme = {
   online: "bg-green-500",

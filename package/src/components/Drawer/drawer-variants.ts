@@ -1,6 +1,6 @@
 import { VProps } from "@/types/auera-system";
-import { defineClass } from "@/utils";
 import { cva } from "class-variance-authority";
+import { defineClass } from "stywind";
 
 type DrawerContentVariants = VProps<typeof content>;
 type DrawerHeaderVariants = VProps<typeof header>;

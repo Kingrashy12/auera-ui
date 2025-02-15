@@ -4,7 +4,6 @@ export { colors } from "./colors";
 export { tailwindExtend } from "./tailwind.extend";
 export * from "./fun";
 export * from "./active";
-export * from "./cls";
 export { dyn } from "./dyn";
 export { useProps } from "./props/use-props";
 export { default as formatDate } from "./date";

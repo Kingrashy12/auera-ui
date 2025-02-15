@@ -1,9 +1,9 @@
 import { getDisplayName } from "../../utils/displayname";
 import { CheckBoxProps } from "../../types/auera-ui";
-import { merge, tw } from "../../utils";
 import Box from "../Box/Box";
 import { BsCheckLg } from "react-icons/bs";
 import { useState } from "react";
+import { merge, tw } from "stywind";
 
 const CheckBox: React.FC<CheckBoxProps> = ({
   onCheckChange,
