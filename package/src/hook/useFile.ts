@@ -4,7 +4,9 @@ import { useContext } from "react";
 export const useFile = () => {
   const context = useContext(UploadContext);
   if (context === undefined) {
-    throw new Error("All FileUpload sub must be used within FileUpload");
+    throw new Error(
+      "Missing `FileUpload`. Make sure you use FileUpload sub component within `FileUpload`."
+    );
   }
   return context;
 };

@@ -6,10 +6,12 @@ import { getDisplayName } from "@/utils/displayname";
 import MenuItem from "./MenuItem";
 import MenuTrigger from "./MenuTrigger";
 import Box from "../Box/Box";
+import { useMode } from "@/hook/use";
 
 const MenuProvider = ({ children, ...props }: MenuProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const triggerRef = useRef<HTMLDivElement>(null);
+  const { currentMode } = useMode(props.mode);
 
   const onOpen = () => {
     setIsOpen(true);
@@ -43,26 +45,32 @@ const MenuProvider = ({ children, ...props }: MenuProps) => {
         );
       }
 
-      return (
-        <MenuItem
-          key={index}
-          className={`${
-            eadge && typedElement.props.type !== "curved"
-              ? index === 0
-                ? "rounded-t-lg"
-                : "rounded-b-lg"
-              : ""
-          } ${typedElement.props.className || ""}`}
-          {...typedElement.props}
-        >
-          {typedElement.props.children}
-        </MenuItem>
-      );
+      if (element.type !== MenuItem) {
+        return element;
+      } else {
+        return (
+          <MenuItem
+            key={index}
+            className={`${
+              eadge && typedElement.props.type !== "curved"
+                ? index === 0
+                  ? "rounded-t-lg"
+                  : "rounded-b-lg"
+                : ""
+            } ${typedElement.props.className || ""}`}
+            {...typedElement.props}
+          >
+            {typedElement.props.children}
+          </MenuItem>
+        );
+      }
     });
   };
 
   return (
-    <MenuContext.Provider value={{ isOpen, onClose, onOpen }}>
+    <MenuContext.Provider
+      value={{ isOpen, onClose, onOpen, mode: currentMode }}
+    >
       <Box direction="column">
         {renderChildren(trigger, true)}
         <Menu {...props}>{renderChildren(items)}</Menu>

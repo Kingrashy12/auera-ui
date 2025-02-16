@@ -52,7 +52,7 @@ const TableOfContent = () => {
   }, [router]);
 
   const Table = createStyle("aside").classname(
-    "h-[90vh] sticky bg-sidebar border-l/ flex flex-col border-l-sidebar px-6 py-4 top-16 overflow-y-auto z-20 w-[250px] flex-shrink-0 p-8 max-lg:hidden"
+    "h-[90vh] sticky bg-sidebar border-l/ flex flex-col border-l-sidebar px-6 py-4 top-16 z-20 w-[250px] flex-shrink-0 p-8 max-lg:hidden"
   );
 
   return (
@@ -60,7 +60,7 @@ const TableOfContent = () => {
       <p className="font-inter text-primary font-semibold text-sm">
         On this page
       </p>
-      <Box direction="column" className="gap-3 mt-4">
+      <Box direction="column" className="gap-3 mt-4 overflow-y-auto mb-3">
         {headings &&
           headings?.map((heading) => (
             <p

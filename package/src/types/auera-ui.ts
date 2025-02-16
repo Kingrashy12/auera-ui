@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 
 import {
   ButtonVariant,
@@ -422,6 +422,7 @@ export interface DrawerTriggerType extends DivProps {
 }
 
 export type SwitchProps = {
+  on?: boolean;
   onToggleSwitch?: (state: boolean) => void;
   size?: "sm" | "md" | "lg" | "xl";
   unCheckColor?: ColorPair;
@@ -441,6 +442,7 @@ export type CheckBoxProps = {
     container?: TailwindClass;
   };
   children?: React.ReactNode;
+  checked?: boolean;
 };
 
 export type TabsType = {
@@ -810,6 +812,8 @@ export interface LoaderProp {
   error?: boolean;
   renderError?: React.ReactNode;
   keepOut?: boolean;
+  empty?: boolean;
+  emptyComponent?: ReactNode;
 }
 
 export interface SelectTriggerProps {

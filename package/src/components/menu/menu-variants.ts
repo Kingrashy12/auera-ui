@@ -7,9 +7,9 @@ type ItemVariants = VProps<typeof item>;
 type ContainerVariants = VProps<typeof container>;
 
 const list = cva(
-  "w-auto max-w-[20rem] h-auto top-8 rounded-xl absolute border-2 tone-dark:border-neutral-800 \
-    border-neutral-200 flex flex-col gap-1 transition-transform duration-300 \
-     flex-shrink-0 animate-walkIn bg-white tone-dark:bg-black",
+  `w-auto max-w-[20rem] h-auto top-8 rounded-xl absolute border-2 tone-dark:border-neutral-800
+    border-neutral-200 flex flex-col transition-transform duration-300
+     flex-shrink-0 animate-walkIn bg-white tone-dark:bg-black`,
   {
     variants: {
       zIndex: zIndexVariants,
@@ -34,9 +34,9 @@ const container = cva("absolute h-auto w-full", {
 });
 
 const item = cva(
-  "transition-transform duration-300 flex items-center p-[0.62rem] \
-    cursor-pointer gap-2 hover:bg-gray-100 \
-    tone-dark:hover:bg-neutral-800 font-medium select-none text-sm leading-5 top-6",
+  `transition-transform duration-300 flex items-center p-[0.62rem]
+    cursor-pointer gap-2 hover:bg-gray-100
+    tone-dark:hover:bg-neutral-800 font-medium select-none text-sm leading-5 top-6`,
   {
     variants: {
       disabled: {

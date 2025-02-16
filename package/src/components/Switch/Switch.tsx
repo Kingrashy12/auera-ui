@@ -24,29 +24,31 @@ const Switch: React.FC<SwitchProps> = ({
   unCheckColor = "gray-300",
   onToggleSwitch,
   disabled,
+  on,
 }) => {
-  const [isOn, setIsOn] = useState(false);
+  const [isOn, setIsOn] = useState(on ?? false);
 
   const toggleOn = () => {
-    setIsOn((prev) => {
-      const newState = !prev;
+    const newState = !isOn;
+
+    if (!disabled) {
       if (onToggleSwitch) {
         onToggleSwitch(newState);
       }
-      return newState;
-    });
+
+      setIsOn(newState);
+    }
   };
 
   return (
     <div
       className={tw(
-        "flex cursor-pointer p-1 rounded-full data-[ison=true]:justify-end items-center transition-transform",
+        "flex p-1 rounded-full data-[ison=true]:justify-end items-center transition-transform",
         sizeClass[size],
         isOn ? `bg-${color}` : `bg-${unCheckColor}`,
-        {
-          "cursor-not-allowed pointer-events-none opacity-85 bg-gray-300":
-            disabled,
-        }
+        disabled
+          ? "cursor-not-allowed opacity-85 bg-gray-300"
+          : "cursor-pointer"
       )}
       data-ison={isOn}
       onClick={toggleOn}

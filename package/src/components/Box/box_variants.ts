@@ -18,14 +18,11 @@ const box = cva("flex relative", {
     hidden: {
       true: "hidden",
     },
-    between: {
-      true: "justify-between",
-    },
-    "items-center": {
-      true: "items-center",
-    },
     centered: {
       true: "items-center justify-center",
+    },
+    between: {
+      true: "justify-between",
     },
   },
   defaultVariants: {
@@ -35,7 +32,6 @@ const box = cva("flex relative", {
     centered: false,
     between: false,
     hidden: false,
-    "items-center": false,
   },
 });
 
