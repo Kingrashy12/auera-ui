@@ -1,5 +1,3 @@
-"use client";
-
 import { createContext, RefObject, useContext } from "react";
 
 interface SelectContextInterface {

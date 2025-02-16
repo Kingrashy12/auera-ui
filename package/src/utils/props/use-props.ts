@@ -3,7 +3,6 @@ import { validElementProps } from "./props";
 export const useProps = (props: any, tag: keyof JSX.IntrinsicElements) => {
   const validProps = Object.keys((tag as any).propTypes || {});
 
-  //Filter out valid props and add the rest to remainingProps
   const { prefixedProps, remainingProps } = Object.entries(props).reduce<{
     prefixedProps: Record<string, any>;
     remainingProps: Record<string, any>;

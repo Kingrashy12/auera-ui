@@ -75,7 +75,7 @@ export const sideBarLinks = [
         soon: true,
       },
       {
-        label: "Icon Button",
+        label: "IconButton",
         uri: "/docs/components/icon-button",
         updated: true,
       },

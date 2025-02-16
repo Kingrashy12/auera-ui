@@ -12,7 +12,7 @@ const IButtonVariants = () => {
         <TabHandle value="code">Code</TabHandle>
         <TabPanel className="mt-4">
           <Stack wrap align="horizontal">
-            <IconButton>
+            <IconButton variant="subtle">
               <IoClose />
             </IconButton>
             <IconButton variant="outline">
@@ -24,7 +24,7 @@ const IButtonVariants = () => {
           </Stack>
         </TabPanel>
         <TabPanel>
-          <CodeBlock fileName="i_button/variants.tsx" code="" lg="tsx" />
+          <CodeBlock fileName="i_button/variants.tsx" code={code} lg="tsx" />
         </TabPanel>
       </Tabs>
     </CardContent>
@@ -32,3 +32,22 @@ const IButtonVariants = () => {
 };
 
 export default IButtonVariants;
+
+const code = `import { IconButton, Stack } from "auera-ui";
+import { IoClose } from "react-icons/io5";
+
+const Demo = () => {
+ return (
+  <Stack wrap align="horizontal">
+    <IconButton variant='subtle'>
+      <IoClose />
+    </IconButton>
+    <IconButton variant="outline">
+     <IoClose />
+    </IconButton>
+    <IconButton variant="ghost">
+     <IoClose />
+    </IconButton>
+  </Stack>
+ )
+};`;

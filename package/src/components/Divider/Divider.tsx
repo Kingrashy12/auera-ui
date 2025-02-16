@@ -1,5 +1,7 @@
+import { useMode } from "@/hook/use";
 import { cva } from "class-variance-authority";
 import React from "react";
+import { tw } from "stywind";
 
 interface DividerProps {
   type?: "height" | "bottom";
@@ -14,6 +16,9 @@ const divider = cva("bg-neutral-200 tone-dark:bg-neutral-800", {
       height: "w-[1px] h-auto",
     },
   },
+  defaultVariants: {
+    type: "bottom",
+  },
 });
 
 const Divider: React.FC<DividerProps> = ({
@@ -21,7 +26,14 @@ const Divider: React.FC<DividerProps> = ({
   className,
   mode,
 }) => {
-  return <div data-theme={mode} className={divider({ type, className })} />;
+  const { currentMode } = useMode(mode);
+
+  return (
+    <div
+      data-theme={currentMode}
+      className={tw(divider({ type }), className)}
+    />
+  );
 };
 
 export default Divider;

@@ -316,7 +316,7 @@ AueraUI includes a variety of components to help you build your application. The
 
 Each component is fully customizable and designed with accessibility and usability in mind. You can adjust styles, behavior, and layouts by extending Tailwind CSS or by modifying the components directly.
 
-For a full list of components and their usage, please refer to the [documentation](https://aueraui.vercel.app/components).
+For a full list of components and their usage, please refer to the [documentation](https://aueraui.vercel.app/docs/components/overview).
 
 ## Acknowledgements
 

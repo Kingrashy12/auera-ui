@@ -5,7 +5,25 @@ description: Used for displaying list of items with customizable rendering and l
 
 <DetailCard label="MapItems" description='Used for displaying list of items with customizable rendering and layout.'/>
 
+<Details>
+ <MapItemsDemo />
+</Details>
+
+<Details id='examples'>
+<HeaderLabel id='examples'>Examples</HeaderLabel>
+</Details>
+
+<Details id='empty-list-component'>
+<HeaderLabel id='empty-list-component' as='h3'>emptyListComponent</HeaderLabel>
+ <p className="text">To display component when data is empty use the <CodeTag>emptyListComponent</CodeTag> props</p>
+<Map_EmptyList />
+</Details>
+
 <Details id='api-reference'>
 <HeaderLabel id='api-reference'>API Reference</HeaderLabel>
 <APITable reference={mapitems_ref} />
+
+  <p className="text mt-2">
+    This component also accepts all <TabLink to="/docs/components/box#api-reference" label="Box" /> prop. since the data are wrapped with it
+  </p>
 </Details>

@@ -14,7 +14,7 @@ const CollapseWithCustomHeader = () => {
         <TabPanel className="mt-3">
           <Collapse
             renderHeader={(open) => (
-              <Box centered between fullWidth>
+              <Box between fullWidth>
                 <p className="theme-dark:text-white">Lorem</p>
                 <Icon
                   icon={open ? HiOutlineChevronDown : HiOutlineChevronRight}

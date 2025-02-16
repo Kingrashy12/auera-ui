@@ -64,6 +64,8 @@ import IButtonVariants from "@/components/example/i_button/variants";
 import IButtonAsChild from "@/components/example/i_button/asChild";
 import IButtonRadius from "@/components/example/i_button/radius";
 import IButtonWithTrigger from "@/components/example/i_button/with-trigger";
+import MapItemsDemo from "@/components/example/mapitems/demo";
+import Map_EmptyList from "@/components/example/mapitems/empty-list";
 
 export const components = {
   DetailCard,
@@ -135,6 +137,8 @@ export const components = {
   IButtonAsChild,
   IButtonRadius,
   IButtonWithTrigger,
+  MapItemsDemo,
+  Map_EmptyList,
 };
 
 export const MDXRemote = dynamic(() =>

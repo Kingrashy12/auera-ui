@@ -1,4 +1,5 @@
-import { cva, VariantProps } from "class-variance-authority";
+import { VProps } from "@/types/auera-system";
+import { cva } from "class-variance-authority";
 
 const box = cva("flex relative", {
   variants: {
@@ -17,11 +18,11 @@ const box = cva("flex relative", {
     hidden: {
       true: "hidden",
     },
-    between: {
-      true: "justify-between",
-    },
     centered: {
       true: "items-center justify-center",
+    },
+    between: {
+      true: "justify-between",
     },
   },
   defaultVariants: {
@@ -36,4 +37,4 @@ const box = cva("flex relative", {
 
 export default box;
 
-export type BoxVariants = VariantProps<typeof box>;
+export type BoxVariants = VProps<typeof box>;

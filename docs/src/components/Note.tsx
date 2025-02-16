@@ -1,5 +1,5 @@
-import { tw } from "auera-ui";
 import React from "react";
+import { tw } from "stywind";
 
 interface NoteProp {
   note: string;

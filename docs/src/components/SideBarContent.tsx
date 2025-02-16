@@ -40,9 +40,7 @@ const SideBarContent = () => {
     <>
       <Box
         fullWidth
-        className={tw(
-          "sticky flex-shrink-0 px-3 top-0 py-4 bg-sidebar z-20 border-b border-b-sidebar"
-        )}
+        className="sticky flex-shrink-0 px-3 top-0 py-4 bg-sidebar z-20 border-b border-b-sidebar"
       >
         <TextInput
           icon={IoSearch}
@@ -51,7 +49,6 @@ const SideBarContent = () => {
           value={query}
           placeholder="Search..."
           type="text"
-          mode="dark"
         />
       </Box>
       <Box direction="column" fullWidth className="gap-8 p-6 pl-3">

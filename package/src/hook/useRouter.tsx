@@ -77,7 +77,6 @@ const useRouter = (): RouterContextType => {
     const pathSegments = pathname.split("/").filter(Boolean);
 
     pathSegments.forEach((segment, index) => {
-      // Assume any segment that's not a common word could be a parameter
       if (!/^[a-z]+$/i.test(segment)) {
         params[`param${index + 1}`] = segment;
       }

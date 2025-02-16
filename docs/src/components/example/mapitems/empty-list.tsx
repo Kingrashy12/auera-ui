@@ -1,0 +1,81 @@
+import CodeBlock from "@/components/layout/code/Block";
+import CardContent from "@/components/lib/CardContent";
+import {
+  Avatar,
+  Box,
+  MapItems,
+  Stack,
+  TabHandle,
+  TabPanel,
+  Tabs,
+} from "auera-ui";
+import React from "react";
+import { FaRegSadTear } from "react-icons/fa";
+
+type Images = { img: string }[];
+
+const Map_EmptyList = () => {
+  return (
+    <CardContent>
+      <Tabs variant="solid" rounded>
+        <TabHandle value="preview">Preview</TabHandle>
+        <TabHandle value="preview">Code</TabHandle>
+        <TabPanel>
+          <Stack wrap align="horizontal">
+            <MapItems
+              data={[] as Images}
+              renderItem={(image, index) => (
+                <Avatar src={image.img} key={index} size="md" />
+              )}
+              emptyListComponent={
+                <Box centered className="flex-col gap-2">
+                  <FaRegSadTear
+                    size={50}
+                    className="theme-dark:text-neutral-300 animate-bounce"
+                  />
+                  <p className="font-inter text-base font-medium text-neutral-500 theme-dark:text-neutral-700">
+                    Notting is here!
+                  </p>
+                </Box>
+              }
+            />
+          </Stack>
+        </TabPanel>
+        <TabPanel>
+          <CodeBlock code={code} fileName="demo.tsx" lg="tsx" />
+        </TabPanel>
+      </Tabs>
+    </CardContent>
+  );
+};
+
+export default Map_EmptyList;
+
+const code = `import { Avatar, MapItems, Stack, Box } from "auera-ui";
+import { FaRegSadTear } from "react-icons/fa";
+
+type Images = { img: string }[];
+
+const Demo = () => {
+ return (
+  <Stack wrap align="horizontal">
+    <MapItems
+      data={[] as Images}
+      renderItem={(image, index) => (
+        <Avatar src={image.img} key={index} size="md" />
+      )}
+        emptyListComponent={
+         Box centered className="flex-col gap-2">
+          <FaRegSadTear
+            size={50}
+            className="theme-dark:text-neutral-300 animate-bounce"
+          />
+          <p className="font-inter text-base font-medium text-neutral-500 theme-dark:text-neutral-700">
+            Notting is here!
+          </p>
+         </Box>
+        }
+    />
+  </Stack>
+ )
+};`;

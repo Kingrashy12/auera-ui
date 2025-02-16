@@ -1,3 +1,4 @@
+import { ModeType } from "@/types/auera-system";
 import { createContext } from "react";
 
 type MenuContextProps = {
@@ -13,6 +14,7 @@ type MenuContextProps = {
    * Function to close the menu.
    */
   onClose: () => void;
+  mode: ModeType;
 };
 
 export const MenuContext = createContext<MenuContextProps | undefined>(

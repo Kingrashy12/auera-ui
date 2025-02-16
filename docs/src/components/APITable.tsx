@@ -1,6 +1,6 @@
-import { Box, tw } from "auera-ui";
+import { Box } from "auera-ui";
 import React from "react";
-import { createStyle } from "stywind";
+import { createStyle, tw } from "stywind";
 import CodeTag from "./CodeTag";
 import { ImMinus } from "react-icons/im";
 

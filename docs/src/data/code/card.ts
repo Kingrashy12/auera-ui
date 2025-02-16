@@ -191,7 +191,7 @@ const FeedCard = () => {
       border
     />
     
-    <Box between centered fullWidth>
+    <Box between fullWidth>
       <Box className="flex-col gap-1">
         <span className="font-poppins text-sm font-medium text-black
          theme-dark:text-white">
@@ -309,8 +309,7 @@ const Web3Card = () => {
     }}
       renderHeader={() => (
        <Box
-        className="px-4 py-5 border-b theme-dark:border-b-neutral-900"
-        centered
+        className="px-4 py-5 border-b theme-dark:border-b-neutral-900 items-center"
         between
        >
          <IconButton size="xs" radius="lg" variant="ghost">

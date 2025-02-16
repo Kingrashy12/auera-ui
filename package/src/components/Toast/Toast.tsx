@@ -223,10 +223,11 @@ const Toast = () => {
           <CloseIcon>
             <IconButton
               variant="ghost"
-              className="hover:bg-neutral-100"
+              mode="light"
+              radius="lg"
               onClick={() => removeToast(toast)}
             >
-              <HiOutlineX size={23} color="black" />
+              <HiOutlineX size={20} color="black" />
             </IconButton>
           </CloseIcon>
         </div>

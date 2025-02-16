@@ -14,8 +14,9 @@ const CheckBox: React.FC<CheckBoxProps> = ({
   classNames,
   children,
   disabled,
+  checked: controlledChecked,
 }) => {
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(controlledChecked ?? false);
 
   const sizeClass = {
     xs: "w-4 h-4",
@@ -46,30 +47,31 @@ const CheckBox: React.FC<CheckBoxProps> = ({
     }
   };
 
-  const check = () => {
-    setChecked((prev) => {
-      const newState = !prev;
+  const handleCheck = () => {
+    const newState = !checked;
 
-      if (onCheckChange) {
-        onCheckChange(newState);
-      }
+    if (onCheckChange) {
+      onCheckChange(newState);
+    }
 
-      return newState;
-    });
+    setChecked(newState);
   };
 
   return (
     <Box
       className={tw(
-        "gap-2 items-center",
-        { "cursor-not-allowed pointer-events-none opacity-85": disabled },
+        "gap-2 items-center w-fit shrink-0",
+        { "cursor-not-allowed opacity-85": disabled },
         classNames?.container
       )}
-      onClick={check}
+      onClick={handleCheck}
     >
       <div
         className={tw(
-          "cursor-pointer flex items-center flex-shrink-0 justify-center border-2 active:scale-90 transition-all duration-300",
+          "flex items-center flex-shrink-0 justify-center border-2 active:scale-90 transition-all duration-300",
+          disabled
+            ? "cursor-not-allowed pointer-events-none"
+            : "cursor-pointer",
           merge.single(radiusClass, radius),
           merge.single(sizeClass, size),
           checked ? getColorString() : "border-gray-400",

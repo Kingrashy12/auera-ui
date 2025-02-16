@@ -26,7 +26,7 @@ const CollapseDemo = () => {
  return (
   <Collapse
     renderHeader={(open) => (
-      <Box centered between fullWidth>
+      <Box between fullWidth>
         <p className="theme-dark:text-white">Lorem</p>
         <Icon
           icon={open ? HiOutlineChevronDown : HiOutlineChevronRight}

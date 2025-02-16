@@ -31,7 +31,7 @@ export const collapseRef = [
   {
     prop: "renderHeader",
     type: "function",
-    description: ".",
+    description: "Render Custom header",
     default: "undefined",
   },
   {

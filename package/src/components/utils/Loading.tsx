@@ -1,7 +1,7 @@
 import React from "react";
 import { BounceLoader, CircularProgress } from "../loader";
-
 import { LoaderProp } from "../../types/auera-ui";
+import { ReturnError } from "@/utils";
 
 const Loading: React.FC<LoaderProp> = ({
   isLoading,
@@ -14,7 +14,19 @@ const Loading: React.FC<LoaderProp> = ({
   error,
   renderError,
   keepOut,
+  empty,
+  emptyComponent,
 }) => {
+  ReturnError.throw(
+    Boolean(error && !renderError),
+    "Can't render an empty error node"
+  );
+
+  ReturnError.throw(
+    Boolean(empty && !emptyComponent),
+    "Please provide the emptyComponent"
+  );
+
   const comp = {
     bounce: <BounceLoader color={color || "blue-500"} size={size || "md"} />,
     circle: (
@@ -32,8 +44,10 @@ const Loading: React.FC<LoaderProp> = ({
         <>{spinner ? spinner : <>{comp[loader]}</>}</>
       ) : error ? (
         renderError
-      ) : (
-        <> {keepOut ? null : children}</>
+      ) : !error && empty ? (
+        emptyComponent
+      ) : keepOut ? null : (
+        children
       )}
     </>
   );

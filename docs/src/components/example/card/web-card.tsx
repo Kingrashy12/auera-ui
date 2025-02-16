@@ -46,12 +46,11 @@ const Web3Card = () => {
         <TabPanel className="mt-3">
           <Card
             classNames={{
-              root: "max-w-sm !rounded-[1.8rem]",
+              root: "max-w-sm rounded-[1.8rem]",
             }}
             renderHeader={() => (
               <Box
-                className="px-4 py-5 border-b theme-dark:border-b-neutral-900"
-                centered
+                className="px-4 py-5 border-b theme-dark:border-b-neutral-900 items-center"
                 between
               >
                 <IconButton size="xs" radius="lg" variant="ghost">

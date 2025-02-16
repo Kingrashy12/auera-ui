@@ -4,7 +4,7 @@ import { LazyImportProps } from "@/types/utils";
 /**
  * This function lets you dynamically import a component. It uses `React.lazy()` with `Suspense` under the hood with a loading indicator
  *
- * Read more: [AueraUI Docs](https://aueraui.vercel.app/utils/dyn)
+ * Read more: [AueraUI Docs](https://aueraui.vercel.app/docs/utils/dyn)
  *
  * @param {LazyImportProps["importFunc"]} importFunc - The function used to import the component lazily.
  * This is typically a `React.lazy` import.

@@ -16,7 +16,7 @@ const SelectTrigger: React.FC<SelectTriggerProps> = ({
 
   return (
     <Trigger onClick={open ? onClose : onOpen} data-theme={mode}>
-      <span className={tw("truncate", className)}>
+      <span className={tw("truncate text-sm", className)}>
         {currentValue ? StrFun.capitalize(currentValue, "-", " ") : placeholder}
       </span>
 

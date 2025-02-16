@@ -110,7 +110,7 @@ const button_neumorphic = ({ colorScheme }: ButtonProps) => {
     lightHoverStyles[colorScheme as SchemeVariant]
   );
 
-  return cva("active:scale-70", {
+  return cva("active:scale-75", {
     variants: {
       variant: {
         solid: [
