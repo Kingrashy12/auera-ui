@@ -3,8 +3,9 @@ import { useComputeTrigger } from "./compute";
 import { useSelectState } from "@/context/select";
 import { RiExpandUpDownLine } from "react-icons/ri";
 import { tw } from "stywind";
-import { SelectTriggerProps, StrFun } from "auera-ui";
 import { getDisplayName } from "@/utils/displayname";
+import { SelectTriggerProps } from "@/types/auera-ui";
+import { StrFun } from "@/utils";
 
 const SelectTrigger: React.FC<SelectTriggerProps> = ({
   className,

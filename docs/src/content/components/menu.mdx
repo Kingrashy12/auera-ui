@@ -1,6 +1,29 @@
 ---
 title: Menu | AueraUI
-description: 
+description: Display an accessible dropdown menu
 ---
 
-<DetailCard description=''/>
+<DetailCard description='Display an accessible dropdown menu'/>
+
+<Details>
+<MenuDemo />
+</Details>
+
+<Details id='examples'>
+<HeaderLabel id='examples'>Examples</HeaderLabel>
+</Details>
+
+<Details id='padded-menu'>
+<HeaderLabel id='padded-menu' as='h3'>Padded Menu</HeaderLabel>
+<PaddedMenu />
+</Details>
+
+<Details id='feed-menu'>
+<HeaderLabel id='feed-menu' as='h3'>Feed Menu</HeaderLabel>
+<FeedMenu />
+</Details>
+
+<Details id='api-reference'>
+<HeaderLabel id='api-reference'>API Reference</HeaderLabel>
+<APITable reference={menuRef} />
+</Details>

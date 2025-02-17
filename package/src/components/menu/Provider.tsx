@@ -1,5 +1,5 @@
 import { MenuProps } from "../../types/auera-ui";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { MenuContext } from "@/context/menu";
 import { Menu } from "./List";
 import { getDisplayName } from "@/utils/displayname";
@@ -11,7 +11,12 @@ import { useMode } from "@/hook/use";
 const MenuProvider = ({ children, ...props }: MenuProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const triggerRef = useRef<HTMLDivElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
   const { currentMode } = useMode(props.mode);
+
+  useEffect(() => {
+    document.documentElement.setAttribute("select-open", String(isOpen));
+  }, [isOpen]);
 
   const onOpen = () => {
     setIsOpen(true);
@@ -52,7 +57,7 @@ const MenuProvider = ({ children, ...props }: MenuProps) => {
           <MenuItem
             key={index}
             className={`${
-              eadge && typedElement.props.type !== "curved"
+              eadge && typedElement.props.type !== "padded"
                 ? index === 0
                   ? "rounded-t-lg"
                   : "rounded-b-lg"
@@ -69,7 +74,7 @@ const MenuProvider = ({ children, ...props }: MenuProps) => {
 
   return (
     <MenuContext.Provider
-      value={{ isOpen, onClose, onOpen, mode: currentMode }}
+      value={{ isOpen, onClose, onOpen, mode: currentMode, menuRef }}
     >
       <Box direction="column">
         {renderChildren(trigger, true)}

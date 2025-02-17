@@ -684,7 +684,7 @@ export interface MenuItemProps extends DivProps {
    * Indicates if the MenuItem is disabled.
    */
   disabled?: boolean;
-  type?: "full" | "curved";
+  type?: "padded" | "flush";
 }
 
 export type CollapseProps = {

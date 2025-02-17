@@ -15,6 +15,7 @@ type MenuContextProps = {
    */
   onClose: () => void;
   mode: ModeType;
+  menuRef: React.RefObject<HTMLDivElement | null>;
 };
 
 export const MenuContext = createContext<MenuContextProps | undefined>(

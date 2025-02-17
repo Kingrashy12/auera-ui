@@ -19,12 +19,12 @@ const Loading: React.FC<LoaderProp> = ({
 }) => {
   ReturnError.throw(
     Boolean(error && !renderError),
-    "Can't render an empty error node"
+    "Cannot render an empty error node."
   );
 
   ReturnError.throw(
     Boolean(empty && !emptyComponent),
-    "Please provide the emptyComponent"
+    "Missing emptyComponent. Please provide one."
   );
 
   const comp = {
