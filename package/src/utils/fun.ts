@@ -1,4 +1,4 @@
-import { Currency } from "../types/utils";
+import { Currency, DataGroup } from "../types/utils";
 
 /**
  * Utility functions for string manipulation.
@@ -122,4 +122,20 @@ export const formatCurrency = <T extends Currency>(
     style: "currency",
     currency: currency,
   });
+};
+
+export const groupData = <T>({ data, key }: DataGroup<T>) => {
+  const grouped: Record<string, T[]> = {};
+
+  for (const item of data) {
+    const group_key = String(item[key]);
+
+    if (!grouped[group_key]) {
+      grouped[group_key] = [];
+    }
+
+    grouped[group_key].push(item);
+  }
+
+  return grouped;
 };
