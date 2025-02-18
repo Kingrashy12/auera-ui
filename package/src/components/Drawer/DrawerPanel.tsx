@@ -4,6 +4,7 @@ import { getDisplayName } from "@/utils/displayname";
 import { useDrawerPanel } from "@/hook/usePanel";
 import { useDrawer as Drawer } from "../../hook/useDrawer";
 import { ComputePanel } from "./use-drawer";
+import { useEffect } from "react";
 
 const DrawerPanel = ({
   flavour,
@@ -16,7 +17,10 @@ const DrawerPanel = ({
   const { isVisible } = Drawer();
   const { currentMode } = useMode(mode);
   const { collectMode } = useDrawerPanel();
-  collectMode(currentMode);
+
+  useEffect(() => {
+    collectMode(currentMode);
+  }, [currentMode]);
 
   const Panel = ComputePanel({
     className: props.className,

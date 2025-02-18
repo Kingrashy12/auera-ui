@@ -69,6 +69,8 @@ import Map_EmptyList from "@/components/example/mapitems/empty-list";
 import MenuDemo from "@/components/example/menu/demo";
 import PaddedMenu from "@/components/example/menu/padded";
 import FeedMenu from "@/components/example/menu/feed-menu";
+import ModalDemo from "@/components/example/modal/demo";
+import FormModal from "@/components/example/modal/form-modal";
 
 export const components = {
   DetailCard,
@@ -145,6 +147,8 @@ export const components = {
   MenuDemo,
   PaddedMenu,
   FeedMenu,
+  ModalDemo,
+  FormModal,
 };
 
 export const MDXRemote = dynamic(() =>
