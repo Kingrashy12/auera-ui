@@ -20,5 +20,29 @@ description: A pop-up dialog for displaying content or actions in a focused over
 
 <Details id='api-reference'>
 <HeaderLabel id='api-reference'>API Reference</HeaderLabel>
-<APITable reference={modalRef} />
+</Details>
+
+<Details id='modal'>
+<HeaderLabel id='modal' as='h3'>Modal</HeaderLabel>
+<APITable reference={modalRef.modal} />
+</Details>
+
+<Details id='modalpanel'>
+<HeaderLabel id='modal-panel' as='h3'>ModalPanel</HeaderLabel>
+<APITable reference={modalRef.panel} />
+</Details>
+
+<Details id='modalheader'>
+<HeaderLabel id='modal-header' as='h3'>ModalHeader</HeaderLabel>
+<APITable reference={modalRef.header} />
+</Details>
+
+<Details id='modalcontent'>
+<HeaderLabel id='modalcontent' as='h3'>ModalContent</HeaderLabel>
+<APITable reference={modalRef.content} />
+</Details>
+
+<Details id='modalfooter'>
+<HeaderLabel id='modal-footer' as='h3'>ModalFooter</HeaderLabel>
+<APITable reference={modalRef.footer} />
 </Details>

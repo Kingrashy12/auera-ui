@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ElementType, ReactNode } from "react";
 
 import {
   ButtonVariant,
@@ -317,7 +317,7 @@ export type ModalPanelType = {
    */
   style?: React.CSSProperties;
   /**
-   * Specifies the alignment direction of the Stack component's children.
+   * Specifies the alignment direction of the component's children.
    * `vertical` for stacking items one above the other (column), `horizontal`
    * for stacking items side by side (row).
    */
@@ -742,11 +742,15 @@ export interface MediaProps {
 
 export interface InputProp extends InputProps {
   inputClass?: string;
-  icon?: React.ElementType;
+  icon?: ElementType;
   iconSize?: number;
   radius?: "none" | "sm" | "md" | "lg" | "xl" | "full";
   variant?: "solid" | "outline" | "ghost" | "unstyled";
   mode?: ModeType;
+}
+
+export interface PasswordProps extends InputProp {
+  hideLock?: boolean;
 }
 
 export type FileContruct = {
