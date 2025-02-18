@@ -18,12 +18,12 @@ const MenuItem: React.FC<MenuItemProps> = (props) => {
 
   const killMenu = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     onClose();
-    onClick!(event);
+    onClick?.(event);
   };
 
   return (
     <>
-      {props.type === "curved" ? (
+      {props.type === "padded" ? (
         <div className="w-full p-2">
           <Component mode={mode} onClick={killMenu} {...rest}>
             {children}

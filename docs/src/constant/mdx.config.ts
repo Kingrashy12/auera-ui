@@ -66,6 +66,11 @@ import IButtonRadius from "@/components/example/i_button/radius";
 import IButtonWithTrigger from "@/components/example/i_button/with-trigger";
 import MapItemsDemo from "@/components/example/mapitems/demo";
 import Map_EmptyList from "@/components/example/mapitems/empty-list";
+import MenuDemo from "@/components/example/menu/demo";
+import PaddedMenu from "@/components/example/menu/padded";
+import FeedMenu from "@/components/example/menu/feed-menu";
+import ModalDemo from "@/components/example/modal/demo";
+import FormModal from "@/components/example/modal/form-modal";
 
 export const components = {
   DetailCard,
@@ -139,6 +144,11 @@ export const components = {
   IButtonWithTrigger,
   MapItemsDemo,
   Map_EmptyList,
+  MenuDemo,
+  PaddedMenu,
+  FeedMenu,
+  ModalDemo,
+  FormModal,
 };
 
 export const MDXRemote = dynamic(() =>

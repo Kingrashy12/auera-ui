@@ -5,7 +5,7 @@ import { getDisplayName } from "@/utils/displayname";
 import { useComputeContainer, useComputeMenu } from "./use-menu";
 
 export const Menu: React.FC<MenuProps> = ({ ...props }) => {
-  const { isOpen, onClose, mode } = useMenu();
+  const { isOpen, onClose, mode, menuRef: openRef } = useMenu();
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -32,7 +32,12 @@ export const Menu: React.FC<MenuProps> = ({ ...props }) => {
   const Container = useComputeContainer({ open: isOpen, zIndex: props.zIndex });
 
   return (
-    <Container ref={menuRef as any}>
+    <Container
+      style={{
+        width: openRef.current?.offsetWidth,
+      }}
+      ref={menuRef as any}
+    >
       <List mode={mode}>{props.children}</List>
     </Container>
   );

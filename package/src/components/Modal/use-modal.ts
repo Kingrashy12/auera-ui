@@ -7,7 +7,7 @@ import {
   panel,
   PanelVariants,
 } from "./modal-variants";
-import { createStyle } from "stywind";
+import { createStyle, tw } from "stywind";
 
 const useComputePanel = (props: PanelVariants) => {
   const {
@@ -21,11 +21,12 @@ const useComputePanel = (props: PanelVariants) => {
     radius,
   } = props;
 
-  return useMemo(
+  const Panel = createStyle("div");
+
+  const styles = useMemo(
     () =>
-      createStyle("div").classname(
+      tw(
         panel({
-          className,
           align,
           transition,
           size,
@@ -33,10 +34,13 @@ const useComputePanel = (props: PanelVariants) => {
           flavour,
           isVisible,
           radius,
-        })
+        }),
+        className
       ),
     [className, align, transition, size, mode, flavour, isVisible, radius]
   );
+
+  return useMemo(() => Panel.classname(styles), [styles]);
 };
 
 const useComputeFooter = (props: FooterVariants) => {

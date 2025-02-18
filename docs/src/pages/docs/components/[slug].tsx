@@ -12,6 +12,8 @@ import { groupMapRef } from "@/data/api-ref/group-map";
 import { i_buttonRef } from "@/data/api-ref/iconbuttonRef";
 import { iconRef } from "@/data/api-ref/iconRef";
 import { mapitems_ref } from "@/data/api-ref/mapitems_ref";
+import { menuRef } from "@/data/api-ref/menu";
+import { modalRef } from "@/data/api-ref/modal";
 import { fetchContent } from "@/hooks/fetch_content";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { MDXRemoteSerializeResult } from "next-mdx-remote";
@@ -35,6 +37,8 @@ const data = {
   iconRef,
   i_buttonRef,
   mapitems_ref,
+  menuRef,
+  modalRef,
 };
 
 const Page = ({ frontmatter, mdxSource, slug }: Props) => {
@@ -76,6 +80,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
     "icon",
     "icon-button",
     "mapitems",
+    "menu",
+    "modal",
   ];
 
   const paths = slugs.map((slug) => ({

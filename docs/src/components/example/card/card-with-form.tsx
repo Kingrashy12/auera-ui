@@ -12,7 +12,9 @@ import {
   Tabs,
   TextInput,
   Label,
+  Media,
 } from "auera-ui";
+import Link from "next/link";
 
 const CardWithForm = () => {
   return (
@@ -24,8 +26,28 @@ const CardWithForm = () => {
           <TabPanel className="mt-3">
             <Card
               classNames={{
-                root: "w-fit max-w-sm",
+                root: "w-fit max-w-sm rounded-[25px]",
               }}
+              renderHeader={() => (
+                <Box
+                  centered
+                  fullWidth
+                  className="flex-col gap-3 px-4 py-5 border-b theme-dark:border-neutral-800"
+                >
+                  <Media src="/logo.png" width={50} height={50} />
+                  <Box className="flex-col gap-1" centered>
+                    <h2 className="text-2xl font-medium font-inter theme-dark:text-white">
+                      Sign in
+                    </h2>
+                    <p className="font-inter text-neutral-400 font-normal text-base">
+                      Don&apos;t have an account?{" "}
+                      <Link href="#" className="text-blue-500 hover:underline">
+                        Sign up
+                      </Link>
+                    </p>
+                  </Box>
+                </Box>
+              )}
             >
               <form className="flex flex-col gap-4 w-[290px] font-inter">
                 <Box className="flex-col gap-2">
@@ -55,7 +77,7 @@ const CardWithForm = () => {
                   Remember me
                 </Checkbox>
 
-                <Button radius="lg" fullWidth>
+                <Button radius="xl" fullWidth>
                   Submit
                 </Button>
               </form>

@@ -19,7 +19,10 @@ const ToggleTheme = () => {
     dark: MdWbSunny,
   };
   return (
-    <Menu zIndex="200" className="right-5 !w-[150px]">
+    <Menu
+      zIndex="200"
+      className="-left-28 w-[150px] shadow-[4px_5px_10px_rgba(255,255,255,0.05)]"
+    >
       <MenuTrigger>
         <IconButton variant="outline" radius="xl">
           <Icon icon={icon[mode]} size={18} />

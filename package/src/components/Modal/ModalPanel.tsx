@@ -4,6 +4,7 @@ import { getDisplayName } from "@/utils/displayname";
 import { usePanel } from "@/hook/usePanel";
 import { useFlavour, useMode } from "@/hook/use";
 import { useComputePanel } from "./use-modal";
+import { useEffect } from "react";
 
 const ModalPanel = ({
   children,
@@ -18,7 +19,10 @@ const ModalPanel = ({
   const { currentMode } = useMode(mode);
   const { currentFlavour } = useFlavour(props.flavour);
   const { collectMode } = usePanel();
-  collectMode(currentMode);
+
+  useEffect(() => {
+    collectMode(currentMode);
+  }, [currentMode]);
 
   const Panel = useComputePanel({
     className: props.className,

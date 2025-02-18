@@ -7,7 +7,7 @@ type ItemVariants = VProps<typeof item>;
 type ContainerVariants = VProps<typeof container>;
 
 const list = cva(
-  `w-auto max-w-[20rem] h-auto top-8 rounded-xl absolute border-2 tone-dark:border-neutral-800
+  `w-auto max-w-[20rem] h-auto top-8 left-0 z-500 rounded-xl absolute border-2 tone-dark:border-neutral-800
     border-neutral-200 flex flex-col transition-transform duration-300
      flex-shrink-0 animate-walkIn bg-white tone-dark:bg-black`,
   {
@@ -20,7 +20,7 @@ const list = cva(
   }
 );
 
-const container = cva("absolute h-auto w-full", {
+const container = cva("fixed", {
   variants: {
     open: {
       true: "flex",
@@ -35,7 +35,7 @@ const container = cva("absolute h-auto w-full", {
 
 const item = cva(
   `transition-transform duration-300 flex items-center p-[0.62rem]
-    cursor-pointer gap-2 hover:bg-gray-100
+    cursor-pointer gap-2 hover:bg-gray-100 flex-shrink-0 w-full
     tone-dark:hover:bg-neutral-800 font-medium select-none text-sm leading-5 top-6`,
   {
     variants: {
@@ -43,14 +43,14 @@ const item = cva(
         true: "cursor-not-allowed opacity-75 pointer-events-none",
       },
       type: {
-        curved: "rounded-md",
-        full: "",
+        padded: "rounded-md",
+        flush: "",
       },
       color: colorKey,
     },
     defaultVariants: {
       disabled: false,
-      type: "full",
+      type: "flush",
       color: "default",
     },
   }
