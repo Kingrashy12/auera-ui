@@ -58,7 +58,7 @@ const content = cva(
 
 const item = cva(
   `cursor-pointer p-2 hover:bg-gray-100 text-sm flex items-center
-   justify-between tone-dark:hover:bg-neutral-700`,
+   justify-between tone-dark:hover:bg-neutral-700 font-inter`,
   {
     variants: {
       radius: {

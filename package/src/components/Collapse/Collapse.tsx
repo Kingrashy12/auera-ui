@@ -53,7 +53,7 @@ const Collapse: React.FC<CollapseProps> = ({
           <p
             data-theme={currentMode}
             className={tw(
-              "font-medium text-base text-black tone-dark:text-white",
+              "font-medium text-base text-black tone-dark:text-white font-inter",
               classNames?.headerLabel
             )}
           >

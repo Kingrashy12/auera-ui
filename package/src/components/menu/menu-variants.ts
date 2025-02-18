@@ -35,7 +35,7 @@ const container = cva("fixed", {
 
 const item = cva(
   `transition-transform duration-300 flex items-center p-[0.62rem]
-    cursor-pointer gap-2 hover:bg-gray-100 flex-shrink-0 w-full
+    cursor-pointer gap-2 hover:bg-gray-100 flex-shrink-0 w-full font-inter
     tone-dark:hover:bg-neutral-800 font-medium select-none text-sm leading-5 top-6`,
   {
     variants: {
