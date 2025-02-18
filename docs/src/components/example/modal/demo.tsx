@@ -1,5 +1,6 @@
 import CodeBlock from "@/components/layout/code/Block";
 import CardContent from "@/components/lib/CardContent";
+import { modal_codes } from "@/data/code/modal";
 import { Button, Stack, TabHandle, TabPanel, Tabs } from "auera-ui";
 import React from "react";
 
@@ -27,8 +28,17 @@ const ModalDemo = () => {
             </Button>
           </Stack>
         </TabPanel>
-        <TabPanel>
-          <CodeBlock fileName="" code="" lg="tsx" />
+        <TabPanel className="flex-col flex gap-6">
+          <CodeBlock
+            fileName="modal/demo.tsx"
+            code={modal_codes.demo}
+            lg="tsx"
+          />
+          <CodeBlock
+            fileName="overlays/modal-demo.tsx"
+            code={modal_codes.demo_modal}
+            lg="tsx"
+          />
         </TabPanel>
       </Tabs>
     </CardContent>

@@ -1,14 +1,21 @@
 import {
   Button,
+  closeModal,
   Modal,
   ModalContent,
   ModalFooter,
   ModalHeader,
   ModalPanel,
+  toast,
 } from "auera-ui";
 import React from "react";
 
 const ModalDemo = () => {
+  const deleteItem = () => {
+    toast.success("Item successfully deleted");
+    closeModal();
+  };
+
   return (
     <Modal value="modal-demo">
       <ModalPanel size="lg">
@@ -34,7 +41,7 @@ const ModalDemo = () => {
           >
             Cancel
           </Button>
-          <Button radius="md" colorScheme="danger">
+          <Button onClick={deleteItem} radius="md" colorScheme="danger">
             Delete
           </Button>
         </ModalFooter>

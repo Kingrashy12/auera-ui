@@ -5,6 +5,7 @@ import DrawerDemo from "./drawer-example";
 import FloatDrawerDemo from "./float-drawer-demo";
 import LeftDrawerDemo from "./left-drawer-demo";
 import ModalDemo from "./modal-demo";
+import FormModal from "./form-modal";
 
 const OverlayContainer = () => {
   return (
@@ -15,6 +16,7 @@ const OverlayContainer = () => {
       <FloatDrawerDemo />
       <LeftDrawerDemo />
       <ModalDemo />
+      <FormModal />
     </>
   );
 };

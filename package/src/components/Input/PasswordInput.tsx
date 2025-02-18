@@ -2,11 +2,12 @@ import { getDisplayName } from "@/utils/displayname";
 import { forwardRef, useState } from "react";
 import Icon from "../Icon/Icon";
 import { HiOutlineEye, HiOutlineEyeOff } from "react-icons/hi";
-import { InputProp } from "../../types/auera-ui";
+import { PasswordProps } from "../../types/auera-ui";
 import { useComputeInput } from "./use-textinput";
 import { useMode } from "@/hook/use";
+import { HiLockClosed } from "react-icons/hi2";
 
-const PasswordInput = forwardRef<HTMLInputElement, InputProp>(
+const PasswordInput = forwardRef<HTMLInputElement, PasswordProps>(
   (
     {
       inputClass,
@@ -20,6 +21,7 @@ const PasswordInput = forwardRef<HTMLInputElement, InputProp>(
       value,
       icon,
       iconSize,
+      hideLock,
       ...props
     },
     ref
@@ -41,13 +43,22 @@ const PasswordInput = forwardRef<HTMLInputElement, InputProp>(
 
     return (
       <InputInterface disabled={disabled} mode={props.mode}>
-        {icon && (
+        {!hideLock && !icon ? (
+          <Icon
+            icon={HiLockClosed}
+            className="text-neutral-400"
+            size={iconSize || 20}
+          />
+        ) : null}
+
+        {!hideLock && icon && (
           <Icon
             icon={icon}
             className="text-neutral-400"
             size={iconSize || 20}
           />
         )}
+
         <Input
           ref={ref as any}
           type={type}

@@ -22,7 +22,7 @@ const drawer = [
     prop: "value*",
     type: "string",
     description:
-      "Provides the modal's value, typically used for managing the active state.",
+      "Provides the drawer's value, typically used for managing the active state.",
     default: "undefined",
   },
   {
