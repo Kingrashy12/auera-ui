@@ -57,9 +57,7 @@ const Tabs: React.FC<TabsType> = ({
   hideBorder,
 }) => {
   const { currentMode } = useMode(mode);
-  const defaultStyle = defineClass(
-    "max-w-full overflow-x-auto flex items-center relative gap-[1px]"
-  );
+
   const scrollBar = defineClass(
     `scrollbar:h-1 scrollbar-thumb:cursor-pointer scrollbar-thumb:rounded-[5px]
      scrollbar-track:bg-transparent scrollbar-thumb:bg-blue-500 scrollbar-thumb:hover:bg-blue-600`
@@ -68,7 +66,7 @@ const Tabs: React.FC<TabsType> = ({
   const TabList = useMemo(() => {
     return createStyle("div").classname(
       tw(
-        defaultStyle,
+        "max-w-full overflow-x-auto flex items-center relative gap-[1px]",
         getStylesWithMode(currentMode, variant, rounded),
         hideBorder && "border-none",
         hideScrollBar ? "scrollbar-none" : scrollBar,

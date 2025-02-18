@@ -30,7 +30,7 @@ const CodeBlock = ({
   return (
     <Box
       direction="column"
-      className="w-full h-auto max-h-[480px] rounded-[5px] block-cmd border relative overflow-y-hidden"
+      className="w-full h-auto max-h-[480px] rounded-xl block-cmd border relative overflow-y-hidden"
     >
       <Box
         fullWidth
