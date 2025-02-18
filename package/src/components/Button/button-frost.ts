@@ -98,10 +98,10 @@ const button_frost = ({ colorScheme }: ButtonProps) => {
         ],
         outline: [
           baseButtonClass,
-          "border-2 shadow-[var(--auera-neutral-100)_0_-1px_0_1px_inset,_var(--auera-neutral-200)_0_1px_2px_0] \
-          tone-dark:shadow-[var(--auera-neutral-800)_0_-1px_0_1px_inset,_var(--auera-neutral-900)_0_1px_2px_0] \
-        bg-white text-black hover:bg-gray-100 border-neutral-300 tone-dark:bg-black \
-        tone-dark:text-white tone-dark:hover:bg-slate-900 tone-dark:border-neutral-800",
+          `border-2 shadow-[var(--auera-neutral-100)_0_-1px_0_1px_inset,_var(--auera-neutral-200)_0_1px_2px_0]
+          tone-dark:shadow-[var(--auera-neutral-800)_0_-1px_0_1px_inset,_var(--auera-neutral-900)_0_1px_2px_0]
+        bg-white text-black hover:bg-gray-100 border-neutral-300 tone-dark:bg-black
+        tone-dark:text-white tone-dark:hover:bg-neutral-700 tone-dark:border-neutral-800`,
         ],
         unstyled: "text-black tone-dark:text-white",
       },

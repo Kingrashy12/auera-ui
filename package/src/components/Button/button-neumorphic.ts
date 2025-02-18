@@ -11,32 +11,32 @@ const colorSchemeBackgrounds = {
     defaultNeumorphicEffect,
     baseButtonClass,
     defineClass(
-      "bg-blue-600 shadow-neumorphic-solid-primary \
-       hover:shadow-neumorphic-solid-primary_hover border-[1.8px]"
+      `bg-blue-600 shadow-neumorphic-solid-primary
+       hover:shadow-neumorphic-solid-primary_hover border-[1.8px]`
     )
   ),
   success: tw(
     defaultNeumorphicEffect,
     baseButtonClass,
     defineClass(
-      "bg-green-600 border-[1.8px] shadow-neumorphic-solid-success \
-       hover:shadow-neumorphic-solid-success_hover"
+      `bg-green-600 border-[1.8px] shadow-neumorphic-solid-success 
+       hover:shadow-neumorphic-solid-success_hover`
     )
   ),
   danger: tw(
     defaultNeumorphicEffect,
     baseButtonClass,
     defineClass(
-      "bg-red-600 shadow-neumorphic-solid-danger \
-       hover:shadow-neumorphic-solid-danger_hover border-[1.8px]"
+      `bg-red-600 shadow-neumorphic-solid-danger 
+       hover:shadow-neumorphic-solid-danger_hover border-[1.8px]`
     )
   ),
   warning: tw(
     defaultNeumorphicEffect,
     baseButtonClass,
     defineClass(
-      "bg-yellow-500 shadow-neumorphic-solid-warn \
-       hover:shadow-neumorphic-solid-warn_hover border-[1.8px]"
+      `bg-yellow-500 shadow-neumorphic-solid-warn 
+       hover:shadow-neumorphic-solid-warn_hover border-[1.8px]`
     )
   ),
 };
@@ -97,8 +97,8 @@ const button_neumorphic = ({ colorScheme }: ButtonProps) => {
   const outlineButton = tw(
     baseButtonClass,
     defineClass(
-      "border shadow-neumorphic-outline bg-transparent hover:shadow-neumorphic-outline_hover \
-    tone-dark:text-white border-black text-black"
+      `border shadow-neumorphic-outline bg-transparent hover:shadow-neumorphic-outline_hover
+    tone-dark:text-white border-black text-black`
     )
   );
 

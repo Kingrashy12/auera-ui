@@ -3,7 +3,6 @@ import { ButtonProps } from "@/types/auera-ui";
 import { SchemeVariant, VProps } from "@/types/auera-system";
 import { defineClass } from "stywind";
 
-// Background color schemes
 const backgroundSchemes = {
   primary: defineClass("bg-blue-500"),
   success: defineClass("bg-green-500"),
@@ -11,7 +10,6 @@ const backgroundSchemes = {
   warning: defineClass("bg-yellow-500"),
 };
 
-// Hover background color schemes
 const hoverBackgroundSchemes = {
   primary: defineClass("hover:bg-blue-600"),
   success: defineClass("hover:bg-green-600"),
@@ -19,7 +17,6 @@ const hoverBackgroundSchemes = {
   warning: defineClass("hover:bg-yellow-600"),
 };
 
-// Text color schemes
 const textColorSchemes = {
   primary: defineClass("text-blue-500"),
   success: defineClass("text-green-500"),
@@ -27,7 +24,6 @@ const textColorSchemes = {
   warning: defineClass("text-yellow-500"),
 };
 
-// Border color schemes
 const borderColorSchemes = {
   primary: defineClass("border-blue-500"),
   success: defineClass("border-green-500"),
@@ -35,7 +31,6 @@ const borderColorSchemes = {
   warning: defineClass("border-yellow-500"),
 };
 
-// Dimmed background schemes
 const dimmedBackgroundSchemes = {
   primary: defineClass("bg-corprate-dimmed-primary"),
   success: defineClass("bg-corprate-dimmed-success"),
@@ -43,7 +38,6 @@ const dimmedBackgroundSchemes = {
   warning: defineClass("bg-corprate-dimmed-warn"),
 };
 
-// Hover dimmed background schemes (light)
 const ghostHover = {
   primary: defineClass("hover:bg-corprate-ghost-primary-hover"),
   success: defineClass("hover:bg-corprate-ghost-success-hover"),
@@ -51,7 +45,6 @@ const ghostHover = {
   warning: defineClass("hover:bg-corprate-ghost-warn-hover"),
 };
 
-// Hover dimmed background schemes (darker shade)
 const hoverDimDarkSchemes = {
   primary: defineClass("hover:bg-corprate-light-primary-hover"),
   success: defineClass("hover:bg-corprate-light-success-hover"),
@@ -80,9 +73,9 @@ const button_corporate = ({ colorScheme }: ButtonProps) => {
           ghostHover[colorScheme as SchemeVariant],
         ],
         outline: [
-          "border-2 shadow-sm bg-white text-black hover:bg-gray-100 \
-             border-neutral-300 tone-dark:bg-black tone-dark:text-white \
-              tone-dark:hover:bg-slate-900 tone-dark:border-neutral-800",
+          `border-2 shadow-sm bg-white text-black hover:bg-gray-100 
+             border-neutral-300 tone-dark:bg-black tone-dark:text-white 
+              tone-dark:hover:bg-neutral-700 tone-dark:border-neutral-800`,
         ],
         flat: [
           "border-none",

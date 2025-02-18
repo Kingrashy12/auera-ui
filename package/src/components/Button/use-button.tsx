@@ -7,7 +7,7 @@ import { throwTriggerError } from "@/utils/component.err";
 import { useFlavour, useMode } from "@/hook/use";
 import { AueraButton } from "@/core/AueraElement";
 import { useMemo } from "react";
-import { createStyle } from "stywind";
+import { createStyle, tw } from "stywind";
 import generateButtonClass from "./button__";
 
 const Trigger = {
@@ -30,10 +30,12 @@ const useButton = ({
 
   const disabled = props.isLoading || props.disabled;
 
-  const Button = useMemo(
+  const ButtonInterface = createStyle(AueraButton);
+
+  const styles = useMemo(
     () =>
-      createStyle(AueraButton).classname(
-        generateButtonClass({ colorScheme, className, variant })({
+      tw(
+        generateButtonClass({ colorScheme, variant })({
           flavour: currentFlavour,
           fullWidth: props.fullWidth,
           size,
@@ -41,7 +43,8 @@ const useButton = ({
           hidden: props.hidden,
           disabled,
           radius,
-        })
+        }),
+        className
       ),
     [
       variant,
@@ -56,6 +59,8 @@ const useButton = ({
       currentMode,
     ]
   );
+
+  const Button = useMemo(() => ButtonInterface.classname(styles), [styles]);
 
   const TriggerComponent = Trigger[trigger || "modal"];
 
