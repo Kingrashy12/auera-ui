@@ -7,7 +7,7 @@ const Details = ({ children, ...props }: BoxProps) => {
     <Box
       id={props.id}
       direction={props.direction || "column"}
-      className={tw(props.className as string, "gap-4 px-3 max-[550px]:px-1")}
+      className={tw("gap-4 px-3 max-[550px]:px-1", props.className)}
     >
       {children}
     </Box>

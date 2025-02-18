@@ -35,7 +35,7 @@ const toastPosition = {
 
 const getToast = () => {
   const basicClass = defineClass(
-    "bg-white w-auto h-auto relative flex max-w-[400px] m-[9px] gap-[6px] rounded-md shadow-[0_4px_8px_rgba(0,0,0,0.1)] max-[550px]:max-w-[90%] border border-neutral-200"
+    "bg-white w-auto h-auto relative flex max-w-[400px] m-[9px] gap-[6px] rounded-lg shadow-[0_4px_8px_rgba(0,0,0,0.1)] max-[550px]:max-w-[90%] border border-neutral-200"
   );
 
   const Header = createStyle("div").classname(
@@ -43,7 +43,7 @@ const getToast = () => {
   );
 
   const Message = createStyle("span").classname(
-    "font-medium text-neutral-600 text-sm leading-5 w-full"
+    "font-medium text-neutral-600 text-sm leading-5 w-full font-inter"
   );
 
   const ContentWrap = createStyle("div").classname(

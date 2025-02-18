@@ -10,7 +10,10 @@ interface LabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
 
 const Label: React.FC<LabelProps> = ({ value, mode, ...props }) => {
   const Comp = createStyle("label").classname(
-    tw("font-medium text-sm text-black tone-dark:text-white", props.className)
+    tw(
+      "font-medium text-sm font-inter text-black tone-dark:text-white",
+      props.className
+    )
   );
 
   const { currentMode } = useMode(mode);

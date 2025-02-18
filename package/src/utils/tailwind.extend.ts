@@ -247,4 +247,7 @@ export const tailwindExtend = {
   dropShadow: {
     tab: "0 1px 2px rgb(0 0 0 / 0.1), 0 1px 1px rgb(0 0 0 / 0.06)",
   },
+  fontFamily: {
+    inter: "'Inter', sans-serif",
+  },
 };

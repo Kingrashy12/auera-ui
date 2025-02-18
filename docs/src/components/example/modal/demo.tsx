@@ -7,13 +7,17 @@ const ModalDemo = () => {
   return (
     <CardContent>
       <Tabs rounded variant="solid">
-        <TabHandle value="preview">Preview</TabHandle>
-        <TabHandle value="code">Code</TabHandle>
+        <TabHandle value="preview" className="!font-inter">
+          Preview
+        </TabHandle>
+        <TabHandle value="code" className="!font-inter">
+          Code
+        </TabHandle>
         <TabPanel className="mt-3">
           <Stack>
             <Button
               radius="md"
-              className="font-inter"
+              className="font-inter text-sm"
               withTrigger
               trigger="modal"
               triggerType="open"

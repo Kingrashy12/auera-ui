@@ -40,13 +40,13 @@ const SideBarLinks = ({ data }: { data: typeof sideBarLinks }) => {
       className="gap-4"
       renderItem={(item, index) => (
         <Box key={index} className="gap-1" direction="column">
-          <h4 className="font-montserrat text-primary text-sm font-semibold">
+          <h4 className="font-inter text-primary text-sm font-semibold">
             {item.header}
           </h4>
           <MapItems
             data={sortedItems(item.links)}
             direction="column"
-            className="ml-2 border-l-sidebar !gap-0"
+            className="ml-2 border-l-sidebar gap-0"
             renderItem={(link) => (
               <Link
                 href={link.uri}

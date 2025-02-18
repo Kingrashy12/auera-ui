@@ -71,6 +71,7 @@ import PaddedMenu from "@/components/example/menu/padded";
 import FeedMenu from "@/components/example/menu/feed-menu";
 import ModalDemo from "@/components/example/modal/demo";
 import FormModal from "@/components/example/modal/form-modal";
+import FontGuide from "@/components/guide/font-guide";
 
 export const components = {
   DetailCard,
@@ -80,6 +81,7 @@ export const components = {
   Link,
   HiArrowTopRightOnSquare,
   Installation,
+  FontGuide,
   TabLink,
   Card,
   Button,

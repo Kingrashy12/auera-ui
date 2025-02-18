@@ -81,9 +81,7 @@ const SideBarContent = () => {
                   <div className="p-[6px] bg-sideIcon rounded-md border shadow-sm border-sidebar">
                     <Icon icon={item.icon} color={item.color} />
                   </div>
-                  <p className="font-inter-tight font-medium text-sm">
-                    {item.label}
-                  </p>
+                  <p className="font-inter font-medium text-sm">{item.label}</p>
                 </Box>
                 {item.soon && (
                   <StatusBadge

@@ -40,7 +40,7 @@ const Tooltip = ({
       <div className={PostionClass}>
         <span
           className={tw(
-            "text-white whitespace-nowrap font-medium text-xs font-mono",
+            "text-white whitespace-nowrap font-medium text-xs font-inter",
             labelClass
           )}
         >

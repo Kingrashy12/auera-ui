@@ -50,7 +50,7 @@ const FileUploadList: React.FC<FileListProps> = ({
     const fileSizeInMB = (size / (1024 * 1024)).toFixed(2);
 
     return (
-      <p className="font-sans font-normal text-neutral-500 text-xs">
+      <p className="font-inter font-normal text-neutral-500 text-xs">
         {fileSizeInMB} MB
       </p>
     );
@@ -80,7 +80,7 @@ const FileUploadList: React.FC<FileListProps> = ({
               />
               {file ? (
                 <Box className="flex-col">
-                  <p className="font-medium text-sm font-sans">
+                  <p className="font-medium text-sm font-inter">
                     {StrFun.truncate(file.main.name, 45)}
                   </p>
                   {showSize && getFileSize(file.main.size)}
@@ -116,7 +116,7 @@ const FileUploadList: React.FC<FileListProps> = ({
             />
             {file ? (
               <Box className="flex-col">
-                <p className="font-medium text-sm font-sans">
+                <p className="font-medium text-sm font-inter">
                   {StrFun.truncate(file.main.name, 48)}
                 </p>
                 {showSize && getFileSize(file.main.size)}

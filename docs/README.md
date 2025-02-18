@@ -118,6 +118,7 @@ module.exports = {
       keyframes: { ...tailwindExtend.keyframes },
       animation: { ...tailwindExtend.animation },
       dropShadow: { ...tailwindExtend.dropShadow },
+      fontFamily: { ...tailwindExtend.fontFamily },
     },
   },
   /* For enabling custom variants, This allows you use
