@@ -83,7 +83,7 @@ export const sideBarLinks = [
       { label: "Modal", uri: "/docs/components/modal" },
       { label: "MapItems", uri: "/docs/components/mapitems" },
       { label: "GroupMap", uri: "/docs/components/groupmap" },
-      { label: "OTPInput", uri: "/docs/components/otpinput" },
+      { label: "OTP Input", uri: "/docs/components/otp-input" },
       { label: "TextInput", uri: "/docs/components/textinput", soon: true },
       { label: "Media", uri: "/docs/components/media", soon: true },
       { label: "Skeleton", uri: "/docs/components/skeleton", soon: true },

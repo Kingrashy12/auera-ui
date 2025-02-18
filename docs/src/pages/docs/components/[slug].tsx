@@ -14,6 +14,7 @@ import { iconRef } from "@/data/api-ref/iconRef";
 import { mapitems_ref } from "@/data/api-ref/mapitems_ref";
 import { menuRef } from "@/data/api-ref/menu";
 import { modalRef } from "@/data/api-ref/modal";
+import { otpRef } from "@/data/api-ref/otp";
 import { fetchContent } from "@/hooks/fetch_content";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { MDXRemoteSerializeResult } from "next-mdx-remote";
@@ -39,6 +40,7 @@ const data = {
   mapitems_ref,
   menuRef,
   modalRef,
+  otpRef,
 };
 
 const Page = ({ frontmatter, mdxSource, slug }: Props) => {
@@ -82,6 +84,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     "mapitems",
     "menu",
     "modal",
+    "otp-input",
   ];
 
   const paths = slugs.map((slug) => ({

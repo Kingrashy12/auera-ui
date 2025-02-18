@@ -1,0 +1,54 @@
+---
+title: OTP Input | AueraUI
+description: 
+---
+
+<DetailCard label="OTPInput" description='.'/>
+
+<Details>
+<OTPDemo/>
+</Details>
+
+<Details id='examples'>
+<HeaderLabel id='examples'>Examples</HeaderLabel>
+</Details>
+<Details id='with-card'>
+  <HeaderLabel id='with-card' as='h3'>With Card</HeaderLabel>
+  <p className="text">
+    The OTP component only styles the input fields, leaving the surrounding interface unstyled. You can wrap it
+     in a card or other containers to match your design.
+  </p>
+  <OTPWithCard />
+</Details>
+
+<Details id='length'>
+  <HeaderLabel id='length' as='h3'>Length</HeaderLabel>
+  <p className="text">
+    Using the <CodeTag>length</CodeTag> prop, you can adjust the number of OTP input fields to match your desired
+    length.
+  </p>
+  <OTPLength />
+</Details>
+
+<Details id='on-complete'>
+  <HeaderLabel id='on-complete' as='h3'>onComplete</HeaderLabel>
+  <p className="text">
+    The <CodeTag>onComplete</CodeTag> prop allows you to execute a function when the user has fully entered the OTP.
+  </p>
+  <OnCompleteOTP />
+</Details>
+
+<Details id='error'>
+  <HeaderLabel id='error' as='h3'>Error</HeaderLabel>
+  <p className="text">
+    Handle invalid OTP inputs by using the <CodeTag>error</CodeTag> prop to show visual feedback
+     when the entered OTP is incorrect.
+  </p>
+  <OTPError />
+</Details>
+
+
+<Details id='api-reference'>
+<HeaderLabel id='api-reference'>API Reference</HeaderLabel>
+<APITable reference={otpRef} />
+</Details>
