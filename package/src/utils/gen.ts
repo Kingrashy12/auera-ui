@@ -1,9 +1,13 @@
-export const generateId = (length: number) => {
+export const generateId = (length: number): string => {
   const numbers = "0123456789";
-  let result = "";
-  for (let i = 0; i < length; i++) {
-    result =
-      result + numbers.charAt(Math.floor(Math.random() * numbers.length));
-  }
-  return result;
+  return Array.from({ length }, () =>
+    numbers.charAt(Math.floor(Math.random() * numbers.length))
+  ).join("");
+};
+
+export const generateUUID = (length: number) => {
+  const char = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+  return Array.from({ length }, () => {
+    char.charAt(Math.floor(Math.random() * char.length));
+  }).join("");
 };

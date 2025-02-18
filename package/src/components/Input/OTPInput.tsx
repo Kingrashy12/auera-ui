@@ -7,8 +7,7 @@ import { OTPInputProps } from "../../types/auera-ui";
 const OTPInput: FC<OTPInputProps> = ({
   onComplete,
   length = 4,
-  className,
-  inputClass,
+  classNames,
   radius,
   error,
   mode,
@@ -19,9 +18,9 @@ const OTPInput: FC<OTPInputProps> = ({
 
   const { Input, Interface } = useComputeInput({
     error,
-    className,
+    className: classNames?.interface,
     radius,
-    inputClass,
+    inputClass: classNames?.input,
   });
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>, index: number) => {
@@ -37,7 +36,7 @@ const OTPInput: FC<OTPInputProps> = ({
     }
 
     if (newOtp.every((digit) => digit !== "")) {
-      onComplete(newOtp.join(""));
+      onComplete?.(newOtp.join(""));
     }
   };
 
@@ -58,10 +57,10 @@ const OTPInput: FC<OTPInputProps> = ({
       {otp.map((digit, index) => (
         <Input
           key={index}
+          mode={currentMode}
           // @ts-expect-error gene
           ref={(el) => (inputRefs.current[index] = el)}
           type="text"
-          data-theme={currentMode}
           value={digit}
           maxLength={1}
           onChange={(e) => handleChange(e, index)}

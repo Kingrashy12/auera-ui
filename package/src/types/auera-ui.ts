@@ -797,10 +797,12 @@ export interface UploadTrigger {
 
 export interface OTPInputProps {
   length?: number;
-  onComplete: (otp: string) => void;
-  className?: string;
+  onComplete?: (otp: string) => void;
+  classNames?: {
+    input?: string;
+    interface?: string;
+  };
   error?: boolean;
-  inputClass?: string;
   radius?: "md" | "lg" | "xl" | "full";
   mode?: "light" | "dark";
 }

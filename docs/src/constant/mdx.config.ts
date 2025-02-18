@@ -72,6 +72,11 @@ import FeedMenu from "@/components/example/menu/feed-menu";
 import ModalDemo from "@/components/example/modal/demo";
 import FormModal from "@/components/example/modal/form-modal";
 import FontGuide from "@/components/guide/font-guide";
+import OTPError from "@/components/example/otp-input/error";
+import OTPDemo from "@/components/example/otp-input/demo";
+import OTPWithCard from "@/components/example/otp-input/with-card";
+import OnCompleteOTP from "@/components/example/otp-input/on-complete";
+import OTPLength from "@/components/example/otp-input/length";
 
 export const components = {
   DetailCard,
@@ -151,6 +156,11 @@ export const components = {
   FeedMenu,
   ModalDemo,
   FormModal,
+  OTPError,
+  OTPDemo,
+  OTPWithCard,
+  OnCompleteOTP,
+  OTPLength,
 };
 
 export const MDXRemote = dynamic(() =>

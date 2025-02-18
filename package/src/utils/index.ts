@@ -9,3 +9,4 @@ export { useProps } from "./props/use-props";
 export { default as formatDate } from "./date";
 export { ReturnError } from "./error";
 export { cva };
+export * from "./gen";
