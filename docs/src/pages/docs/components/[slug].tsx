@@ -85,6 +85,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     "menu",
     "modal",
     "otp-input",
+    "stack",
   ];
 
   const paths = slugs.map((slug) => ({

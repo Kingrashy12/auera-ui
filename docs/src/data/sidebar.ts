@@ -89,11 +89,11 @@ export const sideBarLinks = [
       { label: "Skeleton", uri: "/docs/components/skeleton", soon: true },
       { label: "Select", uri: "/docs/components/select", soon: true },
       {
-        label: "PasswordInput",
+        label: "Password Input",
         uri: "/docs/components/password-input",
         soon: true,
       },
-      { label: "FileUpload", uri: "/docs/components/file-upload", soon: true },
+      { label: "File Upload", uri: "/docs/components/file-upload", soon: true },
       { label: "Loading", uri: "/docs/components/loading", soon: true },
       { label: "Tabs", uri: "/docs/components/tabs" },
       { label: "ToolTip", uri: "/docs/components/tooltip" },

@@ -65,7 +65,7 @@ export const mockups = [
     size: 60,
   },
   {
-    label: "OTPInput",
+    label: "OTP Input",
     uri: "/docs/components/otp-input",
     image: MockupsImage.OTPInput,
     size: 90,
