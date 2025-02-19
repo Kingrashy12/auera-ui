@@ -7,7 +7,6 @@ import {
 } from "react-icons/fa";
 import { TbCodeCircleFilled } from "react-icons/tb";
 
-//TODO: Add link to the links below
 export const linksWithIcon = [
   {
     label: "Docs",
@@ -96,7 +95,7 @@ export const sideBarLinks = [
       { label: "File Upload", uri: "/docs/components/file-upload", soon: true },
       { label: "Loading", uri: "/docs/components/loading", soon: true },
       { label: "Tabs", uri: "/docs/components/tabs" },
-      { label: "ToolTip", uri: "/docs/components/tooltip" },
+      { label: "ToolTip", uri: "/docs/components/tooltip", soon: true },
       {
         label: "Status Badge",
         uri: "/docs/components/status-badge",

@@ -3,6 +3,7 @@ import { getDisplayName } from "@/utils/displayname";
 import { useFile } from "@/hook/useFile";
 import { UploadTrigger } from "../../types/auera-ui";
 import { toast } from "../Toast/Toast";
+import { tw } from "stywind";
 
 const FileUploadTrigger: React.FC<UploadTrigger> = ({
   children,
@@ -56,7 +57,9 @@ const FileUploadTrigger: React.FC<UploadTrigger> = ({
     <>
       <div
         onClick={() => uploadRef.current?.click()}
-        className={`${disabled && "cursor-not-allowed pointer-events-none"}`}
+        className={tw(
+          disabled && "cursor-not-allowed pointer-events-none select-none"
+        )}
       >
         {children}
       </div>

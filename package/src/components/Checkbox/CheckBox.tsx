@@ -63,7 +63,7 @@ const CheckBox: React.FC<CheckBoxProps> = ({
     <Box
       className={tw(
         "gap-2 items-center w-fit shrink-0",
-        { "cursor-not-allowed opacity-85": disabled },
+        { "cursor-not-allowed opacity-85 select-none": disabled },
         classNames?.container
       )}
       onClick={handleCheck}

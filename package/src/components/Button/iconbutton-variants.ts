@@ -38,7 +38,7 @@ const ibutton = cva(
           "bg-transparent hover:bg-gray-100 border-none outline-none tone-dark:hover:bg-neutral-800",
       },
       disabled: {
-        true: "cursor-not-allowed pointer-events-none opacity-75",
+        true: "cursor-not-allowed pointer-events-none opacity-75 select-none",
         false: "cursor-pointer",
       },
       ghost_active: {

@@ -94,6 +94,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     "stack",
     "status-badge",
     "switch",
+    "tabs",
   ];
 
   const paths = slugs.map((slug) => ({

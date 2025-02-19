@@ -59,7 +59,7 @@ const TabHandle: React.FC<TabHandleType> = ({
         : `text-${inActiveColor} bg-transparent hover:bg-gray-200 tone-dark:hover:bg-gray-500`,
       rounded ? "rounded-full" : "rounded-md",
       disabled
-        ? "opacity-50 cursor-default pointer-event-none"
+        ? "opacity-50 cursor-default pointer-event-none select-none"
         : "opacity-100 cursor-pointer point-event-all"
     ),
   };

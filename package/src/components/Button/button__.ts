@@ -54,7 +54,7 @@ const generateButtonClass = ({ colorScheme, variant, className }: Cls) => {
           true: "hidden",
         },
         disabled: {
-          true: "cursor-not-allowed pointer-events-none opacity-75",
+          true: "cursor-not-allowed pointer-events-none opacity-75 select-none",
         },
       },
       defaultVariants: {

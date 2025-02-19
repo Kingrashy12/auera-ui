@@ -46,7 +46,8 @@ const Demo = () => {
  return (
   <Stack>
    <Switch
-    on={state} onToggleSwitch={(status) => setState(status)}
+    on={state}
+    onToggleSwitch={(status) => setState(status)}
     className="font-inter theme-dark:text-white"
     >
    {state ? "ON" : "OFF"}

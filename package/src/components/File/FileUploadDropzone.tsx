@@ -34,7 +34,7 @@ const FileUploadDropzone: React.FC<UploadDropzone> = ({
          tone-dark:bg-black/95 tone-dark:border-neutral-800 hover:bg-gray-50
           tone-dark:hover:bg-neutral-950`,
           {
-            "cursor-not-allowed opacity-80": disabled,
+            "cursor-not-allowed opacity-80 select-none": disabled,
           },
           className
         )}
