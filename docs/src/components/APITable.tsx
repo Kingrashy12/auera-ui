@@ -103,7 +103,7 @@ const APITable = ({ reference }: ReferenceType) => {
               <Default className="default">Default:</Default>
               <span
                 className={tw(
-                  "text-blue-600 font-poppins font-normal text-[13px] tracking-wide",
+                  "text-blue-600 font-inter font-normal text-[13px] tracking-wide",
                   {
                     "text-neutral-600 theme-dark:text-neutral-800":
                       ref.default === "undefined",

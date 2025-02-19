@@ -5,23 +5,23 @@ import React from "react";
 import { IoCodeSlash } from "react-icons/io5";
 import { LuEye } from "react-icons/lu";
 
-const FeedMenu = () => {
+const SwitchDemo = () => {
   return (
     <CardContent>
-      <Tabs rounded variant="solid">
+      <Tabs variant="solid" rounded>
         <TabHandle icon={LuEye} iconSize={19} value="preview">
           Preview
         </TabHandle>
         <TabHandle icon={IoCodeSlash} value="code">
           Code
         </TabHandle>
-        <TabPanel className="w-fit">Content</TabPanel>
+        <TabPanel>Content</TabPanel>
         <TabPanel>
-          <CodeBlock fileName="demo.tsx" code={"code"} lg="tsx" />
+          <CodeBlock fileName="" code="" lg="tsx" />
         </TabPanel>
       </Tabs>
     </CardContent>
   );
 };
 
-export default FeedMenu;
+export default SwitchDemo;

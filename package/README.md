@@ -17,7 +17,9 @@
 # Documentation
 
 For full documentation, visit:
-[Storybook](https://storybook-aueraui.vercel.app/),
+
+<!-- [Storybook](https://storybook-aueraui.vercel.app/), -->
+
 [AueraUI](https://aueraui.vercel.app/)
 
 ## Table of Contents

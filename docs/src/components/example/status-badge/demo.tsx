@@ -1,11 +1,12 @@
 import CodeBlock from "@/components/layout/code/Block";
 import CardContent from "@/components/lib/CardContent";
-import { OTPInput, Stack, TabHandle, TabPanel, Tabs } from "auera-ui";
+import { images } from "@/constant/images";
+import { Avatar, StatusBadge, TabHandle, TabPanel, Tabs } from "auera-ui";
 import React from "react";
 import { IoCodeSlash } from "react-icons/io5";
 import { LuEye } from "react-icons/lu";
 
-const OTPDemo = () => {
+const StatusBadgeDemo = () => {
   return (
     <CardContent>
       <Tabs variant="solid" rounded>
@@ -15,27 +16,28 @@ const OTPDemo = () => {
         <TabHandle icon={IoCodeSlash} value="code">
           Code
         </TabHandle>
-        <TabPanel>
-          <Stack>
-            <OTPInput onComplete={(otp) => console.log(otp)} />
-          </Stack>
+        <TabPanel className="mt-4">
+          <StatusBadge>
+            <Avatar size="md" src={images[1]} />
+          </StatusBadge>
         </TabPanel>
         <TabPanel>
-          <CodeBlock fileName="otp-input/demo.tsx" lg="tsx" code={code} />
+          <CodeBlock fileName="" code={code} lg="tsx" />
         </TabPanel>
       </Tabs>
     </CardContent>
   );
 };
 
-export default OTPDemo;
+export default StatusBadgeDemo;
 
-const code = `import { OTPInput, Stack } from "auera-ui";
+const code = `import { Avatar, StatusBadge } from "auera-ui";
+import { images } from "@/constant/images";
 
 const Demo = () => {
  return (
-  <Stack>
-    <OTPInput />
-  </Stack>
+  <StatusBadge>
+   <Avatar size="md" src={images[1]} />
+  </StatusBadge>
  )
 };`;

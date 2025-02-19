@@ -2,14 +2,20 @@ import CodeBlock from "@/components/layout/code/Block";
 import CardContent from "@/components/lib/CardContent";
 import { Card, OTPInput, Stack, TabHandle, TabPanel, Tabs } from "auera-ui";
 import React, { useState } from "react";
+import { IoCodeSlash } from "react-icons/io5";
+import { LuEye } from "react-icons/lu";
 
 const CompleteOTP = () => {
   const [otp, setOtp] = useState("");
   return (
     <CardContent>
       <Tabs variant="solid" rounded>
-        <TabHandle value="preview">Preview</TabHandle>
-        <TabHandle value="code">Code</TabHandle>
+        <TabHandle icon={LuEye} iconSize={19} value="preview">
+          Preview
+        </TabHandle>
+        <TabHandle icon={IoCodeSlash} value="code">
+          Code
+        </TabHandle>
         <TabPanel>
           <Stack>
             <Card>

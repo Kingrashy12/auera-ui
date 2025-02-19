@@ -77,6 +77,17 @@ import OTPDemo from "@/components/example/otp-input/demo";
 import OTPWithCard from "@/components/example/otp-input/with-card";
 import OnCompleteOTP from "@/components/example/otp-input/on-complete";
 import OTPLength from "@/components/example/otp-input/length";
+import StackDemo from "@/components/example/stack/demo";
+import StackAlignment from "@/components/example/stack/align";
+import SBSizes from "@/components/example/status-badge/sizes";
+import SBPlacement from "@/components/example/status-badge/placement";
+import SBStatus from "@/components/example/status-badge/status";
+import StatusBadgeDemo from "@/components/example/status-badge/demo";
+import StatusBadge_Animate from "@/components/example/status-badge/animate";
+import SwitchDemo from "@/components/example/switch/demo";
+import SwitchColor from "@/components/example/switch/color";
+import SwitchSizes from "@/components/example/switch/sizes";
+import ControlledSwitch from "@/components/example/switch/controlled";
 
 export const components = {
   DetailCard,
@@ -161,6 +172,17 @@ export const components = {
   OTPWithCard,
   OnCompleteOTP,
   OTPLength,
+  StackDemo,
+  StackAlignment,
+  SBSizes,
+  SBPlacement,
+  SBStatus,
+  StatusBadgeDemo,
+  StatusBadge_Animate,
+  SwitchDemo,
+  SwitchColor,
+  SwitchSizes,
+  ControlledSwitch,
 };
 
 export const MDXRemote = dynamic(() =>

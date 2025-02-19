@@ -10,7 +10,6 @@ const statusBadgeColorScheme = {
 };
 
 const statusBadgeSize = {
-  sm: "w-[8px] h-[8px]",
   md: "w-[12px] h-[12px]",
   lg: "w-[16px] h-[16px]",
 };

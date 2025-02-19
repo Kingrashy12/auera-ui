@@ -1,0 +1,43 @@
+---
+title: Status Badge | AueraUI
+description: An indicator for displaying status labels with predefined styles.
+---
+
+<DetailCard description='An indicator for displaying status labels with predefined styles.'/>
+
+<Details>
+<StatusBadgeDemo />
+</Details>
+
+<Details id='examples'>
+<HeaderLabel id='examples'>Examples</HeaderLabel>
+</Details>
+
+<Details id='placements'>
+<HeaderLabel id='placements' as='h3'>Placements</HeaderLabel>
+<p className="text">Use the <CodeTag>placement</CodeTag> prop to change the badge direction</p>
+<SBPlacement />
+</Details>
+
+<Details id='status'>
+<HeaderLabel id='status' as='h3'>Status</HeaderLabel>
+<p className="text">Use the <CodeTag>status</CodeTag> prop to change the badge status</p>
+<SBStatus />
+</Details>
+
+<Details id='sizes'>
+<HeaderLabel id='sizes' as='h3'>Sizes</HeaderLabel>
+<p className="text">Use the <CodeTag>size</CodeTag> prop to change the badge size</p>
+<SBSizes />
+</Details>
+
+<Details id='animate'>
+<HeaderLabel id='animate' as='h3'>Animate</HeaderLabel>
+<p className="text">Use the <CodeTag>animate</CodeTag> prop to add a ping animation to the badge</p>
+<StatusBadge_Animate />
+</Details>
+
+<Details id='api-reference'>
+<HeaderLabel id='api-reference'>API Reference</HeaderLabel>
+<APITable reference={statusBadgeRef} />
+</Details>
