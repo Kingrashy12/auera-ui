@@ -62,8 +62,7 @@ const Collapse: React.FC<CollapseProps> = ({
           <Icon
             icon={getIcon() as React.ElementType}
             size={20}
-            data-theme={currentMode}
-            className={tw("tone-dark:text-white")}
+            color={currentMode === "dark" ? "white" : "black"}
           />
         </>
       );
@@ -91,7 +90,6 @@ const Collapse: React.FC<CollapseProps> = ({
       >
         {children}
       </Box>
-      {/* <Divider className={dividerClass} /> */}
     </Box>
   );
 };

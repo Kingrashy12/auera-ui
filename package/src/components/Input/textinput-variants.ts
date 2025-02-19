@@ -31,7 +31,7 @@ const input_interface = cva(
         unstyled: "",
       },
       disabled: {
-        true: "cursor-not-allowed pointer-events-none opacity-85",
+        true: "cursor-not-allowed pointer-events-none opacity-85 select-none",
       },
     },
     defaultVariants: {

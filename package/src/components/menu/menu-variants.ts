@@ -40,7 +40,7 @@ const item = cva(
   {
     variants: {
       disabled: {
-        true: "cursor-not-allowed opacity-75 pointer-events-none",
+        true: "cursor-not-allowed opacity-75 pointer-events-none select-none",
       },
       type: {
         padded: "rounded-md",

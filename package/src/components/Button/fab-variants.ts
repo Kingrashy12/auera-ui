@@ -17,7 +17,7 @@ const fab = cva(
         "top-right": "right-6 top-6",
       },
       disabled: {
-        true: "pointer-events-none opacity-75 cursor-not-allowed",
+        true: "pointer-events-none opacity-75 cursor-not-allowed select-none",
       },
     },
   }
