@@ -2,7 +2,8 @@ import CodeBlock from "@/components/layout/code/Block";
 import CardContent from "@/components/lib/CardContent";
 import { IconButton, Stack, TabHandle, TabPanel, Tabs } from "auera-ui";
 import React from "react";
-import { IoVideocam } from "react-icons/io5";
+import { IoCodeSlash, IoVideocam } from "react-icons/io5";
+import { LuEye } from "react-icons/lu";
 import { MdHomeMax } from "react-icons/md";
 
 const code = `import { IconButton, Stack } from "auera-ui";
@@ -38,8 +39,12 @@ const IButtonAsChild = () => {
   return (
     <CardContent>
       <Tabs rounded variant="solid">
-        <TabHandle value="preview">Preview</TabHandle>
-        <TabHandle value="code">Code</TabHandle>
+        <TabHandle icon={LuEye} iconSize={19} value="preview">
+          Preview
+        </TabHandle>
+        <TabHandle icon={IoCodeSlash} value="code">
+          Code
+        </TabHandle>
         <TabPanel className="mt-4">
           <Stack align="horizontal">
             <IconButton

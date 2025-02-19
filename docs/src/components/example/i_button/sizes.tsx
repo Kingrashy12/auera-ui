@@ -2,14 +2,19 @@ import CodeBlock from "@/components/layout/code/Block";
 import CardContent from "@/components/lib/CardContent";
 import { IconButton, Stack, TabHandle, TabPanel, Tabs } from "auera-ui";
 import React from "react";
-import { IoClose } from "react-icons/io5";
+import { IoClose, IoCodeSlash } from "react-icons/io5";
+import { LuEye } from "react-icons/lu";
 
 const IButtonSizes = () => {
   return (
     <CardContent>
       <Tabs rounded variant="solid">
-        <TabHandle value="preview">Preview</TabHandle>
-        <TabHandle value="code">Code</TabHandle>
+        <TabHandle icon={LuEye} iconSize={19} value="preview">
+          Preview
+        </TabHandle>
+        <TabHandle icon={IoCodeSlash} value="code">
+          Code
+        </TabHandle>
         <TabPanel className="mt-4">
           <Stack wrap align="horizontal">
             <IconButton size="xs">

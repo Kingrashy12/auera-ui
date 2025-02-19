@@ -14,6 +14,8 @@ import {
 import React from "react";
 import { FaCircleCheck } from "react-icons/fa6";
 import { FiMinus } from "react-icons/fi";
+import { IoCodeSlash } from "react-icons/io5";
+import { LuEye } from "react-icons/lu";
 import { tw } from "stywind";
 
 const features = [
@@ -52,8 +54,12 @@ const PricingCard = () => {
     <>
       <CardContent>
         <Tabs variant="solid" rounded containerClass="overflow-visible">
-          <TabHandle value="preview">Preview</TabHandle>
-          <TabHandle value="code">Code</TabHandle>
+          <TabHandle icon={LuEye} iconSize={19} value="preview">
+            Preview
+          </TabHandle>
+          <TabHandle icon={IoCodeSlash} value="code">
+            Code
+          </TabHandle>
           <TabPanel className="mt-3">
             <Card
               classNames={{

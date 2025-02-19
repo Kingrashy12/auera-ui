@@ -11,6 +11,8 @@ import {
   toast,
 } from "auera-ui";
 import React, { useState } from "react";
+import { IoCodeSlash } from "react-icons/io5";
+import { LuEye } from "react-icons/lu";
 
 const code = `import { Backdrop, Button, OTPInput, toast, Card } from "auera-ui";
 import React, { useState } from "react";
@@ -71,8 +73,12 @@ const SimpleBackdrop = () => {
   return (
     <Card>
       <Tabs variant="solid" rounded>
-        <TabHandle value="preview">Preview</TabHandle>
-        <TabHandle value="code">Code</TabHandle>
+        <TabHandle icon={LuEye} iconSize={19} value="preview">
+          Preview
+        </TabHandle>
+        <TabHandle icon={IoCodeSlash} value="code">
+          Code
+        </TabHandle>
         <TabPanel>
           <Stack>
             <Button onClick={handleOpen}>Open Backdrop</Button>

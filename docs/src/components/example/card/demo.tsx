@@ -4,14 +4,20 @@ import { card_codes } from "@/data/code/card";
 import { Box, Button, Card, Media, TabHandle, TabPanel, Tabs } from "auera-ui";
 import React from "react";
 import { FiArrowUpRight } from "react-icons/fi";
+import { IoCodeSlash } from "react-icons/io5";
+import { LuEye } from "react-icons/lu";
 
 const CardDemo = () => {
   return (
     <>
       <CardContent>
         <Tabs variant="solid" rounded containerClass="overflow-visible">
-          <TabHandle value="preview">Preview</TabHandle>
-          <TabHandle value="code">Code</TabHandle>
+          <TabHandle icon={LuEye} iconSize={19} value="preview">
+            Preview
+          </TabHandle>
+          <TabHandle icon={IoCodeSlash} value="code">
+            Code
+          </TabHandle>
           <TabPanel className="mt-3">
             <Card
               classNames={{

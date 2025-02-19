@@ -12,13 +12,19 @@ import {
   Tabs,
 } from "auera-ui";
 import React from "react";
+import { IoCodeSlash } from "react-icons/io5";
+import { LuEye } from "react-icons/lu";
 
 const GroupMapDemo = () => {
   return (
     <CardContent>
       <Tabs rounded variant="solid">
-        <TabHandle value="preview">Preview</TabHandle>
-        <TabHandle value="code">Code</TabHandle>
+        <TabHandle icon={LuEye} iconSize={19} value="preview">
+          Preview
+        </TabHandle>
+        <TabHandle icon={IoCodeSlash} value="code">
+          Code
+        </TabHandle>
         <TabPanel className="mt-3">
           <GroupMap
             data={notifications}
