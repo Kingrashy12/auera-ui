@@ -1,6 +1,25 @@
 ---
 title: Stack | AueraUI
-description: 
+description: A flexible layout utility for arranging elements in a vertical or horizontal stack with consistent spacing
 ---
 
-<DetailCard description=''/>
+<DetailCard description='A flexible layout utility for arranging elements in a vertical or horizontal stack with consistent spacing'/>
+
+<Details>
+<StackDemo />
+</Details>
+
+<Details id='examples'>
+<HeaderLabel id='examples'>Examples</HeaderLabel>
+</Details>
+
+<Details id='horizontal'>
+<HeaderLabel id='horizontal' as='h3'>Horizontal</HeaderLabel>
+<p className="text">Use the <CodeTag>align</CodeTag> prop to change the stack direction </p>
+<StackAlignment />
+</Details>
+
+<Details id='api-reference'>
+<HeaderLabel id='api-reference'>API Reference</HeaderLabel>
+<APITable reference={stackRef} />
+</Details>

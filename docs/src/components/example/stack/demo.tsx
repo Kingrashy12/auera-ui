@@ -1,11 +1,12 @@
 import CodeBlock from "@/components/layout/code/Block";
 import CardContent from "@/components/lib/CardContent";
-import { OTPInput, Stack, TabHandle, TabPanel, Tabs } from "auera-ui";
+import { images } from "@/constant/images";
+import { Avatar, Stack, TabHandle, TabPanel, Tabs } from "auera-ui";
 import React from "react";
 import { IoCodeSlash } from "react-icons/io5";
 import { LuEye } from "react-icons/lu";
 
-const OTPDemo = () => {
+const StackDemo = () => {
   return (
     <CardContent>
       <Tabs variant="solid" rounded>
@@ -15,27 +16,32 @@ const OTPDemo = () => {
         <TabHandle icon={IoCodeSlash} value="code">
           Code
         </TabHandle>
-        <TabPanel>
+        <TabPanel className="mt-4">
           <Stack>
-            <OTPInput onComplete={(otp) => console.log(otp)} />
+            <Avatar size="md" src={images[1]} />
+            <Avatar size="md" src={images[2]} />
+            <Avatar size="md" src={images[3]} />
           </Stack>
         </TabPanel>
         <TabPanel>
-          <CodeBlock fileName="otp-input/demo.tsx" lg="tsx" code={code} />
+          <CodeBlock fileName="stack/demo.tsx" lg="tsx" code={code} />
         </TabPanel>
       </Tabs>
     </CardContent>
   );
 };
 
-export default OTPDemo;
+export default StackDemo;
 
-const code = `import { OTPInput, Stack } from "auera-ui";
+const code = `import { Avatar, Stack } from "auera-ui";
+import { images } from "@/constant/images";
 
 const Demo = () => {
  return (
   <Stack>
-    <OTPInput />
+    <Avatar size="md" src={images[1]} />
+    <Avatar size="md" src={images[2]} />
+    <Avatar size="md" src={images[3]} />
   </Stack>
  )
 };`;

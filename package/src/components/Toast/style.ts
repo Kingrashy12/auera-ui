@@ -35,11 +35,12 @@ const toastPosition = {
 
 const getToast = () => {
   const basicClass = defineClass(
-    "bg-white w-auto h-auto relative flex max-w-[400px] m-[9px] gap-[6px] rounded-lg shadow-[0_4px_8px_rgba(0,0,0,0.1)] max-[550px]:max-w-[90%] border border-neutral-200"
+    "bg-white w-fit h-auto relative flex max-w-[400px] m-[9px] gap-[6px] rounded-xl \
+     shadow-[0_4px_8px_rgba(0,0,0,0.1)] max-[550px]:max-w-[90%] border border-neutral-200"
   );
 
   const Header = createStyle("div").classname(
-    "font-semibold text-black leading-5 text-sm"
+    "font-semibold text-black leading-5 text-sm font-inter"
   );
 
   const Message = createStyle("span").classname(
@@ -55,7 +56,7 @@ const getToast = () => {
   );
 
   const CloseIcon = createStyle("div").classname(
-    "flex items-center justify-center p-1 h-auto transition-all rounded-tr-md rounded-br-md cursor-pointer"
+    "flex items-center justify-center p-2 h-auto transition-all rounded-tr-xl rounded-br-xl cursor-pointer"
   );
 
   const ClassName = (

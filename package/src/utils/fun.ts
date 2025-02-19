@@ -124,7 +124,33 @@ export const formatCurrency = <T extends Currency>(
   });
 };
 
-export const groupData = <T>({ data, key }: DataGroup<T>) => {
+/**
+ * Groups an array of objects by a specified key.
+ *
+ * @template T - The type of objects in the data array.
+ * @param {Object} params - The function parameters.
+ * @param {T[]} params.data - The array of objects to be grouped.
+ * @param {keyof T} params.key - The key to group by.
+ * @returns {Record<string, T[]>} An object where the keys are the unique values of the specified key and the values are arrays of matching objects.
+ *
+ * @example
+ * const data = [
+ *   { category: "A", name: "Item 1" },
+ *   { category: "B", name: "Item 2" },
+ *   { category: "A", name: "Item 3" }
+ * ];
+ *
+ * const grouped = groupData({ data, key: "category" });
+ * console.log(grouped);
+ * // {
+ * //   A: [{ category: "A", name: "Item 1" }, { category: "A", name: "Item 3" }],
+ * //   B: [{ category: "B", name: "Item 2" }]
+ * // }
+ */
+export const groupData = <T>({
+  data,
+  key,
+}: DataGroup<T>): Record<string, T[]> => {
   const grouped: Record<string, T[]> = {};
 
   for (const item of data) {

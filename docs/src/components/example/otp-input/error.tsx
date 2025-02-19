@@ -1,7 +1,17 @@
 import CodeBlock from "@/components/layout/code/Block";
 import CardContent from "@/components/lib/CardContent";
-import { Card, OTPInput, Stack, TabHandle, TabPanel, Tabs } from "auera-ui";
-import React, { useState } from "react";
+import {
+  Card,
+  OTPInput,
+  Stack,
+  TabHandle,
+  TabPanel,
+  Tabs,
+  toast,
+} from "auera-ui";
+import React, { useEffect, useState } from "react";
+import { IoCodeSlash } from "react-icons/io5";
+import { LuEye } from "react-icons/lu";
 import { tw } from "stywind";
 
 const CompleteOTP = () => {
@@ -9,13 +19,21 @@ const CompleteOTP = () => {
   const pin = "2025";
   const INCORRECT = otp.length === 4 && otp !== pin;
 
-  console.log({ INCORRECT, otp });
+  useEffect(() => {
+    if (INCORRECT) {
+      toast.error("You've entered an incorrect pin try: 2025");
+    }
+  }, [otp, INCORRECT]);
 
   return (
     <CardContent>
       <Tabs variant="solid" rounded>
-        <TabHandle value="preview">Preview</TabHandle>
-        <TabHandle value="code">Code</TabHandle>
+        <TabHandle icon={LuEye} iconSize={19} value="preview">
+          Preview
+        </TabHandle>
+        <TabHandle icon={IoCodeSlash} value="code">
+          Code
+        </TabHandle>
         <TabPanel>
           <Stack>
             <Card>

@@ -222,9 +222,8 @@ const Toast = () => {
           </ContentWrap>
           <CloseIcon>
             <IconButton
-              variant="ghost"
               mode="light"
-              radius="lg"
+              radius="xl"
               onClick={() => removeToast(toast)}
             >
               <HiOutlineX size={20} color="black" />

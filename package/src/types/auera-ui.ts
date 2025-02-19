@@ -711,7 +711,7 @@ export type StatusBadgeProps = {
    * The size of the badge, one of 'sm', 'md', or 'lg'.
    * @default 'md'
    */
-  size?: "sm" | "md" | "lg";
+  size?: "md" | "lg";
   /**
    * Optional className to be applied to the badge container.
    */
