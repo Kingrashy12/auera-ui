@@ -1,11 +1,12 @@
 import CodeBlock from "@/components/layout/code/Block";
 import CardContent from "@/components/lib/CardContent";
 import { Stack, Switch, TabHandle, TabPanel, Tabs } from "auera-ui";
-import React from "react";
+import React, { useState } from "react";
 import { IoCodeSlash } from "react-icons/io5";
 import { LuEye } from "react-icons/lu";
 
-const SwitchDemo = () => {
+const SwitchState = () => {
+  const [state, setState] = useState(false);
   return (
     <CardContent>
       <Tabs variant="solid" rounded>
@@ -17,8 +18,11 @@ const SwitchDemo = () => {
         </TabHandle>
         <TabPanel className="mt-4">
           <Stack>
-            <Switch className="theme-dark:text-white font-inter text-sm">
-              Enable Notifications
+            <Switch
+              onToggleSwitch={(status) => setState(status)}
+              className="font-inter theme-dark:text-white"
+            >
+              {state ? "ON" : "OFF"}
             </Switch>
           </Stack>
         </TabPanel>
@@ -30,14 +34,22 @@ const SwitchDemo = () => {
   );
 };
 
-export default SwitchDemo;
+export default SwitchState;
 
-const code = `import { Switch } from "auera-ui";
+const code = `import { Switch, Stack } from "auera-ui";
+import { useState } from "react";
 
 const Demo = () => {
+ const [state, setState] = useState(false);
+
  return (
-  <Switch>
-    Enable Notifications
-  </Switch>
+  <Stack>
+   <Switch
+    onToggleSwitch={(status) => setState(status)}
+    className="font-inter theme-dark:text-white"
+    >
+   {state ? "ON" : "OFF"}
+   </Switch>
+  </Stack>
  )
 };`;

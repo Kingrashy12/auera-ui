@@ -5,7 +5,7 @@ import React from "react";
 import { IoCodeSlash } from "react-icons/io5";
 import { LuEye } from "react-icons/lu";
 
-const SwitchDemo = () => {
+const DisabledSwitch = () => {
   return (
     <CardContent>
       <Tabs variant="solid" rounded>
@@ -17,8 +17,11 @@ const SwitchDemo = () => {
         </TabHandle>
         <TabPanel className="mt-4">
           <Stack>
-            <Switch className="theme-dark:text-white font-inter text-sm">
-              Enable Notifications
+            <Switch
+              disabled
+              className="font-inter text-sm theme-dark:text-white"
+            >
+              Allow Tracking
             </Switch>
           </Stack>
         </TabPanel>
@@ -30,14 +33,14 @@ const SwitchDemo = () => {
   );
 };
 
-export default SwitchDemo;
+export default DisabledSwitch;
 
 const code = `import { Switch } from "auera-ui";
 
 const Demo = () => {
  return (
-  <Switch>
-    Enable Notifications
-  </Switch>
+    <Switch disabled>
+      Allow Tracking
+    </Switch>
  )
 };`;

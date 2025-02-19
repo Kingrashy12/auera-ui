@@ -59,10 +59,4 @@ export const checkboxRef = [
       },
     },
   },
-  {
-    prop: "children",
-    type: "ReactNode",
-    description: "Checkbox content",
-    default: "undefined",
-  },
 ];

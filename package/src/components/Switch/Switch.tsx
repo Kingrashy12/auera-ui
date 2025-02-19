@@ -25,6 +25,8 @@ const Switch: React.FC<SwitchProps> = ({
   onToggleSwitch,
   disabled,
   on,
+  className,
+  children,
 }) => {
   const [isOn, setIsOn] = useState(on ?? false);
 
@@ -42,28 +44,39 @@ const Switch: React.FC<SwitchProps> = ({
 
   return (
     <div
-      className={tw(
-        "flex p-1 rounded-full data-[ison=true]:justify-end items-center transition-transform",
-        sizeClass[size],
-        isOn ? `bg-${color}` : `bg-${unCheckColor}`,
-        disabled
-          ? "cursor-not-allowed opacity-85 bg-gray-300"
-          : "cursor-pointer"
-      )}
-      data-ison={isOn}
+      aria-disabled={disabled}
       onClick={toggleOn}
+      className={tw(
+        "flex items-center select-none gap-2 flex-shrink-0 w-fit",
+        disabled && "opacity-85",
+        className
+      )}
     >
-      <motion.div
-        className={tw("bg-white rounded-full", handleSize[size])}
-        layout
-        transition={{
-          type: "spring",
-          bounce: 0.5,
-          visualDuration: 0.5,
-          damping: 30,
-          stiffness: 500,
-        }}
-      />
+      <div
+        className={tw(
+          "flex p-1 rounded-full data-[ison=true]:justify-end items-center transition-transform",
+          sizeClass[size],
+          isOn ? `bg-${color}` : `bg-${unCheckColor}`,
+          disabled
+            ? "cursor-not-allowed opacity-85 bg-gray-300"
+            : "cursor-pointer"
+        )}
+        data-ison={isOn}
+        onClick={toggleOn}
+      >
+        <motion.div
+          className={tw("bg-white rounded-full", handleSize[size])}
+          layout
+          transition={{
+            type: "spring",
+            bounce: 0.5,
+            visualDuration: 0.5,
+            damping: 30,
+            stiffness: 500,
+          }}
+        />
+      </div>
+      {children}
     </div>
   );
 };

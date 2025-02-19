@@ -428,6 +428,8 @@ export type SwitchProps = {
   unCheckColor?: ColorPair;
   color?: ColorPair;
   disabled?: boolean;
+  children?: React.ReactNode;
+  className?: string;
 };
 
 export type CheckBoxProps = {

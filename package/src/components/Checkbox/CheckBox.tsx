@@ -50,11 +50,13 @@ const CheckBox: React.FC<CheckBoxProps> = ({
   const handleCheck = () => {
     const newState = !checked;
 
-    if (onCheckChange) {
-      onCheckChange(newState);
-    }
+    if (!disabled) {
+      if (onCheckChange) {
+        onCheckChange(newState);
+      }
 
-    setChecked(newState);
+      setChecked(newState);
+    }
   };
 
   return (
@@ -75,7 +77,7 @@ const CheckBox: React.FC<CheckBoxProps> = ({
           merge.single(radiusClass, radius),
           merge.single(sizeClass, size),
           checked ? getColorString() : "border-gray-400",
-          { "bg-neutral-400 border-neutral-400": disabled },
+          { "border-neutral-400": disabled },
           classNames?.checker
         )}
       >

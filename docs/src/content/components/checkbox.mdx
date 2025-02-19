@@ -43,6 +43,18 @@ description: Used for selecting values from several options
 <OnCheck />
 </Details>
 
+<Details id='controlled'>
+<HeaderLabel id='controlled' as='h3'>Controlled</HeaderLabel>
+ <p className="text">Use <CodeTag>checked</CodeTag> prop to set the default state</p>
+<ControlledCheck />
+</Details>
+
+<Details id='disabled'>
+<HeaderLabel id='disabled' as='h3'>Disabled</HeaderLabel>
+ <p className="text">Use <CodeTag>disabled</CodeTag> prop to disable the checkbox</p>
+<DisabledCheck />
+</Details>
+
 <Details id='api-reference'>
 <HeaderLabel id='api-reference'>API Reference</HeaderLabel>
 <APITable reference={checkboxRef} />
