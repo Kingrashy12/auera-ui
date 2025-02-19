@@ -18,6 +18,7 @@ import { otpRef } from "@/data/api-ref/otp";
 import { stackRef } from "@/data/api-ref/stack";
 import { statusBadgeRef } from "@/data/api-ref/status-badge";
 import { switchRef } from "@/data/api-ref/switch";
+import { tabsRef } from "@/data/api-ref/tabs";
 import { fetchContent } from "@/hooks/fetch_content";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { MDXRemoteSerializeResult } from "next-mdx-remote";
@@ -47,6 +48,7 @@ const data = {
   stackRef,
   statusBadgeRef,
   switchRef,
+  tabsRef,
 };
 
 const Page = ({ frontmatter, mdxSource, slug }: Props) => {

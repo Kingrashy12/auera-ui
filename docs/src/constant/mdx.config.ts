@@ -93,6 +93,10 @@ import DisabledCheck from "@/components/example/checkbox/disabled";
 import ControlledCheck from "@/components/example/checkbox/controlled";
 import DisabledSwitch from "@/components/example/switch/disabled";
 import UsageDemo from "@/components/example/demo";
+import TabsDemo from "@/components/example/tabs/demo";
+import TabsWithFullWidth from "@/components/example/tabs/fullwidth";
+import TabWithIcons from "@/components/example/tabs/icon";
+import SolidTabs from "@/components/example/tabs/solid-variants";
 
 export const components = {
   DetailCard,
@@ -193,6 +197,10 @@ export const components = {
   ControlledCheck,
   DisabledSwitch,
   UsageDemo,
+  TabsDemo,
+  TabsWithFullWidth,
+  TabWithIcons,
+  SolidTabs,
 };
 
 export const MDXRemote = dynamic(() =>
