@@ -28,13 +28,19 @@ const Loading: React.FC<LoaderProp> = ({
   );
 
   const comp = {
-    bounce: <BounceLoader color={color || "blue-500"} size={size || "md"} />,
+    bounce: (
+      <div className="flex items-center justify-center w-full">
+        <BounceLoader color={color || "blue-500"} size={size || "md"} />
+      </div>
+    ),
     circle: (
-      <CircularProgress
-        color={color || "blue-500"}
-        innerColor={innerColor || "blue-100"}
-        size={size || "md"}
-      />
+      <div className="flex items-center justify-center w-full">
+        <CircularProgress
+          color={color || "blue-500"}
+          innerColor={innerColor || "blue-100"}
+          size={size || "md"}
+        />
+      </div>
     ),
   };
 
