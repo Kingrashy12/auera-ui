@@ -2,6 +2,8 @@ import CodeBlock from "@/components/layout/code/Block";
 import CardContent from "@/components/lib/CardContent";
 import { Icon, TabHandle, TabPanel, Tabs } from "auera-ui";
 import React from "react";
+import { IoCodeSlash } from "react-icons/io5";
+import { LuEye } from "react-icons/lu";
 
 const code = `import { Icon } from "auera-ui";
 
@@ -38,8 +40,12 @@ const CustomSvg = () => {
   return (
     <CardContent>
       <Tabs variant="solid" rounded>
-        <TabHandle value="preview">Preview</TabHandle>
-        <TabHandle value="code">Code</TabHandle>
+        <TabHandle icon={LuEye} iconSize={19} value="preview">
+          Preview
+        </TabHandle>
+        <TabHandle icon={IoCodeSlash} value="code">
+          Code
+        </TabHandle>
         <TabPanel className="mt-5">
           <Icon icon={CustomSvgIcon} color="blue" size={25} />
         </TabPanel>

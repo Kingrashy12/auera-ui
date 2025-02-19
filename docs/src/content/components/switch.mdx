@@ -25,10 +25,22 @@ description: An indicator for displaying status labels with predefined styles.
  <SwitchColor />
 </Details>
 
+<Details id='state'>
+<HeaderLabel id='state' as='h3'>State</HeaderLabel>
+<p className="text">Use the <CodeTag>onToggleSwitch</CodeTag> prop to get the switch state</p>
+ <SwitchState />
+</Details>
+
 <Details id='controlled'>
 <HeaderLabel id='controlled' as='h3'>Controlled</HeaderLabel>
-<p className="text">Use the <CodeTag>on</CodeTag> and <CodeTag>onToggleSwitch</CodeTag> to controll the switch state</p>
+<p className="text">With the <CodeTag>on</CodeTag> prop you can set the switch default state</p>
  <ControlledSwitch />
+</Details>
+
+<Details id='disabled'>
+<HeaderLabel id='disabled' as='h3'>Disabled</HeaderLabel>
+{/* <p className="text">With the <CodeTag>on</CodeTag> prop you can set the switch default state</p> */}
+ <DisabledSwitch />
 </Details>
 
 <Details id='api-reference'>

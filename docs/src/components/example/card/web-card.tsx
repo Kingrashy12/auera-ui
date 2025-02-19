@@ -13,8 +13,8 @@ import {
   Tabs,
 } from "auera-ui";
 import React from "react";
-import { IoClose } from "react-icons/io5";
-import { LuBadgeInfo } from "react-icons/lu";
+import { IoClose, IoCodeSlash } from "react-icons/io5";
+import { LuBadgeInfo, LuEye } from "react-icons/lu";
 
 const providers = [
   {
@@ -41,8 +41,12 @@ const Web3Card = () => {
   return (
     <CardContent>
       <Tabs variant="solid" rounded containerClass="overflow-visible">
-        <TabHandle value="preview">Preview</TabHandle>
-        <TabHandle value="code">Code</TabHandle>
+        <TabHandle icon={LuEye} iconSize={19} value="preview">
+          Preview
+        </TabHandle>
+        <TabHandle icon={IoCodeSlash} value="code">
+          Code
+        </TabHandle>
         <TabPanel className="mt-3">
           <Card
             classNames={{

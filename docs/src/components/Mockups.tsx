@@ -20,22 +20,29 @@ const Mockups = () => {
         >
           <Card
             key={index}
-            className={tw(
-              "!w-[214px] max-[768px]:!w-[195px] max-[712px]:!w-[185px] max-[422px]:!w-[175px] max-[402px]:!w-full h-[200px] !p-0",
-              item.soon
-                ? "cursor-not-allowed pointer-events-none"
-                : "cursor-pointer"
+            classNames={{
+              root: tw(
+                "!w-[214px] max-[768px]:!w-[195px] max-[712px]:!w-[185px] max-[422px]:!w-[175px] max-[402px]:!w-full h-[200px] !p-0",
+                item.soon
+                  ? "cursor-not-allowed pointer-events-none"
+                  : "cursor-pointer"
+              ),
+            }}
+            renderHeader={() => (
+              <Box
+                className="py-6 px-5 h-[120px] border-b border-b-sidebar"
+                centered
+              >
+                <Image
+                  src={item.image}
+                  alt={item.label}
+                  width={item.size}
+                  height={item.size}
+                />
+              </Box>
             )}
           >
-            <Box className="p-5 h-[120px] border-b border-b-sidebar" centered>
-              <Image
-                src={item.image}
-                alt={item.label}
-                width={item.size}
-                height={item.size}
-              />
-            </Box>
-            <Box className="p-4 h-auto justify-between">
+            <Box className="h-auto justify-between">
               <h4 className="text-primary font-inter font-medium">
                 {item.label}
               </h4>

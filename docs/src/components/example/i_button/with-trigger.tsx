@@ -3,6 +3,8 @@ import CardContent from "@/components/lib/CardContent";
 import { IconButton, StatusBadge, TabHandle, TabPanel, Tabs } from "auera-ui";
 import React from "react";
 import { HiBell } from "react-icons/hi";
+import { IoCodeSlash } from "react-icons/io5";
+import { LuEye } from "react-icons/lu";
 
 const code = `import { IconButton, StatusBadge } from "auera-ui";
 import { HiBell } from "react-icons/hi";
@@ -27,8 +29,12 @@ const IButtonWithTrigger = () => {
   return (
     <CardContent>
       <Tabs rounded variant="solid">
-        <TabHandle value="preview">Preview</TabHandle>
-        <TabHandle value="code">Code</TabHandle>
+        <TabHandle icon={LuEye} iconSize={19} value="preview">
+          Preview
+        </TabHandle>
+        <TabHandle icon={IoCodeSlash} value="code">
+          Code
+        </TabHandle>
         <TabPanel className="mt-4">
           <IconButton
             radius="lg"

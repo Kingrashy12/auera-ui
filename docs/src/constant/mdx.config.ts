@@ -88,6 +88,11 @@ import SwitchDemo from "@/components/example/switch/demo";
 import SwitchColor from "@/components/example/switch/color";
 import SwitchSizes from "@/components/example/switch/sizes";
 import ControlledSwitch from "@/components/example/switch/controlled";
+import SwitchState from "@/components/example/switch/state";
+import DisabledCheck from "@/components/example/checkbox/disabled";
+import ControlledCheck from "@/components/example/checkbox/controlled";
+import DisabledSwitch from "@/components/example/switch/disabled";
+import UsageDemo from "@/components/example/demo";
 
 export const components = {
   DetailCard,
@@ -183,6 +188,11 @@ export const components = {
   SwitchColor,
   SwitchSizes,
   ControlledSwitch,
+  SwitchState,
+  DisabledCheck,
+  ControlledCheck,
+  DisabledSwitch,
+  UsageDemo,
 };
 
 export const MDXRemote = dynamic(() =>

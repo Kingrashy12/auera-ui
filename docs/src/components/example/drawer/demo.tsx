@@ -3,13 +3,19 @@ import CardContent from "@/components/lib/CardContent";
 import { drawer_codes } from "@/data/code/drawer";
 import { Button, Stack, TabHandle, TabPanel, Tabs } from "auera-ui";
 import React from "react";
+import { IoCodeSlash } from "react-icons/io5";
+import { LuEye } from "react-icons/lu";
 
 const DrawerDemo = () => {
   return (
     <CardContent>
       <Tabs rounded variant="solid">
-        <TabHandle value="preview">Preview</TabHandle>
-        <TabHandle value="code">Code</TabHandle>
+        <TabHandle icon={LuEye} iconSize={19} value="preview">
+          Preview
+        </TabHandle>
+        <TabHandle icon={IoCodeSlash} value="code">
+          Code
+        </TabHandle>
         <TabPanel className="mt-3">
           <Stack>
             <Button

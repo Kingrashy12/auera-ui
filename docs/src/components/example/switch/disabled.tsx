@@ -1,12 +1,11 @@
 import CodeBlock from "@/components/layout/code/Block";
 import CardContent from "@/components/lib/CardContent";
-import { checkbox_codes } from "@/data/code/checkbox";
-import { Checkbox, Stack, TabHandle, TabPanel, Tabs } from "auera-ui";
+import { Stack, Switch, TabHandle, TabPanel, Tabs } from "auera-ui";
 import React from "react";
 import { IoCodeSlash } from "react-icons/io5";
 import { LuEye } from "react-icons/lu";
 
-const CheckboxDemo = () => {
+const DisabledSwitch = () => {
   return (
     <CardContent>
       <Tabs variant="solid" rounded>
@@ -16,21 +15,32 @@ const CheckboxDemo = () => {
         <TabHandle icon={IoCodeSlash} value="code">
           Code
         </TabHandle>
-        <TabPanel className="mt-3">
+        <TabPanel className="mt-4">
           <Stack>
-            <Checkbox
-              classNames={{ container: "theme-dark:text-white font-inter" }}
+            <Switch
+              disabled
+              className="font-inter text-sm theme-dark:text-white"
             >
-              I have read and agree to the terms of service.
-            </Checkbox>
+              Allow Tracking
+            </Switch>
           </Stack>
         </TabPanel>
         <TabPanel>
-          <CodeBlock fileName="demo.tsx" code={checkbox_codes.demo} lg="tsx" />
+          <CodeBlock fileName="switch/demo.tsx" code={code} lg="tsx" />
         </TabPanel>
       </Tabs>
     </CardContent>
   );
 };
 
-export default CheckboxDemo;
+export default DisabledSwitch;
+
+const code = `import { Switch } from "auera-ui";
+
+const Demo = () => {
+ return (
+    <Switch disabled>
+      Allow Tracking
+    </Switch>
+ )
+};`;

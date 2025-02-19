@@ -11,6 +11,8 @@ import {
 } from "auera-ui";
 import React from "react";
 import { FaRegSadTear } from "react-icons/fa";
+import { IoCodeSlash } from "react-icons/io5";
+import { LuEye } from "react-icons/lu";
 
 type Images = { img: string }[];
 
@@ -18,8 +20,12 @@ const Map_EmptyList = () => {
   return (
     <CardContent>
       <Tabs variant="solid" rounded>
-        <TabHandle value="preview">Preview</TabHandle>
-        <TabHandle value="preview">Code</TabHandle>
+        <TabHandle icon={LuEye} iconSize={19} value="preview">
+          Preview
+        </TabHandle>
+        <TabHandle icon={IoCodeSlash} value="code">
+          Code
+        </TabHandle>
         <TabPanel>
           <Stack wrap align="horizontal">
             <MapItems

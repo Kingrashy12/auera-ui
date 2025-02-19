@@ -18,6 +18,18 @@ export const checkboxRef = [
     default: "primary",
   },
   {
+    prop: "checked",
+    type: "boolean",
+    description: "Determines whether the checkbox is checked or not.",
+    default: "false",
+  },
+  {
+    prop: "onCheckChange",
+    type: "function",
+    description: "Callback function triggered when the checked state changes.",
+    default: "undefined",
+  },
+  {
     prop: "color",
     type: "ColorPair",
     description: "Checkbox color, from predefined pairs",
@@ -46,11 +58,5 @@ export const checkboxRef = [
         description: "Add className to the checkbox container",
       },
     },
-  },
-  {
-    prop: "children",
-    type: "ReactNode",
-    description: "Checkbox content",
-    default: "undefined",
   },
 ];

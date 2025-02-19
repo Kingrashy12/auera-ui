@@ -2,11 +2,12 @@ import CodeBlock from "@/components/layout/code/Block";
 import CardContent from "@/components/lib/CardContent";
 import { checkbox_codes } from "@/data/code/checkbox";
 import { Checkbox, Stack, TabHandle, TabPanel, Tabs } from "auera-ui";
-import React from "react";
+import React, { useState } from "react";
 import { IoCodeSlash } from "react-icons/io5";
 import { LuEye } from "react-icons/lu";
 
-const CheckboxDemo = () => {
+const ControlledCheck = () => {
+  const [checked, setChecked] = useState(true);
   return (
     <CardContent>
       <Tabs variant="solid" rounded>
@@ -19,18 +20,24 @@ const CheckboxDemo = () => {
         <TabPanel className="mt-3">
           <Stack>
             <Checkbox
-              classNames={{ container: "theme-dark:text-white font-inter" }}
+              checked={checked}
+              onCheckChange={(status) => setChecked(status)}
+              classNames={{ container: "text-neutral-400 font-inter" }}
             >
-              I have read and agree to the terms of service.
+              Checked: {JSON.stringify(checked)}
             </Checkbox>
           </Stack>
         </TabPanel>
         <TabPanel>
-          <CodeBlock fileName="demo.tsx" code={checkbox_codes.demo} lg="tsx" />
+          <CodeBlock
+            fileName="checkbox/controlled.tsx"
+            code={checkbox_codes.controlled}
+            lg="tsx"
+          />
         </TabPanel>
       </Tabs>
     </CardContent>
   );
 };
 
-export default CheckboxDemo;
+export default ControlledCheck;

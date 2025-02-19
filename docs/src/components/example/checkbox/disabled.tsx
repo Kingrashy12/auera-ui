@@ -6,7 +6,7 @@ import React from "react";
 import { IoCodeSlash } from "react-icons/io5";
 import { LuEye } from "react-icons/lu";
 
-const CheckboxDemo = () => {
+const DisabledCheck = () => {
   return (
     <CardContent>
       <Tabs variant="solid" rounded>
@@ -19,6 +19,7 @@ const CheckboxDemo = () => {
         <TabPanel className="mt-3">
           <Stack>
             <Checkbox
+              disabled
               classNames={{ container: "theme-dark:text-white font-inter" }}
             >
               I have read and agree to the terms of service.
@@ -33,4 +34,4 @@ const CheckboxDemo = () => {
   );
 };
 
-export default CheckboxDemo;
+export default DisabledCheck;

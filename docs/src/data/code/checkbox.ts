@@ -25,6 +25,24 @@ const CheckboxDemo = () => {
   </Stack>
  )
 }`,
+  controlled: `import { Checkbox, Stack } from "auera-ui";
+import { useState } from "react";
+
+const CheckboxDemo = () => {
+ const [checked, setChecked] = useState(true);
+
+ return (
+  <Stack>
+    <Checkbox
+     checked={checked}
+     onCheckChange={(status) => setChecked(status)}
+     classNames={{ container: "text-neutral-400 font-inter" }}
+    >
+      Checked: {JSON.stringify(checked)}
+    </Checkbox>
+  </Stack>
+ )
+}`,
   color: `import { Checkbox, Stack } from "auera-ui";
 
 const ColorDemo = () => {
