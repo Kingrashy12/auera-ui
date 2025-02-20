@@ -35,7 +35,6 @@ let toast: ToastType;
 const Toast = () => {
   const [toasts, setToasts] = useState<ToastNotification[]>([]);
   const toastTimeouts = useRef<{ [key: string]: NodeJS.Timeout }>({});
-  const [position, setPosition] = useState<ToastPositionType>("top-right");
   const { Header, CloseIcon, ContentWrap, Message, ClassName, ToastContent } =
     getToast();
 
@@ -56,8 +55,6 @@ const Toast = () => {
 
       return updatedToasts;
     });
-
-    setPosition(newToast?.position || "top-right");
 
     const update = (t: ToastNotification) => {
       if (t.type === "loading") {
@@ -86,7 +83,9 @@ const Toast = () => {
   // Remove toast
   const removeToast = (toast: ToastNotification) => {
     setToasts((prev) => {
-      const updatedToasts = prev.filter((t) => t.id !== toast.id);
+      const updatedToasts = prev.filter(
+        (t) => toast.type === "loading" || t.id !== toast.id
+      );
       return updatedToasts;
     });
   };
@@ -152,6 +151,7 @@ const Toast = () => {
         id: options?.key || generateId(11),
         message: msg,
         type: "info",
+        position: options?.position || "top-right",
         ...options,
         isVisible: true,
       }),
@@ -160,6 +160,7 @@ const Toast = () => {
         id: options?.key || generateId(11),
         message: msg,
         type: "error",
+        position: options?.position || "top-right",
         ...options,
         isVisible: true,
       }),
@@ -168,6 +169,7 @@ const Toast = () => {
         id: options?.key || generateId(11),
         message: msg,
         type: "success",
+        position: options?.position || "top-right",
         ...options,
         isVisible: true,
       }),
@@ -176,6 +178,7 @@ const Toast = () => {
         id: options?.key || generateId(11),
         message: msg,
         type: "warning",
+        position: options?.position || "top-right",
         ...options,
         isVisible: true,
       }),
@@ -184,54 +187,71 @@ const Toast = () => {
         id: options?.key || generateId(11),
         message: msg,
         type: "loading",
+        position: options?.position || "top-right",
         ...options,
         isVisible: true,
       }),
   };
 
+  const toastPosition: Record<ToastPositionType, string> = {
+    "top-right": "top-[15px] right-[15px]",
+    "top-left": "top-[15px] left-[15px]",
+    "bottom-right": "bottom-[15px] right-[15px]",
+    "bottom-left": "bottom-[15px] left-[15px]",
+  };
+
   return (
-    <div className={ClassName(position).WrapClass}>
-      {toasts.map((toast) => (
+    <>
+      {Object.keys(toastPosition).map((pos) => (
         <div
-          key={toast.id}
-          className={tw(
-            ClassName(
-              toast.position || "top-right",
-              toast.isVisible,
-              toast.transition
-            ).ToastClass,
-            toast.className
-          )}
+          key={pos}
+          className={ClassName(pos as ToastPositionType).WrapClass}
         >
-          <ContentWrap>
-            <Icon
-              icon={getIcon(toast.type)}
-              color={getIconColor(toast.type)}
-              size={20}
-              className={tw(toast.type === "loading" && "animate-spin")}
-            />
-            <ToastContent>
-              <Header>
-                {getLabel(toast.type)}
-                {toast.type === "loading" && (
-                  <span className="animate-dots relative"></span>
+          {toasts
+            .filter((toast) => toast.position === pos)
+            .map((toast) => (
+              <div
+                key={toast.id}
+                className={tw(
+                  ClassName(
+                    toast.position || "top-right",
+                    toast.isVisible,
+                    toast.transition
+                  ).ToastClass,
+                  toast.className
                 )}
-              </Header>
-              <Message>{toast.message}</Message>
-            </ToastContent>
-          </ContentWrap>
-          <CloseIcon>
-            <IconButton
-              mode="light"
-              radius="xl"
-              onClick={() => removeToast(toast)}
-            >
-              <HiOutlineX size={20} color="black" />
-            </IconButton>
-          </CloseIcon>
+              >
+                <ContentWrap>
+                  <Icon
+                    icon={getIcon(toast.type)}
+                    color={getIconColor(toast.type)}
+                    size={20}
+                    className={tw(toast.type === "loading" && "animate-spin")}
+                  />
+                  <ToastContent>
+                    <Header>
+                      {getLabel(toast.type)}
+                      {toast.type === "loading" && (
+                        <span className="animate-dots relative"></span>
+                      )}
+                    </Header>
+                    <Message>{toast.message}</Message>
+                  </ToastContent>
+                </ContentWrap>
+                <CloseIcon>
+                  <IconButton
+                    mode="light"
+                    radius="xl"
+                    onClick={() => removeToast(toast)}
+                  >
+                    <HiOutlineX size={20} color="black" />
+                  </IconButton>
+                </CloseIcon>
+              </div>
+            ))}
         </div>
       ))}
-    </div>
+    </>
   );
 };
 

@@ -19,6 +19,7 @@ import { stackRef } from "@/data/api-ref/stack";
 import { statusBadgeRef } from "@/data/api-ref/status-badge";
 import { switchRef } from "@/data/api-ref/switch";
 import { tabsRef } from "@/data/api-ref/tabs";
+import { toastRef } from "@/data/api-ref/toast";
 import { fetchContent } from "@/hooks/fetch_content";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { MDXRemoteSerializeResult } from "next-mdx-remote";
@@ -49,6 +50,7 @@ const data = {
   statusBadgeRef,
   switchRef,
   tabsRef,
+  toastRef,
 };
 
 const Page = ({ frontmatter, mdxSource, slug }: Props) => {
@@ -97,6 +99,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     "status-badge",
     "switch",
     "tabs",
+    "toast",
   ];
 
   const paths = slugs.map((slug) => ({

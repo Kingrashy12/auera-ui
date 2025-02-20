@@ -19,13 +19,13 @@ const SolidTabs = () => {
           <CardContent>
             <Tabs variant="solid">
               <TabHandle value="feed">Feed</TabHandle>
-              <TabHandle value="connections">Connections</TabHandle>
+              <TabHandle value="contacts">Contacts</TabHandle>
               <TabHandle value="photos">Photos</TabHandle>
               <TabPanel className="font-inter text-sm theme-dark:text-white">
                 Manage your feed
               </TabPanel>
               <TabPanel className="font-inter text-sm theme-dark:text-white">
-                Manage your connections
+                Manage your contacts
               </TabPanel>
               <TabPanel className="font-inter text-sm theme-dark:text-white">
                 Manage your photos
@@ -49,15 +49,15 @@ const Demo = () => {
  return (
   <Tabs variant="solid">
     <TabHandle value="feed">Feed</TabHandle>
-    <TabHandle value="connections">Connections</TabHandle>
+    <TabHandle value="contacts">Contacts</TabHandle>
     <TabHandle value="photos">Photos</TabHandle>
-    <TabPanel className="font-inter text-sm theme-dark:text-white">
+    <TabPanel>
       Manage your feed
     </TabPanel>
-    <TabPanel className="font-inter text-sm theme-dark:text-white">
-      Manage your connections
+    <TabPanel>
+      Manage your contacts
     </TabPanel>
-    <TabPanel className="font-inter text-sm theme-dark:text-white">
+    <TabPanel>
       Manage your photos
     </TabPanel>
   </Tabs>

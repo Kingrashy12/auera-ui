@@ -1,0 +1,43 @@
+---
+title: Toast | AueraUI
+description: A lightweight, non-intrusive notification component for displaying brief messages.
+---
+
+<DetailCard description='A lightweight, non-intrusive notification component for displaying brief messages.'/>
+
+<Details>
+<ToastDemo />
+</Details>
+
+<Details id='examples'>
+<HeaderLabel id='examples'>Examples</HeaderLabel>
+</Details>
+
+<Details id='variants'>
+  <HeaderLabel id='variants' as='h3'>Variants</HeaderLabel>
+  <p className="text">Toasts come in different variants such as success, error, warning, and info, allowing you to convey different types of messages to users.</p>
+  <ToastVariants />
+</Details>
+
+<Details id='positions'>
+  <HeaderLabel id='positions' as='h3'>Positions</HeaderLabel>
+  <p className="text">You can customize where the toast appears on the screen, using the <CodeTag>position</CodeTag> prop</p>
+  <ToastPositions />
+</Details>
+
+<Details id='loading'>
+  <HeaderLabel id='loading' as='h3'>Loading</HeaderLabel>
+  <p className="text">A loading toast can be used to indicate an ongoing process, such as data fetching or an action in progress.</p>
+  <LoadingToast />
+</Details>
+
+<Details id='transition'>
+  <HeaderLabel id='transition' as='h3'>Transition</HeaderLabel>
+  <p className="text">Toasts support different transition effects.</p>
+  <ToastTransition />
+</Details>
+
+<Details id='api-reference'>
+<HeaderLabel id='api-reference'>API Reference</HeaderLabel>
+<APITable reference={toastRef} />
+</Details>

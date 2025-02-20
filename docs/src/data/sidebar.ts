@@ -96,6 +96,7 @@ export const sideBarLinks = [
       { label: "Loading", uri: "/docs/components/loading", soon: true },
       { label: "Tabs", uri: "/docs/components/tabs" },
       { label: "ToolTip", uri: "/docs/components/tooltip", soon: true },
+      { label: "Toast", uri: "/docs/components/toast" },
       {
         label: "Status Badge",
         uri: "/docs/components/status-badge",
@@ -121,4 +122,35 @@ export const sideBarLinks = [
       },
     ],
   },
+  // {
+  //   header: "Utilities ",
+  //   links: [
+  //     { label: "StrFun", uri: "/docs/utilities/strfun", docs_soon: true },
+  //     {
+  //       label: "groupData",
+  //       uri: "/docs/utilities/group-data",
+  //       docs_soon: true,
+  //     },
+  //     {
+  //       label: "formatDate",
+  //       uri: "/docs/utilities/form-date",
+  //       docs_soon: true,
+  //     },
+  //     {
+  //       label: "formatTime",
+  //       uri: "/docs/utilities/form-time",
+  //       docs_soon: true,
+  //     },
+  //     {
+  //       label: "formatTimeAgo",
+  //       uri: "/docs/utilities/form-time-ago",
+  //       docs_soon: true,
+  //     },
+  //     {
+  //       label: "formatTimeDiff",
+  //       uri: "/docs/utilities/form-time-diff",
+  //       docs_soon: true,
+  //     },
+  //   ],
+  // },
 ];

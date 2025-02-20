@@ -97,6 +97,14 @@ import TabsDemo from "@/components/example/tabs/demo";
 import TabsWithFullWidth from "@/components/example/tabs/fullwidth";
 import TabWithIcons from "@/components/example/tabs/icon";
 import SolidTabs from "@/components/example/tabs/solid-variants";
+import RoundedTabs from "@/components/example/tabs/rounded";
+import TabsWithHiddenBorder from "@/components/example/tabs/hide-border";
+import UsingNext from "@/components/guide/font-nextjs";
+import ToastDemo from "@/components/example/toast/demo";
+import ToastPositions from "@/components/example/toast/position";
+import ToastTransition from "@/components/example/toast/transition";
+import ToastVariants from "@/components/example/toast/variants";
+import LoadingToast from "@/components/example/toast/loading-toast";
 
 export const components = {
   DetailCard,
@@ -201,6 +209,14 @@ export const components = {
   TabsWithFullWidth,
   TabWithIcons,
   SolidTabs,
+  RoundedTabs,
+  TabsWithHiddenBorder,
+  UsingNext,
+  ToastDemo,
+  ToastPositions,
+  ToastTransition,
+  ToastVariants,
+  LoadingToast,
 };
 
 export const MDXRemote = dynamic(() =>

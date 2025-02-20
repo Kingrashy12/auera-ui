@@ -5,7 +5,7 @@ import React from "react";
 import { IoCodeSlash } from "react-icons/io5";
 import { LuEye } from "react-icons/lu";
 
-const TabsWithFullWidth = () => {
+const TabsWithHiddenBorder = () => {
   return (
     <Box className="flex-col gap-6">
       <Tabs variant="solid" rounded>
@@ -17,21 +17,7 @@ const TabsWithFullWidth = () => {
         </TabHandle>
         <TabPanel className="mt-4">
           <CardContent>
-            <Tabs fullWidth>
-              <TabHandle value="feed">Feed</TabHandle>
-              <TabHandle value="contacts">Contacts</TabHandle>
-              <TabHandle value="photos">Photos</TabHandle>
-              <TabPanel className="font-inter text-sm theme-dark:text-white">
-                Manage your feed
-              </TabPanel>
-              <TabPanel className="font-inter text-sm theme-dark:text-white">
-                Manage your contacts
-              </TabPanel>
-              <TabPanel className="font-inter text-sm theme-dark:text-white">
-                Manage your photos
-              </TabPanel>
-            </Tabs>
-            <Tabs variant="solid" fullWidth>
+            <Tabs hideBorder>
               <TabHandle value="feed">Feed</TabHandle>
               <TabHandle value="contacts">Contacts</TabHandle>
               <TabHandle value="photos">Photos</TabHandle>
@@ -55,14 +41,13 @@ const TabsWithFullWidth = () => {
   );
 };
 
-export default TabsWithFullWidth;
+export default TabsWithHiddenBorder;
 
 const code = `import { TabHandle, TabPanel, Tabs } from "auera-ui"
 
 const Demo = () => {
  return (
- <>
-  <Tabs fullWidth>
+  <Tabs hideBorder>
     <TabHandle value="feed">Feed</TabHandle>
     <TabHandle value="contacts">Contacts</TabHandle>
     <TabHandle value="photos">Photos</TabHandle>
@@ -76,20 +61,5 @@ const Demo = () => {
       Manage your photos
     </TabPanel>
   </Tabs>
-  <Tabs variant="solid" fullWidth>
-     <TabHandle value="feed">Feed</TabHandle>
-     <TabHandle value="contacts">Contacts</TabHandle>
-     <TabHandle value="photos">Photos</TabHandle>
-     <TabPanel>
-       Manage your feed
-     </TabPanel>
-     <TabPanel>
-       Manage your contacts
-     </TabPanel>
-     <TabPanel>
-       Manage your photos
-     </TabPanel>
-   </Tabs>
-   </>
  )
 };`;
