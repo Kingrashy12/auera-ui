@@ -3,7 +3,7 @@ import { Currency, DataGroup } from "../types/utils";
 /**
  * Utility functions for string manipulation.
  *
- * Read more: [AueraUI Docs](https://aueraui.vercel.app/docs/utils/strfun)
+ * Read more: [AueraUI Docs](https://aueraui.vercel.app/docs/utilities/strfun)
  */
 export const StrFun = {
   /**

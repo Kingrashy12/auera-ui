@@ -97,6 +97,9 @@ import TabsDemo from "@/components/example/tabs/demo";
 import TabsWithFullWidth from "@/components/example/tabs/fullwidth";
 import TabWithIcons from "@/components/example/tabs/icon";
 import SolidTabs from "@/components/example/tabs/solid-variants";
+import RoundedTabs from "@/components/example/tabs/rounded";
+import TabsWithHiddenBorder from "@/components/example/tabs/hide-border";
+import UsingNext from "@/components/guide/font-nextjs";
 
 export const components = {
   DetailCard,
@@ -201,6 +204,9 @@ export const components = {
   TabsWithFullWidth,
   TabWithIcons,
   SolidTabs,
+  RoundedTabs,
+  TabsWithHiddenBorder,
+  UsingNext,
 };
 
 export const MDXRemote = dynamic(() =>

@@ -43,7 +43,6 @@ const Demo = () => {
   ModalPanel,
   toast,
 } from "auera-ui";
-import React from "react";
 
 const ModalDemo = () => {
 
@@ -98,7 +97,6 @@ export default ModalDemo;`,
   PasswordInput,
   TextInput,
 } from "auera-ui";
-import React from "react";
 import { IoClose } from "react-icons/io5";
 import { TiUser } from "react-icons/ti";
 

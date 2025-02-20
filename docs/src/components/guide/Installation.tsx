@@ -78,6 +78,10 @@ const Installation = () => {
               <CodeTag>DrawerProvider</CodeTag>: Manages side drawers in your
               application.
             </li>
+            <li>
+              <CodeTag>Toaster</CodeTag>: Renders and manages toast
+              notifications. Required for displaying toast messages.
+            </li>
           </ul>
         </GuideContainer>
       </StepGuide>

@@ -2,6 +2,7 @@ import {
   Icon,
   IconButton,
   Menu,
+  MenuDivider,
   MenuItem,
   MenuTrigger,
   useTheme,
@@ -21,7 +22,7 @@ const ToggleTheme = () => {
   return (
     <Menu
       zIndex="200"
-      className="-left-28 w-[150px] shadow-[4px_5px_10px_rgba(255,255,255,0.05)]"
+      className="-left-28 w-[150px] shadow-[4px_5px_10px_rgba(255,255,255,0.05)] gap-0"
     >
       <MenuTrigger>
         <IconButton variant="outline" radius="xl">
@@ -42,6 +43,7 @@ const ToggleTheme = () => {
         <IoMdMoon size={20} />
         <p className="font-inter font-medium text-sm">Light</p>
       </MenuItem>
+      <MenuDivider />
       <MenuItem
         onClick={toggleTheme.system}
         color={system === true ? "info" : "default"}

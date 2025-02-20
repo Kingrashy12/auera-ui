@@ -50,8 +50,8 @@ const TabHandle: React.FC<TabHandleType> = ({
         ? `text-${activeColorScheme} border-b-${activeColorScheme}`
         : `text-${inActiveColor} border-b-transparent hover:border-b-gray-300`,
       disabled
-        ? "opacity-50 cursor-default pointer-event-none"
-        : "opacity-100 cursor-pointer point-event-all"
+        ? "opacity-50 cursor-not-allowed pointer-events-none"
+        : "opacity-100 cursor-pointer"
     ),
     solid: tw(
       isCurrent
@@ -59,8 +59,8 @@ const TabHandle: React.FC<TabHandleType> = ({
         : `text-${inActiveColor} bg-transparent hover:bg-gray-200 tone-dark:hover:bg-gray-500`,
       rounded ? "rounded-full" : "rounded-md",
       disabled
-        ? "opacity-50 cursor-default pointer-event-none select-none"
-        : "opacity-100 cursor-pointer point-event-all"
+        ? "opacity-50 cursor-not-allowed pointer-events-none select-none"
+        : "opacity-100 cursor-pointer"
     ),
   };
 
@@ -75,9 +75,9 @@ const TabHandle: React.FC<TabHandleType> = ({
     tw(
       `gap-[7px] flex items-center outline-none font-medium whitespace-nowrap font-inter p-[9px]
        h-[30px] justify-center leading-[1.2rem] text-sm transition-all duration-500`,
-      merge.single(variantStyle, variant),
       fullWidth ? "w-full" : "w-auto",
       variant === "solid" ? "border-none" : "",
+      merge.single(variantStyle, variant),
       className
     )
   );

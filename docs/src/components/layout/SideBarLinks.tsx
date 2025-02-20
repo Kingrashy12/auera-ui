@@ -11,6 +11,7 @@ type Data = {
   uri: string;
   label: string;
   soon?: boolean;
+  docs_soon?: boolean;
   updated?: boolean;
 };
 
@@ -57,7 +58,7 @@ const SideBarLinks = ({ data }: { data: typeof sideBarLinks }) => {
                   getActiveLink(link.uri)
                     ? "border-l-1.9 text-blue-600 border-l-blue-600"
                     : "text-dimBlack",
-                  link.soon
+                  link.soon || link.docs_soon
                     ? "cursor-not-allowed pointer-events-none opacity-75"
                     : "cursor-pointer"
                 )}
@@ -66,14 +67,21 @@ const SideBarLinks = ({ data }: { data: typeof sideBarLinks }) => {
                 <Badge
                   variant="ghost"
                   colorScheme="warning"
-                  show={link.soon as boolean}
+                  show={Boolean(link.soon)}
                 >
                   Soon
                 </Badge>
                 <Badge
+                  variant="ghost"
+                  colorScheme="warning"
+                  show={Boolean(link.docs_soon)}
+                >
+                  Docs Soon
+                </Badge>
+                <Badge
                   variant="solid"
                   colorScheme="primary"
-                  show={link.updated as boolean}
+                  show={Boolean(link.updated)}
                 >
                   Updated
                 </Badge>
