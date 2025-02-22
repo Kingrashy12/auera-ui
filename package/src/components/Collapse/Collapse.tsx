@@ -63,6 +63,7 @@ const Collapse: React.FC<CollapseProps> = ({
             icon={getIcon() as React.ElementType}
             size={20}
             color={currentMode === "dark" ? "white" : "black"}
+            className={tw(currentMode === "dark" ? "text-white" : "text-black")}
           />
         </>
       );

@@ -1,6 +1,7 @@
 import { DocsLayout } from "@/components";
 import Title from "@/components/Title";
 import { components, MDXRemote } from "@/constant/mdx.config";
+import { avatarRef } from "@/data/api-ref/avatar";
 import { backdropRef } from "@/data/api-ref/backdrop";
 import { boxRef } from "@/data/api-ref/box";
 import { buttonRef } from "@/data/api-ref/button";
@@ -50,6 +51,7 @@ const data = {
   statusBadgeRef,
   switchRef,
   tabsRef,
+  avatarRef,
   toastRef,
 };
 
@@ -100,6 +102,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     "switch",
     "tabs",
     "toast",
+    "avatar",
   ];
 
   const paths = slugs.map((slug) => ({

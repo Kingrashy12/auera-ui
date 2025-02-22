@@ -230,6 +230,14 @@ export const tailwindExtend = {
         transform: "translateX(6px)",
       },
     },
+    scrollX: {
+      "0%": {
+        transform: "translateX(100%)",
+      },
+      "100%": {
+        transform: "translateX(-100%)",
+      },
+    },
   },
   animation: {
     slideIn: "slideIn 0.5s ease-in-out",
@@ -243,6 +251,7 @@ export const tailwindExtend = {
     popIn: "popIn 0.5s ease-in-out",
     popOut: "popOut 0.5s ease-in-out",
     shake: "shake 0.2s ease-in-out",
+    scrollX: "scrollX 40s linear infinite",
   },
   dropShadow: {
     tab: "0 1px 2px rgb(0 0 0 / 0.1), 0 1px 1px rgb(0 0 0 / 0.06)",

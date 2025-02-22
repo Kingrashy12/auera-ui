@@ -59,7 +59,7 @@ export const sideBarLinks = [
   {
     header: "Components",
     links: [
-      { label: "Avatar", uri: "/docs/components/avatar", soon: true },
+      { label: "Avatar", uri: "/docs/components/avatar" },
       { label: "Button", uri: "/docs/components/button", updated: true },
       { label: "Backdrop", uri: "/docs/components/backdrop" },
       { label: "Box", uri: "/docs/components/box" },
