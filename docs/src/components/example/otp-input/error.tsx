@@ -21,7 +21,7 @@ const CompleteOTP = () => {
 
   useEffect(() => {
     if (INCORRECT) {
-      toast.error("You've entered an incorrect pin try: 2025");
+      toast.error("Incorrect pin, [hint]: 2025 😊");
     }
   }, [otp, INCORRECT]);
 
@@ -34,7 +34,7 @@ const CompleteOTP = () => {
         <TabHandle icon={IoCodeSlash} value="code">
           Code
         </TabHandle>
-        <TabPanel>
+        <TabPanel className="mt-4">
           <Stack>
             <Card>
               <OTPInput error={INCORRECT} onComplete={(otp) => setOtp(otp)} />

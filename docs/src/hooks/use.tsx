@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { DOCUMENT_ACTIVE, WINDOW_ACTIVE } from "./active";
+import { useRouter } from "next/router";
 
 export const useScrollTop = () => {
   const [visible, setVisible] = useState(false);
@@ -45,3 +46,67 @@ export const useScrollTop = () => {
 
   return { scrollToTop, visible };
 };
+
+type HeadingType = {
+  id: string;
+  text: string;
+  level: string;
+};
+
+export const useTableOfContents = () => {
+  const [headings, setHeadings] = useState<HeadingType[]>([]);
+  const [activeId, setActiveId] = useState("");
+  const router = useRouter();
+
+  useEffect(() => {
+    const fetchHeadings = () => {
+      setTimeout(() => {
+        const headingElements = Array.from(document.querySelectorAll("h2, h3"));
+
+        const newHeadings = headingElements.map((element) => ({
+          id:
+            element.id ||
+            element?.textContent?.trim().toLowerCase().replace(/\s+/g, "-"),
+          text: element.textContent,
+          level: element.tagName,
+        }));
+
+        setHeadings(newHeadings as HeadingType[]);
+      }, 100); // Wait for dynamic content to render
+    };
+
+    fetchHeadings(); // Initial fetch
+    router.events.on("routeChangeComplete", fetchHeadings); // Fetch on route change
+
+    return () => {
+      router.events.off("routeChangeComplete", fetchHeadings);
+    };
+  }, [router]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const headingElements = Array.from(document.querySelectorAll("h2, h3"));
+
+      const offsets = headingElements.map((element) => ({
+        id: element.id,
+        offsetTop: element.getBoundingClientRect().top + scrollY,
+      }));
+
+      const activeSection = offsets.find(
+        (offset, index) =>
+          offset.offsetTop > scrollY &&
+          (!offsets[index - 1] || offsets[index - 1].offsetTop <= scrollY)
+      );
+
+      setActiveId(activeSection?.id || "");
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [headings]);
+
+  return { headings, activeId };
+};
+
+export default useTableOfContents;

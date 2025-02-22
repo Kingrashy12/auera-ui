@@ -18,7 +18,7 @@ const ToastTransition = () => {
         <TabPanel className="mt-4">
           <Stack wrap align="horizontal">
             <Button onClick={() => toast.info("This is a toast message!")}>
-              Info
+              WalkIn
             </Button>
             <Button
               colorScheme="success"
@@ -29,7 +29,7 @@ const ToastTransition = () => {
                 })
               }
             >
-              Success
+              DropIn
             </Button>
             <Button
               colorScheme="warning"
@@ -40,7 +40,7 @@ const ToastTransition = () => {
                 })
               }
             >
-              Warning
+              PopIn
             </Button>
             <Button
               colorScheme="danger"
@@ -51,7 +51,7 @@ const ToastTransition = () => {
                 })
               }
             >
-              Error
+              SlideIn
             </Button>
           </Stack>
         </TabPanel>
@@ -71,25 +71,40 @@ const Demo = () => {
   return (
     <Stack wrap align="horizontal">
       <Button onClick={() => toast.info("This is a toast message!")}>
-        Info
+        WalkIn
       </Button>
       <Button
         colorScheme="success"
-        onClick={() => toast.success("This is a toast message!")}
+        onClick={() =>
+          toast.success("This is a toast message!", {
+            position: "top-left",
+            transition: "dropIn",
+          })
+        }
       >
-        Success
+        DropIn
       </Button>
       <Button
         colorScheme="warning"
-        onClick={() => toast.warning("This is a toast message!")}
+        onClick={() =>
+          toast.warning("This is a toast message!", {
+            position: "bottom-left",
+            transition: "popIn",
+          })
+        }
       >
-        Warning
+        PopIn
       </Button>
       <Button
         colorScheme="danger"
-        onClick={() => toast.error("This is a toast message!")}
+        onClick={() =>
+          toast.error("This is a toast message!", {
+            position: "bottom-right",
+            transition: "slideIn",
+          })
+        }
       >
-        Error
+        SlideIn
       </Button>
     </Stack>
   );

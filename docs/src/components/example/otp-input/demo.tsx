@@ -15,7 +15,7 @@ const OTPDemo = () => {
         <TabHandle icon={IoCodeSlash} value="code">
           Code
         </TabHandle>
-        <TabPanel>
+        <TabPanel className="mt-4">
           <Stack>
             <OTPInput onComplete={(otp) => console.log(otp)} />
           </Stack>

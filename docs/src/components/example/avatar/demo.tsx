@@ -17,7 +17,7 @@ const AvatarDemo = () => {
           Code
         </TabHandle>
         <TabPanel className="mt-4">
-          <Avatar src={images[1]} />
+          <Avatar src={images[1]} size="md" />
         </TabPanel>
         <TabPanel>
           <CodeBlock fileName="" code={code} lg="tsx" />
