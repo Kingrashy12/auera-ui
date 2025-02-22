@@ -1,55 +1,57 @@
-import { useScrollTop } from "@/hooks/use";
+import useTableOfContents, { useScrollTop } from "@/hooks/use";
 import { Box } from "auera-ui";
-import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+// import { useRouter } from "next/router";
+import React from "react";
 import { HiOutlineArrowUpCircle } from "react-icons/hi2";
 import { IoIosArrowForward } from "react-icons/io";
 import { createStyle, tw } from "stywind";
 
-type HeadingType = {
-  id: string;
-  text: string;
-  level: string;
-};
+// type HeadingType = {
+//   id: string;
+//   text: string;
+//   level: string;
+// };
 
 const TableOfContent = () => {
-  const [headings, setHeadings] = useState<HeadingType[]>([]);
-  const [activeId, setActiveId] = useState("");
+  // const [headings, setHeadings] = useState<HeadingType[]>([]);
+  // const [activeId, setActiveId] = useState("");
   const { scrollToTop } = useScrollTop();
 
-  const router = useRouter();
+  const { headings, activeId } = useTableOfContents();
 
-  useEffect(() => {
-    const headingElements = Array.from(document.querySelectorAll("h2, h3"));
+  // const router = useRouter();
 
-    const headings = headingElements.map((element) => ({
-      id:
-        element.id ||
-        element?.textContent?.trim().toLowerCase().replace(/\s+/g, "-"),
-      text: element.textContent,
-      level: element.tagName,
-    }));
+  // useEffect(() => {
+  //   const headingElements = Array.from(document.querySelectorAll("h2, h3"));
 
-    setHeadings(headings as HeadingType[]);
+  //   const headings = headingElements.map((element) => ({
+  //     id:
+  //       element.id ||
+  //       element?.textContent?.trim().toLowerCase().replace(/\s+/g, "-"),
+  //     text: element.textContent,
+  //     level: element.tagName,
+  //   }));
 
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const offsets = headingElements.map((element) => ({
-        id: element.id,
-        offsetTop: element.getBoundingClientRect().top + scrollY,
-      }));
-      const activeSection = offsets.find(
-        (offset, index) =>
-          offset.offsetTop > scrollY &&
-          (!offsets[index - 1] || offsets[index - 1].offsetTop <= scrollY)
-      );
+  //   setHeadings(headings as HeadingType[]);
 
-      setActiveId(activeSection?.id || "");
-    };
+  //   const handleScroll = () => {
+  //     const scrollY = window.scrollY;
+  //     const offsets = headingElements.map((element) => ({
+  //       id: element.id,
+  //       offsetTop: element.getBoundingClientRect().top + scrollY,
+  //     }));
+  //     const activeSection = offsets.find(
+  //       (offset, index) =>
+  //         offset.offsetTop > scrollY &&
+  //         (!offsets[index - 1] || offsets[index - 1].offsetTop <= scrollY)
+  //     );
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [router]);
+  //     setActiveId(activeSection?.id || "");
+  //   };
+
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, [router]);
 
   const Table = createStyle("aside").classname(
     "h-[90vh] sticky bg-sidebar border-l/ flex flex-col border-l-sidebar px-6 py-4 top-16 z-20 w-[250px] flex-shrink-0 p-8 max-lg:hidden"

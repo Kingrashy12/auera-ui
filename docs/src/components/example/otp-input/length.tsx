@@ -15,7 +15,7 @@ const OTPLength = () => {
         <TabHandle icon={IoCodeSlash} value="code">
           Code
         </TabHandle>
-        <TabPanel>
+        <TabPanel className="mt-4">
           <Stack>
             <Card>
               <OTPInput onComplete={(otp) => console.log(otp)} length={6} />
