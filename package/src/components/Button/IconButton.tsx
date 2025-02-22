@@ -44,7 +44,11 @@ const IconButton: FC<IconButtonPropsExtended<boolean>> = ({
   return (
     <>
       {withTrigger ? (
-        <TriggerComponent type={triggerType} value={triggerValue as string}>
+        <TriggerComponent
+          disabled={disabled}
+          type={triggerType}
+          value={triggerValue as string}
+        >
           <Comp mode={props.mode} {...props}>
             {children}
           </Comp>

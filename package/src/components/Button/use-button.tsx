@@ -116,6 +116,7 @@ const useButton = ({
       <>
         {withTrigger ? (
           <TriggerComponent
+            disabled={props.disabled}
             className={triggerClass}
             value={triggerValue as string}
             type={triggerType}

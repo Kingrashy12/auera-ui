@@ -11,8 +11,9 @@ const fabPosition = {
 
 const colorScheme = {
   primary: "bg-blue-500 text-white hover:bg-blue-600",
-  danger: "bg-black text-white hover:bg-gray-800",
-  soft: "bg-white text-black hover:bg-gray-100",
+  danger: "bg-red-500 text-white hover:bg-red-600",
+  bold: "bg-neutral-900 text-white hover:bg-neutral-950 tone-dark:bg-white tone-dark:hover:bg-gray-100 tone-dark:text-black",
+  success: "bg-green-500 text-white hover:bg-green-600",
 };
 
 const fabSize = {

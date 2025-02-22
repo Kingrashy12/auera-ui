@@ -348,6 +348,7 @@ export interface ModalTriggerType extends DivProps {
    * to correctly link the trigger to the modal.
    */
   value: string;
+  disabled?: boolean;
 }
 export interface ModalHeaderType extends DivProps {
   /**
@@ -419,6 +420,7 @@ export interface DrawerTriggerType extends DivProps {
    * to correctly link the trigger to the drawer.
    */
   value: string;
+  disabled?: boolean;
 }
 
 export type SwitchProps = {
@@ -644,7 +646,7 @@ export declare type ToastOptionsType = {
 export interface FabProps extends DivProps {
   position?: "left" | "right";
   type?: "fixed" | "relative" | "absolute" | "sticky" | "static";
-  color?: "primary" | "bold" | "soft";
+  color?: "primary" | "danger" | "success" | "bold";
   size?: "sm" | "md" | "lg" | "xl";
   disabled?: boolean;
   zIndex?: zIndex;

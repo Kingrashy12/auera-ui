@@ -8,16 +8,15 @@ const DrawerTrigger: FC<DrawerTriggerType> = ({
   children,
   type = "open",
   onClick,
+  disabled,
   ...props
 }) => {
   const { onOpen, onClose } = useDrawer();
 
   const handleClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    if (type === "open") {
-      onOpen(value);
-    } else {
-      onClose();
-    }
+    if (disabled) return;
+
+    type === "open" ? onOpen(value) : onClose();
 
     if (onClick) {
       onClick(event);
