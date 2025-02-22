@@ -348,6 +348,7 @@ export interface ModalTriggerType extends DivProps {
    * to correctly link the trigger to the modal.
    */
   value: string;
+  disabled?: boolean;
 }
 export interface ModalHeaderType extends DivProps {
   /**
@@ -419,6 +420,7 @@ export interface DrawerTriggerType extends DivProps {
    * to correctly link the trigger to the drawer.
    */
   value: string;
+  disabled?: boolean;
 }
 
 export type SwitchProps = {
