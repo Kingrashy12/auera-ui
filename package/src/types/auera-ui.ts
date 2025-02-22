@@ -646,7 +646,7 @@ export declare type ToastOptionsType = {
 export interface FabProps extends DivProps {
   position?: "left" | "right";
   type?: "fixed" | "relative" | "absolute" | "sticky" | "static";
-  color?: "primary" | "bold" | "soft";
+  color?: "primary" | "danger" | "success" | "bold";
   size?: "sm" | "md" | "lg" | "xl";
   disabled?: boolean;
   zIndex?: zIndex;
