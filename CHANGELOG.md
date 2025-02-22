@@ -1,5 +1,35 @@
 # Changelog
 
+## [0.1.31] - 2025-02-22
+
+### Added
+
+- **Components**
+
+  - `FileUpload` 📂
+  - `Select` ✅
+  - `Collapse` 🔽
+  - `Menu` 🍽️
+  - `Loading` ⏳
+  - `PasswordInput` 🔑
+  - `Breadcrumbs` 🧭
+  - `Divider` ➖
+
+- **Utility Functions**
+  - `formatDate` 📆 – Format dates into readable strings.
+  - `formatTime` ⏰ – Format time values for better clarity.
+  - `formatTimeAgo` 🕒 – Display relative time (e.g., _"3 days ago"_).
+  - `formatTimeDiff` ⏳ – Calculate and display time differences efficiently.
+  - `StrFun` 🔤 – Advanced string manipulation utilities for formatting and transforming text.
+
+### Updated
+
+- **Components**
+  - `Checkbox` ✔️
+  - `Switch` 🔄
+  - `Tooltip` 🏷️
+  - `Card` 📦
+
 ## [0.1.29] - 2025-01-21
 
 ## Updated
