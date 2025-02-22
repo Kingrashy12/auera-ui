@@ -105,6 +105,10 @@ import ToastPositions from "@/components/example/toast/position";
 import ToastTransition from "@/components/example/toast/transition";
 import ToastVariants from "@/components/example/toast/variants";
 import LoadingToast from "@/components/example/toast/loading-toast";
+import AvatarDemo from "@/components/example/avatar/demo";
+import AvatarSizes from "@/components/example/avatar/sizes";
+import LoadingAvatar from "@/components/example/avatar/isloading";
+import AvatarBorder from "@/components/example/avatar/border";
 
 export const components = {
   DetailCard,
@@ -217,6 +221,10 @@ export const components = {
   ToastTransition,
   ToastVariants,
   LoadingToast,
+  AvatarDemo,
+  AvatarSizes,
+  LoadingAvatar,
+  AvatarBorder,
 };
 
 export const MDXRemote = dynamic(() =>
