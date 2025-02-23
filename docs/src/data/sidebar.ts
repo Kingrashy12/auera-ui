@@ -151,6 +151,21 @@ export const sideBarLinks = [
   //       uri: "/docs/utilities/form-time-diff",
   //       docs_soon: true,
   //     },
+  //     {
+  //       label: "Modal Utils",
+  //       uri: "/docs/utilities/modal-utils",
+  //       docs_soon: true,
+  //     },
+  //     {
+  //       label: "Drawer Utils",
+  //       uri: "/docs/utilities/drawer-utils",
+  //       docs_soon: true,
+  //     },
+  //     {
+  //       label: "catchFile",
+  //       uri: "/docs/utilities/catch-file",
+  //       docs_soon: true,
+  //     },
   //   ],
   // },
 ];

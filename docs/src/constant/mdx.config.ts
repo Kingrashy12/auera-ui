@@ -24,7 +24,6 @@ import ButtonFlavours from "@/components/example/button/flavours";
 import LoadingButton from "@/components/example/button/loading";
 import CustomSpinner from "@/components/example/button/custom-spinner";
 import ButtonWithIcon from "@/components/example/button/icon";
-import ButtonWithTrigger from "@/components/example/button/with-trigger";
 import OverlayStructure from "@/components/guide/overlay-structure";
 import BoxWithMotion from "@/components/example/box/WithMotion";
 import CardDemo from "@/components/example/card/demo";
@@ -63,7 +62,6 @@ import IButtonDemo from "@/components/example/i_button/demo";
 import IButtonVariants from "@/components/example/i_button/variants";
 import IButtonAsChild from "@/components/example/i_button/asChild";
 import IButtonRadius from "@/components/example/i_button/radius";
-import IButtonWithTrigger from "@/components/example/i_button/with-trigger";
 import MapItemsDemo from "@/components/example/mapitems/demo";
 import Map_EmptyList from "@/components/example/mapitems/empty-list";
 import MenuDemo from "@/components/example/menu/demo";
@@ -143,7 +141,6 @@ export const components = {
   LoadingButton,
   CustomSpinner,
   ButtonWithIcon,
-  ButtonWithTrigger,
   OverlayStructure,
   BoxWithMotion,
   CardDemo,
@@ -180,7 +177,6 @@ export const components = {
   IButtonVariants,
   IButtonAsChild,
   IButtonRadius,
-  IButtonWithTrigger,
   MapItemsDemo,
   Map_EmptyList,
   MenuDemo,

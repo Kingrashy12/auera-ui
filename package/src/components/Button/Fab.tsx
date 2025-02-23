@@ -49,6 +49,7 @@ const Fab: React.FC<FabProps> = ({
         },
         "flex items-center justify-center animate-walkIn cursor-pointer rounded-full shadow transition-all duration-300 active:scale-95",
         disabled && "pointer-events-none opacity-75 cursor-not-allowed",
+        props.hidden && "hidden",
         className
       )}
       {...props}

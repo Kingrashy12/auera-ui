@@ -175,11 +175,6 @@ export interface ButtonProps extends BtnProps {
    * @default "light"
    */
   mode?: "light" | "dark";
-  withTrigger?: boolean;
-  triggerType?: "open" | "close";
-  triggerValue?: string;
-  trigger?: Trigger;
-  triggerClass?: string;
 }
 
 export interface Drop extends DivProps {
@@ -380,18 +375,17 @@ export interface IconButtonProps {
   size?: "xs" | "sm" | "md" | "lg" | "xl";
   radius?: "none" | "sm" | "md" | "lg" | "xl" | "2xl" | "full";
   disabled?: boolean;
-  withTrigger?: boolean;
-  triggerType?: "open" | "close";
-  triggerValue?: string;
-  trigger?: Trigger;
   mode?: "light" | "dark";
   active?: boolean;
-  asChild?: boolean;
+  as?: "button" | "div";
 }
 
-export type IconButtonPropsExtended<T extends boolean> = T extends true
-  ? IconButtonProps & DivProps
-  : IconButtonProps & BtnProps;
+// export type IconButtonPropsExtended<T extends boolean> = T extends true
+//   ? IconButtonProps & DivProps
+//   : IconButtonProps & BtnProps;
+
+export type IconButtonPropsExtended<T extends "button" | "div"> =
+  T extends "div" ? IconButtonProps & DivProps : IconButtonProps & BtnProps;
 
 export interface DrawerProps extends ModalType {
   backdropClass?: string;
@@ -563,7 +557,8 @@ export interface CardProps extends BoxProps {
     style?: React.CSSProperties;
   };
   renderImage?: () => React.ReactNode;
-  renderHeader?: () => React.ReactNode;
+  header?: React.ReactNode;
+  footer?: React.ReactNode;
   classNames?: {
     root?: TailwindClass;
     body?: TailwindClass;

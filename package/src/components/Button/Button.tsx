@@ -18,23 +18,20 @@ const Button: React.FC<ButtonProps> = ({
   spinner,
   hideChildOnLoad,
   className,
-  trigger,
-  withTrigger,
   ...props
 }) => {
-  const { Component, getContent } = useButton({
+  const { Button, getContent } = useButton({
     radius,
     variant,
     size,
     colorScheme,
     flavour,
     className,
-    trigger,
     ...props,
   });
 
   return (
-    <Component withTrigger={withTrigger} trigger={trigger} {...props}>
+    <Button {...props}>
       {getContent({
         spinner,
         hideChildOnLoad,
@@ -46,7 +43,7 @@ const Button: React.FC<ButtonProps> = ({
         rightIconColor,
         rightIconSize,
       })}
-    </Component>
+    </Button>
   );
 };
 

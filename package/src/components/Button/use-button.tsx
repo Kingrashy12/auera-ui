@@ -1,19 +1,11 @@
 import { ButtonProps } from "@/types/auera-ui";
-import { ModalTrigger } from "../Modal";
-import { DrawerTrigger } from "../Drawer";
 import { TbLoader2 } from "react-icons/tb";
 import Icon from "../Icon/Icon";
-import { throwTriggerError } from "@/utils/component.err";
 import { useFlavour, useMode } from "@/hook/use";
 import { AueraButton } from "@/core/AueraElement";
 import { useMemo } from "react";
 import { createStyle, tw } from "stywind";
 import generateButtonClass from "./button__";
-
-const Trigger = {
-  modal: ModalTrigger,
-  drawer: DrawerTrigger,
-};
 
 const useButton = ({
   radius = "sm",
@@ -22,7 +14,6 @@ const useButton = ({
   colorScheme = "primary",
   flavour,
   className,
-  trigger,
   ...props
 }: ButtonProps) => {
   const { currentFlavour } = useFlavour(flavour);
@@ -62,8 +53,6 @@ const useButton = ({
 
   const Button = useMemo(() => ButtonInterface.classname(styles), [styles]);
 
-  const TriggerComponent = Trigger[trigger || "modal"];
-
   const getContent = ({
     spinner,
     hideChildOnLoad,
@@ -101,36 +90,7 @@ const useButton = ({
     );
   };
 
-  const Component = ({
-    withTrigger,
-    trigger,
-    children,
-    triggerType,
-    triggerValue,
-    triggerClass,
-    ...props
-  }: ButtonProps & { triggerClass?: string }) => {
-    throwTriggerError(withTrigger, triggerType, triggerValue, trigger);
-
-    return (
-      <>
-        {withTrigger ? (
-          <TriggerComponent
-            disabled={props.disabled}
-            className={triggerClass}
-            value={triggerValue as string}
-            type={triggerType}
-          >
-            <Button {...props}>{children}</Button>
-          </TriggerComponent>
-        ) : (
-          <Button {...props}>{children}</Button>
-        )}
-      </>
-    );
-  };
-
-  return { Component, getContent };
+  return { Button, getContent };
 };
 
 export { useButton };

@@ -37,9 +37,15 @@ export const cardRef = [
     default: "undefined",
   },
   {
-    prop: "renderHeader",
-    type: "function",
-    description: "Renders a header component",
+    prop: "header",
+    type: "ReactNode",
+    description: "slot for a header component",
+    default: "undefined",
+  },
+  {
+    prop: "footer",
+    type: "ReactNode",
+    description: "slot for a footer component",
     default: "undefined",
   },
   {
@@ -78,7 +84,7 @@ export const cardRef = [
       },
       className: {
         type: "string",
-        description: "Tailwind classes for the image",
+        description: "className for the image",
         default: "undefined",
       },
       width: {
