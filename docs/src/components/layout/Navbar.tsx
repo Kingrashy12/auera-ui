@@ -1,4 +1,4 @@
-import { Box, IconButton } from "auera-ui";
+import { Box, IconButton, openDrawer } from "auera-ui";
 import Image from "next/image";
 import React from "react";
 
@@ -32,10 +32,7 @@ const Navbar = () => {
         </Box>
         <Box className="gap-3 items-center">
           <IconButton
-            withTrigger
-            triggerValue="mobile-menu"
-            trigger="drawer"
-            triggerType="open"
+            onClick={() => openDrawer("mobile-menu")}
             variant="outline"
             radius="xl"
             className="hidden max-[650px]:block"

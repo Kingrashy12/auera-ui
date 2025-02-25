@@ -1,5 +1,6 @@
 import {
   Box,
+  closeDrawer,
   Drawer,
   DrawerContent,
   DrawerFooter,
@@ -28,14 +29,7 @@ const MobileMenu = () => {
             </Box>
           </Link>
 
-          <IconButton
-            withTrigger
-            trigger="drawer"
-            triggerType="close"
-            triggerValue="mobile-menu"
-            variant="outline"
-            radius="xl"
-          >
+          <IconButton onClick={closeDrawer} variant="outline" radius="xl">
             <IoClose size={18} />
           </IconButton>
         </DrawerHeader>

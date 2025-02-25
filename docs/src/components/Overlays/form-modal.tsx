@@ -1,6 +1,7 @@
 import {
   Button,
   Checkbox,
+  closeModal,
   IconButton,
   Modal,
   ModalContent,
@@ -22,14 +23,7 @@ const FormModal = () => {
           <h1 className="text-xl font-inter font-semibold theme-dark:text-white">
             Login
           </h1>
-          <IconButton
-            withTrigger
-            trigger="modal"
-            triggerType="close"
-            triggerValue="form-modal"
-            variant="ghost"
-            radius="xl"
-          >
+          <IconButton onClick={closeModal} variant="ghost" radius="xl">
             <IoClose size={18} />
           </IconButton>
         </ModalHeader>

@@ -14,7 +14,7 @@ const Demo = () => {
  return (
    <Stack align="horizontal">
       <IconButton
-        asChild
+        as="div"
         className="gap-2 justify-center"
         size="lg"
         radius="xl"
@@ -23,7 +23,7 @@ const Demo = () => {
         <p className="font-poppins font-medium text-base">Home</p>
       </IconButton>
       <IconButton
-        asChild
+        as="div"
         className="gap-2 justify-center"
         size="lg"
         radius="xl"
@@ -48,7 +48,7 @@ const IButtonAsChild = () => {
         <TabPanel className="mt-4">
           <Stack align="horizontal">
             <IconButton
-              asChild
+              as="div"
               className="gap-2 justify-center"
               size="lg"
               radius="xl"
@@ -57,7 +57,7 @@ const IButtonAsChild = () => {
               <p className="font-poppins font-medium text-base">Home</p>
             </IconButton>
             <IconButton
-              asChild
+              as="div"
               className="gap-2 justify-center"
               size="lg"
               radius="xl"

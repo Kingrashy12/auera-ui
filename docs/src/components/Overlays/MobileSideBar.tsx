@@ -1,5 +1,6 @@
 import {
   Box,
+  closeDrawer,
   Drawer,
   DrawerContent,
   DrawerHeader,
@@ -26,14 +27,7 @@ const MobileSideBar = () => {
             </Box>
           </Link>
 
-          <IconButton
-            withTrigger
-            trigger="drawer"
-            triggerType="close"
-            triggerValue="tool-bar"
-            variant="outline"
-            radius="xl"
-          >
+          <IconButton onClick={closeDrawer} variant="outline" radius="xl">
             <IoClose size={18} />
           </IconButton>
         </DrawerHeader>

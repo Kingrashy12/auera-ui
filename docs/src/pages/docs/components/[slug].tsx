@@ -9,6 +9,7 @@ import { cardRef } from "@/data/api-ref/card";
 import { checkboxRef } from "@/data/api-ref/checkbox";
 import { collapseRef } from "@/data/api-ref/collapse";
 import { drawerRef } from "@/data/api-ref/drawer";
+import { fileUploadRef } from "@/data/api-ref/file-upload";
 import { groupMapRef } from "@/data/api-ref/group-map";
 import { i_buttonRef } from "@/data/api-ref/iconbuttonRef";
 import { iconRef } from "@/data/api-ref/iconRef";
@@ -53,6 +54,7 @@ const data = {
   tabsRef,
   avatarRef,
   toastRef,
+  fileUploadRef,
 };
 
 const Page = ({ frontmatter, mdxSource, slug }: Props) => {
@@ -103,6 +105,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     "tabs",
     "toast",
     "avatar",
+    "file-upload",
   ];
 
   const paths = slugs.map((slug) => ({

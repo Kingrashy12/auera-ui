@@ -1,7 +1,7 @@
 import CodeBlock from "@/components/layout/code/Block";
 import CardContent from "@/components/lib/CardContent";
 import { modal_codes } from "@/data/code/modal";
-import { Button, Stack, TabHandle, TabPanel, Tabs } from "auera-ui";
+import { Button, openModal, Stack, TabHandle, TabPanel, Tabs } from "auera-ui";
 import React from "react";
 import { IoCodeSlash } from "react-icons/io5";
 import { LuEye } from "react-icons/lu";
@@ -18,14 +18,7 @@ const FormModal = () => {
         </TabHandle>
         <TabPanel className="mt-3">
           <Stack>
-            <Button
-              radius="md"
-              className="font-inter text-sm"
-              withTrigger
-              trigger="modal"
-              triggerType="open"
-              triggerValue="form-modal"
-            >
+            <Button radius="md" onClick={() => openModal("form-modal")}>
               Login
             </Button>
           </Stack>

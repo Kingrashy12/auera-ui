@@ -60,7 +60,7 @@ import Note from "@/components/Note";
 import IButtonSizes from "@/components/example/i_button/sizes";
 import IButtonDemo from "@/components/example/i_button/demo";
 import IButtonVariants from "@/components/example/i_button/variants";
-import IButtonAsChild from "@/components/example/i_button/asChild";
+import IButtonAsDiv from "@/components/example/i_button/as-div";
 import IButtonRadius from "@/components/example/i_button/radius";
 import MapItemsDemo from "@/components/example/mapitems/demo";
 import Map_EmptyList from "@/components/example/mapitems/empty-list";
@@ -107,6 +107,15 @@ import AvatarDemo from "@/components/example/avatar/demo";
 import AvatarSizes from "@/components/example/avatar/sizes";
 import LoadingAvatar from "@/components/example/avatar/isloading";
 import AvatarBorder from "@/components/example/avatar/border";
+import FileUploadDemo from "@/components/example/file-upload/demo";
+import MultipleUpload from "@/components/example/file-upload/multiple";
+import FileSize from "@/components/example/file-upload/size";
+import MaxFileSize from "@/components/example/file-upload/max-size";
+import MaxFileUpload from "@/components/example/file-upload/max-file";
+import UploadDropZone from "@/components/example/file-upload/dropzone";
+import FileWithRemovable from "@/components/example/file-upload/removable";
+import AcceptsFile from "@/components/example/file-upload/accept";
+import ReceiveFile from "@/components/example/file-upload/receive";
 
 export const components = {
   DetailCard,
@@ -175,7 +184,7 @@ export const components = {
   IButtonSizes,
   IButtonDemo,
   IButtonVariants,
-  IButtonAsChild,
+  IButtonAsDiv,
   IButtonRadius,
   MapItemsDemo,
   Map_EmptyList,
@@ -221,6 +230,15 @@ export const components = {
   AvatarSizes,
   LoadingAvatar,
   AvatarBorder,
+  FileUploadDemo,
+  MultipleUpload,
+  FileSize,
+  MaxFileSize,
+  MaxFileUpload,
+  UploadDropZone,
+  FileWithRemovable,
+  AcceptsFile,
+  ReceiveFile,
 };
 
 export const MDXRemote = dynamic(() =>

@@ -24,8 +24,8 @@ export const linksWithIcon = [
     label: "Changelog",
     icon: FaClipboardList,
     color: "#FACC15",
-    href: "https://github.com/Kingrashy12/auera-ui/blob/main/CHANGELOG.md",
-    external: true,
+    href: "/changelog.md",
+    soon: true,
   },
   { label: "Roadmap", icon: FaMap, color: "#EF4444", soon: true, href: "" },
   {
@@ -92,7 +92,7 @@ export const sideBarLinks = [
         uri: "/docs/components/password-input",
         soon: true,
       },
-      { label: "File Upload", uri: "/docs/components/file-upload", soon: true },
+      { label: "File Upload", uri: "/docs/components/file-upload" },
       { label: "Loading", uri: "/docs/components/loading", soon: true },
       { label: "Tabs", uri: "/docs/components/tabs" },
       { label: "ToolTip", uri: "/docs/components/tooltip", soon: true },
@@ -164,6 +164,11 @@ export const sideBarLinks = [
   //     {
   //       label: "catchFile",
   //       uri: "/docs/utilities/catch-file",
+  //       docs_soon: true,
+  //     },
+  //     {
+  //       label: "dyn",
+  //       uri: "/docs/utilities/dyn",
   //       docs_soon: true,
   //     },
   //   ],

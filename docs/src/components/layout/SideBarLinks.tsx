@@ -47,16 +47,16 @@ const SideBarLinks = ({ data }: { data: typeof sideBarLinks }) => {
           <MapItems
             data={sortedItems(item.links)}
             direction="column"
-            className="ml-0 border-l border-l-sidebar gap-0"
+            className="ml-0 border-l-2 border-l-sidebar gap-0"
             renderItem={(link) => (
               <Link
                 href={link.uri}
                 key={link.uri}
                 onClick={() => closeDrawer()}
                 className={tw(
-                  "w-full py-2 px-3 hover:text-blue-600 hover:border-l-1.7 flex justify-between transition-transform duration-300",
+                  "w-full py-2 px-3 -ml-0.5 hover:text-blue-600 hover:border-l-2 hover:border-blue-600 flex justify-between transition-transform duration-300",
                   getActiveLink(link.uri)
-                    ? "border-l-1.9 text-blue-600 border-l-blue-600"
+                    ? "border-l-2 text-blue-600 border-l-blue-600"
                     : "text-dimBlack",
                   link.soon || link.docs_soon
                     ? "cursor-not-allowed pointer-events-none opacity-75"

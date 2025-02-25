@@ -52,7 +52,7 @@ const Web3Card = () => {
             classNames={{
               root: "max-w-sm rounded-[1.8rem]",
             }}
-            renderHeader={() => (
+            header={
               <Box
                 className="px-4 py-5 border-b theme-dark:border-b-neutral-900 items-center"
                 between
@@ -67,7 +67,7 @@ const Web3Card = () => {
                   <IoClose size={22} />
                 </IconButton>
               </Box>
-            )}
+            }
           >
             <MapItems
               data={providers}
@@ -76,7 +76,7 @@ const Web3Card = () => {
               renderItem={(wallet, index) => (
                 <IconButton
                   className="gap-3 !justify-start"
-                  asChild
+                  as="div"
                   radius="2xl"
                   key={index}
                 >

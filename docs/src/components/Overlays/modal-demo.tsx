@@ -31,14 +31,7 @@ const ModalDemo = () => {
           </p>
         </ModalContent>
         <ModalFooter className="font-inter text-sm">
-          <Button
-            radius="md"
-            variant="outline"
-            withTrigger
-            trigger="modal"
-            triggerType="close"
-            triggerValue="modal-demo"
-          >
+          <Button radius="md" variant="outline" onClick={closeModal}>
             Cancel
           </Button>
           <Button onClick={deleteItem} radius="md" colorScheme="danger">

@@ -5,6 +5,7 @@ import {
   DrawerHeader,
   DrawerContent,
   IconButton,
+  closeDrawer,
 } from "auera-ui";
 import { IoClose } from "react-icons/io5";
 import Drawer_Content from "../example/DrawerContent";
@@ -18,13 +19,7 @@ const DrawerDemo = () => {
             Notifications
           </h1>
 
-          <IconButton
-            withTrigger
-            trigger="drawer"
-            triggerType="close"
-            triggerValue="default"
-            variant="outline"
-          >
+          <IconButton onClick={closeDrawer} variant="outline">
             <IoClose />
           </IconButton>
         </DrawerHeader>
