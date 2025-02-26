@@ -87,7 +87,7 @@ const FileUploadDropzone: React.FC<UploadDropzone> = ({
           <span
             data-theme={currentMode}
             className={tw(
-              "font-normal font-inter text-neutral-400 tone-dark:text-neutral-700 leading-5 text-sm",
+              "font-normal font-inter text-neutral-400 tone-dark:text-neutral-500 leading-5 text-sm",
               classNames?.description
             )}
           >
