@@ -5,23 +5,31 @@ import { tw } from "stywind";
 type BounceProps = {
   size?: "sm" | "md" | "lg";
   color?: ColorPair;
+  className?: string;
 };
-const bounceSize = {
-  sm: "w-2 h-2",
-  md: "w-3 h-3",
-  lg: "w-4 h-4",
-};
-const BounceLoader = ({ size = "md", color = "blue-500" }: BounceProps) => {
-  const Loader = tw(
-    bounceSize[size],
-    "rounded-full animate-bounce",
-    `bg-${color}`
-  );
+
+const BounceLoader: React.FC<BounceProps> = ({
+  size = "md",
+  color = "blue-500",
+  className,
+}) => {
   return (
-    <div className="flex flex-row gap-2">
-      <div className={Loader}></div>
-      <div className={tw(Loader, "[animation-delay:-.3s]")}></div>
-      <div className={tw(Loader, "[animation-delay:-.5s]")}></div>
+    <div className="flex space-x-2">
+      {[...Array(3)].map((_, i) => (
+        <div
+          key={i}
+          className={tw(
+            `animate-bounce rounded-full bg-${color}`,
+            {
+              "w-2 h-2": size === "sm",
+              "w-3 h-3": size === "md",
+              "w-4 h-4": size === "lg",
+            },
+            className
+          )}
+          style={{ animationDelay: `${i * 0.3}s` }}
+        />
+      ))}
     </div>
   );
 };

@@ -238,6 +238,17 @@ export const tailwindExtend = {
         transform: "translateX(-100%)",
       },
     },
+    wave: {
+      "0%": {
+        transform: "scaleY(1)",
+      },
+      "100%": {
+        transform: "scaleY(1)",
+      },
+      "50%": {
+        transform: "scaleY(1.5)",
+      },
+    },
   },
   animation: {
     slideIn: "slideIn 0.5s ease-in-out",
@@ -252,6 +263,7 @@ export const tailwindExtend = {
     popOut: "popOut 0.5s ease-in-out",
     shake: "shake 0.2s ease-in-out",
     scrollX: "scrollX 40s linear infinite",
+    wave: "wave 1.2s infinite ease-in-out",
   },
   dropShadow: {
     tab: "0 1px 2px rgb(0 0 0 / 0.1), 0 1px 1px rgb(0 0 0 / 0.06)",

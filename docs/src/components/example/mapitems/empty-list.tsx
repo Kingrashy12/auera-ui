@@ -10,7 +10,7 @@ import {
   Tabs,
 } from "auera-ui";
 import React from "react";
-import { FaRegSadTear } from "react-icons/fa";
+import { CgList } from "react-icons/cg";
 import { IoCodeSlash } from "react-icons/io5";
 import { LuEye } from "react-icons/lu";
 
@@ -35,10 +35,7 @@ const Map_EmptyList = () => {
               )}
               emptyListComponent={
                 <Box centered className="flex-col gap-2">
-                  <FaRegSadTear
-                    size={50}
-                    className="theme-dark:text-neutral-300 animate-bounce"
-                  />
+                  <CgList size={50} className="theme-dark:text-neutral-300" />
                   <p className="font-inter text-base font-medium text-neutral-500 theme-dark:text-neutral-700">
                     Notting is here!
                   </p>
@@ -58,7 +55,7 @@ const Map_EmptyList = () => {
 export default Map_EmptyList;
 
 const code = `import { Avatar, MapItems, Stack, Box } from "auera-ui";
-import { FaRegSadTear } from "react-icons/fa";
+import { CgList } from "react-icons/cg";
 
 type Images = { img: string }[];
 
@@ -72,9 +69,9 @@ const Demo = () => {
       )}
         emptyListComponent={
          Box centered className="flex-col gap-2">
-          <FaRegSadTear
+          <CgList
             size={50}
-            className="theme-dark:text-neutral-300 animate-bounce"
+            className="theme-dark:text-neutral-300"
           />
           <p className="font-inter text-base font-medium text-neutral-500 theme-dark:text-neutral-700">
             Notting is here!

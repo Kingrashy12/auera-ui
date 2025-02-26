@@ -53,7 +53,7 @@ import {
   GroupMap,
   StatusBadge,
 } from "auera-ui";
-import { FaRegSadTear } from "react-icons/fa";
+import { CgList } from "react-icons/cg";
 
 const GroupMapDemo = () => {
 const data: typeof notifications = [];
@@ -93,9 +93,9 @@ const data: typeof notifications = [];
     groupByKey={(item) => item.timestamp}
     emptyListComponent={
       <Box centered className="flex-col gap-2">
-        <FaRegSadTear
+        <CgList
           size={50}
-          className="theme-dark:text-neutral-300 animate-bounce"
+          className="theme-dark:text-neutral-300"
         />
         <p className="font-inter text-base font-medium text-neutral-500
          theme-dark:text-neutral-700">

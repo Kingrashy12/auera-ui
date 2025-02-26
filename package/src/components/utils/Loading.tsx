@@ -1,5 +1,5 @@
 import React from "react";
-import { BounceLoader, CircularProgress } from "../loader";
+import { BounceLoader, Spinner, WaveLoader } from "../loader";
 import { LoaderProp } from "../../types/auera-ui";
 import { ReturnError } from "@/utils";
 
@@ -7,7 +7,6 @@ const Loading: React.FC<LoaderProp> = ({
   isLoading,
   children,
   color,
-  innerColor,
   size,
   spinner,
   loader = "bounce",
@@ -28,29 +27,20 @@ const Loading: React.FC<LoaderProp> = ({
   );
 
   const comp = {
-    bounce: (
-      <div className="flex items-center justify-center w-full">
-        <BounceLoader color={color || "blue-500"} size={size || "md"} />
-      </div>
-    ),
-    circle: (
-      <div className="flex items-center justify-center w-full">
-        <CircularProgress
-          color={color || "blue-500"}
-          innerColor={innerColor || "blue-100"}
-          size={size || "md"}
-        />
-      </div>
-    ),
+    bounce: <BounceLoader color={color} size={size} />,
+    spin: <Spinner color={color} size={size} />,
+    wave: <WaveLoader color={color} size={size} />,
   };
 
   return (
     <>
       {isLoading ? (
-        <>{spinner ? spinner : <>{comp[loader]}</>}</>
+        <div className="flex items-center justify-center w-full">
+          {spinner || comp[loader]}
+        </div>
       ) : error ? (
         renderError
-      ) : !error && empty ? (
+      ) : empty ? (
         emptyComponent
       ) : keepOut ? null : (
         children

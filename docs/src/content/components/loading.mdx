@@ -1,0 +1,43 @@
+---
+title: Loading | AueraUI
+description: A wrapper that manages different UI states
+---
+{/* TODO: Remove this */}
+<DetailCard description='A wrapper that manages different UI states'/>
+
+<Details>
+<LoadingDemo />
+</Details>
+
+<Details id='examples'>
+<HeaderLabel id='examples'>Examples</HeaderLabel>
+</Details>
+
+<Details id='loader'>
+<HeaderLabel id='loader' as='h3'>Loader</HeaderLabel>
+<p className='text'>The default loader is the <CodeTag>BounceLoader</CodeTag> which you can change using <CodeTag>loader</CodeTag> prop. </p>
+<Loader />
+</Details>
+
+<Details id='with-error'>
+<HeaderLabel id='with-error' as='h3'>With Error</HeaderLabel>
+<p className='text'>To handle error state use <CodeTag>error</CodeTag> prop alongside <CodeTag>renderError</CodeTag> </p>
+<LoadingWithError />
+</Details>
+
+<Details id='empty'>
+<HeaderLabel id='empty' as='h3'>Empty</HeaderLabel>
+<p className='text'>Use the <CodeTag>empty</CodeTag> prop alongside <CodeTag>emptyComponent</CodeTag> to to display empty state. </p>
+<LoadingEmpty />
+</Details>
+
+<Details id='custom-spinner'>
+<HeaderLabel id='custom-spinner' as='h3'>Custom Spinner</HeaderLabel>
+<p className='text'>Use the <CodeTag>spinner</CodeTag> to displays a custom loading spinner while data is loading.</p>
+<LoadingCustomSpinner />
+</Details>
+
+<Details id='api-reference'>
+<HeaderLabel id='api-reference'>API Reference</HeaderLabel>
+<APITable reference={loadingRef} />
+</Details>

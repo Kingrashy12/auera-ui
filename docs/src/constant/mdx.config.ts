@@ -116,6 +116,11 @@ import UploadDropZone from "@/components/example/file-upload/dropzone";
 import FileWithRemovable from "@/components/example/file-upload/removable";
 import AcceptsFile from "@/components/example/file-upload/accept";
 import ReceiveFile from "@/components/example/file-upload/receive";
+import LoadingDemo from "@/components/example/loading/demo";
+import LoadingCustomSpinner from "@/components/example/loading/custom-spinner";
+import LoadingEmpty from "@/components/example/loading/empty";
+import LoadingWithError from "@/components/example/loading/error";
+import Loader from "@/components/example/loading/loader";
 
 export const components = {
   DetailCard,
@@ -239,6 +244,11 @@ export const components = {
   FileWithRemovable,
   AcceptsFile,
   ReceiveFile,
+  LoadingDemo,
+  LoadingCustomSpinner,
+  LoadingEmpty,
+  LoadingWithError,
+  Loader,
 };
 
 export const MDXRemote = dynamic(() =>

@@ -6,7 +6,7 @@ import { formatTime } from "@/utils/formatTime";
 import GroupMap from "@/utils/GroupMap";
 import { Box, StatusBadge, TabHandle, TabPanel, Tabs } from "auera-ui";
 import React from "react";
-import { FaRegSadTear } from "react-icons/fa";
+import { CgList } from "react-icons/cg";
 import { IoCodeSlash } from "react-icons/io5";
 import { LuEye } from "react-icons/lu";
 
@@ -57,10 +57,7 @@ const EmptyList = () => {
             groupByKey={(item) => item.timestamp}
             emptyListComponent={
               <Box centered className="flex-col gap-2">
-                <FaRegSadTear
-                  size={50}
-                  className="theme-dark:text-neutral-300 animate-bounce"
-                />
+                <CgList size={50} className="theme-dark:text-neutral-300" />
                 <p className="font-inter text-base font-medium text-neutral-500 theme-dark:text-neutral-700">
                   Notting is here!
                 </p>

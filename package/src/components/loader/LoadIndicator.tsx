@@ -34,3 +34,4 @@ const LoadIndicator = ({ className, color }: LoadIndicatorProps) => {
 };
 
 export default LoadIndicator;
+LoadIndicator.displayName = "AueraUI.LoadIndicator";
