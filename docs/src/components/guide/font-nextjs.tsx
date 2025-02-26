@@ -57,7 +57,7 @@ const config: Config = {
     "./src/**/*.{js,jsx,ts,tsx}",
     "./node_modules/auera-ui/**/*.{js,ts,jsx,tsx}",
   ],
-  safelist: [SafeLists().join(" ")],
+  safelist: SafeLists(),
   theme: {
     extend: {
       backgroundColor: {

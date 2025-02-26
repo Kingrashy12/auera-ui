@@ -2,9 +2,15 @@ import CodeBlock from "@/components/layout/code/Block";
 import CardContent from "@/components/lib/CardContent";
 import { groupmap_code } from "@/data/code/groupmap";
 import { notifications } from "@/data/notification";
-import { formatTime } from "@/utils/formatTime";
 import GroupMap from "@/utils/GroupMap";
-import { Box, StatusBadge, TabHandle, TabPanel, Tabs } from "auera-ui";
+import {
+  Box,
+  formatDate,
+  StatusBadge,
+  TabHandle,
+  TabPanel,
+  Tabs,
+} from "auera-ui";
 import React from "react";
 import { CgList } from "react-icons/cg";
 import { IoCodeSlash } from "react-icons/io5";
@@ -29,7 +35,7 @@ const EmptyList = () => {
             className="gap-5"
             renderKey={(key) => (
               <h1 className="font-medium font-inter text-md text-neutral-500">
-                {formatTime(new Date(key))}
+                {formatDate({ date: new Date(key), format: "ddd-mmm-dd" })}
               </h1>
             )}
             renderItem={(item, index) => (

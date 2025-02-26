@@ -2,9 +2,9 @@ import CodeBlock from "@/components/layout/code/Block";
 import CardContent from "@/components/lib/CardContent";
 import { groupmap_code } from "@/data/code/groupmap";
 import { notifications } from "@/data/notification";
-import { formatTime } from "@/utils/formatTime";
 import {
   Box,
+  formatDate,
   GroupMap,
   StatusBadge,
   TabHandle,
@@ -33,7 +33,7 @@ const GroupMapDemo = () => {
             className="gap-5"
             renderKey={(key) => (
               <h1 className="font-medium font-inter text-md text-neutral-500">
-                {formatTime(new Date(key))}
+                {formatDate({ date: new Date(key), format: "ddd-mmm-dd" })}
               </h1>
             )}
             renderItem={(item, index) => (
