@@ -13,6 +13,7 @@ import { fileUploadRef } from "@/data/api-ref/file-upload";
 import { groupMapRef } from "@/data/api-ref/group-map";
 import { i_buttonRef } from "@/data/api-ref/iconbuttonRef";
 import { iconRef } from "@/data/api-ref/iconRef";
+import { loadingRef } from "@/data/api-ref/loading";
 import { mapitems_ref } from "@/data/api-ref/mapitems_ref";
 import { menuRef } from "@/data/api-ref/menu";
 import { modalRef } from "@/data/api-ref/modal";
@@ -55,6 +56,7 @@ const data = {
   avatarRef,
   toastRef,
   fileUploadRef,
+  loadingRef,
 };
 
 const Page = ({ frontmatter, mdxSource, slug }: Props) => {
@@ -106,6 +108,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     "toast",
     "avatar",
     "file-upload",
+    "loading",
   ];
 
   const paths = slugs.map((slug) => ({

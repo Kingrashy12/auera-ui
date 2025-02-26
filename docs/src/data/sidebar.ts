@@ -69,7 +69,7 @@ export const sideBarLinks = [
       { label: "Card", uri: "/docs/components/card" },
       { label: "Drawer", uri: "/docs/components/drawer" },
       {
-        label: "DynamicBreadcrumb",
+        label: "Dynamic Breadcrumb",
         uri: "/docs/components/dynamic-dreadcrumb",
         soon: true,
       },
@@ -93,9 +93,10 @@ export const sideBarLinks = [
         soon: true,
       },
       { label: "File Upload", uri: "/docs/components/file-upload" },
-      { label: "Loading", uri: "/docs/components/loading", soon: true },
+      { label: "Loading", uri: "/docs/components/loading" },
       { label: "Tabs", uri: "/docs/components/tabs" },
-      { label: "ToolTip", uri: "/docs/components/tooltip", soon: true },
+      { label: "Tool Tip", uri: "/docs/components/tool-tip", soon: true },
+      { label: "Table", uri: "/docs/components/table", soon: true },
       { label: "Toast", uri: "/docs/components/toast" },
       {
         label: "Status Badge",

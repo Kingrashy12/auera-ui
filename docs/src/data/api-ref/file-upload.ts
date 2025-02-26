@@ -43,7 +43,7 @@ const trigger = [
     type: "string",
     description:
       "Custom warning message displayed when file size exceeds the limit.",
-    default: "File size exceeds the ${maxSize}MB limit!",
+    default: "File size exceeds the $maxSizeMB limit!",
   },
   {
     prop: "disabled",
@@ -142,7 +142,7 @@ const dropzone = [
     type: "string",
     description:
       "Custom warning message displayed when file size exceeds the limit.",
-    default: "File size exceeds the ${maxSize}MB limit!",
+    default: "File size exceeds the $maxSizeMB limit!",
   },
   {
     prop: "disabled",

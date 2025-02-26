@@ -852,9 +852,8 @@ export interface LoaderProp {
   isLoading: boolean;
   size?: "sm" | "md" | "lg";
   color?: ColorPair;
-  innerColor?: ColorPair;
   spinner?: React.ReactNode;
-  loader?: "bounce" | "circle";
+  loader?: "bounce" | "spin" | "wave";
   error?: boolean;
   renderError?: React.ReactNode;
   keepOut?: boolean;
