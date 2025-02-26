@@ -115,11 +115,17 @@ export const StrFun = {
   },
 };
 
-export const formatCurrency = <T extends Currency>(
+export const formatCurrency = (
   value: number,
-  currency: T
+  currency: Currency,
+  allowNegativeValue = false
 ) => {
-  return value.toLocaleString("en-US", {
+  let num = allowNegativeValue ? value : Math.max(0, value);
+
+  const ngn_local = "₦" + num.toLocaleString();
+  if (currency === "NGN") return ngn_local;
+
+  return num.toLocaleString("en-US", {
     style: "currency",
     currency: currency,
   });
