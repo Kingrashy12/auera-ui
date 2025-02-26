@@ -29,7 +29,7 @@ const MotionDemo = () => {
      animate={{ opacity: 1, x: 0 }}
      whileHover={{ scale: 1.05 }}
      transition={{ duration: 0.5, ease: "easeOut" }}
-     className="p-4 shadow-md rounded-md bg-blue-500 text-white \n    text-center font-poppins cursor-pointer"
+     className="p-4 shadow-md rounded-md bg-blue-500 text-white text-center font-poppins cursor-pointer"
     >
       Sliding In From Left
     </Box>
@@ -39,7 +39,7 @@ const MotionDemo = () => {
      animate={{ opacity: 1, x: 0 }}
      whileHover={{ scale: 1.05, translateX: 10, translateY: -20 }}
      transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
-     className="p-4 shadow-md rounded-md bg-green-500 text-white \n    text-center font-poppins cursor-pointer"
+     className="p-4 shadow-md rounded-md bg-green-500 text-white text-center font-poppins cursor-pointer"
     >
       Sliding In From Right
     </Box>

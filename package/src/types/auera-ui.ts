@@ -8,7 +8,6 @@ import {
   ModeType,
   SchemeVariant,
   TailwindClass,
-  Trigger,
 } from "./auera-system";
 import { InputProps } from "./element-props";
 import { zIndex } from "./keys";
@@ -175,11 +174,6 @@ export interface ButtonProps extends BtnProps {
    * @default "light"
    */
   mode?: "light" | "dark";
-  withTrigger?: boolean;
-  triggerType?: "open" | "close";
-  triggerValue?: string;
-  trigger?: Trigger;
-  triggerClass?: string;
 }
 
 export interface Drop extends DivProps {
@@ -380,18 +374,13 @@ export interface IconButtonProps {
   size?: "xs" | "sm" | "md" | "lg" | "xl";
   radius?: "none" | "sm" | "md" | "lg" | "xl" | "2xl" | "full";
   disabled?: boolean;
-  withTrigger?: boolean;
-  triggerType?: "open" | "close";
-  triggerValue?: string;
-  trigger?: Trigger;
   mode?: "light" | "dark";
   active?: boolean;
-  asChild?: boolean;
+  as?: "button" | "div";
 }
 
-export type IconButtonPropsExtended<T extends boolean> = T extends true
-  ? IconButtonProps & DivProps
-  : IconButtonProps & BtnProps;
+export type IconButtonPropsExtended<T extends "button" | "div"> =
+  T extends "div" ? IconButtonProps & DivProps : IconButtonProps & BtnProps;
 
 export interface DrawerProps extends ModalType {
   backdropClass?: string;
@@ -563,7 +552,8 @@ export interface CardProps extends BoxProps {
     style?: React.CSSProperties;
   };
   renderImage?: () => React.ReactNode;
-  renderHeader?: () => React.ReactNode;
+  header?: React.ReactNode;
+  footer?: React.ReactNode;
   classNames?: {
     root?: TailwindClass;
     body?: TailwindClass;
@@ -581,13 +571,13 @@ export type TootipProps = {
 };
 
 export interface RadioProps extends InputProps {
-  checked: boolean;
+  checked?: boolean;
   className?: string;
-  onSelect: () => void;
+  onCheck?: (status: boolean) => void;
   name?: string;
-  // size?: "sm" | "md" | "lg";
-  size?: 16 | 20 | 24;
+  size?: 16 | 20 | 24 | 26 | 30;
   color?: ColorPair;
+  mode?: ModeType;
 }
 
 export declare type ToastVariant =
@@ -757,6 +747,14 @@ export interface PasswordProps extends InputProp {
   hideLock?: boolean;
 }
 
+export interface FileUploadProps {
+  children: React.ReactNode;
+  multiple?: boolean;
+  onFileUpload?: (file: FileData) => void;
+  maxFiles?: number;
+  mode?: ModeType;
+}
+
 export type FileContruct = {
   base64: string;
   main: {
@@ -773,27 +771,65 @@ export type CatchFile = {
 };
 
 export interface UploadDropzone {
-  accept?: string[];
+  accept?: FileType[];
   maxSize?: number;
   label: string;
   description: string;
-  mode?: "dark" | "light";
   disabled?: boolean;
-  labelClass?: string;
-  descriptionClass?: string;
-  className?: string;
   exceedMessage?: string;
+  classNames?: {
+    root?: string;
+    label?: string;
+    description?: string;
+  };
 }
 
 export interface FileListProps {
-  mode?: "light" | "dark";
   removeAble?: boolean;
   showSize?: boolean;
+  classNames?: {
+    name?: string;
+    root?: string;
+  };
 }
+
+export type FileType =
+  | "image/png"
+  | "image/jpg"
+  | "image/jpeg"
+  | "image/gif"
+  | "image/webp"
+  | "image/svg+xml"
+  | "video/mp4"
+  | "video/webm"
+  | "video/ogg"
+  | "video/mkv"
+  | "application/pdf"
+  | "application/msword"
+  | "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+  | "application/vnd.ms-excel"
+  | "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+  | "application/vnd.ms-powerpoint"
+  | "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+  | "application/zip"
+  | "application/x-rar-compressed"
+  | "application/x-zip-compressed"
+  | "application/json"
+  | "application/xml"
+  | "text/plain"
+  | "text/csv"
+  | "text/markdown"
+  | "text/mdx"
+  | "audio/mpeg"
+  | "audio/mp3"
+  | "audio/ogg"
+  | "audio/wav"
+  | "audio/flac"
+  | "*";
 
 export interface UploadTrigger {
   children: React.ReactNode;
-  accept?: string[];
+  accept?: FileType[];
   maxSize?: number;
   disabled?: boolean;
   exceedMessage?: string;
@@ -853,4 +889,13 @@ export interface SelectItemProps {
   onSelect?: (value: string) => void;
   children?: React.ReactNode;
   className?: string;
+}
+
+export interface DynamicBreadcrumbsProps {
+  separator?: "splash" | "arrow";
+  itemClass?: string;
+  containerClass?: string;
+  className?: string;
+  disableHref?: string[];
+  exclude?: string;
 }

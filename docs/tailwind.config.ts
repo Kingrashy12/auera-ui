@@ -4,9 +4,9 @@ import { aueraTw, SafeLists, tailwindExtend } from "auera-ui";
 const config: Config = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx,mdx}",
-    "./node_modules/auera-ui/**/*.{js,jsx,ts,tsx,mdx}",
+    "./node_modules/auera-ui/dist/**/*.{js,jsx,ts,tsx}",
   ],
-  safelist: [SafeLists().join(" ")],
+  safelist: SafeLists(),
   theme: {
     extend: {
       colors: {

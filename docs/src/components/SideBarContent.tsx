@@ -74,7 +74,6 @@ const SideBarContent = () => {
                   item.soon ? "pointer-events-none" : "cursor-pointer",
                   getActiveLink(item.href) ? "text-blue-600" : "text-primary"
                 )}
-                target={item.external ? "_blank" : ""}
                 key={index}
               >
                 <Box className="items-center gap-3">

@@ -1,3 +1,4 @@
+import { CatchFile } from "../types/auera-ui";
 import { Currency, DataGroup } from "../types/utils";
 
 /**
@@ -165,3 +166,34 @@ export const groupData = <T>({
 
   return grouped;
 };
+
+/**
+ * Utility function that handles file extraction from the `onFileUpload` prop in the `FileUpload` component.
+ * It processes the uploaded file and returns either a single `FileData` object or an array of `FileData` objects.
+ *
+ * @param {Object} params - The parameter object.
+ * @param {Function} params.useFile - A callback function that processes the uploaded file.
+ * @returns {CatchFile['useFile']} The processed file data, either a single `FileData` object or an array of `FileData` objects.
+ *
+ * @example
+ * // Define a file handler using catchFile
+ * const handleFile = catchFile({
+ *   useFile(file) {
+ *     // If a single file is uploaded, extract its base64 and main file structure
+ *     const mainFile = !Array.isArray(file) ? file.main : null;
+ *     const base64File = !Array.isArray(file) ? file.base64 : null;
+ *
+ *     // If multiple files are uploaded, store them in an array
+ *     const fileArray = Array.isArray(file) ? file : [];
+ *
+ *     console.log(mainFile, base64File, fileArray);
+ *   },
+ * });
+ *
+ * // Pass it as a prop to the FileUpload component
+ * <FileUpload onFileUpload={handleFile}>
+ *   // Other file upload components
+ * </FileUpload>
+ */
+export const catchFile = ({ useFile }: CatchFile): CatchFile["useFile"] =>
+  useFile;

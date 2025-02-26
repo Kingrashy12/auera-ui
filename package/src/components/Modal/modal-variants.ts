@@ -67,7 +67,7 @@ const header = cva("flex items-center justify-between p-[13px] w-full", {
 });
 
 const panel = cva(
-  "max-w-full max-h-[95%] h-auto flex relative z-[800] overflow-hidden gap-[10px]",
+  "max-w-full max-h-[95%] h-auto flex relative z-[800] overflow-hidden",
   {
     variants: {
       align: {

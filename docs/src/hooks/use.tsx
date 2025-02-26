@@ -72,11 +72,11 @@ export const useTableOfContents = () => {
         }));
 
         setHeadings(newHeadings as HeadingType[]);
-      }, 100); // Wait for dynamic content to render
+      }, 300); // Wait for dynamic content to render
     };
 
     fetchHeadings(); // Initial fetch
-    router.events.on("routeChangeComplete", fetchHeadings); // Fetch on route change
+    router.events.on("routeChangeComplete", fetchHeadings);
 
     return () => {
       router.events.off("routeChangeComplete", fetchHeadings);

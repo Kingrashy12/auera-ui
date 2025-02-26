@@ -1,5 +1,6 @@
 import { createContext } from "react";
 import { FileContruct } from "../types/auera-ui";
+import { ModeType } from "@/types/auera-system";
 
 type UploadContextProps = {
   file: FileContruct;
@@ -8,6 +9,7 @@ type UploadContextProps = {
   removeFile: (index: number) => void;
   multiple?: boolean;
   maxFiles?: number;
+  mode: ModeType;
 };
 
 export const UploadContext = createContext<UploadContextProps | undefined>(

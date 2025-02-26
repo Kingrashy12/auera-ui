@@ -24,7 +24,6 @@ import ButtonFlavours from "@/components/example/button/flavours";
 import LoadingButton from "@/components/example/button/loading";
 import CustomSpinner from "@/components/example/button/custom-spinner";
 import ButtonWithIcon from "@/components/example/button/icon";
-import ButtonWithTrigger from "@/components/example/button/with-trigger";
 import OverlayStructure from "@/components/guide/overlay-structure";
 import BoxWithMotion from "@/components/example/box/WithMotion";
 import CardDemo from "@/components/example/card/demo";
@@ -61,9 +60,8 @@ import Note from "@/components/Note";
 import IButtonSizes from "@/components/example/i_button/sizes";
 import IButtonDemo from "@/components/example/i_button/demo";
 import IButtonVariants from "@/components/example/i_button/variants";
-import IButtonAsChild from "@/components/example/i_button/asChild";
+import IButtonAsDiv from "@/components/example/i_button/as-div";
 import IButtonRadius from "@/components/example/i_button/radius";
-import IButtonWithTrigger from "@/components/example/i_button/with-trigger";
 import MapItemsDemo from "@/components/example/mapitems/demo";
 import Map_EmptyList from "@/components/example/mapitems/empty-list";
 import MenuDemo from "@/components/example/menu/demo";
@@ -109,6 +107,15 @@ import AvatarDemo from "@/components/example/avatar/demo";
 import AvatarSizes from "@/components/example/avatar/sizes";
 import LoadingAvatar from "@/components/example/avatar/isloading";
 import AvatarBorder from "@/components/example/avatar/border";
+import FileUploadDemo from "@/components/example/file-upload/demo";
+import MultipleUpload from "@/components/example/file-upload/multiple";
+import FileSize from "@/components/example/file-upload/size";
+import MaxFileSize from "@/components/example/file-upload/max-size";
+import MaxFileUpload from "@/components/example/file-upload/max-file";
+import UploadDropZone from "@/components/example/file-upload/dropzone";
+import FileWithRemovable from "@/components/example/file-upload/removable";
+import AcceptsFile from "@/components/example/file-upload/accept";
+import ReceiveFile from "@/components/example/file-upload/receive";
 
 export const components = {
   DetailCard,
@@ -143,7 +150,6 @@ export const components = {
   LoadingButton,
   CustomSpinner,
   ButtonWithIcon,
-  ButtonWithTrigger,
   OverlayStructure,
   BoxWithMotion,
   CardDemo,
@@ -178,9 +184,8 @@ export const components = {
   IButtonSizes,
   IButtonDemo,
   IButtonVariants,
-  IButtonAsChild,
+  IButtonAsDiv,
   IButtonRadius,
-  IButtonWithTrigger,
   MapItemsDemo,
   Map_EmptyList,
   MenuDemo,
@@ -225,6 +230,15 @@ export const components = {
   AvatarSizes,
   LoadingAvatar,
   AvatarBorder,
+  FileUploadDemo,
+  MultipleUpload,
+  FileSize,
+  MaxFileSize,
+  MaxFileUpload,
+  UploadDropZone,
+  FileWithRemovable,
+  AcceptsFile,
+  ReceiveFile,
 };
 
 export const MDXRemote = dynamic(() =>

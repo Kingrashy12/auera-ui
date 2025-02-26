@@ -22,10 +22,10 @@ import type { Config } from "tailwindcss";
 const config: Config = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
-    "./node_modules/auera-ui/**/*.{js,ts,jsx,tsx}",
+    "./node_modules/auera-ui/dist/**/*.{js,ts,jsx,tsx}",
   ],
   // Whitelist dynamic color classes.
-  safelist: [SafeLists().join(" ")],
+  safelist: SafeLists(),
   theme: {
     extend: {
       backgroundColor: {

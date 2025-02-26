@@ -11,6 +11,10 @@ html[select-open="true"] {
     border-image: initial;
   }
 
+  input {
+    @apply ring-0 focus:ring-0 focus:outline-none;
+  }
+
   .skeleton {
     @apply overflow-hidden relative animate-pulse inline-block p-1
     theme-light:bg-slate-200 theme-dark:bg-neutral-700;

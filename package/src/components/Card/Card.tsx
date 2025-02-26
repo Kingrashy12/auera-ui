@@ -5,7 +5,7 @@ import { useCard } from "./use-card";
 import { Media } from "../Image";
 import { tw } from "stywind";
 
-/** Card component for displaying content in a styled container.*/
+/** Card component for displaying content in an organized way.*/
 const Card = forwardRef<HTMLDivElement, CardWithMotion>(
   (
     {
@@ -16,7 +16,8 @@ const Card = forwardRef<HTMLDivElement, CardWithMotion>(
       hidden,
       direction,
       renderImage,
-      renderHeader,
+      header,
+      footer,
       img,
       ...props
     },
@@ -51,9 +52,10 @@ const Card = forwardRef<HTMLDivElement, CardWithMotion>(
 
     return (
       <Root ref={ref as AueraMotionDivRef} {...props}>
-        {renderHeader && renderHeader()}
+        {header && header}
         {getImage()}
         <Body>{props.children}</Body>
+        {footer && footer}
       </Root>
     );
   }

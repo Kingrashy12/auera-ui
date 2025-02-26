@@ -2,17 +2,14 @@ export const card_codes = {
   default: `import { Card, Button, Box, Media } from "auera-ui";
 import { FiArrowUpRight } from "react-icons/fi";
 
-const DefaultCardDemo = () => {
+export const DefaultCardDemo = () => {
   return (
     <Card
-      classNames={{
-        root: "w-fit",
-      }}
+     classNames={{ root: "w-fit" }}
     >
       <Box className="gap-3 items-center">
         <Media
-          src="https://fastly.picsum.photos/id/74/4288/2848.jpg?
-          hmac=q02MzzHG23nkhJYRXR-_RgKTr6fpfwRgcXgE0EKvNB8"
+          src="https://fastly.picsum.photos/id/74/4288/2848.jpg?hmac=q02MzzHG23nkhJYRXR-_RgKTr6fpfwRgcXgE0EKvNB8"
           width={120}
           className="rounded-md"
         />
@@ -22,17 +19,15 @@ const DefaultCardDemo = () => {
            text-black theme-dark:text-white">
             Azure Bay
           </span>
-          <p className="font-inter font-normal text-neutral-400
-           theme-dark:text-neutral-700 text-xs">
+          <p className="font-inter font-normal text-neutral-400 theme-dark:text-neutral-700 text-xs">
             Lorem ipsum dolor sit amet.
           </p>
         </Box>
       </Box>
 
-      <p className="text-neutral-500 theme-dark:text-neutral-700
-       font-inter text-sm w-[300px]">
+      <p className="text-neutral-500 theme-dark:text-neutral-700 font-inter text-sm w-[300px]">
         A breathtaking coastal city where the ocean meets the skyline,
-         offering stunning views and vibrant nightlife.
+        offering stunning views and vibrant nightlife.
       </p>
 
       <Box className="gap-2 items-center">
@@ -46,8 +41,7 @@ const DefaultCardDemo = () => {
         </Button>
 
         <Button
-          className="border-red-500 text-red-500
-           hover:bg-red-100 font-inter text-sm"
+          className="border-red-500 text-red-500 hover:bg-red-100 font-inter text-sm"
           radius="xl"
           variant="outline"
         >
@@ -60,35 +54,30 @@ const DefaultCardDemo = () => {
   with_image: `import { Card, Button, Box } from "auera-ui";
 import { FiArrowUpRight } from "react-icons/fi";
     
-const CardWithImage = () => {
+ export const CardWithImage = () => {
   return (
     <Card
-      classNames={{
-        root: "w-fit",
-      }}
+     classNames={{ root: "w-fit" }}
      img={{
-      src: "https://fastly.picsum.photos/id/74/4288/2848.jpg?...",
+      src: "https://fastly.picsum.photos/id/74/4288/2848.jpg?hmac=q02MzzHG23nkhJYRXR-_RgKTr6fpfwRgcXgE0EKvNB8",
       alt: "Azure Bay",
       className: "w-[380px] max-[400px]:w-auto",
     }}
     >
       <Box className="gap-3 items-center">
         <Box className="flex-col gap-1">
-          <span className="font-poppins text-sm font-medium
-           text-black theme-dark:text-white">
+          <span className="font-poppins text-sm font-medium text-black theme-dark:text-white">
             Azure Bay
           </span>
-          <p className="font-inter font-normal text-neutral-400
-           theme-dark:text-neutral-700 text-xs">
+          <p className="font-inter font-normal text-neutral-400 theme-dark:text-neutral-700 text-xs">
             Lorem ipsum dolor sit amet.
           </p>
         </Box>
       </Box>
 
-      <p className="text-neutral-500 theme-dark:text-neutral-700
-       font-inter text-sm w-[300px]">
+      <p className="text-neutral-500 theme-dark:text-neutral-700 font-inter text-sm w-[300px]">
         A breathtaking coastal city where the ocean meets the skyline,
-         offering stunning views and vibrant nightlife.
+        offering stunning views and vibrant nightlife.
       </p>
 
       <Box className="gap-2 items-center">
@@ -102,8 +91,7 @@ const CardWithImage = () => {
         </Button>
 
         <Button
-          className="border-red-500 text-red-500
-           hover:bg-red-100 font-inter text-sm"
+          className="border-red-500 text-red-500 hover:bg-red-100 font-inter text-sm"
           radius="xl"
           variant="outline"
         >
@@ -117,16 +105,14 @@ const CardWithImage = () => {
 import Image from "next/image";
 import { FiArrowUpRight } from "react-icons/fi";
     
-const CardWithImageRender = () => {
+ export const CardWithImageRender = () => {
   return (
     <Card
-      classNames={{
-        root: "w-fit",
-      }}
+     classNames={{ root: "w-fit" }}
      renderImage={() => (
        <Image
          alt="Azure Bay"
-         src="https://fastly.picsum.photos/id/74/4288/2848.jpg?.."
+         src="https://fastly.picsum.photos/id/74/4288/2848.jpg?hmac=q02MzzHG23nkhJYRXR-_RgKTr6fpfwRgcXgE0EKvNB8"
          width={300}
          height={150}
          className="max-[400px]:w-fit h-auto w-[380px]"
@@ -135,21 +121,18 @@ const CardWithImageRender = () => {
     >
       <Box className="gap-3 items-center">
         <Box className="flex-col gap-1">
-          <span className="font-poppins text-sm font-medium
-           text-black theme-dark:text-white">
+          <span className="font-poppins text-sm font-medium text-black theme-dark:text-white">
             Azure Bay
           </span>
-          <p className="font-inter font-normal text-neutral-400
-           theme-dark:text-neutral-700 text-xs">
+          <p className="font-inter font-normal text-neutral-400 theme-dark:text-neutral-700 text-xs">
             Lorem ipsum dolor sit amet.
           </p>
         </Box>
       </Box>
 
-      <p className="text-neutral-500 theme-dark:text-neutral-700
-       font-inter text-sm w-[300px]">
+      <p className="text-neutral-500 theme-dark:text-neutral-700 font-inter text-sm w-[300px]">
         A breathtaking coastal city where the ocean meets the skyline,
-         offering stunning views and vibrant nightlife.
+        offering stunning views and vibrant nightlife.
       </p>
 
       <Box className="gap-2 items-center">
@@ -163,8 +146,7 @@ const CardWithImageRender = () => {
         </Button>
 
         <Button
-          className="border-red-500 text-red-500
-           hover:bg-red-100 font-inter text-sm"
+          className="border-red-500 text-red-500 hover:bg-red-100 font-inter text-sm"
           radius="xl"
           variant="outline"
         >
@@ -176,29 +158,25 @@ const CardWithImageRender = () => {
 };`,
   feed_card: `import { Avatar, Box, Button, Card } from "auera-ui";
 
-const FeedCard = () => {
+ export const FeedCard = () => {
   return (
    <Card
-     classNames={{
-     root: "w-fit",
-    }}
+    classNames={{ root: "w-fit" }}
    >
 
    <Box className="gap-3 items-center">
     <Avatar
-      src="https://fastly.picsum.photos/id/65/4912/3264.jpg?..."
+      src="https://fastly.picsum.photos/id/65/4912/3264.jpg?hmac=uq0IxYtPIqRKinGruj45KcPPzxDjQvErcxyS1tn7bG0"
       size="md"
       border
     />
     
     <Box between fullWidth>
       <Box className="flex-col gap-1">
-        <span className="font-poppins text-sm font-medium text-black
-         theme-dark:text-white">
+        <span className="font-poppins text-sm font-medium text-black theme-dark:text-white">
           Elara Quinn
         </span>
-        <p className="font-inter font-normal text-neutral-400
-         theme-dark:text-neutral-600 text-xs">
+        <p className="font-inter font-normal text-neutral-400 theme-dark:text-neutral-600 text-xs">
           3:30 PM
         </p>
       </Box>
@@ -209,10 +187,9 @@ const FeedCard = () => {
     </Box>
   </Box>
 
-  <p className="text-neutral-500 theme-dark:text-neutral-500 font-inter
-   text-sm w-[300px]">
+  <p className="text-neutral-500 theme-dark:text-neutral-500 font-inter text-sm w-[300px]">
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex odio
-    laudantium nostrum minus beatae cum veritatis alias. Unde!
+    laudantium nostrum minus beatae cum veritatis alias. Unde
   </p>
   </Card>
  )
@@ -230,14 +207,14 @@ const FeedCard = () => {
 } from "auera-ui";
  import Link from "next/link";
 
-const FormCard = () => {
+ export const FormCard = () => {
 
   return (
    <Card
      classNames={{
      root: "w-fit max-w-sm rounded-[25px]",
     }}
-     renderHeader={() => (
+     header={
        <Box
          centered
          fullWidth
@@ -256,7 +233,7 @@ const FormCard = () => {
            </p>
          </Box>
        </Box>
-    )}
+    }
    >
   <form className="flex flex-col gap-4 w-[290px] font-inter">
     <Box className="flex-col gap-2">
@@ -323,13 +300,13 @@ const providers = [
   },
 ];
 
-const Web3Card = () => {
+export const Web3Card = () => {
   return (
    <Card
      classNames={{
-     root: "max-w-sm !rounded-[1.8rem]",
+     root: "max-w-sm rounded-[1.8rem]",
     }}
-      renderHeader={() => (
+      header={
        <Box
         className="px-4 py-5 border-b theme-dark:border-b-neutral-900 items-center"
         between
@@ -344,7 +321,7 @@ const Web3Card = () => {
            <IoClose size={22} />
          </IconButton>
         </Box>
-      )}
+      }
    >
   <MapItems
     data={providers}
@@ -352,8 +329,8 @@ const Web3Card = () => {
     className="gap-4"
     renderItem={(wallet, index) => (
       <IconButton
-        className="gap-3 !justify-start"
-        asChild
+        className="gap-3 justify-start"
+        as="div"
         radius="2xl"
         key={index}
       >
@@ -361,8 +338,7 @@ const Web3Card = () => {
         <p className="font-inter font-medium">{wallet.name}</p>
         {wallet.hint && (
           <p
-            className="font-poppins font-medium bg-blue-100 p-1 rounded-md
-           theme-dark:bg-dark-soft-blue text-xs text-blue-500 ml-auto"
+            className="font-poppins font-medium bg-blue-100 p-1 rounded-md theme-dark:bg-dark-soft-blue text-xs text-blue-500 ml-auto"
           >
             {wallet.hint}
           </p>
@@ -379,10 +355,10 @@ const Web3Card = () => {
   Card,
   Icon,
   MapItems,
-  tw,
 } from "auera-ui";
 import { FaCircleCheck } from "react-icons/fa6";
 import { FiMinus } from "react-icons/fi";
+import { tw } from "stywind";
 
 
 const features = [
@@ -416,7 +392,7 @@ const features = [
   },
 ];
 
-const PricingCard = () => {
+export const PricingCard = () => {
   return (
    <Card
       classNames={{
@@ -430,8 +406,7 @@ const PricingCard = () => {
         <h1 className="font-poppins text-5xl font-semibold theme-dark:text-white">
           89
         </h1>
-        <span className="ml-1 font-inter font-medium text-neutral-400
-         theme-dark:text-neutral-500 text-2xl">
+        <span className="ml-1 font-inter font-medium text-neutral-400 theme-dark:text-neutral-500 text-2xl">
           /month
         </span>
       </Box>
@@ -452,8 +427,8 @@ const PricingCard = () => {
               className={tw(
                 "text-neutral-500 theme-dark:text-neutral-400 font-poppins",
                 {
-                  "line-through text-neutral-300 theme-dark:!text-neutral-600":
-                    !plan.included,
+                  "line-through text-neutral-300 theme-dark:text-neutral-600":
+                    plan.included,
                 }
               )}
             >

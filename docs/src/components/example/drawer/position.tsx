@@ -1,7 +1,7 @@
 import CodeBlock from "@/components/layout/code/Block";
 import CardContent from "@/components/lib/CardContent";
 import { drawer_codes } from "@/data/code/drawer";
-import { Button, Stack, TabHandle, TabPanel, Tabs } from "auera-ui";
+import { Button, openDrawer, Stack, TabHandle, TabPanel, Tabs } from "auera-ui";
 import React from "react";
 import { IoCodeSlash } from "react-icons/io5";
 import { LuEye } from "react-icons/lu";
@@ -18,20 +18,10 @@ const DrawerPosition = () => {
         </TabHandle>
         <TabPanel className="mt-3">
           <Stack className="font-inter">
-            <Button
-              withTrigger
-              trigger="drawer"
-              triggerType="open"
-              triggerValue="left-drawer-demo"
-            >
+            <Button onClick={() => openDrawer("left-drawer-demo")}>
               Open left drawer
             </Button>
-            <Button
-              withTrigger
-              trigger="drawer"
-              triggerType="open"
-              triggerValue="drawer-demo"
-            >
+            <Button onClick={() => openDrawer("drawer-demo")}>
               Open right drawer
             </Button>
           </Stack>

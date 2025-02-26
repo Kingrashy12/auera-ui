@@ -30,7 +30,7 @@ const Hero = () => {
               </Button>
             </Link>
             <Box className="bg-cmd p-2 rounded-xl w-fit flex items-center gap-1 px-2">
-              <code className="font-medium font-mono text-sm text-cmd-code">
+              <code className="font-medium font-mono text-sm text-cmd-code px-2">
                 npm i auera-ui react-icons
               </code>
               <Clipboard content="npm i auera-ui react-icons" />

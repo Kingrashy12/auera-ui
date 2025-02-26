@@ -35,42 +35,12 @@ export const aueraTw = ({
         appearance: "none",
       },
     },
-    ".z-80": {
-      zIndex: 80,
-    },
-    ".z-90": {
-      zIndex: 90,
-    },
-    ".z-100": {
-      zIndex: 100,
-    },
-    ".z-200": {
-      zIndex: 200,
-    },
-    ".z-300": {
-      zIndex: 300,
-    },
-    ".z-400": {
-      zIndex: 400,
-    },
-    ".z-500": {
-      zIndex: 500,
-    },
-    ".z-600": {
-      zIndex: 600,
-    },
-    ".z-700": {
-      zIndex: 700,
-    },
-    ".z-800": {
-      zIndex: 800,
-    },
-    ".z-900": {
-      zIndex: 900,
-    },
-    ".z-1000": {
-      zIndex: 1000,
-    },
+    ...Object.fromEntries(
+      Array.from({ length: 10 }, (_, i) => [
+        `.z-${(i + 8) * 100}`,
+        { zIndex: (i + 8) * 100 },
+      ])
+    ),
   });
 };
 

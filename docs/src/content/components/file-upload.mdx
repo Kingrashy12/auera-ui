@@ -1,0 +1,86 @@
+---
+title: File Upload | AueraUI
+description: Allows users to select and upload files effortlessly.
+---
+
+<DetailCard description='Allows users to select and upload files effortlessly.'/>
+
+<Details>
+<FileUploadDemo />
+</Details>
+
+<Details id='examples'>
+<HeaderLabel id='examples'>Examples</HeaderLabel>
+</Details>
+
+<Details id='multiple'>
+<HeaderLabel id='multiple' as='h3'>Multiple</HeaderLabel>
+<p className='text'>Use the <CodeTag>multiple</CodeTag> prop to upload multiple files</p>
+<MultipleUpload />
+</Details>
+
+<Details id='accept'>
+<HeaderLabel id='accept' as='h3'>Accepts</HeaderLabel>
+<p className='text'>With the <CodeTag>accept</CodeTag> prop, you decide what file types you want to accept, and you also get auto-suggestions.</p>
+<AcceptsFile />
+</Details>
+
+<Details id='max-file'>
+<HeaderLabel id='max-file' as='h3'>Max File</HeaderLabel>
+<p className='text'>Use the <CodeTag>maxFile</CodeTag> prop to limit the number of files that can be uploaded.</p>
+<MaxFileUpload />
+</Details>
+
+<Details id='max-size'>
+<HeaderLabel id='max-size' as='h3'>Max Size</HeaderLabel>
+<p className='text'>Use the <CodeTag>maxSize</CodeTag> prop to set the maximum file size that can be uploaded.</p>
+<MaxFileSize />
+</Details>
+
+<Details id='drop-zone'>
+<HeaderLabel id='drop-zone' as='h3'>DropZone</HeaderLabel>
+<p className='text'>You can also use the <CodeTag>FileUploadDropzone</CodeTag> for a more stylish upload interface.</p>
+<UploadDropZone />
+</Details>
+
+<Details id='show-size'>
+<HeaderLabel id='show-size' as='h3'>Show Size</HeaderLabel>
+<p className='text'>Use the <CodeTag>showSize</CodeTag> prop to display the file size.</p>
+<FileSize />
+</Details>
+
+<Details id='remove-able'>
+<HeaderLabel id='remove-able' as='h3'>RemoveAble</HeaderLabel>
+<p className='text'>With the <CodeTag>removeAble</CodeTag> prop, you can remove files from the file list. This is only available for multiple files.</p>
+<FileWithRemovable />
+</Details>
+
+<Details id='on-file-upload'>
+<HeaderLabel id='on-file-upload' as='h3'>onFileUpload</HeaderLabel>
+<p className='text'>Use the <CodeTag>onFileUpload</CodeTag> function, to receive the file together with <CodeTag>catchFile</CodeTag> .</p>
+<ReceiveFile />
+</Details>
+
+<Details id='api-reference'>
+<HeaderLabel id='api-reference'>API Reference</HeaderLabel>
+</Details>
+
+<Details id='file-upload'>
+<HeaderLabel id='file-upload' as='h3'>FileUpload</HeaderLabel>
+<APITable reference={fileUploadRef.upload} />
+</Details>
+
+<Details id='file-upload-trigger'>
+<HeaderLabel id='file-upload-trigger' as='h3'>FileUploadTrigger</HeaderLabel>
+<APITable reference={fileUploadRef.trigger} />
+</Details>
+
+<Details id='file-upload-list'>
+<HeaderLabel id='file-upload-list' as='h3'>FileUploadList</HeaderLabel>
+<APITable reference={fileUploadRef.list} />
+</Details>
+
+<Details id='file-upload-dropzone'>
+<HeaderLabel id='file-upload-dropzone' as='h3'>FileUploadDropZone</HeaderLabel>
+<APITable reference={fileUploadRef.dropzone} />
+</Details>

@@ -1,32 +1,26 @@
 export const modal_codes = {
-  demo: `import { Button, Stack } from "auera-ui";
+  demo: `import { Button, Stack, openModal } from "auera-ui";
 
 const Demo = () => {
  return (
   <Stack>
     <Button
      radius="md"
-     withTrigger
-     trigger="modal"
-     triggerType="open"
-     triggerValue="modal-demo"
+     onClick={() => openModal("modal-demo")}
     >
       Open Modal
     </Button>
    </Stack>
  )
 };`,
-  form_modal: `import { Button, Stack } from "auera-ui";
+  form_modal: `import { Button, Stack, openModal } from "auera-ui";
 
 const Demo = () => {
  return (
   <Stack>
     <Button
      radius="md"
-     withTrigger
-     trigger="modal"
-     triggerType="open"
-     triggerValue="form-modal"
+     onClick={() => openModal("form-modal")}
     >
      Login
     </Button>
@@ -42,9 +36,10 @@ const Demo = () => {
   ModalHeader,
   ModalPanel,
   toast,
+  closeModal
 } from "auera-ui";
 
-const ModalDemo = () => {
+export const ModalDemo = () => {
 
   const deleteItem = () => {
     toast.success("Item successfully deleted");
@@ -69,10 +64,7 @@ const ModalDemo = () => {
           <Button
             radius="md"
             variant="outline"
-            withTrigger
-            trigger="modal"
-            triggerType="close"
-            triggerValue="modal-demo"
+            onClick={closeModal}
           >
             Cancel
           </Button>
@@ -83,9 +75,7 @@ const ModalDemo = () => {
       </ModalPanel>
     </Modal>
   );
-};
-
-export default ModalDemo;`,
+};`,
   form_modal_overlay: `import {
   Button,
   Checkbox,
@@ -96,11 +86,12 @@ export default ModalDemo;`,
   ModalPanel,
   PasswordInput,
   TextInput,
+  closeModal
 } from "auera-ui";
 import { IoClose } from "react-icons/io5";
 import { TiUser } from "react-icons/ti";
 
-const FormModal = () => {
+export const FormModal = () => {
   return (
     <Modal value="form-modal">
       <ModalPanel size="md">
@@ -109,10 +100,7 @@ const FormModal = () => {
             Login
           </h1>
           <IconButton
-            withTrigger
-            trigger="modal"
-            triggerType="close"
-            triggerValue="form-modal"
+            onClick={closeModal}
             variant="ghost"
             radius="xl"
           >
@@ -147,7 +135,5 @@ const FormModal = () => {
       </ModalPanel>
     </Modal>
   );
-};
-
-export default FormModal;`,
+};`,
 };

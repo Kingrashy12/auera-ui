@@ -5,6 +5,7 @@ const drawer_overlays = {
   DrawerHeader,
   DrawerContent,
   IconButton,
+  closeDrawer
 } from "auera-ui";
 import { IoClose } from "react-icons/io5";
 import Drawer_Content from "../example/DrawerContent";
@@ -17,13 +18,7 @@ const DemoDrawer = () => {
           <h1 className="font-medium text-lg theme-dark:text-white">
             Notifications
           </h1>
-          <IconButton
-            withTrigger
-            trigger="drawer"
-            triggerType="close"
-            triggerValue="drawer-demo"
-            variant="outline"
-         >
+          <IconButton onClick={closeDrawer} variant="outline">
             <IoClose />
           </IconButton>
         </DrawerHeader>
@@ -42,6 +37,7 @@ export default DemoDrawer;`,
   DrawerHeader,
   DrawerContent,
   IconButton,
+  closeDrawer
 } from "auera-ui";
 import { IoClose } from "react-icons/io5";
 import Drawer_Content from "../example/DrawerContent";
@@ -54,13 +50,7 @@ const FloatDemoDrawer = () => {
           <h1 className="font-medium text-lg theme-dark:text-white">
             Notifications
           </h1>
-          <IconButton
-            withTrigger
-            trigger="drawer"
-            triggerType="close"
-            triggerValue="drawer-demo-float"
-            variant="outline"
-         >
+          <IconButton onClick={closeDrawer} variant="outline">
             <IoClose />
           </IconButton>
         </DrawerHeader>
@@ -79,6 +69,7 @@ export default FloatDemoDrawer;`,
   DrawerHeader,
   DrawerContent,
   IconButton,
+  closeDrawer
 } from "auera-ui";
 import { IoClose } from "react-icons/io5";
 import Drawer_Content from "../example/DrawerContent";
@@ -91,13 +82,7 @@ const LeftDrawer = () => {
           <h1 className="font-medium text-lg theme-dark:text-white">
             Notifications
           </h1>
-          <IconButton
-            withTrigger
-            trigger="drawer"
-            triggerType="close"
-            triggerValue="left-drawer-demo"
-            variant="outline"
-         >
+          <IconButton onClick={closeDrawer} variant="outline">
             <IoClose />
           </IconButton>
         </DrawerHeader>
@@ -113,17 +98,12 @@ export default LeftDrawer;`,
 };
 
 export const drawer_codes = {
-  demo: `import { Stack, Button } from "auera-ui";
+  demo: `import { Stack, Button, openDrawer } from "auera-ui";
  
 const DrawerDemo = () => {
    return (
     <Stack>
-      <Button
-        withTrigger
-        trigger="drawer"
-        triggerType="open"
-        triggerValue="drawer-demo"
-       >
+      <Button onClick={() => openDrawer("drawer-demo")}>
          Open drawer
       </Button>
     </Stack>
@@ -140,50 +120,30 @@ const DrawerDemo = () => {
     </Stack>
    )
  };`,
-  types: `import { Stack, Button } from "auera-ui";
+  types: `import { Stack, Button, openDrawer } from "auera-ui";
  
 const DrawerDemo = () => {
    return (
     <Stack>
-      <Button
-        withTrigger
-        trigger="drawer"
-        triggerType="open"
-        triggerValue="drawer-demo"
-       >
+      <Button onClick={() => openDrawer("drawer-demo")}>
         Open sticky drawer
-       </Button>
-       <Button
-        withTrigger
-        trigger="drawer"
-        triggerType="open"
-        triggerValue="drawer-demo-float"
-       >
+      </Button>
+      <Button onClick={() => openDrawer("drawer-demo-float")}>
         Open float drawer
-       </Button>
+      </Button>
     </Stack>
    )
  };`,
-  position: `import { Stack, Button } from "auera-ui";
+  position: `import { Stack, Button, openDrawer } from "auera-ui";
  
 const LeftDrawerDemo = () => {
    return (
     <Stack>
-      <Button
-        withTrigger
-        trigger="drawer"
-        triggerType="open"
-        triggerValue="left-drawer-demo"
-       >
-        Open left drawer
+      <Button onClick={() => openDrawer("left-drawer-demo")}>
+         Open left drawer
        </Button>
-       <Button
-        withTrigger
-        trigger="drawer"
-        triggerType="open"
-        triggerValue="drawer-demo"
-       >
-        Open right drawer
+       <Button onClick={() => openDrawer("drawer-demo")}>
+         Open right drawer
        </Button>
     </Stack>
    )

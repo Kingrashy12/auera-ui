@@ -6,7 +6,7 @@ type TextInput_IVariants = VProps<typeof input_interface>;
 
 const input = cva(
   `w-full h-full outline-none border-none flex-1 text-black tone-dark:text-white bg-transparent
-   caret-blue-500 font-inter font-medium placeholder:text-neutral-400 text-sm transition-[color_0.3s_ease]`,
+   caret-blue-500 font-inter block font-medium placeholder:text-neutral-400 text-sm transition-[color_0.3s_ease]`,
   {
     variants: {},
   }

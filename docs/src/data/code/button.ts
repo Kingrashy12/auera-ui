@@ -9,20 +9,7 @@ const ButtonDemo = () => {
 const LoadingButton = () => {
   return <Button isLoading>Loading</Button>
 }`,
-  withTrigger: `import { Button } from "auera-ui";
-  
-const ButtonWithTrigger = () => {
-  return (
-    <Button
-      withTrigger
-      trigger="drawer"
-      triggerType="open"
-      triggerValue="drawer-demo"
-    >
-      View Notifications
-    </Button>
-  )
-}`,
+
   custom_spinner: `import { Button } from "auera-ui";
 import { CgSpinner } from "react-icons/cg";
   

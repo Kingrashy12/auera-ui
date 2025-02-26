@@ -5,12 +5,12 @@ import { useMemo } from "react";
 import { createStyle, tw } from "stywind";
 
 const ibutton = cva(
-  "active:scale-95 flex items-center tone-dark:text-white tone-light:text-black",
+  "active:scale-95 transition-transform flex items-center tone-dark:text-white tone-light:text-black",
   {
     variants: {
-      asChild: {
-        true: "w-full h-full",
-        false: "w-auto justify-center",
+      as: {
+        div: "w-full h-full",
+        button: "w-auto justify-center",
       },
       size: {
         xs: "p-1",
@@ -56,7 +56,7 @@ const ibutton = cva(
       size: "sm",
       radius: "md",
       variant: "subtle",
-      asChild: false,
+      as: "button",
       disabled: false,
     },
   }
@@ -67,7 +67,7 @@ export type IconButtonVariants = VProps<typeof ibutton>;
 
 export const useComputeIButton = (props: IconButtonVariants) => {
   const {
-    asChild,
+    as,
     variant,
     className,
     disabled,
@@ -78,25 +78,27 @@ export const useComputeIButton = (props: IconButtonVariants) => {
     radius,
   } = props;
 
-  return useMemo(
+  const Comp = as === "div" ? AueraDiv : AueraButton;
+
+  const ButtonInterface = createStyle(Comp);
+
+  const styles = useMemo(
     () =>
-      createStyle(asChild ? AueraDiv : AueraButton).classname(
-        tw(
-          ibutton({
-            variant,
-            radius,
-            size,
-            disabled,
-            ghost_active,
-            subtle_active,
-            outline_active,
-            asChild,
-          }),
-          className
-        )
+      tw(
+        ibutton({
+          variant,
+          radius,
+          size,
+          disabled,
+          ghost_active,
+          subtle_active,
+          outline_active,
+          as,
+        }),
+        className
       ),
     [
-      asChild,
+      as,
       className,
       variant,
       radius,
@@ -107,4 +109,6 @@ export const useComputeIButton = (props: IconButtonVariants) => {
       outline_active,
     ]
   );
+
+  return useMemo(() => ButtonInterface.classname(styles), [styles]);
 };

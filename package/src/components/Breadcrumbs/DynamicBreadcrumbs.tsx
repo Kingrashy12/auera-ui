@@ -6,19 +6,11 @@ import { IoIosArrowForward } from "react-icons/io";
 import { tw } from "stywind";
 import Box from "../Box/Box";
 import Icon from "../Icon/Icon";
+import { DynamicBreadcrumbsProps } from "../../types/auera-ui";
 
 interface DynamicBreadcrumbsItem {
   label: string;
   href?: string;
-}
-
-interface DynamicBreadcrumbsProps {
-  separator?: "splash" | "arrow";
-  itemClass?: string;
-  containerClass?: string;
-  className?: string;
-  disableHref?: string[];
-  exclude?: string;
 }
 
 const DynamicBreadcrumbs: React.FC<DynamicBreadcrumbsProps> = ({
@@ -36,7 +28,6 @@ const DynamicBreadcrumbs: React.FC<DynamicBreadcrumbsProps> = ({
 
   const { router } = useRouter();
 
-  // Split the current URL location by `/` to get the navigation history
   const str = useMemo(
     () => router.pathname.split("/").filter((w) => w !== ""),
     [router.pathname]
@@ -44,7 +35,6 @@ const DynamicBreadcrumbs: React.FC<DynamicBreadcrumbsProps> = ({
 
   const [items, setItems] = useState<DynamicBreadcrumbsItem[]>([]);
 
-  // A function used for updating DynamicBreadcrumbs array
   const addLink = () => {
     const newItems: DynamicBreadcrumbsItem[] = [];
     for (let i = 0; i < str.length; i++) {
@@ -80,7 +70,6 @@ const DynamicBreadcrumbs: React.FC<DynamicBreadcrumbsProps> = ({
             )}
 
             {item.href ? (
-              // Check if the current href is in the disableHref list
               disableHref.includes(item.href) ? (
                 <span
                   className={tw(

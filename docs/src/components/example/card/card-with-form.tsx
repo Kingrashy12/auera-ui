@@ -34,7 +34,7 @@ const CardWithForm = () => {
               classNames={{
                 root: "w-fit max-w-sm rounded-[25px]",
               }}
-              renderHeader={() => (
+              header={
                 <Box
                   centered
                   fullWidth
@@ -53,7 +53,7 @@ const CardWithForm = () => {
                     </p>
                   </Box>
                 </Box>
-              )}
+              }
             >
               <form className="flex flex-col gap-4 w-[290px] font-inter">
                 <Box className="flex-col gap-2">
