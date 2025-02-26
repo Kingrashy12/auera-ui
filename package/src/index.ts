@@ -9,6 +9,6 @@ export * from "./types/auera-ui";
 export * from "./types/auera-motion";
 export * from "./types/plugin";
 export * from "./types/utils";
+export * from "./components/Provider";
 export type { ColorPair, VProps } from "./types/auera-system";
 export { default as Provider } from "./core/Provider";
-export * from "./components/Provider";

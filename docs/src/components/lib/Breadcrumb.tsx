@@ -1,6 +1,5 @@
-import { StrFun } from "@/utils/fun";
 import { Router } from "@/utils/router";
-import { Box, Icon } from "auera-ui";
+import { Box, Icon, StrFun } from "auera-ui";
 import Link from "next/link";
 import React, { useState, useMemo, useEffect } from "react";
 import { BsSlashLg } from "react-icons/bs";

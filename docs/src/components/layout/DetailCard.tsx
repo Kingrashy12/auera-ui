@@ -1,5 +1,4 @@
-import { StrFun } from "@/utils/fun";
-import { Box } from "auera-ui";
+import { Box, StrFun } from "auera-ui";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import React from "react";
