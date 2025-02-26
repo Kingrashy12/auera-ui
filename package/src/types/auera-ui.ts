@@ -898,3 +898,19 @@ export interface DynamicBreadcrumbsProps {
   disableHref?: string[];
   exclude?: string;
 }
+
+export interface BadgeProps {
+  variant?: "solid" | "soft" | "outline";
+  colorScheme?:
+    | "blue"
+    | "red"
+    | "yellow"
+    | "green"
+    | "neutral"
+    | "thick"
+    | "teal"
+    | "gray";
+  className?: string;
+  children?: React.ReactNode;
+  asDiv?: boolean;
+}
