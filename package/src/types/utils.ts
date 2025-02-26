@@ -9,17 +9,7 @@ export type LazyImportProps<T = {}> = {
   loaderOptions?: LoadIndicatorProps;
 };
 
-export type Currency =
-  | "USD"
-  | "EUR"
-  | "GBP"
-  | "JPY"
-  | "AUD"
-  | "CAD"
-  | "CHF"
-  | "CNY"
-  | "SEK"
-  | "NZD";
+export type Currency = "USD" | "EUR" | "GBP" | "JPY" | "CHF" | "CNY" | "NGN";
 
 type ReplaceReg = "/" | "-" | " " | "," | ":" | "";
 
