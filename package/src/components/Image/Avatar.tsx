@@ -40,6 +40,7 @@ const Avatar: React.FC<AvatarProps> = ({ size = "sm", border, ...props }) => {
       {!props.isLoading && (
         <img
           alt={props.alt}
+          loading="lazy"
           className={tw(
             imageSize,
             "rounded-full",

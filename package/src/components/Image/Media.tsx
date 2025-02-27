@@ -21,7 +21,7 @@ const Media: React.FC<ImageWithMotion> = ({
           style={props.loaderStyle}
         />
       )}
-      <motion.img className={props.className} {...props} />
+      <motion.img className={props.className} {...props} loading="eager" />
     </>
   );
 };
