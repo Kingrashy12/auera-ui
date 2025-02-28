@@ -33,6 +33,6 @@ jobs:
 
       - name: Publish package with provenance
         run: npm publish --provenance --access public
-        working-directory: ../../package
+        working-directory: ./package
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
