@@ -12,7 +12,7 @@ const componentsDir = [
   "components/Checkbox",
   "components/Drawer",
   "components/File",
-  "components/Menu",
+  "components/menu",
   "components/Modal",
   "components/Input",
   "components/Select",
