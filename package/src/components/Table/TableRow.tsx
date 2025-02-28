@@ -1,3 +1,4 @@
+import { getDisplayName } from "@/utils/displayname";
 import React from "react";
 import { TableRowProps, tw } from "stywind";
 
@@ -28,3 +29,5 @@ const TableRow: React.FC<Row> = ({
 };
 
 export default TableRow;
+
+TableRow.displayName = getDisplayName("TableRow");

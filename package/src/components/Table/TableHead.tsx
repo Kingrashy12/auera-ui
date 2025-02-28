@@ -1,3 +1,4 @@
+import { getDisplayName } from "@/utils/displayname";
 import React from "react";
 import { THeadProps, tw } from "stywind";
 
@@ -18,3 +19,4 @@ const TableHead: React.FC<Head> = ({ children, tint, className, ...props }) => {
 };
 
 export default TableHead;
+TableHead.displayName = getDisplayName("TableHead");

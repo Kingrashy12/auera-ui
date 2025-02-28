@@ -13,6 +13,7 @@ const ModalPanel = ({
   align = "vertical",
   mode,
   radius,
+  placement,
   ...props
 }: ModalPanelType) => {
   const { isVisible } = useModal();
@@ -33,6 +34,7 @@ const ModalPanel = ({
     size,
     isVisible,
     radius,
+    placement,
   });
 
   return <Panel {...props}>{children}</Panel>;
