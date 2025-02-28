@@ -29,10 +29,10 @@ const input_interface = cva(
       hover:border-blue-400 focus-within:border-blue-400 focus-within:shadow-[0_0_0_3px_rgba(59,130,246,0.3)]
       tone-dark:focus-within:border-blue-600`,
 
-        ghost: `tone-dark:disabled:bg-neutral-700 disabled:bg-gray-100 bg-transparent focus-within:border-blue-400 shadow-sm
-      focus-within:shadow-[0_0_0_3px_rgba(59,130,246,0.3)] tone-dark:focus-within:bg-neutral-800 focus-within:bg-[#F9F9F9]
+        ghost: `tone-dark:disabled:bg-neutral-700 disabled:bg-gray-100 bg-transparent focus-within:border-neutral-300
+      focus-within:shadow-[0_0_0_3px_var(--auera-neutral-200)] tone-dark:focus-within:bg-neutral-800 focus-within:bg-[#F9F9F9]
       text-[#333] tone-dark:text-white tone-dark:hover:bg-neutral-800 hover:bg-neutral-100 border-2 border-transparent
-      tone-dark:focus-within:shadow-[0_0_0_3px_var(--auera-blue-700)] tone-dark:focus-within:border-transparent
+      tone-dark:focus-within:shadow-[0_0_0_3px_var(--auera-neutral-600)] tone-dark:focus-within:border-transparent
       `,
         solid: `bg-[#f7f7f8] shadow-sm border-neutral-300 border-2 focus-within:shadow-[0_0_0_3px_var(--auera-neutral-200)]
         tone-dark:bg-[#232227] tone-dark:border-neutral-700 focus-within:border-neutral-300
