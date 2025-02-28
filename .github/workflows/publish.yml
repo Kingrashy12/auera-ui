@@ -25,11 +25,11 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-        working-directory: ../../package
+        working-directory: ./package
 
       - name: Build the project
         run: npm run build
-        working-directory: ../../package
+        working-directory: ./package
 
       - name: Publish package with provenance
         run: npm publish --provenance --access public
