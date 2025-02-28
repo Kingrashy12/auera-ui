@@ -8,7 +8,7 @@ export * from "./Button";
 export * from "./Image";
 export * from "./loader";
 export * from "./Indicator";
-export * from "./Menu";
+export * from "./menu";
 export * from "./Collapse";
 export * from "./Breadcrumbs";
 export * from "./File";
