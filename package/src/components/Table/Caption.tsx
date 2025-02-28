@@ -16,3 +16,4 @@ const Caption: React.FC<CaptionProps> = ({ className, children, ...props }) => {
 };
 
 export default Caption;
+Caption.displayName = "AueraUI.Caption";

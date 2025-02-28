@@ -1,3 +1,4 @@
+import { getDisplayName } from "@/utils/displayname";
 import React from "react";
 import { TableCellProps, tw } from "stywind";
 
@@ -21,3 +22,4 @@ const TableCell: React.FC<TableCellProps> = ({
 };
 
 export default TableCell;
+TableCell.displayName = getDisplayName("TableCell");

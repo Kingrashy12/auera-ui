@@ -88,8 +88,14 @@ const panel = cva(
         sm: "w-[300px] max-[550px]:w-[95%]",
         md: "w-[400px] max-[550px]:w-[95%]",
         lg: "w-[500px] max-[550px]:w-[95%]",
-        xl: "w-[600px] max-[550px]:w-[95%]",
-        full: "w-10/12 max-[550px]:w-[95%]",
+        xl: "w-[600px] max-[720px]:w-[90%] max-[550px]:w-[95%]",
+        full: "w-10/12 max-[720px]:w-[95%]",
+        "full-screen": "w-full h-full absolute inset-0 max-h-full rounded-none",
+      },
+      placement: {
+        top: "top-5 self-start",
+        bottom: "bottom-5 self-end",
+        center: "self-center",
       },
       radius: {
         md: "rounded-[12px]",
@@ -175,6 +181,7 @@ const panel = cva(
       transition: "walkIn",
       align: "vertical",
       radius: "md",
+      placement: "center",
     },
   }
 );

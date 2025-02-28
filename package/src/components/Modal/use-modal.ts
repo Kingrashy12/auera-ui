@@ -19,6 +19,7 @@ const useComputePanel = (props: PanelVariants) => {
     flavour,
     isVisible,
     radius,
+    placement,
   } = props;
 
   const Panel = createStyle("div");
@@ -34,10 +35,21 @@ const useComputePanel = (props: PanelVariants) => {
           flavour,
           isVisible,
           radius,
+          placement,
         }),
         className
       ),
-    [className, align, transition, size, mode, flavour, isVisible, radius]
+    [
+      className,
+      align,
+      transition,
+      size,
+      mode,
+      flavour,
+      isVisible,
+      radius,
+      placement,
+    ]
   );
 
   return useMemo(() => Panel.classname(styles), [styles]);

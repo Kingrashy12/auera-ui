@@ -17,3 +17,4 @@ const TableBody: React.FC<TBodyProps> = ({ children, className, ...props }) => {
 };
 
 export default TableBody;
+TableBody.displayName = "AueraUI.TableBody";

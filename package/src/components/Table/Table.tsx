@@ -1,3 +1,4 @@
+import { getDisplayName } from "@/utils/displayname";
 import React from "react";
 import { TableProps, tw } from "stywind";
 
@@ -56,3 +57,4 @@ const Table: React.FC<Table> = ({
 };
 
 export default Table;
+Table.displayName = getDisplayName("Table");
