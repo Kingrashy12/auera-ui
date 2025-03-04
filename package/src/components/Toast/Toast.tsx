@@ -32,7 +32,7 @@ type ToastNotification = {
 /** Toast API for displaying different types of toast notifications (info, error, success, warning, loading). */
 let toast: ToastType;
 
-const Toast = () => {
+const Toast = ({ className }: { className?: string }) => {
   const [toasts, setToasts] = useState<ToastNotification[]>([]);
   const toastTimeouts = useRef<{ [key: string]: NodeJS.Timeout }>({});
   const { Header, CloseIcon, ContentWrap, Message, ClassName, ToastContent } =
@@ -205,7 +205,10 @@ const Toast = () => {
       {Object.keys(toastPosition).map((pos) => (
         <div
           key={pos}
-          className={ClassName(pos as ToastPositionType).WrapClass}
+          className={tw(
+            ClassName(pos as ToastPositionType).WrapClass,
+            className
+          )}
         >
           {toasts
             .filter((toast) => toast.position === pos)

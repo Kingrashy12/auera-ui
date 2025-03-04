@@ -1,9 +1,13 @@
 import Toast from "./Toast";
 
-const Toaster = () => {
+interface ToasterProps {
+  className?: string;
+}
+
+const Toaster: React.FC<ToasterProps> = ({ className }) => {
   return (
     <>
-      <Toast />
+      <Toast className={className} />
     </>
   );
 };
