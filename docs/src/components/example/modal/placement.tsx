@@ -30,11 +30,6 @@ const ModalPlacement = () => {
         </TabPanel>
         <TabPanel className="flex-col flex gap-6">
           <CodeBlock fileName="modal/placement.tsx" code={code} lg="tsx" />
-          {/* <CodeBlock
-            fileName="overlays/modal/**.tsx"
-            code={overlayCodes}
-            lg="tsx"
-          /> */}
         </TabPanel>
       </Tabs>
     </CardContent>
