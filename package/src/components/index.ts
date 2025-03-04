@@ -1,5 +1,6 @@
 export { default as Box } from "./Box/Box";
 export { default as Icon } from "./Icon/Icon";
+
 export * from "./Modal";
 export * from "./Drawer";
 export * from "./Tabs";
@@ -16,6 +17,7 @@ export * from "./Form";
 export * from "./Select";
 export * from "./Badge";
 export * from "./utils";
+export * from "./Text";
 
 export { default as Backdrop } from "./Backdrop/Backdrop";
 export { default as Checkbox } from "./Checkbox/CheckBox";

@@ -2,7 +2,7 @@ import React from "react";
 import { useSelectState } from "@/context/select";
 import { useComputeItem } from "./compute";
 import { FaCheck } from "react-icons/fa6";
-import { SelectItemProps } from "@/types/auera-ui";
+import { SelectItemProps } from "../../types/auera-ui";
 import { getDisplayName } from "@/utils/displayname";
 
 const SelectItem: React.FC<SelectItemProps> = ({

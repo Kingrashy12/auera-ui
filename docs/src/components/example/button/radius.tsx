@@ -22,7 +22,7 @@ const ButtonRadius = () => {
             <Button radius="md">Medium</Button>
             <Button radius="lg">Large</Button>
             <Button radius="xl">Extra Large</Button>
-            <Button radius="full">Full</Button>
+            <Button radius="full">Fully Rounded</Button>
           </Stack>
         </TabPanel>
         <TabPanel>

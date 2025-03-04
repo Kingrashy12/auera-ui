@@ -152,9 +152,8 @@ const LeftDrawerDemo = () => {
 };
 
 export const drawer_content = `import React from "react";
-import { GroupMap, Box, colors, StatusBadge } from "auera-ui";
+import { GroupMap, Box, colors, StatusBadge, formatDate } from "auera-ui";
 import { notifications } from "@/data/notification";
-import { formatTime } from "@/utils/formatTime";
 
 const Drawer_Content = () => {
   return (
@@ -194,7 +193,7 @@ const Drawer_Content = () => {
           className="font-medium text-md"
           style={{ color: colors.neutral[500] }}
         >
-          {formatTime(new Date(key))}
+          {formatDate({ date: new Date(key), format: "ddd-mmm-dd" })}
         </h1>
       )}
     />

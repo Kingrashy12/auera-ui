@@ -7,7 +7,6 @@ const { logger } = require("stywind");
 const componentsDir = [
   "components/Box",
   "components/Button",
-  "components/Breadcrumbs",
   "components/Card",
   "components/Checkbox",
   "components/Drawer",
@@ -30,6 +29,8 @@ const insertFiles = [
   "components/Switch/Switch.d.ts",
   "components/Collapse/Collapse.d.ts",
   "core/Provider.d.ts",
+  "components/Breadcrumbs/DynamicBreadcrumbs.d.ts",
+  "components/Badge/Badge.d.ts",
 ];
 const insertDir = [...componentsDir, ...hooksDir];
 

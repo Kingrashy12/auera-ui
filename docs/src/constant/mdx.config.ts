@@ -121,6 +121,11 @@ import LoadingCustomSpinner from "@/components/example/loading/custom-spinner";
 import LoadingEmpty from "@/components/example/loading/empty";
 import LoadingWithError from "@/components/example/loading/error";
 import Loader from "@/components/example/loading/loader";
+import ModalSizes from "@/components/example/modal/sizes";
+import ModalPlacement from "@/components/example/modal/placement";
+import ModalRadius from "@/components/example/modal/radius";
+import ModalTransitions from "@/components/example/modal/transitions";
+import ModalReference from "@/components/example/modal/reference";
 
 export const components = {
   DetailCard,
@@ -249,6 +254,11 @@ export const components = {
   LoadingEmpty,
   LoadingWithError,
   Loader,
+  ModalSizes,
+  ModalPlacement,
+  ModalRadius,
+  ModalTransitions,
+  ModalReference,
 };
 
 export const MDXRemote = dynamic(() =>

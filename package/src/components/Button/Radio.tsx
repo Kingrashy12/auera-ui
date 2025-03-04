@@ -3,6 +3,7 @@ import { RadioProps } from "../../types/auera-ui";
 import { tw } from "stywind";
 import { getNextShade } from "../../utils/system";
 import { useMode } from "@/hook/use";
+import { _default_styles_ } from "@/_styles_/input.class";
 
 const Radio: React.FC<RadioProps> = ({
   checked: on,
@@ -16,16 +17,16 @@ const Radio: React.FC<RadioProps> = ({
   const [checked, setChecked] = useState(on ?? false);
 
   const handleCheck = () => {
-    const newState = !checked;
+    if (!props.disabled) {
+      const newState = !checked;
 
-    onCheck?.(newState);
+      onCheck?.(newState);
 
-    setChecked(newState);
+      setChecked(newState);
+    }
   };
 
   const { currentMode } = useMode(props.mode);
-
-  // TODO: add currentMode, add color and focus +1
 
   const nextShade = getNextShade(color);
 
@@ -33,11 +34,12 @@ const Radio: React.FC<RadioProps> = ({
     <input
       data-theme={currentMode}
       className={tw(
+        _default_styles_.RADIO,
         "cursor-pointer transition-all duration-500",
-        `text-${nextShade} focus:ring-${color} disabled:opacity-50 disabled:pointer-events-none
+        `text-${nextShade} !focus:ring-${color} checked:bg-${color} checked:border-${color} disabled:opacity-75
         tone-dark:bg-neutral-800 tone-dark:border-neutral-700 tone-dark:checked:bg-${color}
         tone-dark:checked:border-${color} tone-dark:focus:ring-offset-gray-800 shrink-0 mt-0.5
-        border-gray-200 rounded-full disabled:bg-gray-300`,
+        border-gray-200 rounded-full disabled:cursor-not-allowed`,
         {
           "w-4 h-4": size === 16,
           "w-5 h-5": size === 20,
@@ -57,3 +59,4 @@ const Radio: React.FC<RadioProps> = ({
 };
 
 export default Radio;
+Radio.displayName = "AueraUI.Radio";

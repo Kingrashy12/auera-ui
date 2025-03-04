@@ -31,6 +31,19 @@ const drawer = [
     description: "Custom class for the Drawer",
     default: "undefined",
   },
+  {
+    prop: "zIndex",
+    type: '"80" | "100" | "150" | "200" | "250" | "300" | "350" | "400" | "450" | "500" | "550" | "600" | "650" | "700" | "750" | "800" | "850" | "900" | "950" | "1000"',
+    description: "Controls visibility order",
+    default: "500",
+  },
+  {
+    prop: "preventScroll",
+    type: "boolean",
+    description:
+      "Determines if background scrolling is disabled when the drawer is open.",
+    default: "false",
+  },
 ];
 
 const panel = [
