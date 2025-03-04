@@ -1,7 +1,7 @@
 import { Drop } from "../../types/auera-ui";
 import { useMode } from "../../hook/use";
 import { getDisplayName } from "@/utils/displayname";
-import { MouseEvent } from "react";
+import { MouseEvent, useEffect } from "react";
 import useDrop from "./use-drop";
 
 const Backdrop: React.FC<Drop> = ({
@@ -12,6 +12,7 @@ const Backdrop: React.FC<Drop> = ({
   children,
   preventClose,
   zIndex,
+  preventScroll,
   ...props
 }) => {
   const { currentMode } = useMode(mode);
@@ -23,6 +24,18 @@ const Backdrop: React.FC<Drop> = ({
     zIndex,
     mode: currentMode,
   });
+
+  useEffect(() => {
+    if (open && preventScroll) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open, preventScroll]);
 
   const closeDrop = (e: MouseEvent<HTMLDivElement>) => {
     if (!preventClose && e.target === e.currentTarget) {

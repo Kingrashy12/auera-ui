@@ -13,6 +13,12 @@ export const modal = [
     default: "sm",
   },
   {
+    prop: "zIndex",
+    type: '"80" | "100" | "150" | "200" | "250" | "300" | "350" | "400" | "450" | "500" | "550" | "600" | "650" | "700" | "750" | "800" | "850" | "900" | "950" | "1000"',
+    description: "Controls visibility order",
+    default: "500",
+  },
+  {
     prop: "mode",
     type: '"light" | "dark"',
     description: "Sets the theme mode for the backdrop component.",
@@ -31,12 +37,19 @@ export const modal = [
     description: "Custom class for the Modal",
     default: "undefined",
   },
+  {
+    prop: "preventScroll",
+    type: "boolean",
+    description:
+      "Determines if background scrolling is disabled when the modal is open.",
+    default: "false",
+  },
 ];
 
 const panel = [
   {
     prop: "size",
-    type: '"auto" | "sm" | "md" | "lg" | "xl" | "full"',
+    type: '"auto" | "sm" | "md" | "lg" | "xl" | "full" | "full-screen"',
     description: "Size of the Panel",
     default: "auto",
   },
@@ -58,6 +71,19 @@ const panel = [
     description:
       "A shared theme mode across other modal component ('Header','Footer')",
     default: "system",
+  },
+  {
+    prop: "placement",
+    type: '"top" | "center" | "bottom"',
+    description: "Defines the vertical position of the modal on the screen.",
+    default: "center",
+  },
+  {
+    prop: "transition",
+    type: '"walkIn" | "dropIn" | "slideIn"',
+    description:
+      "Specifies the animation style used when the modal appears on the screen.",
+    default: "walkIn",
   },
 ];
 

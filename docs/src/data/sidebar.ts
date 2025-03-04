@@ -60,7 +60,7 @@ export const sideBarLinks = [
     header: "Components",
     links: [
       { label: "Avatar", uri: "/docs/components/avatar" },
-      { label: "Button", uri: "/docs/components/button", updated: true },
+      { label: "Button", uri: "/docs/components/button", updated: false },
       // { label: "Badge", uri: "/docs/components/badge", soon: true },
       { label: "Backdrop", uri: "/docs/components/backdrop" },
       { label: "Box", uri: "/docs/components/box" },
@@ -77,7 +77,7 @@ export const sideBarLinks = [
       {
         label: "IconButton",
         uri: "/docs/components/icon-button",
-        updated: true,
+        updated: false,
       },
       { label: "Icon", uri: "/docs/components/icon" },
       { label: "Modal", uri: "/docs/components/modal" },
@@ -91,7 +91,6 @@ export const sideBarLinks = [
       {
         label: "Password Input",
         uri: "/docs/components/password-input",
-        soon: true,
       },
       { label: "File Upload", uri: "/docs/components/file-upload" },
       { label: "Loading", uri: "/docs/components/loading" },

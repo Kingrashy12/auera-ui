@@ -84,13 +84,14 @@ const panel = cva(
         corporate: "",
       },
       size: {
-        auto: "w-auto max-[550px]:w-[95%]",
-        sm: "w-[300px] max-[550px]:w-[95%]",
-        md: "w-[400px] max-[550px]:w-[95%]",
-        lg: "w-[500px] max-[550px]:w-[95%]",
-        xl: "w-[600px] max-[720px]:w-[90%] max-[550px]:w-[95%]",
+        auto: "w-auto max-w-[95%]",
+        sm: "w-[400px] max-w-[95%]",
+        md: "w-[500px] max-w-[95%]",
+        lg: "w-[600px] max-w-[95%]",
+        xl: "w-[700px] max-[720px]:w-[90%] max-[550px]:w-[95%] max-w-[95%]",
         full: "w-10/12 max-[720px]:w-[95%]",
-        "full-screen": "w-full h-full absolute inset-0 max-h-full rounded-none",
+        "full-screen":
+          "w-full h-full absolute inset-0 max-h-full !rounded-none",
       },
       placement: {
         top: "top-5 self-start",

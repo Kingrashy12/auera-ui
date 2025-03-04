@@ -3,6 +3,7 @@ import { tw } from "stywind";
 import { badge } from "./badge-variants";
 import { BadgeProps } from "../../types/auera-ui";
 import { getDisplayName } from "@/utils/displayname";
+import { AueraDiv, AueraSpan } from "@/core/AueraElement";
 
 const Badge: React.FC<BadgeProps> = ({
   variant,
@@ -10,11 +11,15 @@ const Badge: React.FC<BadgeProps> = ({
   className,
   children,
   asDiv,
+  mode,
 }) => {
-  const Component = asDiv ? "div" : "span";
+  const Component = asDiv ? AueraDiv : AueraSpan;
 
   return (
-    <Component className={tw(badge({ variant, colorScheme }), className)}>
+    <Component
+      mode={mode}
+      className={tw(badge({ variant, colorScheme }), className)}
+    >
       {children}
     </Component>
   );

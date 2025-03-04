@@ -55,4 +55,11 @@ export const backdropRef = [
       "Prevents the backdrop component from closing when clicked outside",
     default: "false",
   },
+  {
+    prop: "preventScroll",
+    type: "boolean",
+    description:
+      "Determines if background scrolling is disabled when the backdrop is open.",
+    default: "false",
+  },
 ];

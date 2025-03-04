@@ -18,6 +18,45 @@ description: A pop-up dialog for displaying content or actions in a focused over
 <FormModal/>
 </Details>
 
+<Details id='sizes'>
+  <HeaderLabel id='sizes' as='h3'>Sizes</HeaderLabel>
+  <p className="text">
+    The Modal comes in seven different sizes. Use the <CodeTag>size</CodeTag> prop on <CodeTag>ModalPanel</CodeTag> to adjust its dimensions.
+  </p>
+  <ModalSizes />
+</Details>
+
+<Details id='placement'>
+  <HeaderLabel id='placement' as='h3'>Placement</HeaderLabel>
+  <p className="text">
+    You can control where the modal appears on the screen using the <CodeTag>placement</CodeTag> prop. This allows positioning the modal at the center, top, bottom.
+  </p>
+  <ModalPlacement />
+</Details>
+
+<Details id='radius'>
+  <HeaderLabel id='radius' as='h3'>Radius</HeaderLabel>
+  <p className="text">The radius property defines the border-radius of modals, allowing for smooth and rounded corners.</p>
+  <ModalRadius />
+</Details>
+
+<Details id='transitions'>
+  <HeaderLabel id='transitions' as='h3'>Transitions</HeaderLabel>
+  <p className="text">Modals support different transition effects for smooth animations with the <CodeTag>transition</CodeTag> prop you can choose your preferred effect.</p>
+  <ModalTransitions />
+</Details>
+
+<Details id='implementation-reference'>
+  <HeaderLabel id='implementation-reference'>Implementation Reference</HeaderLabel>
+  <p className="text">Each modal is defined in its own file. Below are links to their respective implementations:</p>
+  <ModalReference />
+</Details>
+
+<Details id="best-practices">
+<Note note="Ensure that the `value` used in the `<Modal />` component matches the one used in `openModal` or `ModalTrigger`." type="fade" />
+</Details>
+
+
 <Details id='api-reference'>
 <HeaderLabel id='api-reference'>API Reference</HeaderLabel>
 </Details>

@@ -41,3 +41,8 @@ export const AueraInput = (props: AueraElementProps<"input">) => {
   const { tag, mode, ...rest } = props;
   return <AueraElement tag="input" mode={mode} {...rest} />;
 };
+
+export const AueraSpan = (props: AueraElementProps<"span">) => {
+  const { tag, mode, ...rest } = props;
+  return <AueraElement tag="span" mode={mode} {...rest} />;
+};

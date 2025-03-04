@@ -70,6 +70,16 @@ export interface Drop extends DivProps {
    */
   preventClose?: boolean;
   zIndex?: zIndex;
+  /**
+   * @prop {boolean} preventScroll - Controls whether background scrolling is disabled when the modal is open.
+   *
+   * - When `true`, it prevents the user from scrolling the background while the modal is active.
+   * - When `false`, background scrolling remains enabled.
+   * - Defaults to `false` if not specified.
+   *
+   * Best practice: Use this to improve user experience by keeping focus within the modal.
+   */
+  preventScroll?: boolean;
 }
 
 export type ModalType = {
@@ -91,6 +101,16 @@ export type ModalType = {
   value: string;
   className?: string;
   zIndex?: zIndex;
+  /**
+   * @prop {boolean} preventScroll - Controls whether background scrolling is disabled when the modal is open.
+   *
+   * - When `true`, it prevents the user from scrolling the background while the modal is active.
+   * - When `false`, background scrolling remains enabled.
+   * - Defaults to `false` if not specified.
+   *
+   * Best practice: Use this to improve user experience by keeping focus within the modal.
+   */
+  preventScroll?: boolean;
 };
 
 export type ModalPanelType = {
@@ -144,6 +164,16 @@ export type IconButtonPropsExtended<T extends "button" | "div"> =
 
 export interface DrawerProps extends ModalType {
   backdropClass?: string;
+  /**
+   * @prop {boolean} preventScroll - Controls whether background scrolling is disabled when the modal is open.
+   *
+   * - When `true`, it prevents the user from scrolling the background while the modal is active.
+   * - When `false`, background scrolling remains enabled.
+   * - Defaults to `false` if not specified.
+   *
+   * Best practice: Use this to improve user experience by keeping focus within the modal.
+   */
+  preventScroll?: boolean;
 }
 
 export interface DrawerPanelProps extends DivProps {
@@ -508,6 +538,7 @@ export interface SelectContentProps {
   children?: React.ReactNode;
   className?: string;
   style?: React.CSSProperties;
+  openFn?: () => void;
 }
 
 export interface SelectItemProps {
@@ -540,4 +571,5 @@ export interface BadgeProps {
   className?: string;
   children?: React.ReactNode;
   asDiv?: boolean;
+  mode?: ModeType;
 }

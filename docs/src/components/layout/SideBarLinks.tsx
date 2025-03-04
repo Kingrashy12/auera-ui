@@ -1,9 +1,9 @@
 import { sideBarLinks } from "@/data/sidebar";
-import { Box, closeDrawer, MapItems } from "auera-ui";
+import { Badge, Box, closeDrawer, MapItems } from "auera-ui";
 import { useRouter } from "next/router";
 import React from "react";
 import { tw } from "stywind";
-import Badge from "./Badge";
+// import Badge from "./Badge";
 import Link from "next/link";
 import { HiArchive } from "react-icons/hi";
 
@@ -65,23 +65,24 @@ const SideBarLinks = ({ data }: { data: typeof sideBarLinks }) => {
               >
                 <p className="font-inter font-medium text-sm">{link.label}</p>
                 <Badge
-                  variant="ghost"
-                  colorScheme="warning"
-                  show={Boolean(link.soon)}
+                  variant="soft"
+                  colorScheme="yellow"
+                  className={tw(link.soon ? "block" : "hidden")}
                 >
                   Soon
                 </Badge>
                 <Badge
-                  variant="ghost"
-                  colorScheme="warning"
-                  show={Boolean(link.docs_soon)}
+                  variant="soft"
+                  colorScheme="teal"
+                  className={tw(link.docs_soon ? "block" : "hidden")}
                 >
                   Docs Soon
                 </Badge>
                 <Badge
-                  variant="solid"
-                  colorScheme="primary"
-                  show={Boolean(link.updated)}
+                  variant="soft"
+                  colorScheme="blue"
+                  // show={Boolean(link.updated)}
+                  className={tw(link.updated ? "block" : "hidden")}
                 >
                   Updated
                 </Badge>

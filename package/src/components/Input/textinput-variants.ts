@@ -27,7 +27,7 @@ const input_interface = cva(
       variant: {
         outline: `shadow-sm bg-white tone-dark:bg-black border-2 border-neutral-200 tone-dark:border-neutral-800
       hover:border-blue-400 focus-within:border-blue-400 focus-within:shadow-[0_0_0_3px_rgba(59,130,246,0.3)]
-      tone-dark:focus-within:border-blue-600`,
+      tone-dark:focus-within:border-blue-600 tone-dark:disabled:bg-neutral-700 disabled:bg-gray-100`,
 
         ghost: `tone-dark:disabled:bg-neutral-700 disabled:bg-gray-100 bg-transparent focus-within:border-neutral-300
       focus-within:shadow-[0_0_0_3px_var(--auera-neutral-200)] tone-dark:focus-within:bg-neutral-800 focus-within:bg-[#F9F9F9]

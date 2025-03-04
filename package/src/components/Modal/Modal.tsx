@@ -14,6 +14,7 @@ const Modal: FC<ModalType> = ({
   value,
   className,
   zIndex,
+  preventScroll,
 }) => {
   const { isOpen, onClose, activeModalValue } = useModal();
   const { mode: AppMode } = useTheme();
@@ -30,6 +31,7 @@ const Modal: FC<ModalType> = ({
       mode={currentMode as "light" | "dark"}
       className={tw("items-center justify-center w-full", className)}
       zIndex={zIndex}
+      preventScroll={preventScroll}
     >
       {children}
     </Backdrop>

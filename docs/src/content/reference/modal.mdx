@@ -1,0 +1,176 @@
+---
+title: Modal Reference | AueraUI
+description: Respective implementations for all modal example
+---
+
+<DetailCard description="Below are the respective implementations for all modal examples, categorized by size, placement, and transitions."/>
+
+<Details id="sizes">
+  <HeaderLabel id="sizes">Sizes</HeaderLabel>
+  <p className="text">Modals in AueraUI support various sizes to fit different use cases.</p>
+</Details>
+
+<Details id="size-auto">
+  <HeaderLabel id="size-auto" as="h3">Auto</HeaderLabel>
+  <p className="text">Automatically adjusts its width based on content.</p>
+  <CodeBlock fileName="overlays/modal/size-auto.tsx" lg="tsx" code={sizesImp.sizeAuto} />
+</Details>
+
+<Details id="size-sm">
+  <HeaderLabel id="size-sm" as="h3">Small</HeaderLabel>
+  <p className="text">A small modal ideal for simple alerts or confirmation dialogs.</p>
+  <CodeBlock fileName="overlays/modal/size-sm.tsx" lg="tsx" code={sizesImp.sizeSm} />
+</Details>
+
+<Details id="size-md">
+  <HeaderLabel id="size-md" as="h3">Medium</HeaderLabel>
+  <p className="text">A standard-size modal suitable for most general purposes.</p>
+  <CodeBlock fileName="overlays/modal/size-md.tsx" lg="tsx" code={sizesImp.sizeMd} />
+</Details>
+
+<Details id="size-lg">
+  <HeaderLabel id="size-lg" as="h3">Large</HeaderLabel>
+  <p className="text">A larger modal for displaying more content, such as forms or data.</p>
+  <CodeBlock fileName="overlays/modal/size-lg.tsx" lg="tsx" code={sizesImp.sizeLg} />
+</Details>
+
+<Details id="size-xl">
+  <HeaderLabel id="size-xl" as="h3">Extra Large</HeaderLabel>
+  <p className="text">An extra-large modal for complex interfaces or extensive content.</p>
+  <CodeBlock fileName="overlays/modal/size-xl.tsx" lg="tsx" code={sizesImp.sizeXl} />
+</Details>
+
+<Details id="size-full">
+  <HeaderLabel id="size-full" as="h3">Full</HeaderLabel>
+  <p className="text">Covers 83% of the screen width, offering an immersive experience.</p>
+  <CodeBlock fileName="overlays/modal/size-full.tsx" lg="tsx" code={sizesImp.sizeFull} />
+</Details>
+
+<Details id="size-full-screen">
+  <HeaderLabel id="size-full-screen" as="h3">Full Screen</HeaderLabel>
+  <p className="text">Expands to cover the entire screen for maximum focus.</p>
+  <CodeBlock fileName="overlays/modal/size-full-screen.tsx" lg="tsx" code={sizesImp.sizeFullScreen} />
+</Details>
+
+<Details id="placement">
+  <HeaderLabel id="placement">Placement</HeaderLabel>
+  <p className="text">Modals can be positioned at different locations on the screen.</p>
+</Details>
+
+<Details id="placement-top">
+  <HeaderLabel id="placement-top" as="h3">Top</HeaderLabel>
+  <p className="text">Appears at the top of the screen, useful for notifications.</p>
+  <CodeBlock fileName="overlays/modal/placement-top.tsx" lg="tsx" code={placementImp.placementTop} />
+</Details>
+
+<Details id="placement-center">
+  <HeaderLabel id="placement-center" as="h3">Center</HeaderLabel>
+  <p className="text">Centers the modal on the screen for standard interactions.</p>
+  <CodeBlock fileName="overlays/modal/placement-center.tsx" lg="tsx" code={placementImp.placementCenter} />
+</Details>
+
+<Details id="placement-bottom">
+  <HeaderLabel id="placement-bottom" as="h3">Bottom</HeaderLabel>
+  <p className="text">Appears at the bottom of the screen, often used for mobile-friendly modals.</p>
+  <CodeBlock fileName="overlays/modal/placement-bottom.tsx" lg="tsx" code={placementImp.placementBottom} />
+</Details>
+
+<Details id="transitions">
+  <HeaderLabel id="transitions">Transitions</HeaderLabel>
+  <p className="text">Modals support different transition effects for smooth animations.</p>
+</Details>
+
+<Details id="transition-walkIn">
+  <HeaderLabel id="transition-walkIn" as="h3">WalkIn</HeaderLabel>
+  <p className="text">A smooth 'walk-in' effect where the modal gradually appears.</p>
+  <CodeBlock fileName="overlays/modal/transition-walkIn.tsx" lg="tsx" code={transitionImp.transitionWalkIn} />
+</Details>
+
+<Details id="transition-dropIn">
+  <HeaderLabel id="transition-dropIn" as="h3">DropIn</HeaderLabel>
+  <p className="text">The modal drops in from above, adding a dynamic effect.</p>
+  <CodeBlock fileName="overlays/modal/transition-dropIn.tsx" lg="tsx" code={transitionImp.transitionDropIn} />
+</Details>
+
+<Details id="transition-slideIn">
+  <HeaderLabel id="transition-slideIn" as="h3">SlideIn</HeaderLabel>
+  <p className="text">Slides in from the side, great for sidebar modals.</p>
+  <CodeBlock fileName="overlays/modal/transition-slideIn.tsx" lg="tsx" code={transitionImp.transitionSlideIn} />
+</Details>
+
+<Details id="radius">
+  <HeaderLabel id="radius">Radius</HeaderLabel>
+  <p className="text">
+    The radius property defines the border-radius of modals, allowing for smooth and rounded corners. Different sizes 
+    provide varying levels of curvature to enhance the visual appeal of modals.
+  </p>
+</Details>
+
+<Details id="radius-md">
+  <HeaderLabel id="radius-md" as="h3">Medium</HeaderLabel>
+  <p className="text">
+    The medium radius applies a subtle rounding to modal corners, providing a slight softness without excessive curvature.
+    Ideal for maintaining a balanced and modern look.
+  </p>
+  <CodeBlock fileName="overlays/modal/radius-md.tsx" lg="tsx" code={radiusImp.radiusMd} />
+</Details>
+
+<Details id="radius-lg">
+  <HeaderLabel id="radius-lg" as="h3">Large</HeaderLabel>
+  <p className="text">
+    The large radius increases the curvature of modal corners, creating a more pronounced rounded effect. This is useful
+    for a softer, more approachable UI design.
+  </p>
+  <CodeBlock fileName="overlays/modal/radius-lg.tsx" lg="tsx" code={radiusImp.radiusLg} />
+</Details>
+
+<Details id="radius-xl">
+  <HeaderLabel id="radius-xl" as="h3">Extra Large</HeaderLabel>
+  <p className="text">
+    Extra-large radius gives modals a highly rounded appearance, making them feel more fluid and organic. Suitable for
+    designs emphasizing smoothness and elegance.
+  </p>
+  <CodeBlock fileName="overlays/modal/radius-xl.tsx" lg="tsx" code={radiusImp.radiusXl} />
+</Details>
+
+<Details id="radius-2xl">
+  <HeaderLabel id="radius-2xl" as="h3">2x Large</HeaderLabel>
+  <p className="text">
+    The 2x large radius applies an even more pronounced curvature, giving modals a pill-like appearance. This style 
+    works well in designs that favor a softer, friendly aesthetic.
+  </p>
+  <CodeBlock fileName="overlays/modal/radius-2xl.tsx" lg="tsx" code={radiusImp.radius2xl} />
+</Details>
+
+<Details id="radius-3xl">
+  <HeaderLabel id="radius-3xl" as="h3">3x Large</HeaderLabel>
+  <p className="text">
+    The 3x large radius provides the most extreme rounding, making modals appear almost fully rounded at the edges.
+    This effect is ideal for highly stylized, modern, and playful UI elements.
+  </p>
+  <CodeBlock fileName="overlays/modal/radius-3xl.tsx" lg="tsx" code={radiusImp.radius3xl} />
+</Details>
+
+<Details id="usage">
+  <HeaderLabel id="usage">Usage</HeaderLabel>
+  <p className="text">This section covers the structure of modal overlays and general containers.</p>
+</Details>
+
+<Details id="modal-container">
+  <HeaderLabel id="modal-container" as='h3'>Modal Container</HeaderLabel>
+  <p className="text"> 
+    The Modal Container is responsible for managing and rendering all modal overlays within the application. 
+    It ensures that modals are properly layered, positioned, and controlled.
+  </p>
+   <CodeBlock fileName="overlays/modal/container.tsx" lg="tsx" code={modalContainerImp.modalContainer} />
+</Details>
+
+<Details id="container">
+  <HeaderLabel id="container" as='h3'>Container</HeaderLabel>
+  <p className="text">
+    The Container serves as the main wrapper for all overlays in the application, including modals and drawers
+    This ensures that they are properly managed within the broader UI structure.
+  </p>
+   <CodeBlock fileName="overlays/containertsx" lg="tsx" code={modalContainerImp.container} />
+</Details>
+
