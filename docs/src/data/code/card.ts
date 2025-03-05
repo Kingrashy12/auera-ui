@@ -442,7 +442,7 @@ export const PricingCard = () => {
         radius="xl"
         flavour="frost"
       >
-        Buy plan
+      Select plan
       </Button>
  </Card>
  );
