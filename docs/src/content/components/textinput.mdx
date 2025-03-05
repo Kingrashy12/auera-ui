@@ -1,0 +1,60 @@
+---
+title: TextInput | AueraUI
+description: A versatile component for capturing user text input.
+---
+
+<DetailCard label="TextInput" description='A versatile component for capturing user text input.'/>
+
+<Details>
+<TextInputDemo/>
+</Details>
+
+<Details id='examples'>
+<HeaderLabel id='examples'>Examples</HeaderLabel>
+</Details>
+
+<Details id='variants'>
+  <HeaderLabel id='variants' as='h3'>Variants</HeaderLabel>
+  <p className='text'>
+    Different styling options for the text input. Use the <CodeTag>variant</CodeTag> prop to switch between styles.
+  </p>
+  <TextInputVariants />
+</Details>
+
+<Details id='radius'>
+  <HeaderLabel id='radius' as='h3'>Radius</HeaderLabel>
+  <p className='text'>
+    Controls the border-radius of the text input, allowing for rounded or sharp corners. Adjust it using the <CodeTag>radius</CodeTag> prop.
+  </p>
+  <TextInputRadius />
+</Details>
+
+<Details id='with-icon'>
+  <HeaderLabel id='with-icon' as='h3'>With Icon</HeaderLabel>
+  <p className='text'>
+    Adds an icon inside the input field, enhancing usability and design. Customize it using the <CodeTag>icon</CodeTag> prop.
+  </p>
+  <TextInputWithIcon />
+</Details>
+
+<Details id='readonly'>
+  <HeaderLabel id='readonly' as='h3'>ReadOnly</HeaderLabel>
+  <p className='text'>
+    Makes the input field non-editable. Enable this using the <CodeTag>readOnly</CodeTag> prop.
+  </p>
+  <ReadOnlyTextInput />
+</Details>
+
+<Details id='disabled'>
+  <HeaderLabel id='disabled' as='h3'>Disabled</HeaderLabel>
+  <p className='text'>
+    Disables the input field, preventing user interaction. Use the <CodeTag>disabled</CodeTag> prop to enable this state.
+  </p>
+  <DisabledTextInput />
+</Details>
+
+
+<Details id='api-reference'>
+<HeaderLabel id='api-reference'>API Reference</HeaderLabel>
+<APITable reference={textinputRef} />
+</Details>

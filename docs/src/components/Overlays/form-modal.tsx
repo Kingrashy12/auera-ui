@@ -11,7 +11,6 @@ import {
   TextInput,
 } from "auera-ui";
 import React from "react";
-import { HiLockClosed } from "react-icons/hi2";
 import { IoClose } from "react-icons/io5";
 import { TiUser } from "react-icons/ti";
 
@@ -36,12 +35,7 @@ const FormModal = () => {
               iconSize={22}
               required
             />
-            <PasswordInput
-              placeholder="Password"
-              icon={HiLockClosed}
-              name="password"
-              required
-            />
+            <PasswordInput placeholder="Password" name="password" required />
             <Checkbox
               radius="md"
               classNames={{ container: "theme-dark:text-white" }}

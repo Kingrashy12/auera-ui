@@ -126,6 +126,17 @@ import ModalPlacement from "@/components/example/modal/placement";
 import ModalRadius from "@/components/example/modal/radius";
 import ModalTransitions from "@/components/example/modal/transitions";
 import ModalReference from "@/components/example/modal/reference";
+import PasswordInputDemo from "@/components/example/password-input/demo";
+import PasswordInputRadius from "@/components/example/password-input/radius";
+import PasswordInputVariants from "@/components/example/password-input/variants";
+import DisabledPasswordInput from "@/components/example/password-input/disabled";
+import PasswordInputHideLock from "@/components/example/password-input/hide-lock";
+import TextInputWithIcon from "@/components/example/textinput/with-icon";
+import TextInputDemo from "@/components/example/textinput/demo";
+import TextInputRadius from "@/components/example/textinput/radius";
+import TextInputVariants from "@/components/example/textinput/variants";
+import ReadOnlyTextInput from "@/components/example/textinput/read-only";
+import DisabledTextInput from "@/components/example/textinput/disabled";
 
 export const components = {
   DetailCard,
@@ -259,6 +270,17 @@ export const components = {
   ModalRadius,
   ModalTransitions,
   ModalReference,
+  PasswordInputDemo,
+  PasswordInputRadius,
+  PasswordInputVariants,
+  DisabledPasswordInput,
+  PasswordInputHideLock,
+  TextInputWithIcon,
+  TextInputDemo,
+  TextInputRadius,
+  TextInputVariants,
+  ReadOnlyTextInput,
+  DisabledTextInput,
 };
 
 export const MDXRemote = dynamic(() =>
