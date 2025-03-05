@@ -109,7 +109,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     "avatar",
     "file-upload",
     "loading",
-    "password-input",
+    // "password-input",
   ];
 
   const paths = slugs.map((slug) => ({
