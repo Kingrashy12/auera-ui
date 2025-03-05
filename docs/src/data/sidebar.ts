@@ -91,6 +91,7 @@ export const sideBarLinks = [
       {
         label: "Password Input",
         uri: "/docs/components/password-input",
+        soon: true,
       },
       { label: "File Upload", uri: "/docs/components/file-upload" },
       { label: "Loading", uri: "/docs/components/loading" },
