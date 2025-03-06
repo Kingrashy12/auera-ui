@@ -5,18 +5,18 @@ export const aueraTw = ({
   addVariant,
   addUtilities,
 }: AueraPlugin["Tailwind"]) => {
-  // theme-*: for global styling
   addVariant("theme-dark", '[data-theme="dark"] &');
   addVariant("theme-light", '[data-theme="light"] &');
-  // tone-* for single base styling
   addVariant("tone-dark", ['&[data-theme="dark"]&']);
   addVariant("tone-light", ['&[data-theme="light"]&']);
   addVariant("scrollbar", ["::-webkit-scrollbar&"]);
   addVariant("scrollbar-thumb", ["::-webkit-scrollbar-thumb&"]);
   addVariant("scrollbar-track", ["::-webkit-scrollbar-track&"]);
   addVariant("select-open", '[select-open="true"] &');
+  addVariant("svg", "& svg");
+  addVariant("paragraph", "& p");
+  addVariant("span", "& span");
 
-  // Utilities
   addUtilities({
     ".scrollbar-none": {
       "-ms-overflow-style": "none",
@@ -35,6 +35,11 @@ export const aueraTw = ({
         appearance: "none",
       },
     },
+    ".animate-dots::after": {
+      content: "'.'",
+      animation: "dots 1.5s steps(5) infinite",
+      position: "absolute",
+    },
     ...Object.fromEntries(
       Array.from({ length: 10 }, (_, i) => [
         `.z-${(i + 8) * 100}`,
@@ -46,8 +51,7 @@ export const aueraTw = ({
 
 export const SafeLists = () => [
   ...Object.keys(colors).flatMap((color) =>
-    // @ts-ignore
-    Object.keys(colors[color])
+    Object.keys(colors[color as keyof typeof colors])
       .map((shade) => [
         `bg-${color}-${shade}`,
         `text-${color}-${shade}`,
@@ -58,6 +62,13 @@ export const SafeLists = () => [
         `border-r-${color}-${shade}`,
         `shadow-${color}-${shade}`,
         `accent-${color}-${shade}`,
+        `ring-${color}-${shade}`,
+        `outline-${color}-${shade}`,
+        `divide-${color}-${shade}`,
+        `placeholder-${color}-${shade}`,
+        `caret-${color}-${shade}`,
+        `selection:bg-${color}-${shade}`,
+        `selection:text-${color}-${shade}`,
       ])
       .flat()
   ),

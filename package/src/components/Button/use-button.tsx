@@ -35,6 +35,11 @@ const useButton = ({
           disabled,
           radius,
         }),
+        {
+          "relative svg:absolute svg:right-4": props.rightIcon,
+          "relative svg:absolute svg:left-4": props.leftIcon,
+          "justify-between": props.leftIcon && props.rightIcon,
+        },
         className
       ),
     [
