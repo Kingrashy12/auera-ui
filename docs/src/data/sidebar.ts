@@ -86,7 +86,7 @@ export const sideBarLinks = [
       { label: "OTP Input", uri: "/docs/components/otp-input" },
       { label: "TextInput", uri: "/docs/components/textinput" },
       { label: "Media", uri: "/docs/components/media", soon: true },
-      { label: "Skeleton", uri: "/docs/components/skeleton", soon: true },
+      { label: "Skeleton", uri: "/docs/components/skeleton" },
       { label: "Select", uri: "/docs/components/select", soon: true },
       {
         label: "Password Input",

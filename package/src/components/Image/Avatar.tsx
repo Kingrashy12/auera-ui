@@ -30,14 +30,13 @@ const Avatar: React.FC<AvatarProps> = ({ size = "sm", border, ...props }) => {
 
   return (
     <>
-      {props.isLoading && (
+      {props.isLoading ? (
         <Skeleton
           width={placeholderSize}
           height={placeholderSize}
           radius="full"
         />
-      )}
-      {!props.isLoading && (
+      ) : (
         <img
           alt={props.alt}
           loading="lazy"

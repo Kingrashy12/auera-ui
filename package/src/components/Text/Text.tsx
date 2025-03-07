@@ -1,14 +1,18 @@
 import React from "react";
 import { tw } from "stywind";
-
-interface TextProps extends React.HTMLAttributes<HTMLParagraphElement> {
-  variant?: "heading" | "subheading" | "body";
-}
+import { Skeleton } from "../loader";
+import { TextProps } from "../../types/auera-ui";
 
 const Text: React.FC<TextProps> = ({
   variant = "body",
   className,
   children,
+  isLoading,
+  width,
+  height,
+  fullWidth,
+  radius,
+  as = "p",
   ...props
 }) => {
   const variants = {
@@ -17,8 +21,21 @@ const Text: React.FC<TextProps> = ({
     body: "text-base font-medium max-[550px]:text-sm",
   };
 
+  if (isLoading) {
+    return (
+      <Skeleton
+        width={width}
+        height={height}
+        radius={radius}
+        className={className}
+      />
+    );
+  }
+
+  const Component = as;
+
   return (
-    <p
+    <Component
       className={tw(
         "text-gray-900 theme-dark:text-neutral-100 font-inter",
         variants[variant],
@@ -27,7 +44,7 @@ const Text: React.FC<TextProps> = ({
       {...props}
     >
       {children}
-    </p>
+    </Component>
   );
 };
 

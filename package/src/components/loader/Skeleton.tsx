@@ -1,14 +1,5 @@
-import { ButtonProps } from "../../types/auera-ui";
+import { SkeletonProps } from "../../types/auera-ui";
 import { merge, tw } from "stywind";
-
-interface SkeletonProps {
-  className?: string;
-  radius?: ButtonProps["radius"];
-  fullWidth?: boolean;
-  width?: number | string;
-  height?: number | string;
-  style?: React.CSSProperties;
-}
 
 const rd = {
   none: "rounded-none",
@@ -35,3 +26,4 @@ const Skeleton: React.FC<SkeletonProps> = ({
 };
 
 export default Skeleton;
+Skeleton.displayName = "AueraUI.Skeleton";
