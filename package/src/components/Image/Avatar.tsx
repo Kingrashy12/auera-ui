@@ -24,13 +24,18 @@ const placeholderSizes = {
   xl: "96px",
 };
 
-const Avatar: React.FC<AvatarProps> = ({ size = "sm", border, ...props }) => {
+const Avatar: React.FC<AvatarProps> = ({
+  size = "sm",
+  border,
+  isLoading,
+  ...props
+}) => {
   const imageSize = imgSizes[size];
   const placeholderSize = placeholderSizes[size];
 
   return (
     <>
-      {props.isLoading ? (
+      {isLoading ? (
         <Skeleton
           width={placeholderSize}
           height={placeholderSize}

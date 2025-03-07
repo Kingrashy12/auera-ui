@@ -7,11 +7,12 @@ import { ImageWithMotion } from "../../types/auera-motion";
 const Media: React.FC<ImageWithMotion> = ({
   fullWidth,
   radius = "none",
+  isLoading,
   ...props
 }) => {
   return (
     <>
-      {props.isLoading ? (
+      {isLoading ? (
         <Skeleton
           width={props.width}
           fullWidth={fullWidth}

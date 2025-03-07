@@ -34,16 +34,11 @@ const PostSkeleton = () => {
                   <Skeleton className="h-3 w-20" />
                 </Box>
               </Box>
-              <Skeleton className="h-7 w-20" radius="md" />
+              <Skeleton className="h-7 w-28" radius="md" />
             </Box>
-            <Media
-              loaderClass="h-20 w-full"
-              isLoading
-              className="w-full h-10 hidden"
-              radius="md"
-            />
-            <Skeleton className="w-full h-6" radius="md" />
-            <Skeleton className="w-1/2 h-5" radius="md" />
+            <Media isLoading className="w-full h-20" radius="md" />
+            <Skeleton className="w-full h-[36px]" radius="md" />
+            <Skeleton className="w-full h-5" radius="md" />
           </Card>
         </TabPanel>
         <TabPanel>
@@ -74,11 +69,11 @@ const Demo = () => {
      <Media
       loaderClass="h-20 w-full"
       isLoading
-      className="w-full h-20"
+      className="w-full h-28"
       radius="md"
     />
-    <Skeleton className="w-full h-6" radius="md" />
-    <Skeleton className="w-1/2 h-5" radius="md" />
+    <Skeleton className="w-full h-[36px]" radius="md" />
+    <Skeleton className="w-full h-5" radius="md" />
   </Card>
  )
 }`;
