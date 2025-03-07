@@ -7,7 +7,6 @@ import {
   DesignFlavour,
   ModeType,
   SchemeVariant,
-  TailwindClass,
 } from "./auera-system";
 import { InputProps } from "./element-props";
 import { zIndex } from "./keys";
@@ -214,8 +213,8 @@ export type CheckBoxProps = {
   color?: ColorPair;
   disabled?: boolean;
   classNames?: {
-    checker?: TailwindClass;
-    container?: TailwindClass;
+    checker?: string;
+    container?: string;
   };
   children?: React.ReactNode;
   checked?: boolean;
@@ -262,7 +261,7 @@ export interface CardProps extends BoxProps {
   img?: {
     src: string;
     alt: string;
-    className?: TailwindClass;
+    className?: string;
     width?: string | number;
     height?: string | number;
     style?: React.CSSProperties;
@@ -271,8 +270,8 @@ export interface CardProps extends BoxProps {
   header?: React.ReactNode;
   footer?: React.ReactNode;
   classNames?: {
-    root?: TailwindClass;
-    body?: TailwindClass;
+    root?: string;
+    body?: string;
   };
 }
 
@@ -387,8 +386,7 @@ export interface MediaProps {
   fullWidth?: boolean;
   isLoading?: boolean;
   radius?: ButtonProps["radius"];
-  loaderClass?: string;
-  loaderStyle?: React.CSSProperties;
+  styles?: React.CSSProperties;
 }
 
 export interface InputProp extends InputProps {
@@ -572,4 +570,24 @@ export interface BadgeProps {
   children?: React.ReactNode;
   asDiv?: boolean;
   mode?: ModeType;
+}
+
+export interface TextProps
+  extends React.HTMLAttributes<HTMLParagraphElement | HTMLSpanElement> {
+  variant?: "heading" | "subheading" | "body";
+  isLoading?: boolean;
+  radius?: "none" | "sm" | "md" | "lg" | "xl" | "full";
+  fullWidth?: boolean;
+  width?: number | string;
+  height?: number | string;
+  as?: "p" | "span";
+}
+
+export interface SkeletonProps {
+  className?: string;
+  radius?: "none" | "sm" | "md" | "lg" | "xl" | "full";
+  fullWidth?: boolean;
+  width?: number | string;
+  height?: number | string;
+  style?: React.CSSProperties;
 }

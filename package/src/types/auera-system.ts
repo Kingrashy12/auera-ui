@@ -77,8 +77,6 @@ export type AueraElementPropsWithMotion<T extends keyof HTMLElements> =
     hidden?: boolean;
   };
 
-export type TailwindClass = string;
-
 export interface HTMLElements {
   a: HTMLAnchorElement;
   abbr: HTMLElement;

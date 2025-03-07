@@ -137,6 +137,11 @@ import TextInputRadius from "@/components/example/textinput/radius";
 import TextInputVariants from "@/components/example/textinput/variants";
 import ReadOnlyTextInput from "@/components/example/textinput/read-only";
 import DisabledTextInput from "@/components/example/textinput/disabled";
+import PostSkeleton from "../components/example/skeleton/post-skeleton";
+import SkeletonDemo from "../components/example/skeleton/demo";
+import SkeletonWithCard from "../components/example/skeleton/skeleton-card";
+import AvatarSkeleton from "@/components/example/skeleton/skeleton-avatar";
+import InteractivePost from "@/components/example/skeleton/interactive-post";
 
 export const components = {
   DetailCard,
@@ -281,6 +286,11 @@ export const components = {
   TextInputVariants,
   ReadOnlyTextInput,
   DisabledTextInput,
+  PostSkeleton,
+  SkeletonDemo,
+  SkeletonWithCard,
+  AvatarSkeleton,
+  InteractivePost,
 };
 
 export const MDXRemote = dynamic(() =>

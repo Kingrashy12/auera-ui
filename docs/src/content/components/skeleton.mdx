@@ -1,0 +1,56 @@
+---
+title: Skeleton | AueraUI
+description: A lightweight placeholder that mimics content structure while loading.
+---
+
+<DetailCard description='A lightweight placeholder that mimics content structure while loading.'/>
+
+<Details>
+<SkeletonDemo/>
+</Details>
+
+<Details id='examples'>
+<HeaderLabel id='examples'>Examples</HeaderLabel>
+</Details>
+
+<Details id='avatar'>
+  <HeaderLabel id='avatar' as='h3'>Avatar</HeaderLabel>
+  <p className="text">
+    The <CodeTag>Avatar</CodeTag> component provides a loading placeholder for user profile images. It maintains 
+    the expected shape and size while content is being fetched.
+  </p>
+  <AvatarSkeleton />
+</Details>
+
+<Details id='card'>
+  <HeaderLabel id='card' as='h3'>Card</HeaderLabel>
+  <p className="text">
+   Skeletons can be used within a Card to display a placeholder structure for a card-based UI while loading
+   dynamic data.
+  </p>
+  <SkeletonWithCard />
+</Details>
+
+<Details id='post'>
+  <HeaderLabel id='post' as='h3'>Post</HeaderLabel>
+  <p className="text">
+    The Post skeleton mimics the layout of a typical post, including text and media elements, 
+    providing a smooth transition while content is loading.
+  </p>
+  <PostSkeleton />
+</Details>
+
+<Details id='interactive-post'>
+  <HeaderLabel id='interactive-post' as='h3'>Interactive Post</HeaderLabel>
+  <p className="text">
+    The Interactive Post skeleton represents a post with additional interactive elements, such as 
+    reactions and comments, ensuring a structured layout before the actual data loads.
+  </p>
+  <InteractivePost />
+</Details>
+
+
+<Details id='api-reference'>
+<HeaderLabel id='api-reference'>API Reference</HeaderLabel>
+<APITable reference={skeletonRef} />
+</Details>

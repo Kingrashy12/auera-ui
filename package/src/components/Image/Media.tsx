@@ -11,17 +11,18 @@ const Media: React.FC<ImageWithMotion> = ({
 }) => {
   return (
     <>
-      {props.isLoading && (
+      {props.isLoading ? (
         <Skeleton
           width={props.width}
           fullWidth={fullWidth}
           height={props.height}
           radius={radius}
-          className={props.loaderClass}
-          style={props.loaderStyle}
+          className={props.className}
+          style={props.styles}
         />
+      ) : (
+        <motion.img className={props.className} {...props} loading="lazy" />
       )}
-      <motion.img className={props.className} {...props} loading="eager" />
     </>
   );
 };
