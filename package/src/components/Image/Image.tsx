@@ -4,7 +4,7 @@ import { getDisplayName } from "@/utils/displayname";
 import { motion } from "motion/react";
 import { ImageWithMotion } from "../../types/auera-motion";
 
-const Media: React.FC<ImageWithMotion> = ({
+const Image: React.FC<ImageWithMotion> = ({
   fullWidth,
   radius = "none",
   isLoading,
@@ -28,5 +28,5 @@ const Media: React.FC<ImageWithMotion> = ({
   );
 };
 
-export default Media;
-Media.displayName = getDisplayName("Media");
+export default Image;
+Image.displayName = getDisplayName("Image");

@@ -1,7 +1,7 @@
 import CodeBlock from "@/components/layout/code/Block";
 import CardContent from "@/components/lib/CardContent";
 import { card_codes } from "@/data/code/card";
-import { Box, Button, Card, Media, TabHandle, TabPanel, Tabs } from "auera-ui";
+import { Box, Button, Card, Image, TabHandle, TabPanel, Tabs } from "auera-ui";
 import React from "react";
 import { FiArrowUpRight } from "react-icons/fi";
 import { IoCodeSlash } from "react-icons/io5";
@@ -25,7 +25,8 @@ const CardDemo = () => {
               }}
             >
               <Box className="gap-3 items-center">
-                <Media
+                <Image
+                  alt="Azure Bay"
                   src="https://fastly.picsum.photos/id/74/4288/2848.jpg?hmac=q02MzzHG23nkhJYRXR-_RgKTr6fpfwRgcXgE0EKvNB8"
                   width={120}
                   className="rounded-md"

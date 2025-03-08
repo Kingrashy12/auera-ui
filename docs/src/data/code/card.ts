@@ -1,5 +1,5 @@
 export const card_codes = {
-  default: `import { Card, Button, Box, Media } from "auera-ui";
+  default: `import { Card, Button, Box, Image } from "auera-ui";
 import { FiArrowUpRight } from "react-icons/fi";
 
 export const DefaultCardDemo = () => {
@@ -8,7 +8,8 @@ export const DefaultCardDemo = () => {
      classNames={{ root: "w-fit" }}
     >
       <Box className="gap-3 items-center">
-        <Media
+        <Image
+          alt="Azure Bay"
           src="https://fastly.picsum.photos/id/74/4288/2848.jpg?hmac=q02MzzHG23nkhJYRXR-_RgKTr6fpfwRgcXgE0EKvNB8"
           width={120}
           className="rounded-md"
@@ -203,7 +204,7 @@ import { FiArrowUpRight } from "react-icons/fi";
   PasswordInput,
   TextInput,
   Label,
-  Media,
+  Image,
 } from "auera-ui";
  import Link from "next/link";
 
@@ -220,7 +221,7 @@ import { FiArrowUpRight } from "react-icons/fi";
          fullWidth
          className="flex-col gap-3 px-4 py-5 border-b theme-dark:border-neutral-800"
        >
-         <Media src="/logo.png" width={50} height={50} />
+         <Image alt="Logo" src="/logo.png" width={50} height={50} />
          <Box className="flex-col gap-1" centered>
            <h2 className="text-2xl font-medium font-inter theme-dark:text-white">
              Sign in
@@ -274,7 +275,7 @@ import {
   Card,
   IconButton,
   MapItems,
-  Media,
+  Image,
 } from "auera-ui";
 import { IoClose } from "react-icons/io5";
 import { LuBadgeInfo } from "react-icons/lu";
@@ -334,7 +335,7 @@ export const Web3Card = () => {
         radius="2xl"
         key={index}
       >
-        <Media width={40} src={wallet.img} />
+        <Image alt="wallet.name" width={40} src={wallet.img} />
         <p className="font-inter font-medium">{wallet.name}</p>
         {wallet.hint && (
           <p

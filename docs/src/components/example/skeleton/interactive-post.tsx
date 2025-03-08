@@ -6,7 +6,7 @@ import {
   Box,
   Button,
   Card,
-  Media,
+  Image,
   Skeleton,
   TabHandle,
   TabPanel,
@@ -95,7 +95,8 @@ const InteractivePost = () => {
                 </Button>
               )}
             </Box>
-            <Media
+            <Image
+              alt="Azure Bay"
               isLoading={isLoading}
               src={images["azure-bay"]}
               className="w-full h-28 rounded-md"
@@ -148,7 +149,7 @@ const InteractivePost = () => {
 
 export default InteractivePost;
 
-const code = `import { Avatar, Box, Button, Card, Media, Skeleton, Text } from "auera-ui";
+const code = `import { Avatar, Box, Button, Card, Image, Skeleton, Text } from "auera-ui";
 
 const ReactionButton = ({
   colorScheme,
@@ -211,7 +212,8 @@ const Demo = () => {
       )}
     </Box>
 
-    <Media
+    <Image
+      alt="Azure Bay"
       isLoading={isLoading}
       src={images["azure-bay"]}
       className="w-full h-28 rounded-md"

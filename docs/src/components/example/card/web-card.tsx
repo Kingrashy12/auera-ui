@@ -7,7 +7,7 @@ import {
   Card,
   IconButton,
   MapItems,
-  Media,
+  Image,
   TabHandle,
   TabPanel,
   Tabs,
@@ -80,7 +80,7 @@ const Web3Card = () => {
                   radius="2xl"
                   key={index}
                 >
-                  <Media width={40} src={wallet.img} />
+                  <Image alt={wallet.name} width={40} src={wallet.img} />
                   <p className="font-inter font-medium">{wallet.name}</p>
                   {wallet.hint && (
                     <p

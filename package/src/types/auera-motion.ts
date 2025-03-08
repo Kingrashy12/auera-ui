@@ -3,14 +3,14 @@ import {
   HTMLMotionProps,
   MotionProps,
 } from "motion/react";
-import { BoxProps, CardProps, MediaProps, StackProps } from "./auera-ui";
+import { BoxProps, CardProps, ImageProps, StackProps } from "./auera-ui";
 import { ForwardRefExoticComponent, LegacyRef, RefAttributes } from "react";
 import { AueraElementPropsWithMotion } from "./auera-system";
 
 export type BoxWithMotion = HTMLMotionProps<"div"> & BoxProps;
 export type CardWithMotion = HTMLMotionProps<"div"> & CardProps;
 export type StackWithMotion = HTMLMotionProps<"div"> & StackProps;
-export type ImageWithMotion = HTMLMotionProps<"img"> & MediaProps;
+export type ImageWithMotion = HTMLMotionProps<"img"> & ImageProps;
 export type TabPanelWithMotion = HTMLMotionProps<"div"> & {
   animatePanel?: boolean;
 };

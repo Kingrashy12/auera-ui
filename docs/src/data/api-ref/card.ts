@@ -102,6 +102,11 @@ export const cardRef = [
         description: "Additional CSS styles for the image",
         default: "undefined",
       },
+      isLoading: {
+        type: "boolean",
+        description: "",
+        default: "false",
+      },
     },
   },
 ];

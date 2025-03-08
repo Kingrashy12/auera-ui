@@ -1,5 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Box, DrawerTrigger, Icon, MapItems, TextInput } from "auera-ui";
+import {
+  Box,
+  DrawerTrigger,
+  Icon,
+  MapItems,
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  TextInput,
+} from "auera-ui";
 import { IoSearch } from "react-icons/io5";
 import { linksWithIcon, sideBarLinks } from "@/data/sidebar";
 import { tw } from "stywind";
@@ -7,12 +17,16 @@ import StatusBadge from "./lib/StatusBadge";
 import SideBarLinks from "./layout/SideBarLinks";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { langs } from "@/data/app.data";
+import { useDocState } from "@/hooks/docs";
+import { BaseLangStruct } from "@/types/global";
 
 const SideBarContent = () => {
   const [query, setQuery] = useState("");
   const router = useRouter();
   const [menuLinks, setMenuLinks] = useState(sideBarLinks);
   const { slug } = router.query;
+  const { lang: language, updateLang } = useDocState();
 
   const getActiveLink = (uri: string) => {
     const current = router.pathname.split("[slug]").join(`${slug}`);
@@ -52,6 +66,36 @@ const SideBarContent = () => {
         />
       </Box>
       <Box direction="column" fullWidth className="gap-8 p-6 pl-3">
+        <Select>
+          <SelectTrigger placeholder="">
+            <Box className="items-center gap-1">
+              <Icon icon={language.icon} size={28} color={language.color} />
+
+              <p className="font-medium theme-dark:text-white font-inter text-sm">
+                {language.name}
+              </p>
+            </Box>
+          </SelectTrigger>
+          <SelectContent className="z-900" variant="padded">
+            {langs.map((lang, index) => (
+              <SelectItem
+                key={index}
+                value={lang.name}
+                isCurrent={lang.name === language.name}
+                onSelect={() => updateLang(lang as BaseLangStruct)}
+              >
+                <Box className="items-center gap-1">
+                  <Icon icon={lang.icon} size={28} color={lang.color} />
+
+                  <p className="font-medium theme-dark:text-white font-inter text-sm">
+                    {lang.name}
+                  </p>
+                </Box>
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+
         <MapItems
           direction="column"
           data={linksWithIcon}
@@ -93,6 +137,7 @@ const SideBarContent = () => {
             </DrawerTrigger>
           )}
         />
+
         <SideBarLinks data={menuLinks} />
       </Box>
     </>

@@ -12,7 +12,7 @@ import {
   Tabs,
   TextInput,
   Label,
-  Media,
+  Image,
 } from "auera-ui";
 import Link from "next/link";
 import { IoCodeSlash } from "react-icons/io5";
@@ -40,7 +40,7 @@ const CardWithForm = () => {
                   fullWidth
                   className="flex-col gap-3 px-4 py-5 border-b theme-dark:border-neutral-800"
                 >
-                  <Media src="/logo.png" width={50} height={50} />
+                  <Image alt="Logo" src="/logo.png" width={50} height={50} />
                   <Box className="flex-col gap-1" centered>
                     <h2 className="text-2xl font-medium font-inter theme-dark:text-white">
                       Sign in

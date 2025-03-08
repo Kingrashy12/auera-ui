@@ -1,10 +1,9 @@
 import Clipboard from "@/components/Clipboard";
+import { useDocState } from "@/hooks/docs";
 import { Box, Icon, Tooltip } from "auera-ui";
 import { Highlight, themes } from "prism-react-renderer";
 import React from "react";
-import { BiLogoTailwindCss, BiLogoTypescript } from "react-icons/bi";
-import { RiJavascriptFill } from "react-icons/ri";
-import { SiGnubash } from "react-icons/si";
+import { BiLogoTailwindCss } from "react-icons/bi";
 import { tw } from "stywind";
 
 const CodeBlock = ({
@@ -18,15 +17,36 @@ const CodeBlock = ({
   showHeader?: boolean;
   fileName: string;
 }) => {
-  const lgIcon = {
-    tsx: { icon: BiLogoTypescript, color: "blue" },
-    ts: { icon: BiLogoTypescript, color: "blue" },
-    jsx: { icon: RiJavascriptFill, color: "yellow" },
-    css: { icon: BiLogoTailwindCss, color: "blue" },
-    bash: { icon: SiGnubash, color: "green" },
+  const { lang } = useDocState();
+
+  const getIcon = () => {
+    if (lg === "css") return { icon: BiLogoTailwindCss, color: "blue" };
+    else return lang;
   };
 
-  const icon = lgIcon[lg];
+  const getFileExt = () => {
+    if (lg === "css") return fileName;
+    switch (lang.name) {
+      case "TypeScript":
+        return fileName;
+      case "JavaScript":
+        if (fileName.endsWith(".ts")) return fileName.replace(".ts", ".js");
+        else if (fileName.endsWith(".tsx"))
+          return fileName.replace(".tsx", ".jsx");
+      default:
+        return "";
+    }
+  };
+
+  // const lgIcon = {
+  //   tsx: { icon: BiLogoTypescript, color: "blue" },
+  //   ts: { icon: BiLogoTypescript, color: "blue" },
+  //   jsx: { icon: RiJavascriptFill, color: "yellow" },
+  //   css: { icon: BiLogoTailwindCss, color: "blue" },
+  //   bash: { icon: SiGnubash, color: "green" },
+  // };
+
+  const icon = getIcon();
   return (
     <Box
       direction="column"
@@ -41,7 +61,7 @@ const CodeBlock = ({
         )}
       >
         <Icon icon={icon.icon} color={icon.color} size={19} />
-        <p className="font-mono text-[#aaa7b2] text-xs">{fileName}</p>
+        <p className="font-mono text-[#aaa7b2] text-xs">{getFileExt()}</p>
       </Box>
       <Box className="w-full h-full overflow-y-auto p-4 max-w-full scrollbar:h-1">
         <Highlight theme={themes.vsDark} code={code} language={lg}>

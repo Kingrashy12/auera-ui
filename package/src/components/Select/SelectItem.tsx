@@ -1,21 +1,24 @@
 import React from "react";
-import { useSelectState } from "@/context/select";
+import { useSelectState } from "../../context/select";
 import { useComputeItem } from "./compute";
 import { FaCheck } from "react-icons/fa6";
 import { SelectItemProps } from "../../types/auera-ui";
-import { getDisplayName } from "@/utils/displayname";
+import { getDisplayName } from "../../utils/displayname";
 
 const SelectItem: React.FC<SelectItemProps> = ({
   children,
   className,
   value,
+  isCurrent,
   onSelect,
 }) => {
-  const { radius, currentValue, setValue, onClose, mode } = useSelectState();
+  const { radius, currentValue, setValue, onClose, mode, contentVariant } =
+    useSelectState();
   const Component = useComputeItem({
     radius,
     className,
     active: currentValue === value,
+    variant: contentVariant,
   });
 
   const select = () => {
@@ -26,12 +29,12 @@ const SelectItem: React.FC<SelectItemProps> = ({
     onClose();
   };
 
+  const active = isCurrent || currentValue === value;
+
   return (
     <Component onClick={select} data-theme={mode}>
       {children}
-      {currentValue === value && (
-        <FaCheck data-theme={mode} className="tone-dark:text-white" />
-      )}
+      {active && <FaCheck data-theme={mode} className="tone-dark:text-white" />}
     </Component>
   );
 };

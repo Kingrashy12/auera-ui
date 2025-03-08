@@ -4,6 +4,7 @@ export { default as Backdrop } from "./.storybook/Backdrop";
 export { default as Drawer } from "./.storybook/Drawer/Drawer";
 
 export { default as RootLayout } from "./layout/RootLayout";
+export { default as DocsProvider } from "./layout/DocsProvider";
 
 export const HomePage = dynamic(() => import("./home/Page"));
 export const DocsLayout = dynamic(() => import("./layout/DocsLayout"));

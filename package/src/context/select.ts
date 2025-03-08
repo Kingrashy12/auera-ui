@@ -10,6 +10,8 @@ interface SelectContextInterface {
   mode?: "light" | "dark";
   width: number;
   selectRef: RefObject<HTMLDivElement | null>;
+  contentVariant: "padded" | "flush";
+  setContentVariant: (val: "padded" | "flush") => void;
 }
 
 export const SelectContext = createContext<SelectContextInterface | undefined>(

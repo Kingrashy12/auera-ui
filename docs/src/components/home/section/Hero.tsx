@@ -2,10 +2,14 @@ import Clipboard from "@/components/Clipboard";
 
 import { Box, Button } from "auera-ui";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 import { FiArrowRight } from "react-icons/fi";
 
 const Hero = () => {
+  useEffect(() => {
+    localStorage.setItem("HAS_PAGE_RENDERED", "false");
+  }, []);
+
   return (
     <section className="flex px-8 py-4 h-screen max-[550px]:px-5">
       <Box className="gap-3 h-full" fullWidth centered>

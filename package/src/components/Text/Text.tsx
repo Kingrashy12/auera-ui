@@ -22,14 +22,7 @@ const Text: React.FC<TextProps> = ({
   };
 
   if (isLoading) {
-    return (
-      <Skeleton
-        width={width}
-        height={height}
-        radius={radius}
-        className={className}
-      />
-    );
+    return <Skeleton width={width} height={height} radius={radius} />;
   }
 
   const Component = as;
