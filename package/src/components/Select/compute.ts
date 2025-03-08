@@ -10,39 +10,39 @@ import {
 import { useMemo } from "react";
 
 const useComputeTrigger = (props: SelectTriggerVariants) => {
-  const { className, radius } = props;
+  const { className, radius, variant } = props;
 
   const Trigger = createStyle("button");
 
   const styles = useMemo(
-    () => tw(trigger({ radius }), className),
-    [className, radius]
+    () => tw(trigger({ radius, variant }), className),
+    [className, radius, variant]
   );
 
   return useMemo(() => Trigger.classname(styles), [styles]);
 };
 
 const useComputeContent = (props: SelectContentVariants) => {
-  const { radius, className, open } = props;
+  const { radius, className, open, variant } = props;
 
   const Content = createStyle("div");
 
   const styles = useMemo(
-    () => tw(content({ radius, open }), className),
-    [radius, open, className]
+    () => tw(content({ radius, variant, open }), className),
+    [radius, open, className, variant]
   );
 
   return useMemo(() => Content.classname(styles), [styles]);
 };
 
 const useComputeItem = (props: SelectItemVariants) => {
-  const { radius, className, active } = props;
+  const { radius, className, active, variant } = props;
 
   const Item = createStyle("div");
 
   const styles = useMemo(
-    () => tw(item({ radius, active }), className),
-    [radius, active, className]
+    () => tw(item({ radius, variant, active }), className),
+    [radius, active, className, variant]
   );
 
   return useMemo(() => Item.classname(styles), [styles]);

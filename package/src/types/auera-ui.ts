@@ -265,6 +265,7 @@ export interface CardProps extends BoxProps {
     width?: string | number;
     height?: string | number;
     style?: React.CSSProperties;
+    isLoading?: boolean;
   };
   renderImage?: () => React.ReactNode;
   header?: React.ReactNode;
@@ -382,7 +383,7 @@ export type StatusBadgeProps = {
   animate?: boolean;
 };
 
-export interface MediaProps {
+export interface ImageProps {
   fullWidth?: boolean;
   isLoading?: boolean;
   radius?: ButtonProps["radius"];
@@ -517,8 +518,10 @@ export interface LoaderProp {
 }
 
 export interface SelectTriggerProps {
-  placeholder: string;
+  placeholder?: string;
   className?: string;
+  children?: React.ReactNode;
+  variant?: "outline" | "ghost";
 }
 
 export interface SelectProps {
@@ -537,6 +540,7 @@ export interface SelectContentProps {
   className?: string;
   style?: React.CSSProperties;
   openFn?: () => void;
+  variant?: "padded" | "flush";
 }
 
 export interface SelectItemProps {
@@ -544,6 +548,7 @@ export interface SelectItemProps {
   onSelect?: (value: string) => void;
   children?: React.ReactNode;
   className?: string;
+  isCurrent?: boolean;
 }
 
 export interface DynamicBreadcrumbsProps {

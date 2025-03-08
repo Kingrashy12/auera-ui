@@ -15,6 +15,7 @@ import { i_buttonRef } from "@/data/api-ref/iconbuttonRef";
 import { iconRef } from "@/data/api-ref/iconRef";
 import { loadingRef } from "@/data/api-ref/loading";
 import { mapitems_ref } from "@/data/api-ref/mapitems_ref";
+import { imageRef } from "@/data/api-ref/image";
 import { menuRef } from "@/data/api-ref/menu";
 import { modalRef } from "@/data/api-ref/modal";
 import { otpRef } from "@/data/api-ref/otp";
@@ -63,6 +64,7 @@ const data = {
   passwordInputRef,
   textinputRef,
   skeletonRef,
+  imageRef,
 };
 
 const Page = ({ frontmatter, mdxSource, slug }: Props) => {
@@ -118,6 +120,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     "password-input",
     "textinput",
     "skeleton",
+    "image",
   ];
 
   const paths = slugs.map((slug) => ({

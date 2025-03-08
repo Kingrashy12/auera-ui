@@ -4,7 +4,7 @@ import {
   Avatar,
   Box,
   Card,
-  Media,
+  Image,
   Skeleton,
   TabHandle,
   TabPanel,
@@ -36,7 +36,12 @@ const PostSkeleton = () => {
               </Box>
               <Skeleton className="h-7 w-28" radius="md" />
             </Box>
-            <Media isLoading className="w-full h-20" radius="md" />
+            <Image
+              alt="Post Image"
+              isLoading
+              className="w-full h-20"
+              radius="md"
+            />
             <Skeleton className="w-full h-[36px]" radius="md" />
             <Skeleton className="w-full h-5" radius="md" />
           </Card>
@@ -51,7 +56,7 @@ const PostSkeleton = () => {
 
 export default PostSkeleton;
 
-const code = `import { Card, Skeleton, Media } from "auera-ui";
+const code = `import { Card, Skeleton, Image } from "auera-ui";
 
 const Demo = () => {
  return (
@@ -66,10 +71,10 @@ const Demo = () => {
        </Box>
        <Skeleton className="h-7 w-20" radius="md" />
      </Box>
-     <Media
-      loaderClass="h-20 w-full"
+     <Image
+      alt="Post Image"
       isLoading
-      className="w-full h-28"
+      className="w-full h-20"
       radius="md"
     />
     <Skeleton className="w-full h-[36px]" radius="md" />

@@ -1,5 +1,5 @@
 import { Box } from "auera-ui";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import SideBar from "./SideBar";
 import PageNavigator from "./PageNavigator";
 import TableOfContent from "./TableOfContent";
@@ -8,6 +8,16 @@ import { tw } from "stywind";
 type Props = { children: React.ReactNode; hideNavigator?: boolean };
 
 const DocsLayout = ({ children, hideNavigator }: Props) => {
+  const [HAS_PAGE_RENDERED, setHAS_PAGE_RENDERED] = useState(false);
+
+  useEffect(() => {
+    setHAS_PAGE_RENDERED(true);
+    localStorage.setItem(
+      "HAS_PAGE_RENDERED",
+      JSON.stringify(HAS_PAGE_RENDERED)
+    );
+  }, [HAS_PAGE_RENDERED]);
+
   return (
     <Box className="gap-0 px-3 max-[550px]:px-0" fullWidth>
       <SideBar />

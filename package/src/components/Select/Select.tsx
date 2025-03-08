@@ -15,6 +15,9 @@ const Select: React.FC<SelectProps> = ({
   const [open, setOpen] = useState(false);
   const selectRef = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState(0);
+  const [contentVariant, setContentVariant] = useState<"padded" | "flush">(
+    "padded"
+  );
 
   useEffect(() => {
     document.documentElement.setAttribute("select-open", String(open));
@@ -59,6 +62,8 @@ const Select: React.FC<SelectProps> = ({
         onClose,
         onOpen,
         mode: currentMode,
+        contentVariant,
+        setContentVariant,
       }}
     >
       <div

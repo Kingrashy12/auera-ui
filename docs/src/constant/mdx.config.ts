@@ -142,6 +142,9 @@ import SkeletonDemo from "../components/example/skeleton/demo";
 import SkeletonWithCard from "../components/example/skeleton/skeleton-card";
 import AvatarSkeleton from "@/components/example/skeleton/skeleton-avatar";
 import InteractivePost from "@/components/example/skeleton/interactive-post";
+import LoadingImage from "@/components/example/image/isloading";
+import ImageWithMotion from "@/components/example/image/with-motion";
+import ImageDemo from "@/components/example/image/demo";
 
 export const components = {
   DetailCard,
@@ -291,6 +294,9 @@ export const components = {
   SkeletonWithCard,
   AvatarSkeleton,
   InteractivePost,
+  LoadingImage,
+  ImageWithMotion,
+  ImageDemo,
 };
 
 export const MDXRemote = dynamic(() =>

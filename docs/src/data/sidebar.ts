@@ -85,7 +85,7 @@ export const sideBarLinks = [
       { label: "GroupMap", uri: "/docs/components/groupmap" },
       { label: "OTP Input", uri: "/docs/components/otp-input" },
       { label: "TextInput", uri: "/docs/components/textinput" },
-      { label: "Media", uri: "/docs/components/media", soon: true },
+      { label: "Image", uri: "/docs/components/image" },
       { label: "Skeleton", uri: "/docs/components/skeleton" },
       { label: "Select", uri: "/docs/components/select", soon: true },
       {

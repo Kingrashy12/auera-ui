@@ -2,7 +2,7 @@ import { forwardRef } from "react";
 import { getDisplayName } from "@/utils/displayname";
 import { CardWithMotion, AueraMotionDivRef } from "../../types/auera-motion";
 import { useCard } from "./use-card";
-import { Media } from "../Image";
+import { Image } from "../Image";
 import { tw } from "stywind";
 
 /** Card component for displaying content in an organized way.*/
@@ -19,6 +19,7 @@ const Card = forwardRef<HTMLDivElement, CardWithMotion>(
       header,
       footer,
       img,
+
       ...props
     },
     ref
@@ -35,13 +36,14 @@ const Card = forwardRef<HTMLDivElement, CardWithMotion>(
     const getImage = () => {
       if (img) {
         return (
-          <Media
+          <Image
             src={img?.src}
             alt={img?.alt}
             width={img?.width}
             height={img?.height}
             className={tw("rounded-t-lg", img?.className)}
             style={img?.style}
+            isLoading={img.isLoading}
           />
         );
       } else if (renderImage) {

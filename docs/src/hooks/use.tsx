@@ -56,26 +56,40 @@ type HeadingType = {
 export const useTableOfContents = () => {
   const [headings, setHeadings] = useState<HeadingType[]>([]);
   const [activeId, setActiveId] = useState("");
+
+  const getPageStatus = () => {
+    const Token = "HAS_PAGE_RENDERED";
+    const state = localStorage?.getItem(Token);
+    const status = state ? JSON.parse(state) : false;
+    return status as boolean;
+  };
+
   const router = useRouter();
 
   useEffect(() => {
+    const HAS_PAGE_RENDERED = getPageStatus();
     const fetchHeadings = () => {
-      setTimeout(() => {
-        const headingElements = Array.from(document.querySelectorAll("h2, h3"));
+      setTimeout(
+        () => {
+          const headingElements = Array.from(
+            document.querySelectorAll("h2, h3")
+          );
 
-        const newHeadings = headingElements.map((element) => ({
-          id:
-            element.id ||
-            element?.textContent?.trim().toLowerCase().replace(/\s+/g, "-"),
-          text: element.textContent,
-          level: element.tagName,
-        }));
+          const newHeadings = headingElements.map((element) => ({
+            id:
+              element.id ||
+              element?.textContent?.trim().toLowerCase().replace(/\s+/g, "-"),
+            text: element.textContent,
+            level: element.tagName,
+          }));
 
-        setHeadings(newHeadings as HeadingType[]);
-      }, 300); // Wait for dynamic content to render
+          setHeadings(newHeadings as HeadingType[]);
+        },
+        HAS_PAGE_RENDERED ? 300 : 1000
+      );
     };
 
-    fetchHeadings(); // Initial fetch
+    fetchHeadings();
     router.events.on("routeChangeComplete", fetchHeadings);
 
     return () => {
