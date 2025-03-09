@@ -1,6 +1,8 @@
 import CodeBlock from "@/components/layout/code/Block";
 import CardContent from "@/components/lib/CardContent";
 import { images } from "@/constant/images";
+import { useDocState } from "@/hooks/docs";
+import { replaceInCode } from "@/utils/global";
 import {
   Avatar,
   Box,
@@ -51,6 +53,7 @@ const ReactionButton = ({
 
 const InteractivePost = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const { lang } = useDocState();
 
   return (
     <CardContent>
@@ -74,6 +77,8 @@ const InteractivePost = () => {
                 <Box className="flex-col gap-2">
                   <Text
                     className="h-4 w-24 text-sm theme-dark:text-white"
+                    width={90}
+                    height={10}
                     as="span"
                     isLoading={isLoading}
                   >
@@ -82,6 +87,8 @@ const InteractivePost = () => {
                   <Text
                     isLoading={isLoading}
                     className="h-3 w-20 font-normal text-neutral-400 theme-dark:text-neutral-600 text-xs"
+                    width={80}
+                    height={9}
                   >
                     3:30 PM
                   </Text>
@@ -140,7 +147,19 @@ const InteractivePost = () => {
           </Button>
         </TabPanel>
         <TabPanel>
-          <CodeBlock fileName="" lg="tsx" code={code} />
+          <CodeBlock
+            fileName=""
+            lg="tsx"
+            code={
+              lang.ext === "tsx"
+                ? code
+                : replaceInCode(
+                    code,
+                    /:\s*{\s*colorScheme:\s*"red"\s*\|\s*"blue"\s*\|\s*"green"\s*\|\s*"yellow"\s*\|\s*"gray";\s*children\?:\s*React\.ReactNode;\s*}/g,
+                    ""
+                  )
+            }
+          />
         </TabPanel>
       </Tabs>
     </CardContent>
@@ -191,12 +210,16 @@ const Demo = () => {
             className="h-4 w-24 text-sm theme-dark:text-white"
             as="span"
             isLoading={isLoading}
+            width={90}
+            height={10}
           >
             Elara Quinn
           </Text>
           <Text
             isLoading={isLoading}
             className="h-3 w-20 font-normal text-neutral-400 theme-dark:text-neutral-600 text-xs"
+            width={80}
+            height={90}
           >
             3:30 PM
           </Text>

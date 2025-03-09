@@ -13,19 +13,29 @@ description: An optimized image component with lazy loading and a skeleton
 <HeaderLabel id='examples'>Examples</HeaderLabel>
 </Details>
 
-<Details id='loading'>
-<HeaderLabel id='loading' as='h3'>isLoading</HeaderLabel>
-<p className="text">.</p>
-<LoadingImage />
+<Details id="loading">
+  <HeaderLabel id="loading" as="h3">isLoading</HeaderLabel>
+  <p className="text">
+    Displays a **skeleton placeholder** while the image is loading, ensuring a smooth UX.
+  </p>
+  <LoadingImage />
 </Details>
 
-<Details id='with-motion'>
-<HeaderLabel id='with-motion' as='h3'>With Motion</HeaderLabel>
-<p className="text">.</p>
-<ImageWithMotion />
+
+<Details id="with-motion">
+  <HeaderLabel id="with-motion" as="h3">With Motion</HeaderLabel>
+  <p className="text">
+    Leverages **Framer Motion** for smooth and customizable animations.
+  </p>
+  <ImageWithMotion />
 </Details>
+
 
 <Details id='api-reference'>
 <HeaderLabel id='api-reference'>API Reference</HeaderLabel>
 <APITable reference={imageRef} />
+
+  <p className="text mt-2">
+    Built with Motion for smooth, customizable animations. <TabLink className='w-auto' to="https://motion.dev/docs/react-motion-component" label="Learn more about Motion" />
+  </p>
 </Details>

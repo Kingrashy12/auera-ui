@@ -30,8 +30,8 @@ const PostSkeleton = () => {
               <Box centered className="gap-3">
                 <Avatar isLoading size="md" />
                 <Box className="flex-col gap-2">
-                  <Skeleton className="h-4 w-24" />
-                  <Skeleton className="h-3 w-20" />
+                  <Skeleton width={90} height={10} />
+                  <Skeleton width={80} height={9} />
                 </Box>
               </Box>
               <Skeleton className="h-7 w-28" radius="md" />
@@ -65,8 +65,8 @@ const Demo = () => {
        <Box centered className="gap-3">
          <Avatar isLoading size="md" />
          <Box className="flex-col gap-2">
-           <Skeleton className="h-4 w-24" />
-           <Skeleton className="h-3 w-20" />
+           <Skeleton width={10} height={10} />
+           <Skeleton width={80} height={9} />
          </Box>
        </Box>
        <Skeleton className="h-7 w-20" radius="md" />

@@ -36,7 +36,7 @@ const UsageDemo = () => {
           </Card>
         </TabPanel>
         <TabPanel>
-          <CodeBlock fileName="App.tsx" lg="tsx" code={code} />
+          <CodeBlock fileName="Demo.tsx" lg="tsx" code={code} />
         </TabPanel>
       </Tabs>
     </Details>
@@ -46,6 +46,6 @@ const UsageDemo = () => {
 export default UsageDemo;
 const code = `import { Button } from 'auera-ui';
 
-export default function App() {
+export default function Demo() {
   return <Button>Hello world</Button>;
 }`;

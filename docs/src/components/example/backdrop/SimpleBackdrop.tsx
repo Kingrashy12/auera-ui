@@ -1,4 +1,6 @@
 import CodeBlock from "@/components/layout/code/Block";
+import { useDocState } from "@/hooks/docs";
+import { replaceInCode } from "@/utils/global";
 import {
   Backdrop,
   Button,
@@ -51,6 +53,7 @@ const  SimpleBackdrop = () => {
 }
 `;
 const SimpleBackdrop = () => {
+  const { lang } = useDocState();
   const [open, setOpen] = useState(false);
   const [otp, setOtp] = useState("");
   const handleClose = () => {
@@ -90,7 +93,13 @@ const SimpleBackdrop = () => {
           </Backdrop>
         </TabPanel>
         <TabPanel>
-          <CodeBlock fileName="SimpleBackdrop.tsx" lg="tsx" code={code} />
+          <CodeBlock
+            fileName="SimpleBackdrop.tsx"
+            lg="tsx"
+            code={
+              lang.ext === "tsx" ? code : replaceInCode(code, /: string/g, "")
+            }
+          />
         </TabPanel>
       </Tabs>
     </Card>

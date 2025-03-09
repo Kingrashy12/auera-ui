@@ -7,8 +7,12 @@ import CodeBlock from "../layout/code/Block";
 import { installationCodes } from "@/data/code/installation";
 import CodeTag from "../CodeTag";
 import Terminal from "../layout/code/terminal";
+import { useDocState } from "@/hooks/docs";
 
 const Installation = () => {
+  const {
+    lang: { ext },
+  } = useDocState();
   return (
     <>
       <StepGuide step={1} id="install-auera-ui">
@@ -57,7 +61,11 @@ const Installation = () => {
           </p>
 
           <CodeBlock
-            code={installationCodes.provider}
+            code={
+              ext === "tsx"
+                ? installationCodes.provider
+                : installationCodes.provider_jsx
+            }
             lg="ts"
             fileName="layout.tsx"
           />
@@ -107,7 +115,11 @@ const Installation = () => {
             applied correctly.
           </p>
           <CodeBlock
-            code={installationCodes.config}
+            code={
+              ext === "tsx"
+                ? installationCodes.config
+                : installationCodes.config_js
+            }
             lg="ts"
             fileName="tailwind.config.ts"
           />

@@ -6,10 +6,8 @@ import Bash from "../layout/code/Bash";
 import CodeBlock from "../layout/code/Block";
 import { ejectedCodes } from "@/data/code/cli";
 import CodeTag from "../CodeTag";
-import { useDocState } from "@/hooks/docs";
 
 const CLI = () => {
-  const { lang } = useDocState();
   return (
     <>
       <StepGuide step={1} id="run-the-eject-command">
@@ -74,8 +72,8 @@ const CLI = () => {
             <li className="max-[550px]:leading-loose">
               {" "}
               The <CodeTag>--config</CodeTag> flag generates the{" "}
-              <CodeTag>tailwind.extend.{lang.baseExt}</CodeTag> file, usually in
-              the root directory.
+              <CodeTag>tailwind.extend.ts</CodeTag> file, usually in the root
+              directory.
             </li>
           </ul>
         </GuideContainer>
@@ -94,7 +92,7 @@ const CLI = () => {
           </h4>
           <CodeBlock fileName="auera.css" lg="css" code={ejectedCodes.css} />
           <h4 className="text-primary font-inter font-semibold">
-            Example (<CodeTag>tailwind.extend.{lang.baseExt}</CodeTag>):
+            Example (<CodeTag>tailwind.extend.ts</CodeTag>):
           </h4>
           <CodeBlock
             fileName="tailwind.extend.ts"
@@ -123,7 +121,7 @@ const CLI = () => {
 /* With */
 @import './auera.css';`}
           />
-          <code className="cb w-fit block">tailwind.extend.{lang.baseExt}</code>
+          <CodeTag className="cb w-fit block">tailwind.extend.ts</CodeTag>
           <CodeBlock
             fileName="tailwind.config.ts"
             lg="ts"

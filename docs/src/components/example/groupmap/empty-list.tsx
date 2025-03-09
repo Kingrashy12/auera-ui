@@ -2,6 +2,8 @@ import CodeBlock from "@/components/layout/code/Block";
 import CardContent from "@/components/lib/CardContent";
 import { groupmap_code } from "@/data/code/groupmap";
 import { notifications } from "@/data/notification";
+import { useDocState } from "@/hooks/docs";
+import { replaceInCode } from "@/utils/global";
 import GroupMap from "@/utils/GroupMap";
 import {
   Box,
@@ -17,6 +19,7 @@ import { IoCodeSlash } from "react-icons/io5";
 import { LuEye } from "react-icons/lu";
 
 const EmptyList = () => {
+  const { lang } = useDocState();
   const data: typeof notifications = [];
   return (
     <CardContent>
@@ -73,7 +76,15 @@ const EmptyList = () => {
         </TabPanel>
         <TabPanel>
           <CodeBlock
-            code={groupmap_code.empty_list}
+            code={
+              lang.ext === "tsx"
+                ? groupmap_code.empty_list
+                : replaceInCode(
+                    groupmap_code.empty_list,
+                    /: typeof notifications/g,
+                    ""
+                  )
+            }
             fileName="groupmap/empty-list.tsx"
             lg="tsx"
           />

@@ -49,8 +49,8 @@ const OverlayStructure = () => {
           </HeaderLabel>
           <p className="text">
             Create a single file, such as{" "}
-            <CodeTag>overlays/container.{lang.ext}</CodeTag> , and import all
-            the overlay components into it.
+            <CodeTag>overlays/container.{lang.ext}</CodeTag> and import all the
+            overlay components into it.
           </p>
           <CodeBlock
             fileName="components/overlays/container.tsx"
@@ -72,8 +72,8 @@ const OverlayStructure = () => {
           </HeaderLabel>
           <p className="text">
             Import the newly created Overlays Component from{" "}
-            <CodeTag>overlays/container.{lang.ext}</CodeTag> into your root
-            layout or <CodeTag>App.{lang.ext}</CodeTag>.
+            <CodeTag>overlays/container.tsx</CodeTag> into your root layout or{" "}
+            <CodeTag>App.tsx</CodeTag>.
           </p>
           <CodeBlock
             fileName="layout.tsx"
