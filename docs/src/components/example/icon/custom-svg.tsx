@@ -50,7 +50,7 @@ const CustomSvg = () => {
           <Icon icon={CustomSvgIcon} color="blue" size={25} />
         </TabPanel>
         <TabPanel>
-          <CodeBlock code={code} fileName="icon/custom-svf.tsx" lg="tsx" />
+          <CodeBlock code={code} fileName="icon/custom-svg.tsx" lg="tsx" />
         </TabPanel>
       </Tabs>
     </CardContent>

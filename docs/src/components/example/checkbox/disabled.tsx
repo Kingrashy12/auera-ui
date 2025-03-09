@@ -27,7 +27,11 @@ const DisabledCheck = () => {
           </Stack>
         </TabPanel>
         <TabPanel>
-          <CodeBlock fileName="demo.tsx" code={checkbox_codes.demo} lg="tsx" />
+          <CodeBlock
+            fileName="demo.tsx"
+            code={checkbox_codes.disabed}
+            lg="tsx"
+          />
         </TabPanel>
       </Tabs>
     </CardContent>

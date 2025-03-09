@@ -1,6 +1,8 @@
 import CodeBlock from "@/components/layout/code/Block";
 import CardContent from "@/components/lib/CardContent";
 import { images } from "@/constant/images";
+import { useDocState } from "@/hooks/docs";
+import { replaceInCode } from "@/utils/global";
 import {
   Avatar,
   Box,
@@ -51,6 +53,7 @@ const ReactionButton = ({
 
 const InteractivePost = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const { lang } = useDocState();
 
   return (
     <CardContent>
@@ -140,7 +143,19 @@ const InteractivePost = () => {
           </Button>
         </TabPanel>
         <TabPanel>
-          <CodeBlock fileName="" lg="tsx" code={code} />
+          <CodeBlock
+            fileName=""
+            lg="tsx"
+            code={
+              lang.ext === "tsx"
+                ? code
+                : replaceInCode(
+                    code,
+                    /:\s*{\s*colorScheme:\s*"red"\s*\|\s*"blue"\s*\|\s*"green"\s*\|\s*"yellow"\s*\|\s*"gray";\s*children\?:\s*React\.ReactNode;\s*}/g,
+                    ""
+                  )
+            }
+          />
         </TabPanel>
       </Tabs>
     </CardContent>

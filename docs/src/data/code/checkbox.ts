@@ -8,6 +8,15 @@ const CheckboxDemo = () => {
   </Stack>
  )
 }`,
+  disabed: `import { Checkbox, Stack } from "auera-ui";
+
+const CheckboxDemo = () => {
+ return (
+  <Stack>
+    <Checkbox disabed> I have read and agree to the terms of service.</Checkbox>
+  </Stack>
+ )
+}`,
   oncheck: `import { Checkbox, Stack } from "auera-ui";
 import { useState } from "react";
 

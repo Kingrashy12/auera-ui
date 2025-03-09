@@ -1,5 +1,7 @@
 import CodeBlock from "@/components/layout/code/Block";
 import CardContent from "@/components/lib/CardContent";
+import { useDocState } from "@/hooks/docs";
+import { replaceInCode } from "@/utils/global";
 import {
   Avatar,
   Box,
@@ -17,6 +19,8 @@ import { LuEye } from "react-icons/lu";
 type Images = { img: string }[];
 
 const Map_EmptyList = () => {
+  const { lang } = useDocState();
+
   return (
     <CardContent>
       <Tabs variant="solid" rounded>
@@ -45,7 +49,19 @@ const Map_EmptyList = () => {
           </Stack>
         </TabPanel>
         <TabPanel>
-          <CodeBlock code={code} fileName="demo.tsx" lg="tsx" />
+          <CodeBlock
+            code={
+              lang.ext === "tsx"
+                ? code
+                : replaceInCode(
+                    code,
+                    /\s*type Images = {\s*img: string\s*}\[\];\s*\n?/g,
+                    " \n \n"
+                  ).replace(/\s*\bas Images\b\s*/g, "")
+            }
+            fileName="demo.tsx"
+            lg="tsx"
+          />
         </TabPanel>
       </Tabs>
     </CardContent>

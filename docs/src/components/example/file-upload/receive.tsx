@@ -1,5 +1,7 @@
 import CodeBlock from "@/components/layout/code/Block";
 import CardContent from "@/components/lib/CardContent";
+import { useDocState } from "@/hooks/docs";
+import { replaceInCode } from "@/utils/global";
 import {
   Button,
   catchFile,
@@ -17,6 +19,7 @@ import { IoCodeSlash } from "react-icons/io5";
 import { LuEye } from "react-icons/lu";
 
 const FileUploadDemo = () => {
+  const { lang } = useDocState();
   const handleFile = catchFile({
     useFile(file) {
       toast.success("Check your console for the file data");
@@ -44,7 +47,15 @@ const FileUploadDemo = () => {
           </Stack>
         </TabPanel>
         <TabPanel className="mt-4">
-          <CodeBlock code={code} fileName="demo.tsx" lg="tsx" />
+          <CodeBlock
+            code={
+              lang.ext === "tsx"
+                ? code
+                : replaceInCode(code, /<FileData\s*\|\s*null>/g, "")
+            }
+            fileName="demo.tsx"
+            lg="tsx"
+          />
         </TabPanel>
       </Tabs>
     </CardContent>
