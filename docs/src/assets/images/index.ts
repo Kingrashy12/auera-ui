@@ -15,6 +15,14 @@ import MapItems from "./mockups/MapItems.png";
 import GroupMap from "./mockups/GroupMap.png";
 import Checkbox from "./mockups/Checkbox.png";
 import Breadcrumb from "./mockups/Breadcrumb.png";
+import PasswordInput from "./mockups/PasswordInput.png";
+import Toast from "./mockups/Toast.png";
+import FileUpload from "./mockups/FileUpload.png";
+import IconButton from "./mockups/IconButton.png";
+import Collapse from "./mockups/Collapse.png";
+import Avatar from "./mockups/Avatar.png";
+import Loading from "./mockups/Loading.png";
+import Skeleton from "./mockups/Skeleton.png";
 
 const MockupsImage = {
   Box,
@@ -32,6 +40,14 @@ const MockupsImage = {
   Drawer,
   MapItems,
   GroupMap,
+  Avatar,
+  Skeleton,
+  IconButton,
+  Loading,
+  Toast,
+  PasswordInput,
+  Collapse,
+  FileUpload,
 };
 
 export { LogoDark, LogoLight, MockupsImage };
