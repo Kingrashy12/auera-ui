@@ -7,10 +7,10 @@ import CodeBlock from "./code/Block";
 type LayoutProps = {
   code: string;
   fileName?: string;
-  display: React.ReactNode;
+  children: React.ReactNode;
 };
 
-const TabLayout: React.FC<LayoutProps> = ({ code, fileName, display }) => {
+const TabLayout: React.FC<LayoutProps> = ({ code, fileName, children }) => {
   return (
     <Tabs rounded variant="solid">
       <TabHandle icon={LuEye} iconSize={19} value="preview">
@@ -19,7 +19,7 @@ const TabLayout: React.FC<LayoutProps> = ({ code, fileName, display }) => {
       <TabHandle icon={IoCodeSlash} value="code">
         Code
       </TabHandle>
-      <TabPanel className="mt-5">{display}</TabPanel>
+      <TabPanel className="mt-5">{children}</TabPanel>
       <TabPanel>
         <CodeBlock code={code} fileName={fileName || ""} lg="tsx" />
       </TabPanel>
