@@ -75,7 +75,6 @@ export const mockups = [
     uri: "/docs/components/textinput",
     image: MockupsImage.TextInput,
     size: 120,
-    soon: true,
   },
   {
     label: "Tabs",
