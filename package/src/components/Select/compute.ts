@@ -36,13 +36,13 @@ const useComputeContent = (props: SelectContentVariants) => {
 };
 
 const useComputeItem = (props: SelectItemVariants) => {
-  const { radius, className, active, variant } = props;
+  const { radius, className, active, variant, disabled } = props;
 
   const Item = createStyle("div");
 
   const styles = useMemo(
-    () => tw(item({ radius, variant, active }), className),
-    [radius, active, className, variant]
+    () => tw(item({ radius, variant, disabled, active }), className),
+    [radius, active, className, disabled, variant]
   );
 
   return useMemo(() => Item.classname(styles), [styles]);

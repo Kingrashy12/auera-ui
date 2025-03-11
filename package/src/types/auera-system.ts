@@ -6,6 +6,7 @@ import { VariantProps } from "class-variance-authority";
 export type DesignFlavour = "corporate" | "frost" | "neumorphic";
 // | "material"
 // | "cream";
+// | "neobrutalism";
 
 export type SchemeVariant = "primary" | "success" | "danger" | "warning";
 export type ButtonVariant =
@@ -15,6 +16,16 @@ export type ButtonVariant =
   | "light"
   | "ghost"
   | "unstyled";
+
+export type ColorSchemes =
+  | "blue"
+  | "red"
+  | "yellow"
+  | "green"
+  | "neutral"
+  | "thick"
+  | "teal"
+  | "gray";
 
 export type ProviderProps = {
   flavour?: DesignFlavour;

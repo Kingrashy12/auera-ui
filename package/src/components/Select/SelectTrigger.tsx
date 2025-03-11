@@ -17,12 +17,14 @@ const SelectTrigger: React.FC<SelectTriggerProps> = ({
     useSelectState();
   const Trigger = useComputeTrigger({ radius, className, variant });
 
+  const splitBy = currentValue.includes("-") ? "-" : " ";
+
   return (
     <Trigger onClick={open ? onClose : onOpen} data-theme={mode}>
       {children ?? (
         <span className={tw("truncate text-sm", className)}>
           {currentValue
-            ? StrFun.capitalize(currentValue, "-", " ")
+            ? StrFun.capitalize(currentValue, splitBy, " ")
             : placeholder}
         </span>
       )}

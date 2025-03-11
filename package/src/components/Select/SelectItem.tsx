@@ -11,6 +11,7 @@ const SelectItem: React.FC<SelectItemProps> = ({
   value,
   isCurrent,
   onSelect,
+  disabled,
 }) => {
   const { radius, currentValue, setValue, onClose, mode, contentVariant } =
     useSelectState();
@@ -19,9 +20,12 @@ const SelectItem: React.FC<SelectItemProps> = ({
     className,
     active: currentValue === value,
     variant: contentVariant,
+    disabled,
   });
 
   const select = () => {
+    if (disabled) return;
+
     setValue(value);
     if (onSelect) {
       onSelect(value);
