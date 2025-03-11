@@ -555,7 +555,7 @@ export interface SelectItemProps {
   disabled?: boolean;
 }
 
-export interface DynamicBreadcrumbsProps {
+export interface DynamicBreadcrumbProps {
   separator?: "splash" | "arrow";
   itemClass?: string;
   containerClass?: string;

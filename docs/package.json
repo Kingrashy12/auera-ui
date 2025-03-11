@@ -1,6 +1,6 @@
 {
   "name": "auera-ui",
-  "version": "0.1.0",
+  "version": "0.1.40",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -22,7 +22,7 @@
     "@mdx-js/react": "^3.1.0",
     "@next/mdx": "^15.0.4",
     "@vercel/analytics": "^1.4.1",
-    "auera-ui": "^0.1.39",
+    "auera-ui": "^0.1.40",
     "next": "^15.1.6",
     "next-mdx-remote": "^5.0.0",
     "prism-react-renderer": "^2.4.0",

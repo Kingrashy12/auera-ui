@@ -145,6 +145,10 @@ import InteractivePost from "@/components/example/skeleton/interactive-post";
 import LoadingImage from "@/components/example/image/isloading";
 import ImageWithMotion from "@/components/example/image/with-motion";
 import ImageDemo from "@/components/example/image/demo";
+import FabDemo from "@/components/example/fab/demo";
+import FabColors from "@/components/example/fab/colors";
+import FabVariants from "@/components/example/fab/variants";
+import FabSizes from "@/components/example/fab/sizes";
 
 export const components = {
   DetailCard,
@@ -297,6 +301,10 @@ export const components = {
   LoadingImage,
   ImageWithMotion,
   ImageDemo,
+  FabDemo,
+  FabColors,
+  FabVariants,
+  FabSizes,
 };
 
 export const MDXRemote = dynamic(() =>

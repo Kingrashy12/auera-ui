@@ -98,11 +98,9 @@ const GroupMap = <T,>({
   direction = "column",
   ...props
 }: GroupMapType<T> & BoxWithMotion) => {
-  // Group data based on the extracted key
   const groupedData: Record<string, T[]> = {};
 
   data.forEach((item) => {
-    // Extract key from each item
     const key = groupByKey(item);
     if (!groupedData[key]) {
       groupedData[key] = [];
@@ -123,7 +121,11 @@ const GroupMap = <T,>({
                 className={dataMapClass}
                 {...props}
               >
-                {group.map(renderItem)}
+                {group.map((item, index) => (
+                  <React.Fragment key={index}>
+                    {renderItem(item, index)}
+                  </React.Fragment>
+                ))}
               </Box>
             </Box>
           ))

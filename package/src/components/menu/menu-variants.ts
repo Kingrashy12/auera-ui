@@ -7,8 +7,8 @@ type ItemVariants = VProps<typeof item>;
 type ContainerVariants = VProps<typeof container>;
 
 const list = cva(
-  `w-auto max-w-[20rem] h-auto top-8 left-0 z-500 rounded-xl absolute border-2 tone-dark:border-neutral-800
-    border-neutral-200 flex flex-col transition-transform duration-300
+  `w-auto max-w-[20rem] h-auto top-8 left-0 z-500 rounded-xl absolute border tone-dark:border-neutral-800
+    border-neutral-200 flex flex-col transition-transform duration-300 shadow-[4px_5px_10px_rgba(255,255,255,0.05)]
      flex-shrink-0 animate-walkIn bg-white tone-dark:bg-black`,
   {
     variants: {

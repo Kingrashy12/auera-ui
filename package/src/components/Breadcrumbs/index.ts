@@ -1,2 +1,2 @@
-export { default as DynamicBreadcrumbs } from "./DynamicBreadcrumbs";
+export { default as DynamicBreadcrumb } from "./DynamicBreadcrumb";
 export * from "./Breadcrumbs";

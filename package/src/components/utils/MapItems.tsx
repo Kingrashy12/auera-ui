@@ -60,7 +60,13 @@ const MapItems = <T,>(
       initial={initial}
       {...props}
     >
-      {data && data.length >= 1 ? data.map(renderItem) : emptyListComponent}
+      {data && data.length >= 1
+        ? data.map((item, index) => (
+            <React.Fragment key={index}>
+              {renderItem(item, index)}
+            </React.Fragment>
+          ))
+        : emptyListComponent}
     </Box>
   );
 };

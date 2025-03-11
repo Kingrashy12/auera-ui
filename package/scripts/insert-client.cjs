@@ -29,7 +29,7 @@ const insertFiles = [
   "components/Switch/Switch.d.ts",
   "components/Collapse/Collapse.d.ts",
   "core/Provider.d.ts",
-  "components/Breadcrumbs/DynamicBreadcrumbs.d.ts",
+  "components/Breadcrumbs/DynamicBreadcrumb.d.ts",
   "components/Badge/Badge.d.ts",
 ];
 const insertDir = [...componentsDir, ...hooksDir];

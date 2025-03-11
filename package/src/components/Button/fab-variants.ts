@@ -2,7 +2,7 @@ import { cva } from "class-variance-authority";
 import { VProps } from "../../types/auera-system";
 
 const fab = cva(
-  `flex items-center justify-center animate-walkIn cursor-pointer
+  `flex items-center justify-center animate-walkIn cursor-pointer flex-shrink-0
      rounded-full shadow transition-all duration-300 active:scale-95`,
   {
     variants: {
@@ -15,10 +15,10 @@ const fab = cva(
         true: "pointer-events-none opacity-75 cursor-not-allowed",
       },
       size: {
-        sm: "w-6 h-6",
-        md: "w-8 h-8",
-        lg: "w-10 h-10",
-        xl: "w-12 h-12",
+        sm: "w-7 h-7",
+        md: "w-9 h-9",
+        lg: "w-11 h-11",
+        xl: "w-[50px] h-[50px]",
         "2xl": "w-14 h-14",
       },
       color: {
