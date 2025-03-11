@@ -4,12 +4,16 @@ import React, { useState } from "react";
 import { getDisplayName } from "@/utils/displayname";
 import { useMode } from "@/hook/use";
 
+export let clearFile: () => void;
+
 const emptyFile = {
   base64: "",
   main: {
     name: "",
     type: "",
     size: 0,
+    lastModified: 0,
+    webkitRelativePath: "",
   },
 };
 
@@ -47,6 +51,11 @@ const FileUpload: React.FC<FileUploadProps> = ({
     setFiles((files) => {
       return files.filter((_, idx) => idx !== index);
     });
+  };
+
+  clearFile = () => {
+    setFiles([]);
+    setFile(emptyFile);
   };
 
   return (

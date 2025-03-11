@@ -4,10 +4,10 @@ import { useDocState } from "@/hooks/docs";
 import { replaceInCode } from "@/utils/global";
 import {
   Button,
-  catchFile,
   FileUpload,
   FileUploadList,
   FileUploadTrigger,
+  handleFileUpload,
   Stack,
   TabHandle,
   TabPanel,
@@ -20,11 +20,10 @@ import { LuEye } from "react-icons/lu";
 
 const FileUploadDemo = () => {
   const { lang } = useDocState();
-  const handleFile = catchFile({
-    useFile(file) {
-      toast.success("Check your console for the file data");
-      console.log(file);
-    },
+
+  const handleFile = handleFileUpload((file) => {
+    toast.success("Check your console for the file data");
+    console.log(file);
   });
 
   return (
@@ -69,7 +68,7 @@ const code = `import {
   FileUpload,
   FileUploadList,
   FileUploadTrigger,
-  catchFile,
+  handleFileUpload,
   FileData
 } from "auera-ui";
 import { useState } from "react";
@@ -77,14 +76,12 @@ import { useState } from "react";
 export const UploadDemo = () => {
  const [uploadedFile, setUploadedFile] = useState<FileData | null>(null);
 
- const handleFile = catchFile({
-    useFile(file) {
+  const handleFile = handleFileUpload((file) => {
     // \`\ file\` is of type \`\FileData\`
-    // Store the file in state if needed.
-    console.log(file);
+    toast.success("Check your console for the file data");
     setUploadedFile(file);
-    },
- });
+    console.log(file);
+  });
 
  return (
   <FileUpload onFileUpload={handleFile}>
