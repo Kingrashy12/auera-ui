@@ -81,7 +81,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       )}
       suppressHydrationWarning
     >
-      <Box direction="column" fullWidth className="sticky top-0 z-50">
+      <Box direction="column" fullWidth className="sticky top-0 z-[400]">
         <Navbar />
         {singleBar.every((route) => route !== router.pathname) && <ToolBar />}
       </Box>

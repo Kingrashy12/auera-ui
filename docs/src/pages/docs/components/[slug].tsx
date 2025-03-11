@@ -31,6 +31,7 @@ import { fetchContent } from "@/hooks/fetch_content";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { MDXRemoteSerializeResult } from "next-mdx-remote";
 import React, { Suspense } from "react";
+import { fabRef } from "@/data/api-ref/fab";
 
 interface Props {
   mdxSource: MDXRemoteSerializeResult;
@@ -65,6 +66,7 @@ const data = {
   textinputRef,
   skeletonRef,
   imageRef,
+  fabRef,
 };
 
 const Page = ({ frontmatter, mdxSource, slug }: Props) => {
@@ -101,7 +103,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     "checkbox",
     "collapse",
     "drawer",
-    // "fab",
+    "fab",
     "groupmap",
     "icon",
     "icon-button",

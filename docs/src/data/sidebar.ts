@@ -119,7 +119,6 @@ export const sideBarLinks = [
       {
         label: "Fab",
         uri: "/docs/components/fab",
-        soon: true,
       },
     ],
   },

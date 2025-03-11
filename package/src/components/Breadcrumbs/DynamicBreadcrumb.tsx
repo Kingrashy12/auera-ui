@@ -6,14 +6,14 @@ import { IoIosArrowForward } from "react-icons/io";
 import { tw } from "stywind";
 import Box from "../Box/Box";
 import Icon from "../Icon/Icon";
-import { DynamicBreadcrumbsProps } from "../../types/auera-ui";
+import { DynamicBreadcrumbProps } from "../../types/auera-ui";
 
-interface DynamicBreadcrumbsItem {
+interface DynamicBreadcrumbItem {
   label: string;
   href?: string;
 }
 
-const DynamicBreadcrumbs: React.FC<DynamicBreadcrumbsProps> = ({
+const DynamicBreadcrumb: React.FC<DynamicBreadcrumbProps> = ({
   separator = "arrow",
   itemClass,
   className,
@@ -33,10 +33,10 @@ const DynamicBreadcrumbs: React.FC<DynamicBreadcrumbsProps> = ({
     [router.pathname]
   );
 
-  const [items, setItems] = useState<DynamicBreadcrumbsItem[]>([]);
+  const [items, setItems] = useState<DynamicBreadcrumbItem[]>([]);
 
   const addLink = () => {
-    const newItems: DynamicBreadcrumbsItem[] = [];
+    const newItems: DynamicBreadcrumbItem[] = [];
     for (let i = 0; i < str.length; i++) {
       const basePath = str[i];
       const redirectPath = str.slice(0, i + 1).join("/");
@@ -109,4 +109,4 @@ const DynamicBreadcrumbs: React.FC<DynamicBreadcrumbsProps> = ({
   );
 };
 
-export default DynamicBreadcrumbs;
+export default DynamicBreadcrumb;

@@ -22,7 +22,7 @@ const ToggleTheme = () => {
   return (
     <Menu
       zIndex="200"
-      className="-left-28 w-[150px] shadow-[4px_5px_10px_rgba(255,255,255,0.05)] gap-0"
+      className="-left-28 w-[150px] shadow-[4px_5px_10px_rgba(255,255,255,0.05)] gap-0 border"
     >
       <MenuTrigger>
         <IconButton variant="outline" radius="xl">

@@ -41,9 +41,9 @@ export const aueraTw = ({
       position: "absolute",
     },
     ...Object.fromEntries(
-      Array.from({ length: 10 }, (_, i) => [
-        `.z-${(i + 8) * 100}`,
-        { zIndex: (i + 8) * 100 },
+      Array.from({ length: 22 }, (_, i) => [
+        `.z-${(i + 1) * 70}`,
+        { zIndex: (i + 1) * 70 },
       ])
     ),
   });

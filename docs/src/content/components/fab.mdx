@@ -1,7 +1,47 @@
 ---
 title: Fab | AueraUI
-description: A dynamic button that stays visible, offering convenient access to a primary action.
+description: A circular button used for primary actions in an interface.
 ---
 
-<DetailCard description='A dynamic button that stays visible, offering convenient access to a primary action.'/>
+<DetailCard description='A circular button used for primary actions in an interface.'/>
 
+<Details>
+<FabDemo />
+</Details>
+
+<Details id='examples'>
+<HeaderLabel id='examples'>Examples</HeaderLabel>
+</Details>
+
+<Details id='variants'>
+  <HeaderLabel id='variants' as='h3'>Variants</HeaderLabel>
+  <p className="text">
+    The Fab supports different visual styles, Each variant provides a distinct appearance
+    to match your design needs.  Use the <CodeTag>variant</CodeTag> prop to customize the style.
+  </p>
+  <FabVariants />
+</Details>
+
+<Details id='sizes'>
+  <HeaderLabel id='sizes' as='h3'>Sizes</HeaderLabel>
+  <p className="text">
+    Available in multiple sizes ensuring flexibility for various UI layouts.
+     Use the <CodeTag>size</CodeTag> prop to adjust the component size.
+  </p>
+  <FabSizes />
+</Details>
+
+<Details id='colors'>
+  <HeaderLabel id='colors' as='h3'>Colors</HeaderLabel>
+  <p className="text">
+    Choose from a range of colors to seamlessly blend with your design aesthetics.
+    Use the <CodeTag>color</CodeTag> prop to change the Fab’s color.
+  </p>
+  <FabColors />
+</Details>
+
+
+<Details id='api-reference'>
+<HeaderLabel id='api-reference'>API Reference</HeaderLabel>
+<APITable reference={fabRef} />
+</Details>
