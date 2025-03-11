@@ -1,4 +1,4 @@
-import { CatchFile } from "../types/auera-ui";
+import { FileHandler } from "../types/auera-ui";
 import { Currency, DataGroup } from "../types/utils";
 
 /**
@@ -174,26 +174,23 @@ export const groupData = <T>({
 };
 
 /**
- * Utility function that handles file extraction from the `onFileUpload` prop in the `FileUpload` component.
- * It processes the uploaded file and returns either a single `FileData` object or an array of `FileData` objects.
+ * Handles file extraction from the `onFileUpload` prop in the `FileUpload` component.
+ * It processes the uploaded file and provides the extracted file data to the given callback.
  *
- * @param {Object} params - The parameter object.
- * @param {Function} params.useFile - A callback function that processes the uploaded file.
- * @returns {CatchFile['useFile']} The processed file data, either a single `FileData` object or an array of `FileData` objects.
+ * @param {Function} callback - A function that receives the uploaded file data.
+ * @returns {FileHandler} A function that processes a single or multiple uploaded files.
  *
  * @example
- * // Define a file handler using catchFile
- * const handleFile = catchFile({
- *   useFile(file) {
- *     // If a single file is uploaded, extract its base64 and main file structure
- *     const mainFile = !Array.isArray(file) ? file.main : null;
- *     const base64File = !Array.isArray(file) ? file.base64 : null;
+ *   // Define a file handler using handleFileUpload
+ * const handleFile = handleFileUpload((file) => {
+ *   // Extract main file and base64 data if a single file is uploaded
+ *   const mainFile = Array.isArray(file) ? null : file.main;
+ *   const base64File = Array.isArray(file) ? null : file.base64;
  *
- *     // If multiple files are uploaded, store them in an array
- *     const fileArray = Array.isArray(file) ? file : [];
+ *   // Store multiple files in an array
+ *   const fileArray = Array.isArray(file) ? file : [];
  *
- *     console.log(mainFile, base64File, fileArray);
- *   },
+ *   console.log(mainFile, base64File, fileArray);
  * });
  *
  * // Pass it as a prop to the FileUpload component
@@ -201,8 +198,9 @@ export const groupData = <T>({
  *   // Other file upload components
  * </FileUpload>
  */
-export const catchFile = ({ useFile }: CatchFile): CatchFile["useFile"] =>
-  useFile;
+
+export const handleFileUpload = (fileHandler: FileHandler): FileHandler =>
+  fileHandler;
 
 export const paginate = <T>(
   data: T[],
@@ -212,4 +210,9 @@ export const paginate = <T>(
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   return data.slice(startIndex, endIndex);
+};
+
+export const hasEmptyFields = <T>(arg: T, fields: Array<keyof T>): boolean => {
+  const hasAllFields = fields.every((val) => arg[val]);
+  return !hasAllFields;
 };

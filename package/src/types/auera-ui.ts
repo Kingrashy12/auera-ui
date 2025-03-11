@@ -406,28 +406,27 @@ export interface PasswordProps extends InputProp {
   hideLock?: boolean;
 }
 
-export interface FileUploadProps {
-  children: React.ReactNode;
-  multiple?: boolean;
-  onFileUpload?: (file: FileData) => void;
-  maxFiles?: number;
-  mode?: ModeType;
-}
-
 export type FileContruct = {
   base64: string;
   main: {
     name: string;
     type: string;
     size: number;
+    lastModified: number;
+    webkitRelativePath: string;
   };
 };
 
 export type FileData = FileContruct | FileContruct[];
+export type FileHandler = (file: FileData) => void;
 
-export type CatchFile = {
-  useFile: (file: FileData) => void;
-};
+export interface FileUploadProps {
+  children: React.ReactNode;
+  multiple?: boolean;
+  onFileUpload?: FileHandler;
+  maxFiles?: number;
+  mode?: ModeType;
+}
 
 export interface UploadDropzone {
   accept?: FileType[];
