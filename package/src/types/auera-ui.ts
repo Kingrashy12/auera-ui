@@ -4,6 +4,7 @@ import {
   ButtonVariant,
   ColorKey,
   ColorPair,
+  ColorSchemes,
   DesignFlavour,
   ModeType,
   SchemeVariant,
@@ -341,10 +342,12 @@ export declare type ToastOptionsType = {
 export interface FabProps extends DivProps {
   position?: "left" | "right";
   type?: "fixed" | "relative" | "absolute" | "sticky" | "static";
-  color?: "primary" | "danger" | "success" | "bold";
-  size?: "sm" | "md" | "lg" | "xl";
+  color?: ColorSchemes;
+  size?: "sm" | "md" | "lg" | "xl" | "2xl";
   disabled?: boolean;
   zIndex?: zIndex;
+  variant?: "solid" | "soft" | "outline";
+  mode?: ModeType;
 }
 
 export interface MenuProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -549,6 +552,7 @@ export interface SelectItemProps {
   children?: React.ReactNode;
   className?: string;
   isCurrent?: boolean;
+  disabled?: boolean;
 }
 
 export interface DynamicBreadcrumbsProps {

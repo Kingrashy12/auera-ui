@@ -37,7 +37,7 @@ const trigger = cva(
 );
 
 const content = cva(
-  `fixed z-100 bg-white shadow-card border-1.9 shrink-0 w-full tone-dark:bg-black
+  `fixed z-400 bg-white shadow-card border-1.9 shrink-0 w-full tone-dark:bg-black
   border-neutral-200 tone-dark:border-neutral-900 tone-dark:shadow-[0_4px_8px_rgba(255,255,255,0.05)]
    flex-col`,
   {
@@ -88,11 +88,15 @@ const item = cva(
         padded: "p-2",
         flush: "p-3 rounded-none",
       },
+      disabled: {
+        true: "cursor-not-allowed opacity-80",
+      },
     },
     defaultVariants: {
       radius: "md",
       active: false,
       variant: "padded",
+      disabled: false,
     },
   }
 );
