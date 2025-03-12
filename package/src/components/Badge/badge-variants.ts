@@ -105,6 +105,12 @@ export const badge = cva(
         class:
           "bg-gray-100 text-gray-800 tone-dark:text-white tone-dark:bg-white/10",
       },
+      {
+        variant: "soft",
+        colorScheme: "thick",
+        class:
+          "bg-black/10 text-neutral-700 tone-dark:bg-gray-800/50 tone-dark:text-white",
+      },
       //   Outline
       {
         variant: "outline",

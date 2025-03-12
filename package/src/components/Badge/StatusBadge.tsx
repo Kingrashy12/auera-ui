@@ -10,6 +10,7 @@ const statusBadgeColorScheme = {
 };
 
 const statusBadgeSize = {
+  sm: "w-[9px] h-[9px]",
   md: "w-[12px] h-[12px]",
   lg: "w-[16px] h-[16px]",
 };
@@ -40,9 +41,9 @@ const StatusBadge: React.FC<StatusBadgeProps> = ({
           merge.single(statusBadgeSize, size),
           merge.single(statusBadgeColorScheme, status),
           merge.single(position, placement),
-          badgeClassName as string,
           animate && "animate-pulse",
-          basicClass
+          basicClass,
+          badgeClassName
         )}
       />
       {children}

@@ -19,7 +19,7 @@ const TabLayout: React.FC<LayoutProps> = ({
   className,
 }) => {
   return (
-    <Tabs rounded variant="solid">
+    <Tabs rounded variant="solid" containerClass="overflow-visible">
       <TabHandle icon={LuEye} iconSize={19} value="preview">
         Preview
       </TabHandle>

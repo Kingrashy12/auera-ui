@@ -16,6 +16,7 @@ const componentsDir = [
   "components/Input",
   "components/Select",
   "components/Provider",
+  "components/Table",
 ];
 const hooksDir = ["hook", "context"];
 const insertFiles = [

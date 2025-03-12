@@ -32,6 +32,8 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { MDXRemoteSerializeResult } from "next-mdx-remote";
 import React, { Suspense } from "react";
 import { fabRef } from "@/data/api-ref/fab";
+import { tableRef } from "@/data/api-ref/table";
+import { badgeRef } from "@/data/api-ref/badge";
 
 interface Props {
   mdxSource: MDXRemoteSerializeResult;
@@ -67,6 +69,8 @@ const data = {
   skeletonRef,
   imageRef,
   fabRef,
+  tableRef,
+  badgeRef,
 };
 
 const Page = ({ frontmatter, mdxSource, slug }: Props) => {
@@ -123,6 +127,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
     "textinput",
     "skeleton",
     "image",
+    "table",
+    "badge",
   ];
 
   const paths = slugs.map((slug) => ({

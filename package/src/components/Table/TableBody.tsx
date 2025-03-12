@@ -1,12 +1,15 @@
+import { useTable } from "@/context/table";
 import React from "react";
 import { TBodyProps, tw } from "stywind";
 
 const TableBody: React.FC<TBodyProps> = ({ children, className, ...props }) => {
-  // TODO: Add mode
+  const { mode } = useTable();
+
   return (
     <tbody
+      data-theme={mode}
       className={tw(
-        "divide-y divide-gray-200 tone-dark:divide-neutral-700",
+        "divide-y divide-gray-200 tone-dark:divide-neutral-800",
         className
       )}
       {...props}

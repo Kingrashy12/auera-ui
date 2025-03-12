@@ -14,7 +14,7 @@ type Cls = {
 const generateButtonClass = ({ colorScheme, variant, className }: Cls) => {
   return cva(
     `flex justify-center items-center shrink-0 font-medium font-inter
-    transition-layer duration-300 active:scale-95 gap-2 text-sm`,
+    transition-layer duration-300 active:scale-95 gap-2 text-sm relative`,
     {
       variants: {
         flavour: {

@@ -3,21 +3,21 @@ import { forwardRef } from "react";
 import { motion } from "motion/react";
 import { TabPanelWithMotion } from "../../types/auera-motion";
 
-const motionVariants = {
-  enter: { opacity: 0, x: 100 },
-  center: { opacity: 1, x: 0 },
-  exit: { opacity: 0, x: -100 },
+const slideInVariants = {
+  initial: "enter",
+  animate: "center",
+  exit: "exit",
+  variants: {
+    enter: { opacity: 0, x: 100 },
+    center: { opacity: 1, x: 0 },
+    exit: { opacity: 0, x: -100 },
+  },
 };
 
 const TabPanel = forwardRef<HTMLDivElement, TabPanelWithMotion>(
   ({ children, animatePanel, ...props }, ref) => {
     const getAnimation = () => {
-      const initial = "enter";
-      const animate = "center";
-      const exit = "exit";
-      const variants = motionVariants;
-
-      return animatePanel ? { initial, animate, exit, variants } : {};
+      return animatePanel ? { ...slideInVariants } : {};
     };
     return (
       <motion.div
