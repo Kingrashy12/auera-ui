@@ -5,7 +5,7 @@ import { useMemo } from "react";
 import { createStyle, tw } from "stywind";
 
 const ibutton = cva(
-  "active:scale-95 transition-transform flex items-center tone-dark:text-white tone-light:text-black",
+  "active:scale-95 transition-transform relative flex items-center tone-dark:text-white tone-light:text-black",
   {
     variants: {
       as: {

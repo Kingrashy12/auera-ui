@@ -1,15 +1,20 @@
+import { useTable } from "@/context/table";
+import { TableHeadProps } from "../../types/auera-ui";
 import { getDisplayName } from "@/utils/displayname";
 import React from "react";
-import { THeadProps, tw } from "stywind";
+import { tw } from "stywind";
 
-interface Head extends THeadProps {
-  tint?: boolean;
-}
+const TableHead: React.FC<TableHeadProps> = ({
+  children,
+  tint,
+  className,
+  ...props
+}) => {
+  const { mode } = useTable();
 
-const TableHead: React.FC<Head> = ({ children, tint, className, ...props }) => {
-  // TODO: Add mode
   return (
     <thead
+      data-theme={mode}
       className={tw(tint && "bg-gray-50 tone-dark:bg-neutral-800", className)}
       {...props}
     >

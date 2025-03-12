@@ -11,6 +11,7 @@ import {
 } from "./auera-system";
 import { InputProps } from "./element-props";
 import { zIndex } from "./keys";
+import { TableProps, TableRowProps, THeadProps } from "stywind";
 
 export type DivProps = React.HTMLAttributes<HTMLDivElement>;
 export type BtnProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
@@ -221,7 +222,7 @@ export type CheckBoxProps = {
   checked?: boolean;
 };
 
-export type TabsType = {
+export type TabsType<Comp> = {
   children?: React.ReactNode;
   variant?: "line" | "solid";
   mode?: "light" | "dark";
@@ -231,6 +232,7 @@ export type TabsType = {
   hideScrollBar?: boolean;
   containerClass?: string;
   hideBorder?: boolean;
+  panel?: React.FunctionComponent<Comp>;
 };
 
 export type TabHandleType = {
@@ -378,7 +380,7 @@ export type CollapseProps = {
 
 export type StatusBadgeProps = {
   status?: "online" | "offline" | "away" | "busy";
-  size?: "md" | "lg";
+  size?: "sm" | "md" | "lg";
   className?: string;
   children?: React.ReactNode;
   badgeClassName?: string;
@@ -598,4 +600,25 @@ export interface SkeletonProps {
   width?: number | string;
   height?: number | string;
   style?: React.CSSProperties;
+}
+
+export interface TableInterface extends TableProps {
+  rounded?: boolean;
+  bordered?: boolean;
+  raised?: boolean;
+  noBorder?: boolean;
+  classNames?: {
+    table?: string;
+    container?: string;
+  };
+  mode?: ModeType;
+}
+
+export interface Row extends TableRowProps {
+  verticalLine?: boolean;
+  hoverable?: boolean;
+}
+
+export interface TableHeadProps extends THeadProps {
+  tint?: boolean;
 }

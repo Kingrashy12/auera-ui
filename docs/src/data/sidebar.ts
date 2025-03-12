@@ -61,7 +61,7 @@ export const sideBarLinks = [
     links: [
       { label: "Avatar", uri: "/docs/components/avatar" },
       { label: "Button", uri: "/docs/components/button", updated: false },
-      // { label: "Badge", uri: "/docs/components/badge", soon: true },
+      { label: "Badge", uri: "/docs/components/badge" },
       { label: "Backdrop", uri: "/docs/components/backdrop" },
       { label: "Box", uri: "/docs/components/box" },
       { label: "Checkbox", uri: "/docs/components/checkbox" },
@@ -96,7 +96,7 @@ export const sideBarLinks = [
       { label: "Loading", uri: "/docs/components/loading" },
       { label: "Tabs", uri: "/docs/components/tabs" },
       { label: "Tooltip", uri: "/docs/components/tooltip", soon: true },
-      { label: "Table", uri: "/docs/components/table", soon: true },
+      { label: "Table", uri: "/docs/components/table" },
       { label: "Toast", uri: "/docs/components/toast" },
       {
         label: "Status Badge",

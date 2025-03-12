@@ -18,6 +18,7 @@ export * from "./Select";
 export * from "./Badge";
 export * from "./utils";
 export * from "./Text";
+export * from "./Table";
 
 export { default as Backdrop } from "./Backdrop/Backdrop";
 export { default as Checkbox } from "./Checkbox/CheckBox";

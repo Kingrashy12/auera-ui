@@ -7,11 +7,12 @@ import { useMode } from "@/hook/use";
 import { TabsType } from "../../types/auera-ui";
 import TabHandle from "./TabHandle";
 import TabPanel from "./TabPanel";
+import { ModeType } from "@/types/auera-system";
 
 const getStylesWithMode = (
-  mode: TabsType["mode"],
-  variant: TabsType["variant"],
-  rounded: TabsType["rounded"]
+  mode: ModeType,
+  variant: TabsType<{}>["variant"],
+  rounded: TabsType<{}>["rounded"]
 ) => {
   const sharedStyle = {
     line: "bg-transparent rounded-none p-0 border-t-none border-b",
@@ -32,8 +33,8 @@ const getStylesWithMode = (
 };
 
 const getTabWidth = (
-  variant: TabsType["variant"],
-  fullWidth: TabsType["fullWidth"]
+  variant: TabsType<{}>["variant"],
+  fullWidth: TabsType<{}>["fullWidth"]
 ) => {
   switch (variant) {
     case "line":
@@ -45,7 +46,7 @@ const getTabWidth = (
   }
 };
 
-const Tabs: React.FC<TabsType> = ({
+const Tabs = <T,>({
   children,
   variant = "line",
   mode,
@@ -55,7 +56,8 @@ const Tabs: React.FC<TabsType> = ({
   hideScrollBar,
   containerClass,
   hideBorder,
-}) => {
+  panel,
+}: TabsType<T>) => {
   const { currentMode } = useMode(mode);
 
   const scrollBar = defineClass(
@@ -91,8 +93,10 @@ const Tabs: React.FC<TabsType> = ({
     (child) => (child as React.ReactElement).type === TabHandle
   );
 
+  const Panel = panel ?? TabPanel;
+
   const tabsPanel = React.Children.toArray(children).filter(
-    (child) => (child as React.ReactElement).type === TabPanel
+    (child) => (child as React.ReactElement).type === Panel
   );
 
   return (

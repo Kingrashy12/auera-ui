@@ -1,0 +1,121 @@
+---
+title: Table | AueraUI
+description: A customizable table for displaying structured data
+---
+
+<DetailCard description='A customizable table for displaying structured data'/>
+
+<Details>
+<TableDemo />
+</Details>
+
+<Details id='examples'>
+<HeaderLabel id='examples'>Examples</HeaderLabel>
+</Details>
+
+<Details id="hoverable-rows">
+  <HeaderLabel id="hoverable-rows" as="h3">Hoverable Rows</HeaderLabel>
+  <p className="text">
+    Rows highlight when hovered over to improve readability and user experience.
+    Add the <CodeTag>hoverable</CodeTag> prop to <CodeTag>TableRow</CodeTag> for this.
+  </p>
+  <HoverableTable />
+</Details>
+
+<Details id="bordered">
+  <HeaderLabel id="bordered" as="h3">Bordered Table</HeaderLabel>
+  <p className="text">
+    Adds borders around table cells to clearly define rows and columns.
+    Use the <CodeTag>bordered</CodeTag> prop.
+  </p>
+  <BorderedTable />
+</Details>
+
+<Details id="rounded">
+  <HeaderLabel id="rounded" as="h3">Rounded Table</HeaderLabel>
+  <p className="text">
+    Applies rounded corners to the table for a softer and modern look.
+    Use the <CodeTag>rounded</CodeTag> prop.
+  </p>
+  <RoundedTable />
+</Details>
+
+<Details id="raised">
+  <HeaderLabel id="raised" as="h3">Raised Table</HeaderLabel>
+  <p className="text">
+    Gives the table a subtle shadow effect, making it appear elevated.
+    Use the <CodeTag>raised</CodeTag> prop.
+  </p>
+  <RaisedTable />
+</Details>
+
+<Details id="tinted-header">
+  <HeaderLabel id="tinted-header" as="h3">Tinted Header</HeaderLabel>
+  <p className="text">
+    Applies a background color to the table header to differentiate it from the body.
+    Add the <CodeTag>tint</CodeTag> prop to <CodeTag>TableHead</CodeTag>.
+  </p>
+  <TintedHeader />
+</Details>
+
+<Details id="without-border">
+  <HeaderLabel id="without-border" as="h3">Table Without Border</HeaderLabel>
+  <p className="text">
+    Removes the default table borders, creating a cleaner and more minimalistic look.
+    Use the <CodeTag>noBorder</CodeTag> prop.
+  </p>
+  <TableWithoutBorder />
+</Details>
+
+<Details id="vertical-thread">
+  <HeaderLabel id="vertical-thread" as="h3">Vertical Thread</HeaderLabel>
+  <p className="text">
+    Displays dividers between table columns for improved readability.
+    Add the <CodeTag>verticalLine</CodeTag> prop to <CodeTag>TableRow</CodeTag>.
+  </p>
+  <VerticalThreadTable />
+</Details>
+
+<Details id="caption">
+  <HeaderLabel id="caption" as="h3">Caption</HeaderLabel>
+  <p className="text">
+    Adds a descriptive caption above the table to provide context.
+  </p>
+  <TableCaption />
+</Details>
+
+
+
+<Details id='api-reference'>
+<HeaderLabel id='api-reference'>API Reference</HeaderLabel>
+</Details>
+
+<Details id='table'>
+<HeaderLabel id='table' as='h3'>Table</HeaderLabel>
+<APITable reference={tableRef.root} />
+</Details>
+
+<Details id='table-head'>
+<HeaderLabel id='table-head' as='h3'>TableHead</HeaderLabel>
+<APITable reference={tableRef.head} />
+</Details>
+
+<Details id='table-row'>
+<HeaderLabel id='table-row' as='h3'>TableRow</HeaderLabel>
+<APITable reference={tableRef.row} />
+</Details>
+
+{/* <Details id='table-head-cell'>
+<HeaderLabel id='table-head-cell' as='h3'>TableHeadCell</HeaderLabel>
+<p className="text">.</p>
+</Details>
+
+<Details id='body'>
+<HeaderLabel id='body' as='h3'>TableBody</HeaderLabel>
+<p className="text">.</p>
+</Details>
+
+<Details id='cell'>
+<HeaderLabel id='cell' as='h3'>TableCell</HeaderLabel>
+<p className="text">.</p>
+</Details> */}

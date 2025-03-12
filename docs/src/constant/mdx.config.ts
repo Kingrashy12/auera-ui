@@ -149,6 +149,22 @@ import FabDemo from "@/components/example/fab/demo";
 import FabColors from "@/components/example/fab/colors";
 import FabVariants from "@/components/example/fab/variants";
 import FabSizes from "@/components/example/fab/sizes";
+import TableDemo from "@/components/example/table/demo";
+import RaisedTable from "@/components/example/table/raised";
+import BorderedTable from "@/components/example/table/bordered";
+import RoundedTable from "@/components/example/table/rounded";
+import HoverableTable from "@/components/example/table/hoverable";
+import TintedHeader from "@/components/example/table/tinted-header";
+import TableWithoutBorder from "@/components/example/table/without-border";
+import VerticalThreadTable from "@/components/example/table/vartical-thread";
+import TableCaption from "@/components/example/table/captions";
+import BadgeDemo from "@/components/example/badge/demo";
+import PositionedBadge from "@/components/example/badge/positioned";
+import SolidVariantsBadge from "@/components/example/badge/solid-variants";
+import OutlineVariantsBadge from "@/components/example/badge/outline-variants";
+import SoftVariantsBadge from "@/components/example/badge/soft-variants";
+import BadgeWithIndicator from "@/components/example/badge/with-indicator";
+import NotificationBadge from "@/components/example/badge/notification";
 
 export const components = {
   DetailCard,
@@ -305,6 +321,22 @@ export const components = {
   FabColors,
   FabVariants,
   FabSizes,
+  TableDemo,
+  RaisedTable,
+  BorderedTable,
+  RoundedTable,
+  HoverableTable,
+  TintedHeader,
+  TableWithoutBorder,
+  VerticalThreadTable,
+  TableCaption,
+  BadgeDemo,
+  PositionedBadge,
+  SolidVariantsBadge,
+  OutlineVariantsBadge,
+  SoftVariantsBadge,
+  BadgeWithIndicator,
+  NotificationBadge,
 };
 
 export const MDXRemote = dynamic(() =>

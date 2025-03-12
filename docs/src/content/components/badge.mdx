@@ -1,0 +1,74 @@
+---
+title: Badge | AueraUI
+description: A small label used to highlight information, indicate status, or display counts.
+---
+ 
+<DetailCard description='A small label used to highlight information, indicate status, or display counts.'/>
+
+<Details>
+<BadgeDemo />
+</Details>
+
+<Details id='examples'>
+<HeaderLabel id='examples'>Examples</HeaderLabel>
+</Details>
+
+<Details id='color-variants'>
+<HeaderLabel id='color-variants'>Color Variants</HeaderLabel>
+</Details>
+
+<Details id='solid-variants'>
+  <HeaderLabel id='solid-variants' as='h3'>Solid Variants</HeaderLabel>
+  <p className='text'>
+    Solid badges have a filled background and are great for indicating strong emphasis. 
+    Use them for primary labels, status indicators, or categories.
+  </p>
+  <SolidVariantsBadge />
+</Details>
+
+<Details id='outline-variants'>
+  <HeaderLabel id='outline-variants' as='h3'>Outline Variants</HeaderLabel>
+  <p className='text'>
+    Outline badges have a transparent background with a colored border. 
+    They are useful for subtle indications, tags, or less prominent labels.
+  </p>
+  <OutlineVariantsBadge />
+</Details>
+
+<Details id='soft-variants'>
+  <HeaderLabel id='soft-variants' as='h3'>Soft Variants</HeaderLabel>
+  <p className='text'>
+    Soft badges feature a light background with soft colors, making them perfect for 
+    non-intrusive labels, such as filtering options or additional metadata.
+  </p>
+  <SoftVariantsBadge />
+</Details>
+
+<Details id='with-status-badge'>
+  <HeaderLabel id='with-status-badge'>With Status Badge</HeaderLabel>
+  <p className='text'>
+    Status badges include small indicators like dots to signify availability, 
+    activity, or alerts. Ideal for chat apps, dashboards, and user lists.
+  </p>
+  <BadgeWithIndicator />
+</Details>
+
+<Details id='notification-&-counts'>
+  <HeaderLabel id='notification-&-counts'>Notifications & Counts</HeaderLabel>
+  <p className='text'>
+    These badges display numeric indicators for notifications, messages, or updates.
+  </p>
+  <NotificationBadge />
+</Details>
+
+
+{/* <Details id='positioned-badge'>
+<HeaderLabel id='positioned-badge'>Positioned Badge</HeaderLabel>
+<p className='text'>.</p>
+<PositionedBadge />
+</Details> */}
+
+<Details id='api-reference'>
+<HeaderLabel id='api-reference'>API Reference</HeaderLabel>
+<APITable reference={badgeRef} />
+</Details>

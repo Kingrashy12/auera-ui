@@ -32,6 +32,13 @@ const tabs = [
     default: "false",
   },
   {
+    prop: "panel",
+    type: "FunctionComponent",
+    description:
+      "A custom component to be used as the panel. If not provided, the default `TabPanel` component will be used.",
+    default: "undefined",
+  },
+  {
     prop: "hideScrollBar",
     type: "boolean",
     description:

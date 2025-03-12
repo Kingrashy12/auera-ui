@@ -1,9 +1,8 @@
 import { sideBarLinks } from "@/data/sidebar";
 import { Badge, Box, closeDrawer, MapItems } from "auera-ui";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { tw } from "stywind";
-// import Badge from "./Badge";
 import Link from "next/link";
 import { HiArchive } from "react-icons/hi";
 
@@ -23,6 +22,7 @@ const EmptyList = () => (
 );
 
 const SideBarLinks = ({ data }: { data: typeof sideBarLinks }) => {
+  const linkRef = useRef<HTMLAnchorElement>(null);
   const sortedItems = (data: Data[]) =>
     data.sort((a, b) => a.label.localeCompare(b.label));
   const router = useRouter();
@@ -33,6 +33,27 @@ const SideBarLinks = ({ data }: { data: typeof sideBarLinks }) => {
     const isActive = uri === current ? true : false;
     return isActive;
   };
+
+  useEffect(() => {
+    const current = router.pathname.split("[slug]").join(`${slug}`);
+
+    Array.from(document.querySelectorAll("a")).find((element) => {
+      const isLocal = element.href.startsWith(window.location.origin);
+      const baseURL = isLocal
+        ? window.location.origin
+        : "https://aueraui.vercel.app";
+      const cleanedHref = element.href.replace(baseURL, "");
+
+      if (cleanedHref === current && linkRef.current) {
+        // Scroll into view
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "nearest",
+          inline: "start",
+        });
+      }
+    });
+  }, [router.pathname, slug]);
 
   return (
     <MapItems
@@ -53,6 +74,7 @@ const SideBarLinks = ({ data }: { data: typeof sideBarLinks }) => {
                 href={link.uri}
                 key={link.uri}
                 onClick={() => closeDrawer()}
+                ref={linkRef}
                 className={tw(
                   "w-full py-2 px-3 -ml-0.5 hover:text-blue-600 hover:border-l-2 hover:border-blue-600 flex justify-between transition-transform duration-300",
                   getActiveLink(link.uri)
