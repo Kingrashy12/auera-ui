@@ -22,7 +22,7 @@ const SelectTrigger: React.FC<SelectTriggerProps> = ({
 
   const trigger = () => {
     if (disabled) return;
-    open ? onClose : onOpen;
+    open ? onClose() : onOpen();
   };
 
   return (
