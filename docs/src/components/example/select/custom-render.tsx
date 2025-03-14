@@ -40,7 +40,7 @@ const SelectCustomRender = () => {
                   alt="Avatar"
                   className="w-6 h-6 rounded-full"
                 />
-                <span className="text-sm font-medium">
+                <span className="text-sm font-medium theme-dark:text-white">
                   {users.find((user) => user.id === selectedUser)?.name}
                 </span>
               </div>
@@ -101,7 +101,7 @@ const [selectedUser, setSelectedUser] = useState<string | null>(null);
                   alt="Avatar"
                   className="w-6 h-6 rounded-full"
                 />
-                <span className="text-sm font-medium">
+                <span className="text-sm font-medium theme-dark:text-white">
                   {users.find((user) => user.id === selectedUser)?.name}
                 </span>
               </div>
