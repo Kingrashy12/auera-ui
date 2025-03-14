@@ -35,7 +35,7 @@ const Tooltip = ({
     "bg-black/90 theme-dark:bg-neutral-800 rotate-45 p-1 absolute"
   );
   return (
-    <div className={tw(containerClass, "group relative w-full cursor-pointer")}>
+    <div className={tw("group relative w-full cursor-pointer", containerClass)}>
       <>{children}</>
       <div className={PostionClass}>
         <span

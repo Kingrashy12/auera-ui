@@ -122,55 +122,61 @@ export const sideBarLinks = [
       },
     ],
   },
-  // {
-  //   header: "Utilities ",
-  //   links: [
-  //     { label: "StrFun", uri: "/docs/utilities/strfun", docs_soon: true },
-  //     {
-  //       label: "groupData",
-  //       uri: "/docs/utilities/group-data",
-  //       docs_soon: true,
-  //     },
-  //     {
-  //       label: "formatDate",
-  //       uri: "/docs/utilities/form-date",
-  //       docs_soon: true,
-  //     },
-  //     {
-  //       label: "formatTime",
-  //       uri: "/docs/utilities/form-time",
-  //       docs_soon: true,
-  //     },
-  //     {
-  //       label: "formatTimeAgo",
-  //       uri: "/docs/utilities/form-time-ago",
-  //       docs_soon: true,
-  //     },
-  //     {
-  //       label: "formatTimeDiff",
-  //       uri: "/docs/utilities/form-time-diff",
-  //       docs_soon: true,
-  //     },
-  //     {
-  //       label: "Modal Utils",
-  //       uri: "/docs/utilities/modal-utils",
-  //       docs_soon: true,
-  //     },
-  //     {
-  //       label: "Drawer Utils",
-  //       uri: "/docs/utilities/drawer-utils",
-  //       docs_soon: true,
-  //     },
-  //     {
-  //       label: "catchFile",
-  //       uri: "/docs/utilities/catch-file",
-  //       docs_soon: true,
-  //     },
-  //     {
-  //       label: "dyn",
-  //       uri: "/docs/utilities/dyn",
-  //       docs_soon: true,
-  //     },
-  //   ],
-  // },
+  {
+    header: "Utilities ",
+    links: [
+      { label: "StrFun", uri: "/docs/utilities/strfun", docs_soon: true },
+      {
+        label: "groupData",
+        uri: "/docs/utilities/group-data",
+        docs_soon: true,
+      },
+      {
+        label: "formatDate",
+        uri: "/docs/utilities/form-date",
+        docs_soon: true,
+      },
+      {
+        label: "formatTime",
+        uri: "/docs/utilities/form-time",
+        docs_soon: true,
+      },
+      {
+        label: "formatTimeAgo",
+        uri: "/docs/utilities/form-time-ago",
+        docs_soon: true,
+      },
+      {
+        label: "formatTimeDiff",
+        uri: "/docs/utilities/form-time-diff",
+        docs_soon: true,
+      },
+      {
+        label: "Overlay Utils",
+        uri: "/docs/utilities/overlay-utils",
+        docs_soon: true,
+      },
+      {
+        label: "paginate",
+        uri: "/docs/utilities/paginate",
+        docs_soon: true,
+      },
+
+      // {
+      //   label: "handleFileUpload",
+      //   uri: "/docs/utilities/handlefile-upload",
+      //   docs_soon: true,
+      // },
+      // {
+      //   label: "hasEmptyFields",
+      //   uri: "/docs/utilities/has-empty-fields",
+      //   docs_soon: true,
+      // },
+      // {
+      //   label: "dyn",
+      //   uri: "/docs/utilities/dyn",
+      //   docs_soon: true,
+      // },
+    ],
+  },
 ];

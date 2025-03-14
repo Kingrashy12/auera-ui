@@ -22,7 +22,7 @@
     "@mdx-js/react": "^3.1.0",
     "@next/mdx": "^15.0.4",
     "@vercel/analytics": "^1.4.1",
-    "auera-ui": "^0.1.43",
+    "auera-ui": "^0.1.45",
     "next": "^15.1.6",
     "next-mdx-remote": "^5.0.0",
     "react": "^19.0.0-rc.1",

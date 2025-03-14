@@ -93,13 +93,15 @@ const SideBarLinks = ({ data }: { data: typeof sideBarLinks }) => {
                 >
                   Soon
                 </Badge>
+
                 <Badge
                   variant="soft"
-                  colorScheme="teal"
+                  colorScheme="blue"
                   className={tw(link.docs_soon ? "block" : "hidden")}
                 >
-                  Docs Soon
+                  Soon
                 </Badge>
+
                 <Badge
                   variant="soft"
                   colorScheme="blue"
