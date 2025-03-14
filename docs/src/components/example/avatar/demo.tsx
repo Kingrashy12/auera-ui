@@ -33,5 +33,5 @@ const code = `import { Avatar } from "auera-ui";
 import { images } from "@/constant/images";
 
 const Demo = () =>{
-return <Avatar />
+return <Avatar src={images[1]} size="md" />
 }`;
