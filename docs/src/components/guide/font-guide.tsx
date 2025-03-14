@@ -20,7 +20,7 @@ const FontGuide = () => {
       <p className="text">Then, import it in your project:</p>
       <CodeBlock
         fileName="global.css"
-        code='import "@fontsource/inter"'
+        code='@import "@fontsource/inter"'
         lg="css"
       />
       <Details id="using-google-web-fonts">

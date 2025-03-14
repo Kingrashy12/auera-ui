@@ -182,3 +182,7 @@ html {
 .animate-wave {
   animation: wave 1.2s infinite ease-in-out;
 }
+
+.shiki {
+  background: none !important;
+}
