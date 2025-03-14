@@ -34,9 +34,7 @@ const Map_EmptyList = () => {
           <Stack wrap align="horizontal">
             <MapItems
               data={[] as Images}
-              renderItem={(image, index) => (
-                <Avatar src={image.img} key={index} size="md" />
-              )}
+              renderItem={(image) => <Avatar src={image.img} size="md" />}
               emptyListComponent={
                 <Box centered className="flex-col gap-2">
                   <CgList size={50} className="theme-dark:text-neutral-300" />
@@ -80,8 +78,8 @@ const Demo = () => {
   <Stack wrap align="horizontal">
     <MapItems
       data={[] as Images}
-      renderItem={(image, index) => (
-        <Avatar src={image.img} key={index} size="md" />
+      renderItem={(image) => (
+        <Avatar src={image.img} size="md" />
       )}
         emptyListComponent={
          Box centered className="flex-col gap-2">

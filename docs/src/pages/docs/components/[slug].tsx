@@ -34,6 +34,7 @@ import React, { Suspense } from "react";
 import { fabRef } from "@/data/api-ref/fab";
 import { tableRef } from "@/data/api-ref/table";
 import { badgeRef } from "@/data/api-ref/badge";
+import { selectRef } from "@/data/api-ref/select";
 
 interface Props {
   mdxSource: MDXRemoteSerializeResult;
@@ -71,6 +72,7 @@ const data = {
   fabRef,
   tableRef,
   badgeRef,
+  selectRef,
 };
 
 const Page = ({ frontmatter, mdxSource, slug }: Props) => {
@@ -129,6 +131,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     "image",
     "table",
     "badge",
+    "select",
   ];
 
   const paths = slugs.map((slug) => ({

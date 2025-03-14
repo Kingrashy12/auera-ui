@@ -25,13 +25,18 @@ const trigger = cva(
       variant: {
         outline:
           "bg-white border-1.9 shadow-sm tone-dark:bg-black border-neutral-200 tone-dark:border-neutral-900",
-        ghost: "bg-transparent border-none outline-none shadow-none",
+        ghost:
+          "bg-transparent border-1.9 border-transparent outline-none shadow-none",
       },
       size: {},
+      disabled: {
+        true: "cursor-not-allowed opacity-80",
+      },
     },
     defaultVariants: {
       radius: "md",
       variant: "outline",
+      disabled: false,
     },
   }
 );
@@ -69,7 +74,7 @@ const content = cva(
 
 const item = cva(
   `cursor-pointer hover:bg-gray-100 text-sm flex items-center
-   justify-between tone-dark:hover:bg-neutral-900 font-inter`,
+   justify-between tone-dark:hover:bg-neutral-900 font-inter tone-dark:text-white`,
   {
     variants: {
       radius: {

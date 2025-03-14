@@ -34,9 +34,7 @@ const MapItemsDemo = () => {
           <Stack wrap align="horizontal">
             <MapItems
               data={images}
-              renderItem={(image, index) => (
-                <Avatar src={image.img} key={index} size="md" />
-              )}
+              renderItem={(image) => <Avatar src={image.img} size="md" />}
             />
           </Stack>
         </TabPanel>
@@ -72,8 +70,8 @@ const Demo = () => {
   <Stack wrap align="horizontal">
     <MapItems
       data={images}
-      renderItem={(image, index) => (
-        <Avatar src={image.img} key={index} size="md" />
+      renderItem={(image) => (
+        <Avatar src={image.img} size="md" />
       )}
     />
   </Stack>

@@ -69,11 +69,11 @@ export const sideBarLinks = [
       { label: "Switch", uri: "/docs/components/switch" },
       { label: "Card", uri: "/docs/components/card" },
       { label: "Drawer", uri: "/docs/components/drawer" },
-      {
-        label: "Dynamic Breadcrumb",
-        uri: "/docs/components/dynamic-dreadcrumb",
-        soon: true,
-      },
+      // {
+      //   label: "Dynamic Breadcrumb",
+      //   uri: "/docs/components/dynamic-dreadcrumb",
+      //   soon: true,
+      // },
       {
         label: "IconButton",
         uri: "/docs/components/icon-button",
@@ -87,7 +87,7 @@ export const sideBarLinks = [
       { label: "TextInput", uri: "/docs/components/textinput" },
       { label: "Image", uri: "/docs/components/image" },
       { label: "Skeleton", uri: "/docs/components/skeleton" },
-      { label: "Select", uri: "/docs/components/select", soon: true },
+      { label: "Select", uri: "/docs/components/select" },
       {
         label: "Password Input",
         uri: "/docs/components/password-input",

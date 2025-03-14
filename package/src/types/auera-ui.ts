@@ -526,6 +526,7 @@ export interface SelectTriggerProps {
   className?: string;
   children?: React.ReactNode;
   variant?: "outline" | "ghost";
+  disabled?: boolean;
 }
 
 export interface SelectProps {
@@ -563,6 +564,7 @@ export interface DynamicBreadcrumbProps {
   className?: string;
   disableHref?: string[];
   exclude?: string;
+  replacePath?: { for: string; path: string }[];
 }
 
 export interface BadgeProps {

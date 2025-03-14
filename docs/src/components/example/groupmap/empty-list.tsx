@@ -41,9 +41,8 @@ const EmptyList = () => {
                 {formatDate({ date: new Date(key), format: "ddd-mmm-dd" })}
               </h1>
             )}
-            renderItem={(item, index) => (
+            renderItem={(item) => (
               <Box
-                key={index}
                 className="
                 gap-2 p-4 rounded-xl cursor-pointer flex-col
                 border border-neutral-200 theme-dark:border-neutral-700

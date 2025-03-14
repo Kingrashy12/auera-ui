@@ -20,6 +20,7 @@ const DynamicBreadcrumb: React.FC<DynamicBreadcrumbProps> = ({
   containerClass,
   disableHref = [],
   exclude,
+  replacePath = [],
 }) => {
   const separatorType = {
     splash: BsSlashLg,
@@ -51,6 +52,19 @@ const DynamicBreadcrumb: React.FC<DynamicBreadcrumbProps> = ({
   useEffect(() => {
     addLink();
   }, [router.pathname]);
+
+  useEffect(() => {
+    if (replacePath.length > 0) {
+      setItems((prevItems) =>
+        prevItems.map((item) => {
+          const replacement = replacePath.find(
+            (path) => item.label === path.for
+          );
+          return replacement ? { ...item, href: replacement.path } : item;
+        })
+      );
+    }
+  }, [replacePath]);
 
   return (
     <Box className={tw("gap-1", containerClass)}>

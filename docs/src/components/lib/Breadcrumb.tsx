@@ -18,6 +18,7 @@ interface BreadcrumbProps {
   className?: string;
   disableHref?: string[];
   exclude?: string;
+  replacePath?: { for: string; path: string }[];
 }
 
 const Breadcrumb: React.FC<BreadcrumbProps> = ({
@@ -27,6 +28,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
   containerClass,
   disableHref = [],
   exclude,
+  replacePath = [],
 }) => {
   const separatorType = {
     splash: BsSlashLg,
@@ -50,6 +52,10 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
     for (let i = 0; i < str.length; i++) {
       const basePath = str[i];
       const redirectPath = str.slice(0, i + 1).join("/");
+
+      if (redirectPath === "") {
+        newItems.push({ label: "Home", href: "/" });
+      }
       newItems.push({
         label: StrFun.capitalize(basePath, "-", " "),
         href: `/${redirectPath}`,
@@ -62,6 +68,19 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
     addLink();
   }, [pathname]);
 
+  useEffect(() => {
+    if (replacePath.length > 0) {
+      setItems((prevItems) =>
+        prevItems.map((item) => {
+          const replacement = replacePath.find(
+            (path) => item.label === path.for
+          );
+          return replacement ? { ...item, href: replacement.path } : item;
+        })
+      );
+    }
+  }, [replacePath]);
+
   return (
     <Box className={tw("gap-1", containerClass as string)}>
       {items
@@ -71,7 +90,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
             key={index}
             className={tw("items-center gap-1", className as string)}
           >
-            {index > 0 && (
+            {index >= 1 && (
               <Icon
                 size={14}
                 className={tw(
@@ -99,7 +118,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
                   className={tw(
                     item.href === pathname
                       ? "text-primary pointer-events-none cursor-text"
-                      : "text-dim",
+                      : "text-muted",
                     "font-inter font-medium text-sm",
                     itemClass as string
                   )}

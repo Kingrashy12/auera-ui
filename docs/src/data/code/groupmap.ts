@@ -20,9 +20,8 @@ const GroupMapDemo = () => {
         {formatTime(new Date(key))}
       </h1>
     )}
-    renderItem={(item, index) => (
+    renderItem={(item) => (
       <Box
-        key={index}
         className="
         gap-2 p-4 rounded-xl cursor-pointer flex-col
         border border-neutral-200 theme-dark:border-neutral-700
@@ -68,9 +67,8 @@ const data: typeof notifications = [];
         {formatTime(new Date(key))}
       </h1>
     )}
-    renderItem={(item, index) => (
+    renderItem={(item) => (
       <Box
-        key={index}
         className="
         gap-2 p-4 rounded-xl cursor-pointer flex-col
         border border-neutral-200 theme-dark:border-neutral-700

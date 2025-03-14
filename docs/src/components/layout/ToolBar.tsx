@@ -33,6 +33,9 @@ const ToolBar = () => {
               "/docs/components",
             ]}
             exclude="Docs"
+            replacePath={[
+              { for: "Components", path: "/docs/components/overview" },
+            ]}
           />
         </Box>
       </Box>
