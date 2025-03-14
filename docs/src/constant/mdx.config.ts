@@ -165,6 +165,12 @@ import OutlineVariantsBadge from "@/components/example/badge/outline-variants";
 import SoftVariantsBadge from "@/components/example/badge/soft-variants";
 import BadgeWithIndicator from "@/components/example/badge/with-indicator";
 import NotificationBadge from "@/components/example/badge/notification";
+import SelectDemo from "@/components/example/select/demo";
+import CustomeRender from "@/components/example/select/custom-render";
+import DisabledSelect from "@/components/example/select/disabled";
+import TriggerVariants from "@/components/example/select/variants";
+import ContentVariants from "@/components/example/select/content-variant";
+import SelectRadius from "../components/example/select/radius";
 
 export const components = {
   DetailCard,
@@ -337,6 +343,12 @@ export const components = {
   SoftVariantsBadge,
   BadgeWithIndicator,
   NotificationBadge,
+  SelectDemo,
+  CustomeRender,
+  DisabledSelect,
+  TriggerVariants,
+  ContentVariants,
+  SelectRadius,
 };
 
 export const MDXRemote = dynamic(() =>

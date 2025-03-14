@@ -10,13 +10,13 @@ import {
 import { useMemo } from "react";
 
 const useComputeTrigger = (props: SelectTriggerVariants) => {
-  const { className, radius, variant } = props;
+  const { className, radius, variant, disabled } = props;
 
   const Trigger = createStyle("button");
 
   const styles = useMemo(
-    () => tw(trigger({ radius, variant }), className),
-    [className, radius, variant]
+    () => tw(trigger({ radius, variant, disabled }), className),
+    [className, radius, variant, disabled]
   );
 
   return useMemo(() => Trigger.classname(styles), [styles]);

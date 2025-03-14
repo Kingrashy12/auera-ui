@@ -1,0 +1,76 @@
+---
+title: Select | AueraUI
+description: Used for choosing an option from a dropdown list.
+---
+
+<DetailCard description='Used for choosing an option from a dropdown list.'/>
+
+
+<Details>
+<SelectDemo/>
+</Details>
+
+<Details id='examples'>
+<HeaderLabel id='examples'>Examples</HeaderLabel>
+</Details>
+
+<Details id="variants">
+  <HeaderLabel id="variants">Variants</HeaderLabel>
+  <p className="text">Defines different visual styles for the Select component.</p>
+</Details>
+
+<Details id="trigger-variants">
+  <HeaderLabel id="trigger-variants" as="h3">Trigger Variants</HeaderLabel>
+  <p className="text">Different styles for the Select trigger, such as <CodeTag>outline</CodeTag> and <CodeTag>ghost</CodeTag>.</p>
+  <TriggerVariants />
+</Details>
+
+<Details id="content-variants">
+  <HeaderLabel id="content-variants" as="h3">Content Variants</HeaderLabel>
+  <p className="text">Controls padding and spacing within the dropdown content.</p>
+  <ContentVariants />
+</Details>
+
+<Details id="radius">
+  <HeaderLabel id="radius">Radius</HeaderLabel>
+  <p className="text">Defines the border-radius of the Select component for rounded or sharp edges.</p>
+  <SelectRadius />
+</Details>
+
+<Details id="disabled">
+  <HeaderLabel id="disabled">Disabled</HeaderLabel>
+  <p className="text">Disables the SelectItem component to prevent user interaction.</p>
+  <DisabledSelect />
+</Details>
+
+<Details id="custom-render">
+  <HeaderLabel id="custom-render">Custom Render</HeaderLabel>
+  <p className="text">Allows passing custom elements or nodes.</p>
+  <CustomeRender />
+</Details>
+
+
+
+<Details id='api-reference'>
+<HeaderLabel id='api-reference'>API Reference</HeaderLabel>
+</Details>
+
+<Details id='select'>
+<HeaderLabel id='select' as='h3'>Select</HeaderLabel>
+<APITable reference={selectRef.select} />
+</Details>
+
+<Details id='select-trigger'>
+<HeaderLabel id='select-trigger' as='h3'>SelectTrigger</HeaderLabel>
+<APITable reference={selectRef.selectTrigger} />
+</Details>
+
+<Details id='select-content'>
+<HeaderLabel id='select-content' as='h3'>SelectContent</HeaderLabel>
+<APITable reference={selectRef.selectContent} />
+</Details>
+
+<Details id='select-item'>
+<HeaderLabel id='select-item' as='h3'>SelectItem</HeaderLabel>
+<APITable reference={selectRef.selectItem} />
+</Details>

@@ -12,6 +12,7 @@ const SelectTrigger: React.FC<SelectTriggerProps> = ({
   placeholder,
   children,
   variant,
+  disabled,
 }) => {
   const { onClose, onOpen, open, radius, currentValue, mode } =
     useSelectState();
@@ -19,10 +20,18 @@ const SelectTrigger: React.FC<SelectTriggerProps> = ({
 
   const splitBy = currentValue.includes("-") ? "-" : " ";
 
+  const trigger = () => {
+    if (disabled) return;
+    open ? onClose : onOpen;
+  };
+
   return (
-    <Trigger onClick={open ? onClose : onOpen} data-theme={mode}>
+    <Trigger onClick={trigger} data-theme={mode}>
       {children ?? (
-        <span className={tw("truncate text-sm", className)}>
+        <span
+          data-theme={mode}
+          className={tw("truncate text-sm tone-dark:text-white")}
+        >
           {currentValue
             ? StrFun.capitalize(currentValue, splitBy, " ")
             : placeholder}
