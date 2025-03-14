@@ -130,36 +130,43 @@ export const sideBarLinks = [
         label: "groupData",
         uri: "/docs/utilities/group-data",
         docs_soon: true,
+        soon: false,
       },
       {
         label: "formatDate",
         uri: "/docs/utilities/form-date",
         docs_soon: true,
+        soon: false,
       },
       {
         label: "formatTime",
         uri: "/docs/utilities/form-time",
         docs_soon: true,
+        soon: false,
       },
       {
         label: "formatTimeAgo",
         uri: "/docs/utilities/form-time-ago",
         docs_soon: true,
+        soon: false,
       },
       {
         label: "formatTimeDiff",
         uri: "/docs/utilities/form-time-diff",
         docs_soon: true,
+        soon: false,
       },
       {
         label: "Overlay Utils",
         uri: "/docs/utilities/overlay-utils",
         docs_soon: true,
+        soon: false,
       },
       {
         label: "paginate",
         uri: "/docs/utilities/paginate",
         docs_soon: true,
+        soon: false,
       },
 
       // {
