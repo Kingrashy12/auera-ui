@@ -1,10 +1,8 @@
 import Clipboard from "@/components/Clipboard";
 import { Box, Tooltip } from "auera-ui";
-import { Highlight, themes } from "prism-react-renderer";
 import React, { useState } from "react";
-// import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-// import { a11yDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { tw } from "stywind";
+import Code from "./Code";
 
 type TerminalProps = {
   cmds: string[];
@@ -51,44 +49,7 @@ const Terminal: React.FC<TerminalProps> = ({ cmds, script }) => {
         fullWidth
         className="px-4 py-4 bg-neutral-900 rounded-b-xl items-center"
       >
-        {/* <SyntaxHighlighter
-          language={"bash"}
-          wrapLines
-          wrapLongLines
-          style={{
-            ...a11yDark,
-            hljs: {
-              background: "#0000",
-              color: "lightblue",
-              display: "flex",
-              flexDirection: "column",
-              gap: "2rem",
-              lineHeight: "1.2rem",
-              fontFamily: "monospace",
-              fontSize: 13,
-            },
-          }}
-        >
-          {code}
-        </SyntaxHighlighter> */}
-        <Highlight theme={themes.vsDark} code={code} language="bash">
-          {({ tokens, getLineProps, getTokenProps }) => (
-            <pre
-              style={{ background: "transparent" }}
-              className="font-mono text-sm"
-            >
-              {tokens.map((line, i) => (
-                <div key={i} {...getLineProps({ line })}>
-                  {line.map((token, key) => (
-                    <span key={key} style={getTokenProps({ token }).style}>
-                      {getTokenProps({ token }).children}
-                    </span>
-                  ))}
-                </div>
-              ))}
-            </pre>
-          )}
-        </Highlight>
+        <Code code={code} lang="bash" />
       </Box>
     </Box>
   );

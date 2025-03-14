@@ -1,10 +1,10 @@
 import Clipboard from "@/components/Clipboard";
 import { useDocState } from "@/hooks/docs";
 import { Box, Icon, Tooltip } from "auera-ui";
-import { Highlight, themes } from "prism-react-renderer";
 import React from "react";
 import { BiLogoTailwindCss } from "react-icons/bi";
 import { tw } from "stywind";
+import Code from "./Code";
 
 const CodeBlock = ({
   code,
@@ -64,24 +64,7 @@ const CodeBlock = ({
         <p className="font-mono text-[#aaa7b2] text-xs">{getFileExt()}</p>
       </Box>
       <Box className="w-full h-full overflow-y-auto p-4 max-w-full scrollbar:h-1">
-        <Highlight theme={themes.vsDark} code={code} language={lg}>
-          {({ tokens, getLineProps, getTokenProps }) => (
-            <pre
-              style={{ background: "transparent" }}
-              className="font-mono text-sm"
-            >
-              {tokens.map((line, i) => (
-                <div key={i} {...getLineProps({ line })}>
-                  {line.map((token, key) => (
-                    <span key={key} style={getTokenProps({ token }).style}>
-                      {getTokenProps({ token }).children}
-                    </span>
-                  ))}
-                </div>
-              ))}
-            </pre>
-          )}
-        </Highlight>
+        <Code code={code} lang={lg} />
       </Box>
       <div className="h-auto absolute text-white p-3 right-0 -top-[2px]">
         <Tooltip label="Copy" position="left" showPointer={false}>
