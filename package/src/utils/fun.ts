@@ -2,7 +2,7 @@ import { FileHandler } from "../types/auera-ui";
 import { Currency, DataGroup } from "../types/utils";
 
 /**
- * Utility functions for string manipulation.
+ * A collection of utility functions for string manipulation
  *
  * Read more: [AueraUI Docs](https://aueraui.vercel.app/docs/utilities/strfun)
  */

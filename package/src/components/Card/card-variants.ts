@@ -1,7 +1,7 @@
 import { cva, VariantProps } from "class-variance-authority";
 
 const root = cva(
-  "rounded-[10px] flex gap-2 border-1.9 bg-white border-neutral-200 tone-dark:bg-black tone-dark:border-neutral-900",
+  "rounded-[10px] relative flex gap-2 border-1.9 bg-white border-neutral-200 tone-dark:bg-black tone-dark:border-neutral-900",
   {
     variants: {
       fullWidth: {

@@ -89,7 +89,9 @@ const SideBarLinks = ({ data }: { data: typeof sideBarLinks }) => {
                 <Badge
                   variant="soft"
                   colorScheme="yellow"
-                  className={tw(link.soon ? "block" : "hidden")}
+                  className={tw(
+                    link.soon && !link.docs_soon ? "block" : "hidden"
+                  )}
                 >
                   Soon
                 </Badge>

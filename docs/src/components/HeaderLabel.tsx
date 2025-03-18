@@ -1,3 +1,4 @@
+import { StrFun } from "auera-ui";
 import React from "react";
 import { FaLink } from "react-icons/fa";
 import { tw } from "stywind";
@@ -17,17 +18,18 @@ const HeaderLabel = ({
   as,
   hideLink,
 }: HeaderLabelType) => {
+  const ID = StrFun.slugify(id);
   return (
-    <a href={`#${id}`} className="header-link">
+    <a href={`#${ID}`} className="header-link">
       {hideLink ? null : (
         <FaLink className="text-muted" size={as === "h3" ? 14 : 16} />
       )}
       {as === "h3" ? (
-        <h3 className={tw("header-3", className as string)} id={id}>
+        <h3 className={tw("header-3", className as string)} id={ID}>
           {children}
         </h3>
       ) : (
-        <h2 className={tw("header-2", className as string)} id={id}>
+        <h2 className={tw("header-2", className as string)} id={ID}>
           {children}
         </h2>
       )}
