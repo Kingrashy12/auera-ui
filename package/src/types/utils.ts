@@ -17,6 +17,7 @@ export type FormatPattern =
   | "yyyy-mm-dd"
   | "mm-yyyy"
   | "dd-mmm"
+  | "mmm-dd"
   | "ddd-mmm-dd"
   | "yyyy/mm/dd"
   | "dd-mm-yyyy"
@@ -29,7 +30,36 @@ export type TimeFormatPattern =
   | "hh:mm AM/PM"
   | "hh:mm:ss AM/PM";
 
-type LocaleOption = "en-US" | "en-UK";
+type LocaleOption =
+  | "en-US"
+  | "en-GB"
+  | "en-CA"
+  | "en-AU"
+  | "en-IN"
+  | "en-NZ"
+  | "en-ZA"
+  | "fr-FR"
+  | "fr-CA"
+  | "de-DE"
+  | "es-ES"
+  | "es-MX"
+  | "it-IT"
+  | "nl-NL"
+  | "pt-PT"
+  | "pt-BR"
+  | "ru-RU"
+  | "pl-PL"
+  | "zh-CN"
+  | "zh-TW"
+  | "ja-JP"
+  | "ko-KR"
+  | "hi-IN"
+  | "th-TH"
+  | "vi-VN"
+  | "ar-SA"
+  | "he-IL"
+  | "tr-TR"
+  | "fa-IR";
 
 type TimeZones =
   | "UTC"

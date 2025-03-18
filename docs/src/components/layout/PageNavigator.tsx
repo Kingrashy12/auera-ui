@@ -9,6 +9,7 @@ type LinkType = {
   uri: string;
   soon?: boolean;
   label: string;
+  docs_soon?: boolean;
 };
 const PageNavigator = () => {
   const { pathname } = Router();

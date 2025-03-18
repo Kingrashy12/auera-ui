@@ -1,6 +1,5 @@
 import {
   FormatDateOptions,
-  FormatPattern,
   FormatTimeOptions,
   TimeFormatPattern,
 } from "../types/utils";
@@ -12,21 +11,67 @@ export const formatDate = ({
   replaceFormat,
   timeZone,
 }: FormatDateOptions): string => {
-  const formatterMap: Record<FormatPattern, Intl.DateTimeFormatOptions> = {
-    "yyyy-mm-dd": { year: "numeric", month: "2-digit", day: "2-digit" },
-    "mm-yyyy": { month: "short", year: "numeric" },
-    "dd-mmm": { day: "2-digit", month: "short" },
-    "ddd-mmm-dd": { weekday: "short", month: "short", day: "2-digit" },
-    "yyyy/mm/dd": { year: "numeric", month: "2-digit", day: "2-digit" },
-    "dd-mm-yyyy": { day: "2-digit", month: "2-digit", year: "numeric" },
-    "mmm-yyyy": { month: "short", year: "numeric" },
-    full: { weekday: "long", year: "numeric", month: "long", day: "2-digit" },
-  };
-
-  let formattedDate = new Intl.DateTimeFormat(locale, {
-    ...formatterMap[format],
+  const formatter = new Intl.DateTimeFormat(locale, {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
     timeZone,
-  }).format(date);
+  });
+
+  const parts = formatter.formatToParts(date);
+  const getPart = (type: string) =>
+    parts.find((part) => part.type === type)?.value || "";
+
+  const year = getPart("year");
+  const month = getPart("month");
+  const day = getPart("day");
+
+  let formattedDate = "";
+
+  switch (format) {
+    case "yyyy-mm-dd":
+      formattedDate = `${year}-${month}-${day}`;
+      break;
+    case "yyyy/mm/dd":
+      formattedDate = `${year}/${month}/${day}`;
+      break;
+    case "dd-mm-yyyy":
+      formattedDate = `${day}-${month}-${year}`;
+      break;
+    case "mm-yyyy":
+      formattedDate = `${month}-${year}`;
+      break;
+    case "dd-mmm":
+      formattedDate = `${day} ${new Intl.DateTimeFormat(locale, {
+        month: "short",
+      }).format(date)}`;
+      break;
+    case "mmm-dd":
+      formattedDate = `${new Intl.DateTimeFormat(locale, {
+        month: "short",
+      }).format(date)} ${day}`;
+      break;
+    case "ddd-mmm-dd":
+      formattedDate = `${new Intl.DateTimeFormat(locale, {
+        weekday: "short",
+      }).format(date)} ${new Intl.DateTimeFormat(locale, {
+        month: "short",
+      }).format(date)} ${day}`;
+      break;
+    case "mmm-yyyy":
+      formattedDate = `${new Intl.DateTimeFormat(locale, {
+        month: "short",
+      }).format(date)} ${year}`;
+      break;
+    case "full":
+      formattedDate = new Intl.DateTimeFormat(locale, {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "2-digit",
+      }).format(date);
+      break;
+  }
 
   if (replaceFormat) {
     formattedDate = formattedDate.replace(/[-/, ]+/g, replaceFormat);
@@ -65,7 +110,7 @@ export const formatTime = ({
   }).format(date);
 
   if (replaceFormat) {
-    formattedTime = formattedTime.replace(/[-/, ]+/g, replaceFormat);
+    formattedTime = formattedTime.replace(/[:/, ]+/g, replaceFormat);
   }
 
   return formattedTime;
@@ -75,7 +120,7 @@ export const formatTimeAgo = (date: Date): string => {
   const now = new Date();
   const diff = Math.floor((now.getTime() - date.getTime()) / 1000);
 
-  if (diff < 60) return `${diff} sec${diff !== 1 ? "s" : ""} ago`;
+  if (diff < 60) return `Just now`;
   const minutes = Math.floor(diff / 60);
   if (minutes < 60) return `${minutes} min${minutes !== 1 ? "s" : ""} ago`;
   const hours = Math.floor(minutes / 60);

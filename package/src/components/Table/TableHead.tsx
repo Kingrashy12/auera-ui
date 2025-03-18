@@ -15,7 +15,7 @@ const TableHead: React.FC<TableHeadProps> = ({
   return (
     <thead
       data-theme={mode}
-      className={tw(tint && "bg-gray-50 tone-dark:bg-neutral-800", className)}
+      className={tw(tint && "bg-gray-50 tone-dark:bg-neutral-900", className)}
       {...props}
     >
       {children}
