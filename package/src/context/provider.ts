@@ -1,10 +1,10 @@
 import { createContext } from "react";
-import { DesignFlavour, ModeType } from "../types/auera-system";
+import { DesignVariant, ModeType } from "../types/auera-system";
 
 type ProviderContextType = {
-  flavour: DesignFlavour;
+  design: DesignVariant;
   mode?: ModeType;
-  changeFlavour: (flavour: DesignFlavour) => void;
+  changeDesign: (design: DesignVariant) => void;
 };
 
 export const AueraContext = createContext<ProviderContextType | undefined>(

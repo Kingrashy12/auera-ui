@@ -216,3 +216,37 @@ export const hasEmptyFields = <T>(arg: T, fields: Array<keyof T>): boolean => {
   const hasAllFields = fields.every((val) => arg[val]);
   return !hasAllFields;
 };
+
+export const formatNumber = (num: number): string => {
+  if (num < 1000) {
+    return num.toString();
+  } else if (num >= 1000 && num < 1000000) {
+    return (num / 1000).toFixed(2) + "K";
+  } else if (num >= 1000000 && num < 1000000000) {
+    return (num / 1000000).toFixed(2) + "M";
+  } else if (num >= 1000000000) {
+    return (num / 1000000000).toFixed(2) + "B";
+  }
+  return num.toString();
+};
+
+export const sortByKey = <T>(arr: T[], key: keyof T): T[] => {
+  return arr.sort((a, b) => {
+    if (a[key] < b[key]) return -1;
+    if (a[key] > b[key]) return 1;
+    return 0;
+  });
+};
+
+export const removeDuplicates = <T>(arr: T[]): T[] => {
+  return [...new Set(arr)];
+};
+
+export const formatBytes = (bytes: number, decimals: number = 2): string => {
+  if (bytes === 0) return "0 Bytes";
+  const k = 1024;
+  const dm = decimals < 0 ? 0 : decimals;
+  const sizes = ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
+  const i = Math.floor(Math.log(bytes) / Math.log(k));
+  return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + " " + sizes[i];
+};

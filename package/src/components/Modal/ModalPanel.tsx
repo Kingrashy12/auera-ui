@@ -2,7 +2,7 @@ import { ModalPanelType } from "../../types/auera-ui";
 import { useModal } from "../../hook/useModal";
 import { getDisplayName } from "@/utils/displayname";
 import { usePanel } from "@/hook/usePanel";
-import { useFlavour, useMode } from "@/hook/use";
+import { useDesign, useMode } from "@/hook/use";
 import { useComputePanel } from "./use-modal";
 import { useEffect } from "react";
 
@@ -18,7 +18,7 @@ const ModalPanel = ({
 }: ModalPanelType) => {
   const { isVisible } = useModal();
   const { currentMode } = useMode(mode);
-  const { currentFlavour } = useFlavour(props.flavour);
+  const { currentDesign } = useDesign(props.design);
   const { collectMode } = usePanel();
 
   useEffect(() => {
@@ -27,7 +27,7 @@ const ModalPanel = ({
 
   const Panel = useComputePanel({
     className: props.className,
-    flavour: currentFlavour,
+    design: currentDesign,
     mode: currentMode,
     transition,
     align,

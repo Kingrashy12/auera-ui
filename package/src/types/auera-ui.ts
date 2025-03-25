@@ -5,7 +5,7 @@ import {
   ColorKey,
   ColorPair,
   ColorSchemes,
-  DesignFlavour,
+  DesignVariant,
   ModeType,
   SchemeVariant,
 } from "./auera-system";
@@ -51,14 +51,14 @@ export interface ButtonProps extends BtnProps {
   children?: React.ReactNode;
   disabled?: boolean;
   animate?: boolean;
-  flavour?: DesignFlavour;
+  design?: DesignVariant;
   fullWidth?: boolean;
   hideChildOnLoad?: boolean;
   mode?: "light" | "dark";
 }
 
 export interface Drop extends DivProps {
-  flavour?: DesignFlavour;
+  design?: DesignVariant;
   mode?: "light" | "dark";
   open: boolean;
   onClose: () => void;
@@ -123,7 +123,7 @@ export type ModalPanelType = {
   className?: string;
   style?: React.CSSProperties;
   align?: "vertical" | "horizontal";
-  flavour?: DesignFlavour;
+  design?: DesignVariant;
   mode?: "light" | "dark";
 };
 
@@ -180,7 +180,7 @@ export interface DrawerProps extends ModalType {
 export interface DrawerPanelProps extends DivProps {
   position?: "left" | "right";
   type?: "float" | "sticky";
-  flavour?: DesignFlavour;
+  design?: DesignVariant;
   mode?: "light" | "dark";
 }
 

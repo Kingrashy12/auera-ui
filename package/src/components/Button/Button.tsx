@@ -14,7 +14,7 @@ const Button: React.FC<ButtonProps> = ({
   leftIconColor,
   rightIconSize,
   leftIconSize,
-  flavour,
+  design,
   spinner,
   hideChildOnLoad,
   className,
@@ -25,7 +25,7 @@ const Button: React.FC<ButtonProps> = ({
     variant,
     size,
     colorScheme,
-    flavour,
+    design,
     className,
     ...props,
   });
