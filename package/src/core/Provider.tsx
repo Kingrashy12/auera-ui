@@ -1,6 +1,6 @@
 import ModalProvider from "../components/Provider/Modal";
 import ThemeProvider from "../components/Provider/Theme";
-import { DesignFlavour, ProviderProps } from "../types/auera-system";
+import { DesignVariant, ProviderProps } from "../types/auera-system";
 import { AueraContext } from "../context/provider";
 import { useEffect, useState } from "react";
 import { getDisplayName } from "@/utils/displayname";
@@ -12,18 +12,19 @@ import Toaster from "@/components/Toast/Toaster";
 
 const Provider = ({
   children,
-  flavour: Flavour = "corporate",
+  design: Design = "corporate",
   mode,
 }: ProviderProps) => {
-  const [flavour, setFlavour] = useState<DesignFlavour>(Flavour);
+  const [design, setDesign] = useState<DesignVariant>(Design);
 
   useEffect(() => {
-    setFlavour(flavour);
-  }, [flavour]);
+    setDesign(design);
+  }, [design]);
 
-  const changeFlavour = (flavour: DesignFlavour) => setFlavour(flavour);
+  const changeDesign = (_design: DesignVariant) => setDesign(_design);
+
   return (
-    <AueraContext.Provider value={{ flavour, mode, changeFlavour }}>
+    <AueraContext.Provider value={{ design, mode, changeDesign }}>
       <ThemeProvider mode={mode}>
         <Toaster />
         <PanelProvider>

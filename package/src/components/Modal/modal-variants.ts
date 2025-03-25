@@ -78,8 +78,8 @@ const panel = cva(
         light: "border border-neutral-200 bg-white",
         dark: "border border-neutral-800 bg-black",
       },
-      flavour: {
-        neumorphic: "",
+      design: {
+        neobrutalism: "",
         frost: "",
         corporate: "",
       },
@@ -148,32 +148,32 @@ const panel = cva(
       },
       {
         mode: "light",
-        flavour: "neumorphic",
-        class: "shadow-neumorphic-outline",
+        design: "neobrutalism",
+        class: "shadow-neobrutalism-outline",
       },
       {
         mode: "dark",
-        flavour: "neumorphic",
-        class: "shadow-neumorphic-modal-dark",
+        design: "neobrutalism",
+        class: "shadow-neobrutalism-modal-dark",
       },
       {
         mode: "light",
-        flavour: "frost",
+        design: "frost",
         class: "shadow-frost-outline",
       },
       {
         mode: "dark",
-        flavour: "frost",
+        design: "frost",
         class: "shadow-frost-modal-dark",
       },
       {
         mode: "light",
-        flavour: "corporate",
+        design: "corporate",
         class: "shadow-[0_4px_10px_rgba(0,0,0,0.1)]",
       },
       {
         mode: "dark",
-        flavour: "corporate",
+        design: "corporate",
         class: "shadow-[0_4px_8px_rgba(255,255,255,0.05)]",
       },
     ],

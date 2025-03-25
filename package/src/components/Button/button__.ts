@@ -1,9 +1,9 @@
 import { cva } from "class-variance-authority";
 import button_corporate from "./button-corporate";
 import button_frost from "./button-frost";
-import button_neumorphic from "./button-neumorphic";
 import { ButtonVariant, SchemeVariant } from "@/types/auera-system";
 import { tw } from "stywind";
+import button_neobrutalism from "./button-neobrutalism";
 
 type Cls = {
   colorScheme: SchemeVariant;
@@ -14,18 +14,16 @@ type Cls = {
 const generateButtonClass = ({ colorScheme, variant, className }: Cls) => {
   return cva(
     `flex justify-center items-center shrink-0 font-medium font-inter
-    transition-layer duration-300 active:scale-95 gap-2 text-sm relative`,
+    transition-layer duration-300 gap-2 text-sm relative`,
     {
       variants: {
-        flavour: {
-          corporate: tw(
-            button_corporate({ colorScheme })({ variant }),
-            className
-          ),
+        design: {
+          corporate: tw(button_corporate({ variant, colorScheme }), className),
           frost: tw(button_frost({ colorScheme })({ variant }), className),
-          neumorphic: tw(
-            button_neumorphic({ colorScheme })({
+          neobrutalism: tw(
+            button_neobrutalism({
               variant,
+              colorScheme,
             }),
             className
           ),
@@ -58,7 +56,7 @@ const generateButtonClass = ({ colorScheme, variant, className }: Cls) => {
         },
       },
       defaultVariants: {
-        flavour: "corporate",
+        design: "corporate",
         size: "md",
         radius: "md",
         disabled: false,

@@ -1,22 +1,22 @@
 import { ButtonProps } from "@/types/auera-ui";
-import { TbLoader2 } from "react-icons/tb";
 import Icon from "../Icon/Icon";
-import { useFlavour, useMode } from "@/hook/use";
+import { useDesign, useMode } from "@/hook/use";
 import { AueraButton } from "@/core/AueraElement";
 import { useMemo } from "react";
 import { createStyle, tw } from "stywind";
 import generateButtonClass from "./button__";
+import { CgSpinner } from "react-icons/cg";
 
 const useButton = ({
   radius = "sm",
   variant = "solid",
   size = "md",
   colorScheme = "primary",
-  flavour,
+  design,
   className,
   ...props
 }: ButtonProps) => {
-  const { currentFlavour } = useFlavour(flavour);
+  const { currentDesign } = useDesign(design);
   const { currentMode } = useMode(props.mode);
 
   const disabled = props.isLoading || props.disabled;
@@ -27,7 +27,7 @@ const useButton = ({
     () =>
       tw(
         generateButtonClass({ colorScheme, variant })({
-          flavour: currentFlavour,
+          design: currentDesign,
           fullWidth: props.fullWidth,
           size,
           className,
@@ -51,7 +51,7 @@ const useButton = ({
       disabled,
       className,
       colorScheme,
-      currentFlavour,
+      currentDesign,
       currentMode,
     ]
   );
@@ -73,7 +73,7 @@ const useButton = ({
       <>
         {props.isLoading ? (
           <>
-            {spinner ?? <TbLoader2 size={20} className="animate-spin" />}
+            {spinner ?? <CgSpinner size={20} className="animate-spin" />}
             {!hideChildOnLoad && children}
           </>
         ) : (

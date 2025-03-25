@@ -3,19 +3,13 @@ import { colors } from "../utils";
 import { HTMLMotionProps } from "motion/react";
 import { VariantProps } from "class-variance-authority";
 
-export type DesignFlavour = "corporate" | "frost" | "neumorphic";
+export type DesignVariant = "corporate" | "frost" | "neobrutalism";
 // | "material"
 // | "cream";
 // | "neobrutalism";
 
 export type SchemeVariant = "primary" | "success" | "danger" | "warning";
-export type ButtonVariant =
-  | "solid"
-  | "flat"
-  | "outline"
-  | "light"
-  | "ghost"
-  | "unstyled";
+export type ButtonVariant = "solid" | "flat" | "outline" | "ghost" | "unstyled";
 
 export type ColorSchemes =
   | "blue"
@@ -28,7 +22,7 @@ export type ColorSchemes =
   | "gray";
 
 export type ProviderProps = {
-  flavour?: DesignFlavour;
+  design?: DesignVariant;
   mode?: "light" | "dark";
   children: React.ReactNode;
 };

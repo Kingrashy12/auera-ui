@@ -1,30 +1,30 @@
 import { defineClass, merge, tw } from "stywind";
-import { baseButtonClass } from "./globalStyles";
 import { ButtonProps } from "@/types/auera-ui";
 import { cva } from "class-variance-authority";
 import { SchemeVariant, VProps } from "@/types/auera-system";
+import button from "@/_styles_/button";
 
 const colorSchemeBackgrounds = {
   primary: tw(
-    baseButtonClass,
+    button.__BASE,
     defineClass(
       "bg-blue-600 shadow-frost-blue border-frost-blue hover:bg-blue-700"
     )
   ),
   success: tw(
-    baseButtonClass,
+    button.__BASE,
     defineClass(
       "bg-green-600 shadow-frost-success border-frost_success hover:bg-green-700"
     )
   ),
   danger: tw(
-    baseButtonClass,
+    button.__BASE,
     defineClass(
       "bg-red-600 shadow-frost-danger border-frost-danger hover:bg-red-700"
     )
   ),
   warning: tw(
-    baseButtonClass,
+    button.__BASE,
     defineClass(
       "bg-yellow-500 shadow-frost-warn border-frost_warn hover:bg-yellow-700"
     )
@@ -40,19 +40,19 @@ const colorSchemeText = {
 
 const lightButtonStyles = {
   primary: tw(
-    baseButtonClass,
+    button.__BASE,
     "shadow-frost-light-primary border-frost-light-primary hover:bg-frost-light-hover"
   ),
   success: tw(
-    baseButtonClass,
+    button.__BASE,
     "shadow-frost-light-success border-frost-light-success hover:bg-frost-success-hover"
   ),
   danger: tw(
-    baseButtonClass,
+    button.__BASE,
     "shadow-frost-light-danger border-frost-light-danger hover:bg-frost-danger-hover"
   ),
   warning: tw(
-    baseButtonClass,
+    button.__BASE,
     "shadow-frost-light-warn border-frost-light-warn hover:bg-frost-warn-hover"
   ),
 };
@@ -81,7 +81,7 @@ const button_frost = ({ colorScheme }: ButtonProps) => {
     colorScheme as SchemeVariant
   );
 
-  return cva("", {
+  return cva("active:scale-95", {
     variants: {
       variant: {
         solid: [
@@ -97,7 +97,7 @@ const button_frost = ({ colorScheme }: ButtonProps) => {
           flatHoverStyles[colorScheme as SchemeVariant],
         ],
         outline: [
-          baseButtonClass,
+          button.__BASE,
           `border-2 shadow-[var(--auera-neutral-100)_0_-1px_0_1px_inset,_var(--auera-neutral-200)_0_1px_2px_0]
           tone-dark:shadow-[var(--auera-neutral-800)_0_-1px_0_1px_inset,_var(--auera-neutral-900)_0_1px_2px_0]
         bg-white text-black hover:bg-gray-100 border-neutral-300 tone-dark:bg-black

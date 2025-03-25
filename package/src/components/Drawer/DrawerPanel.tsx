@@ -7,7 +7,7 @@ import { ComputePanel } from "./use-drawer";
 import { useEffect } from "react";
 
 const DrawerPanel = ({
-  flavour,
+  design,
   type = "sticky",
   position = "right",
   children,
