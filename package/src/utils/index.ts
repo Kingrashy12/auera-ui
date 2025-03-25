@@ -6,7 +6,7 @@ export { dyn } from "./dyn";
 export { useProps } from "./props/use-props";
 export { ReturnError } from "./error";
 export { cva };
-export * from "./fun";
+export * from "./functions";
 export * from "./active";
 export * from "./gen";
 export * from "./date";

@@ -1,5 +1,5 @@
 import { useRouter } from "@/hook";
-import { StrFun } from "@/utils/fun";
+import { StrFun } from "@/utils/functions";
 import React, { useState, useMemo, useEffect } from "react";
 import { BsSlashLg } from "react-icons/bs";
 import { IoIosArrowForward } from "react-icons/io";

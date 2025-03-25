@@ -350,6 +350,7 @@ export interface FabProps extends DivProps {
   zIndex?: zIndex;
   variant?: "solid" | "soft" | "outline";
   mode?: ModeType;
+  design?: DesignVariant;
 }
 
 export interface MenuProps extends React.HTMLAttributes<HTMLDivElement> {

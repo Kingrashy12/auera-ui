@@ -13,6 +13,7 @@ const Fab: React.FC<FabProps> = ({
   className,
   mode,
   variant,
+  design,
   ...props
 }) => {
   const FabComp = useComputeFab({
@@ -23,6 +24,8 @@ const Fab: React.FC<FabProps> = ({
     size,
     position,
     type,
+    design,
+    disabled,
   });
 
   return (

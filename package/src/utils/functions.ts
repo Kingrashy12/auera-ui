@@ -250,3 +250,16 @@ export const formatBytes = (bytes: number, decimals: number = 2): string => {
   const i = Math.floor(Math.log(bytes) / Math.log(k));
   return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + " " + sizes[i];
 };
+
+export const removeDuplicatesObjFromArr = <T>(arr: T[], key: keyof T) => {
+  const uniqueMap = new Map<string | number, T>();
+
+  for (const item of arr) {
+    const keyValue = item[key as never];
+    if (!uniqueMap.has(keyValue)) {
+      uniqueMap.set(keyValue, item);
+    }
+  }
+
+  return Array.from(uniqueMap.values());
+};
