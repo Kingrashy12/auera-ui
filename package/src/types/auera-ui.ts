@@ -205,6 +205,7 @@ export type SwitchProps = {
   disabled?: boolean;
   children?: React.ReactNode;
   className?: string;
+  variant?: "padded" | "flush" | "lined";
 };
 
 export type CheckBoxProps = {
@@ -350,6 +351,7 @@ export interface FabProps extends DivProps {
   zIndex?: zIndex;
   variant?: "solid" | "soft" | "outline";
   mode?: ModeType;
+  design?: DesignVariant;
 }
 
 export interface MenuProps extends React.HTMLAttributes<HTMLDivElement> {
