@@ -260,6 +260,7 @@ const fab = cva(
       size: "md",
       type: "fixed",
       position: "right",
+      design: "corporate",
     },
   }
 );

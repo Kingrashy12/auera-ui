@@ -205,6 +205,7 @@ export type SwitchProps = {
   disabled?: boolean;
   children?: React.ReactNode;
   className?: string;
+  variant?: "padded" | "flush" | "lined";
 };
 
 export type CheckBoxProps = {
