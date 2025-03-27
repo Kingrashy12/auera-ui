@@ -19,7 +19,7 @@ const Card = forwardRef<HTMLDivElement, CardWithMotion>(
       header,
       footer,
       img,
-
+      design,
       ...props
     },
     ref
@@ -31,6 +31,7 @@ const Card = forwardRef<HTMLDivElement, CardWithMotion>(
       direction,
       fullWidth,
       variant,
+      design,
     });
 
     const getImage = () => {

@@ -82,10 +82,18 @@ const Toast = ({ className }: { className?: string }) => {
 
   // Remove toast
   const removeToast = (toast: ToastNotification) => {
+    const update = (t: ToastNotification) => {
+      return { ...t, isVisible: false };
+    };
     setToasts((prev) => {
-      const updatedToasts = prev.filter(
-        (t) => toast.type === "loading" || t.id !== toast.id
+      const updatedToasts = prev.map((t) =>
+        t.type !== "loading" ? update(t) : t
       );
+      setTimeout(() => {
+        updatedToasts.filter(
+          (t) => toast.type === "loading" || t.id !== toast.id
+        );
+      }, 300);
       return updatedToasts;
     });
   };

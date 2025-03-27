@@ -262,6 +262,7 @@ export interface CardProps extends BoxProps {
   mode?: "light" | "dark";
   centerContent?: boolean;
   variant?: "flat" | "raised";
+  design?: DesignVariant;
   img?: {
     src: string;
     alt: string;

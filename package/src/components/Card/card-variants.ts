@@ -1,3 +1,4 @@
+import neobrutalism from "@/_styles_/neobrutalism";
 import { cva, VariantProps } from "class-variance-authority";
 
 const root = cva(
@@ -16,15 +17,42 @@ const root = cva(
         column: "flex-col",
       },
       variant: {
-        flat: "shadow-none",
-        raised:
-          "shadow-card tone-dark:shadow-[0_4px_8px_rgba(255,255,255,0.05)]",
+        flat: "",
+        raised: "",
+      },
+      design: {
+        corporate: "",
+        frost: "",
+        neobrutalism: "",
       },
     },
-
+    compoundVariants: [
+      {
+        variant: "raised",
+        design: "corporate",
+        class:
+          "shadow-card tone-dark:shadow-[0_4px_8px_rgba(255,255,255,0.05)]",
+      },
+      {
+        variant: "flat",
+        design: "corporate",
+        class: "shadow-none",
+      },
+      {
+        variant: "raised",
+        design: "neobrutalism",
+        class: neobrutalism.__CARD,
+      },
+      {
+        variant: "flat",
+        design: "neobrutalism",
+        class: neobrutalism.__CARD,
+      },
+    ],
     defaultVariants: {
       variant: "raised",
       direction: "column",
+      design: "corporate",
       fullWidth: false,
       hidden: false,
     },

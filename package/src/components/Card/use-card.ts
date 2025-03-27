@@ -4,8 +4,15 @@ import { createStyle, tw } from "stywind";
 import { AueraDivWithMotion } from "../../core/ElementWithmotion";
 
 export const useCard = (props: RootVariants & BodyVariants) => {
-  const { fullWidth, classNames, variant, hidden, direction, centerContent } =
-    props;
+  const {
+    fullWidth,
+    classNames,
+    variant,
+    hidden,
+    direction,
+    centerContent,
+    design,
+  } = props;
 
   const StyledRoot = createStyle(AueraDivWithMotion);
   const StyledChildren = createStyle("div");
@@ -18,10 +25,11 @@ export const useCard = (props: RootVariants & BodyVariants) => {
           hidden,
           variant,
           direction,
+          design,
         }),
         classNames?.root
       ),
-    [fullWidth, classNames?.root, variant, hidden, direction]
+    [fullWidth, classNames?.root, variant, hidden, direction, design]
   );
 
   const bodyStyles = useMemo(
