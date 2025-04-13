@@ -16,15 +16,9 @@
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/auera-ui)](https://bundlephobia.com/result?p=auera-ui)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/Kingrashy12/auera-ui/blob/main/LICENSE)
 
+[Documentation](https://aueraui.vercel.app/)
+
 </div>
-
-# Documentation
-
-For full documentation, visit:
-
-<!-- [Storybook](https://storybook-aueraui.vercel.app/), -->
-
-[AueraUI](https://aueraui.vercel.app/)
 
 ## Table of Contents
 
