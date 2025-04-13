@@ -10,3 +10,4 @@ export * from "./functions";
 export * from "./active";
 export * from "./gen";
 export * from "./date";
+export * from "./global-ui";

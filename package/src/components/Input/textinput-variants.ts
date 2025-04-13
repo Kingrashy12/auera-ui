@@ -37,10 +37,15 @@ const input_interface = cva(
         solid: `bg-[#f7f7f8] shadow-sm border-neutral-300 border-2 focus-within:shadow-[0_0_0_3px_var(--auera-neutral-200)]
         tone-dark:bg-[#232227] tone-dark:border-neutral-700 focus-within:border-neutral-300
          tone-dark:focus-within:shadow-[0_0_0_3px_var(--auera-neutral-600)]`,
-        unstyled: "",
+        soft: "",
       },
       disabled: {
         true: "cursor-not-allowed pointer-events-none opacity-85 select-none",
+      },
+      design: {
+        corporate: "",
+        neobrutalism: "",
+        frost: "",
       },
     },
     defaultVariants: {

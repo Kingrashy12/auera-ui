@@ -1,25 +1,20 @@
-import { useMenu } from "@/hook/useMenu";
-import { DivProps } from "../../types/auera-ui";
 import React from "react";
+import { useMenu } from "./Provider";
+import { DivProps, tw } from "stywind";
 
-/**
- * MenuTrigger component that opens a menu when clicked.
- *
- * @param {Object} props - The props for the component.
- * @param {React.ReactNode} props.children - The content to be displayed inside the trigger.
- * @param {React.Ref} ref - The ref to be forwarded to the div element.
- */
+interface MenuTriggerProps extends DivProps {
+  children: React.ReactNode;
+}
 
-const MenuTrigger = React.forwardRef<HTMLDivElement, DivProps>(
-  ({ children, ...props }, ref) => {
-    const { onOpen } = useMenu();
-    return (
-      <div onClick={onOpen} ref={ref} {...props}>
-        {children}
-      </div>
-    );
-  }
-);
+const MenuTrigger: React.FC<MenuTriggerProps> = ({ children, ...props }) => {
+  const { onOpen } = useMenu();
+  return (
+    <div onClick={onOpen} className={tw("w-fit", props.className)}>
+      {children}
+    </div>
+  );
+};
 
 export default MenuTrigger;
-MenuTrigger.displayName = "";
+
+MenuTrigger.displayName = "AueraUI.MenuTrigger";

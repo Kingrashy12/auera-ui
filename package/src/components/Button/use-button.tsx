@@ -6,6 +6,7 @@ import { useMemo } from "react";
 import { createStyle, tw } from "stywind";
 import generateButtonClass from "./button__";
 import { CgSpinner } from "react-icons/cg";
+import { useButtonRules } from "@/hook/useStyleRules";
 
 const useButton = ({
   radius = "sm",
@@ -23,23 +24,42 @@ const useButton = ({
 
   const ButtonInterface = createStyle(AueraButton);
 
+  const {
+    appliedClassName,
+    appliedSize,
+    appliedVariant,
+    appliedDesign,
+    appliedRadius,
+  } = useButtonRules(
+    props.id as string,
+    className,
+    colorScheme,
+    variant,
+    currentDesign,
+    currentMode
+  );
+
   const styles = useMemo(
     () =>
       tw(
-        generateButtonClass({ colorScheme, variant })({
-          design: currentDesign,
+        generateButtonClass({
+          colorScheme,
+          variant: appliedVariant?.value ?? variant,
+        })({
+          design: appliedDesign?.value ?? currentDesign,
           fullWidth: props.fullWidth,
-          size,
-          className,
+          size: appliedSize?.value ?? size,
+          className: tw(appliedClassName?.value, className),
           hidden: props.hidden,
           disabled,
-          radius,
+          radius: appliedRadius?.value ?? radius,
         }),
         {
           "relative svg:absolute svg:right-4": props.rightIcon,
           "relative svg:absolute svg:left-4": props.leftIcon,
           "justify-between": props.leftIcon && props.rightIcon,
         },
+        appliedClassName?.value,
         className
       ),
     [
@@ -53,6 +73,11 @@ const useButton = ({
       colorScheme,
       currentDesign,
       currentMode,
+      appliedVariant?.value,
+      appliedSize?.value,
+      appliedRadius?.value,
+      appliedClassName?.value,
+      appliedDesign?.value,
     ]
   );
 

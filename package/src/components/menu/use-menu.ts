@@ -1,43 +1,31 @@
-import { useMemo } from "react";
-import {
-  container,
-  ContainerVariants,
-  item,
-  ItemVariants,
-  list,
-  ListVariants,
-} from "./menu-variants";
 import { createStyle, tw } from "stywind";
-import { AueraDiv } from "@/core/AueraElement";
+import { item, ItemVariants, list, ListVariants } from "./menu-variant";
+import { useMemo } from "react";
 
-const useComputeMenu = (props: ListVariants) => {
-  const { className, zIndex } = props;
+export const useComputeItem = (props: ItemVariants) => {
+  const { disabled, className, color, useColorOnHover } = props;
 
-  return useMemo(
-    () => createStyle(AueraDiv).classname(tw(list({ zIndex }), className)),
-    [className, zIndex]
+  // TODO: Use `AueraDiv`
+  const StyledItem = createStyle("div");
+
+  const styles = useMemo(
+    () => tw(item({ color, disabled, useColorOnHover }), className),
+    [className, color, disabled, useColorOnHover]
   );
+
+  return StyledItem.classname(styles);
 };
 
-const useComputeItem = (props: ItemVariants) => {
-  const { className, type, disabled, color } = props;
+export const useComputeWrapper = (props: ListVariants) => {
+  const { zIndex, className, showDivider, isVisible } = props;
 
-  return useMemo(
-    () =>
-      createStyle(AueraDiv).classname(
-        tw(item({ disabled, type, color }), className)
-      ),
-    [className, disabled, type, color]
+  // TODO: Use `AueraDiv`
+  const StyledIWrapper = createStyle("div");
+
+  const styles = useMemo(
+    () => tw(list({ zIndex, showDivider, isVisible }), className),
+    [className, zIndex, showDivider, isVisible]
   );
+
+  return StyledIWrapper.classname(styles);
 };
-
-const useComputeContainer = (props: ContainerVariants) => {
-  const { open, zIndex } = props;
-
-  return useMemo(
-    () => createStyle("div").classname(container({ open, zIndex })),
-    [open, zIndex]
-  );
-};
-
-export { useComputeMenu, useComputeItem, useComputeContainer };

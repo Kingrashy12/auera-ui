@@ -6,10 +6,54 @@ import { VariantProps } from "class-variance-authority";
 export type DesignVariant = "corporate" | "frost" | "neobrutalism";
 // | "material"
 // | "cream";
-// | "neobrutalism";
 
 export type SchemeVariant = "primary" | "success" | "danger" | "warning";
 export type ButtonVariant = "solid" | "flat" | "outline" | "ghost" | "unstyled";
+export type Radius = "none" | "sm" | "md" | "lg" | "xl" | "full";
+export type Sizes = "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
+
+export interface ApplyBy {
+  Button:
+    | "all"
+    | "id"
+    | "class"
+    | "variant"
+    | "colorScheme"
+    | "design"
+    | "mode";
+  Card: "variant" | "id" | "class" | "design" | "mode";
+  Input: "variant" | "id" | "class" | "design" | "mode" | "radius";
+}
+
+/**
+ * Represents a conditional style rule for a component.
+ *
+ * @template A - The type of the attribute used to determine how the rule should be applied (e.g., "id", "variant").
+ * @template V - The type of the value to be applied (e.g., a className string, a style object, etc.).
+ */
+export type StyleRule<A, V> = {
+  /**
+   * Defines the attribute by which this rule is applied (e.g., "id", "variant").
+   */
+  applyBy?: A;
+
+  /**
+   * The value to be applied if the rule conditions are met.
+   */
+  value: V;
+
+  /**
+   * An optional condition to further narrow when this rule applies.
+   * For example: `{ attr: "id", is: "primary" }` will apply this rule
+   * only if the element's "id" matches "primary".
+   */
+  $where?: {
+    attr: A;
+    is: string;
+  };
+};
+
+export type RuleKey<A, Value> = Record<string, StyleRule<A, Value>>;
 
 export type ColorSchemes =
   | "blue"
@@ -25,7 +69,9 @@ export type ProviderProps = {
   design?: DesignVariant;
   mode?: "light" | "dark";
   children: React.ReactNode;
+  styleRules?: GlobalUI["styleRules"];
 };
+
 type ContextAction = "create" | "use";
 
 export type ContextType = {
@@ -202,4 +248,48 @@ export interface HTMLElements {
   video: HTMLVideoElement;
   wbr: HTMLElement;
   webview: HTMLWebViewElement;
+}
+
+export interface GlobalUI {
+  /**
+   * A map of component-specific style rules.
+   * Each key represents a component and its associated conditional style rules.
+   */
+  styleRules?: {
+    /**
+     * Style rules for the `Button` component.
+     */
+    button?: {
+      variant?: StyleRule<ApplyBy["Button"], ButtonVariant>[];
+      radius?: StyleRule<ApplyBy["Button"], Radius>[];
+      className?: StyleRule<ApplyBy["Button"], string>[];
+      size?: StyleRule<ApplyBy["Button"], Sizes>[];
+      colorScheme?: StyleRule<ApplyBy["Button"], SchemeVariant>[];
+      design?: StyleRule<ApplyBy["Button"], DesignVariant>[];
+      mode?: StyleRule<ApplyBy["Button"], ModeType>[];
+    };
+    /**
+     * Style rules for the `Card` component.
+     */
+    card?: {
+      variant?: StyleRule<ApplyBy["Card"], "flat" | "raised">[];
+      design?: StyleRule<ApplyBy["Card"], DesignVariant>[];
+      className?: StyleRule<ApplyBy["Card"], string>[];
+      mode?: StyleRule<ApplyBy["Card"], ModeType>[];
+    };
+    input?: {
+      variant?: StyleRule<
+        ApplyBy["Input"],
+        "solid" | "outline" | "ghost" | "soft"
+      >[];
+      design?: StyleRule<ApplyBy["Input"], DesignVariant>[];
+      className?: StyleRule<ApplyBy["Input"], string>[];
+      inputClassName?: StyleRule<ApplyBy["Input"], string>[];
+      mode?: StyleRule<ApplyBy["Input"], ModeType>[];
+      radius?: StyleRule<
+        ApplyBy["Input"],
+        "none" | "sm" | "md" | "lg" | "xl" | "full"
+      >[];
+    };
+  };
 }

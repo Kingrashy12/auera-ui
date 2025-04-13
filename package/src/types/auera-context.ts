@@ -18,3 +18,11 @@ export type TabsProviderType = {
   useFullWidth?: boolean;
   useRounded: boolean;
 };
+
+export interface MenuContextProps {
+  isOpen: boolean;
+  isVisible: boolean;
+  onOpen: () => void;
+  onClose: () => void;
+  useColorOnHover?: boolean;
+}

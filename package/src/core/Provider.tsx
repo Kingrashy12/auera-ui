@@ -9,11 +9,13 @@ import PanelProvider, {
   DrawerPanelProvider,
 } from "@/components/Provider/Panel";
 import Toaster from "@/components/Toast/Toaster";
+import GlobalUIProvider from "./GlobalUIProvider";
 
 const Provider = ({
   children,
   design: Design = "corporate",
   mode,
+  styleRules,
 }: ProviderProps) => {
   const [design, setDesign] = useState<DesignVariant>(Design);
 
@@ -26,14 +28,16 @@ const Provider = ({
   return (
     <AueraContext.Provider value={{ design, mode, changeDesign }}>
       <ThemeProvider mode={mode}>
-        <Toaster />
-        <PanelProvider>
-          <DrawerPanelProvider>
-            <ModalProvider>
-              <DrawerProvider>{children}</DrawerProvider>
-            </ModalProvider>
-          </DrawerPanelProvider>
-        </PanelProvider>
+        <GlobalUIProvider styleRules={styleRules}>
+          <Toaster />
+          <PanelProvider>
+            <DrawerPanelProvider>
+              <ModalProvider>
+                <DrawerProvider>{children}</DrawerProvider>
+              </ModalProvider>
+            </DrawerPanelProvider>
+          </PanelProvider>
+        </GlobalUIProvider>
       </ThemeProvider>
     </AueraContext.Provider>
   );

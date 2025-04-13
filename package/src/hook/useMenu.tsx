@@ -1,10 +1,11 @@
 import { useContext } from "react";
-import { MenuContext } from "../context/menu";
 
 export const useMenu = () => {
   const context = useContext(MenuContext);
   if (context === undefined) {
-    throw new Error("MenuTrigger must be within Menu component");
+    throw new Error(
+      "Missing `Menu`. Make sure you use all Menu child component within `Menu`."
+    );
   }
   return context;
 };
