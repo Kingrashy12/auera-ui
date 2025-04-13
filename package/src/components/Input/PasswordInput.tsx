@@ -28,15 +28,17 @@ const PasswordInput = forwardRef<HTMLInputElement, PasswordProps>(
   ) => {
     const [type, setType] = useState<"text" | "password">("password");
 
+    const { currentMode } = useMode(props.mode);
+
     const { Input, InputInterface } = useComputeInput({
       variant,
       radius,
       disabled,
       inputClass,
       className,
+      id: props.id as string,
+      mode: currentMode,
     });
-
-    const { currentMode } = useMode(props.mode);
 
     const handleView = () =>
       setType((prev) => (prev === "password" ? "text" : "password"));

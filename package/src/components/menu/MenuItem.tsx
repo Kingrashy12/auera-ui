@@ -1,7 +1,7 @@
 import React from "react";
 import { useComputeItem } from "./use-menu";
 import { MenuItemProps } from "../../types/auera-ui";
-import { useMenu } from "./Provider";
+import { useMenu } from "@/hook/useMenu";
 
 const MenuItem: React.FC<MenuItemProps> = ({
   children,

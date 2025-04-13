@@ -1,14 +1,12 @@
 import { MenuItemProps, MenuPadProps, MenuProps } from "../../types/auera-ui";
-import { MenuContextProps } from "../../types/auera-context";
-import React, { createContext, useContext, useState } from "react";
+import React, { useState } from "react";
 import MenuItem from "./MenuItem";
 import MenuTrigger from "./MenuTrigger";
 import MenuPad from "./MenuPad";
 import { tw } from "stywind";
 import Menu from "./Menu";
 import { Box } from "auera-ui";
-
-const MenuContext = createContext<MenuContextProps | undefined>(undefined);
+import { MenuContext } from "@/context/menu";
 
 const Provider: React.FC<MenuProps> = ({
   children,
