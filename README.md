@@ -5,13 +5,17 @@
 <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Kingrashy12/auera-ui/blob/main/images/logo-dark.png" />
     <source media="(prefers-color-scheme: light)" srcset="https://github.com/Kingrashy12/auera-ui/blob/main/images/logo-light.png" />
-    <img alt="AueraUI" src='https://github.com/Kingrashy12/auera-ui/blob/main/images/logo-light.png' width="230" height="70" style="max-width:100%;" />
+   
 </picture> 
 </div>
 
- <h1 style="font-size: 25px;">
-   Build <span style="background: linear-gradient(to bottom, #60a5fa, #1d4ed8); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">beautiful</span> UIs, effortlessly.
-  </h1>
+  <h1>AueraUI</h1>
+  <h3>Build beautiful UIs, effortlessly.</h3>
+  
+[![npm](https://img.shields.io/npm/v/auera-ui?color=2962FF)](https://www.npmjs.com/package/auera-ui)
+[![npm bundle size](https://img.shields.io/bundlephobia/minzip/auera-ui)](https://bundlephobia.com/result?p=auera-ui)
+[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/Kingrashy12/auera-ui/blob/main/LICENSE)
+
 </div>
 
 # Documentation
