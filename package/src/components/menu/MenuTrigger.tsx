@@ -1,5 +1,5 @@
+import { useMenu } from "@/hook/useMenu";
 import React from "react";
-import { useMenu } from "./Provider";
 import { DivProps, tw } from "stywind";
 
 interface MenuTriggerProps extends DivProps {

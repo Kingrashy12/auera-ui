@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import { useComputeWrapper } from "./use-menu";
 import { tw } from "stywind";
-import { useMenu } from "./Provider";
 import { MenuProps } from "../../types/auera-ui";
+import { useMenu } from "@/hook/useMenu";
 
 const Menu: React.FC<MenuProps> = ({
   children,

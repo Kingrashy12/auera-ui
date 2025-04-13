@@ -3,6 +3,7 @@ import { forwardRef, memo } from "react";
 import Icon from "../Icon/Icon";
 import { useComputeInput } from "./use-textinput";
 import { InputProp } from "../../types/auera-ui";
+import { useMode } from "@/hook/use";
 
 const TextInput = forwardRef<HTMLInputElement, InputProp>(
   (
@@ -22,12 +23,16 @@ const TextInput = forwardRef<HTMLInputElement, InputProp>(
     },
     ref
   ) => {
+    const { currentMode } = useMode(props.mode);
+
     const { Input, InputInterface } = useComputeInput({
       radius,
       variant,
       inputClass,
       className,
       disabled,
+      id: props.id as string,
+      mode: currentMode,
     });
 
     return (
