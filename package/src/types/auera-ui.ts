@@ -355,18 +355,6 @@ export interface FabProps extends DivProps {
   design?: DesignVariant;
 }
 
-export interface MenuProps extends React.HTMLAttributes<HTMLDivElement> {
-  open?: boolean;
-  mode?: "light" | "dark";
-  zIndex?: zIndex;
-}
-
-export interface MenuItemProps extends DivProps {
-  color?: ColorKey;
-  disabled?: boolean;
-  type?: "padded" | "flush";
-}
-
 export type CollapseProps = {
   headerLabel?: string;
   children?: React.ReactNode;
@@ -403,7 +391,7 @@ export interface InputProp extends InputProps {
   icon?: ElementType;
   iconSize?: number;
   radius?: "none" | "sm" | "md" | "lg" | "xl" | "full";
-  variant?: "solid" | "outline" | "ghost" | "unstyled";
+  variant?: "solid" | "outline" | "ghost" | "soft";
   mode?: ModeType;
 }
 
@@ -626,4 +614,27 @@ export interface Row extends TableRowProps {
 
 export interface TableHeadProps extends THeadProps {
   tint?: boolean;
+}
+
+export interface MenuProps extends DivProps {
+  children: React.ReactNode;
+  mode?: "light" | "dark";
+  zIndex?: zIndex;
+  showDivider?: boolean;
+  containerClassName?: string;
+  useColorOnHover?: boolean;
+}
+
+export interface MenuItemProps extends DivProps {
+  children: React.ReactNode;
+  color?: ColorKey;
+  disabled?: boolean;
+}
+
+export interface MenuPadProps extends DivProps {
+  children: React.ReactNode;
+}
+
+export interface MenuPadHeaderProps extends DivProps {
+  null?: null;
 }

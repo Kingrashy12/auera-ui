@@ -33,7 +33,7 @@ const ibutton = cva(
         subtle:
           "bg-gray-50 hover:bg-gray-100 border-none outline-none tone-dark:bg-neutral-700 tone-dark:hover:bg-neutral-800",
         outline:
-          "border-[1.5px] border-neutral-200 hover:bg-gray-100 tone-dark:border-neutral-800 tone-dark:hover:bg-neutral-900",
+          "border-[1.5px] bg-neutral-50 tone-dark:bg-neutral-900 border-gray-300 hover:bg-gray-100 tone-dark:border-neutral-700 tone-dark:hover:bg-neutral-800",
         ghost:
           "bg-transparent hover:bg-gray-100 border-none outline-none tone-dark:hover:bg-neutral-800",
       },

@@ -1,89 +1,106 @@
-import { MenuProps } from "../../types/auera-ui";
-import React, { useEffect, useRef, useState } from "react";
-import { MenuContext } from "@/context/menu";
-import { Menu } from "./List";
-import { getDisplayName } from "@/utils/displayname";
+import { MenuItemProps, MenuPadProps, MenuProps } from "../../types/auera-ui";
+import { MenuContextProps } from "../../types/auera-context";
+import React, { createContext, useContext, useState } from "react";
 import MenuItem from "./MenuItem";
 import MenuTrigger from "./MenuTrigger";
-import Box from "../Box/Box";
-import { useMode } from "@/hook/use";
+import MenuPad from "./MenuPad";
+import { tw } from "stywind";
+import Menu from "./Menu";
+import { Box } from "auera-ui";
 
-const MenuProvider = ({ children, ...props }: MenuProps) => {
+const MenuContext = createContext<MenuContextProps | undefined>(undefined);
+
+const Provider: React.FC<MenuProps> = ({
+  children,
+  useColorOnHover,
+  ...props
+}) => {
   const [isOpen, setIsOpen] = useState(false);
-  const triggerRef = useRef<HTMLDivElement>(null);
-  const menuRef = useRef<HTMLDivElement>(null);
-  const { currentMode } = useMode(props.mode);
-
-  useEffect(() => {
-    document.documentElement.setAttribute("select-open", String(isOpen));
-  }, [isOpen]);
+  const [isVisible, setIsVisible] = useState(false);
 
   const onOpen = () => {
+    setIsVisible(true);
     setIsOpen(true);
   };
 
   const onClose = () => {
-    setIsOpen(false);
+    setIsVisible(false);
+    setTimeout(() => {
+      setIsOpen(false);
+    }, 200);
+  };
+
+  const renderChildren = () => {
+    const validChildren = React.Children.toArray(children)
+      .filter(React.isValidElement)
+      .filter(
+        (element) =>
+          React.isValidElement(element) && element.type !== MenuTrigger
+      );
+
+    return validChildren.map((child, index) => {
+      if (!React.isValidElement(child)) return null;
+
+      if (child.type === MenuPad) {
+        const pad = child as React.ReactElement<MenuPadProps>;
+        return (
+          <MenuPad key={index} {...pad.props}>
+            {pad.props.children}
+          </MenuPad>
+        );
+      }
+
+      if (child.type === MenuItem) {
+        const isEdge =
+          index === 0 ||
+          index === validChildren.length - 1 ||
+          validChildren.filter((c) => c.type === MenuItem).length === 1;
+
+        const item = child as React.ReactElement<MenuItemProps>;
+        return (
+          <MenuItem
+            key={index}
+            {...item.props}
+            className={tw(
+              //   isEdge && index === 0 ? "rounded-t-xl" : "rounded-b-xl",
+              isEdge && index === 0
+                ? "rounded-t-xl"
+                : isEdge
+                ? "rounded-b-xl"
+                : "",
+              item.props.className
+            )}
+          >
+            {item.props.children}
+          </MenuItem>
+        );
+      }
+
+      return child; // if it's a MenuTrigger or anything else, render as-is
+    });
   };
 
   const trigger = React.Children.toArray(children).filter(
     (child) => React.isValidElement(child) && child.type === MenuTrigger
   );
 
-  const items = React.Children.toArray(children).filter(
-    (child) => React.isValidElement(child) && child.type !== MenuTrigger
-  );
-
-  const renderChildren = (elements: React.ReactNode[], isTrigger?: boolean) => {
-    return elements.map((element, index) => {
-      const eadge = index === elements.length - 1 || index === 0;
-      if (!React.isValidElement(element)) return null;
-
-      const typedElement = element as React.ReactElement<{
-        [key: string]: any;
-      }>;
-      if (isTrigger) {
-        return (
-          <MenuTrigger key={index} ref={triggerRef}>
-            {typedElement.props.children}
-          </MenuTrigger>
-        );
-      }
-
-      if (element.type !== MenuItem) {
-        return element;
-      } else {
-        return (
-          <MenuItem
-            key={index}
-            className={`${
-              eadge && typedElement.props.type !== "padded"
-                ? index === 0
-                  ? "rounded-t-lg"
-                  : "rounded-b-lg"
-                : ""
-            } ${typedElement.props.className || ""}`}
-            {...typedElement.props}
-          >
-            {typedElement.props.children}
-          </MenuItem>
-        );
-      }
-    });
-  };
-
   return (
     <MenuContext.Provider
-      value={{ isOpen, onClose, onOpen, mode: currentMode, menuRef }}
+      value={{ isOpen, isVisible, onClose, onOpen, useColorOnHover }}
     >
-      <Box direction="column">
-        {renderChildren(trigger, true)}
-        <Menu {...props}>{renderChildren(items)}</Menu>
+      <Box className="flex-col gap-4">
+        {trigger}
+        <Menu {...props}>
+          {renderChildren().filter(
+            (element) =>
+              React.isValidElement(element) && element.type !== MenuTrigger
+          )}
+        </Menu>
       </Box>
     </MenuContext.Provider>
   );
 };
 
-export default MenuProvider;
+export default Provider;
 
-MenuProvider.displayName = getDisplayName("MenuProvider");
+Provider.displayName = "AueraUI.MenuProvider";

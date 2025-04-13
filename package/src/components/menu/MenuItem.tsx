@@ -1,19 +1,23 @@
-import { useMenu } from "@/hook/useMenu";
-import { MenuItemProps } from "../../types/auera-ui";
 import React from "react";
-import { getDisplayName } from "@/utils/displayname";
 import { useComputeItem } from "./use-menu";
+import { MenuItemProps } from "../../types/auera-ui";
+import { useMenu } from "./Provider";
 
-const MenuItem: React.FC<MenuItemProps> = (props) => {
-  const { children, className, disabled, color, type, onClick, ...rest } =
-    props;
-  const { onClose, mode } = useMenu();
+const MenuItem: React.FC<MenuItemProps> = ({
+  children,
+  color,
+  className,
+  disabled,
+  onClick,
+  ...props
+}) => {
+  const { onClose, useColorOnHover } = useMenu();
 
   const Component = useComputeItem({
     className,
-    disabled,
-    type,
     color,
+    disabled,
+    useColorOnHover,
   });
 
   const killMenu = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
@@ -22,21 +26,12 @@ const MenuItem: React.FC<MenuItemProps> = (props) => {
   };
 
   return (
-    <>
-      {props.type === "padded" ? (
-        <div className="w-full p-2">
-          <Component mode={mode} onClick={killMenu} {...rest}>
-            {children}
-          </Component>
-        </div>
-      ) : (
-        <Component mode={mode} onClick={killMenu} {...rest}>
-          {children}
-        </Component>
-      )}
-    </>
+    <Component {...props} onClick={killMenu}>
+      {children}
+    </Component>
   );
 };
 
 export default MenuItem;
-MenuItem.displayName = getDisplayName("MenuItem");
+
+MenuItem.displayName = "AueraUI.MenuItem";
