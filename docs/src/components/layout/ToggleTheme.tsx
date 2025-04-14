@@ -1,9 +1,10 @@
 import {
+  Divider,
   Icon,
   IconButton,
   Menu,
-  MenuDivider,
   MenuItem,
+  MenuPad,
   MenuTrigger,
   useTheme,
 } from "auera-ui";
@@ -29,21 +30,23 @@ const ToggleTheme = () => {
           <Icon icon={icon[mode]} size={18} />
         </IconButton>
       </MenuTrigger>
-      <MenuItem
-        onClick={toggleTheme.dark}
-        color={!system && mode === "dark" ? "info" : "default"}
-      >
-        <MdWbSunny size={20} />
-        <p className="font-inter font-medium text-sm">Dark</p>
-      </MenuItem>
-      <MenuItem
-        onClick={toggleTheme.light}
-        color={!system && mode === "light" ? "info" : "default"}
-      >
-        <IoMdMoon size={20} />
-        <p className="font-inter font-medium text-sm">Light</p>
-      </MenuItem>
-      <MenuDivider />
+      <MenuPad>
+        <MenuItem
+          onClick={toggleTheme.dark}
+          color={!system && mode === "dark" ? "info" : "default"}
+        >
+          <MdWbSunny size={20} />
+          <p className="font-inter font-medium text-sm">Dark</p>
+        </MenuItem>
+        <MenuItem
+          onClick={toggleTheme.light}
+          color={!system && mode === "light" ? "info" : "default"}
+        >
+          <IoMdMoon size={20} />
+          <p className="font-inter font-medium text-sm">Light</p>
+        </MenuItem>
+      </MenuPad>
+      <Divider />
       <MenuItem
         onClick={toggleTheme.system}
         color={system === true ? "info" : "default"}

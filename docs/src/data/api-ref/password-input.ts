@@ -1,7 +1,7 @@
 export const passwordInputRef = [
   {
     prop: "variant",
-    type: '"solid" | "outline" | "ghost" | "unstyled"',
+    type: '"solid" | "outline" | "ghost" | "soft"',
     description: "Defines the visual style of the password input.",
     default: "outline",
   },

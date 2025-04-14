@@ -11,7 +11,7 @@ const Menu: React.FC<MenuProps> = ({
   showDivider,
   containerClassName,
 }) => {
-  const { isVisible, isOpen, onClose } = useMenu();
+  const { isVisible, isOpen, onClose, mode } = useMenu();
   const Wrapper = useComputeWrapper({
     zIndex,
     className,
@@ -46,7 +46,7 @@ const Menu: React.FC<MenuProps> = ({
         )}
         ref={menuRef}
       >
-        <Wrapper>{children}</Wrapper>
+        <Wrapper mode={mode}>{children}</Wrapper>
       </div>
     </>
   );

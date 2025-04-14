@@ -20,7 +20,7 @@ const PasswordInputVariants = () => {
             <PasswordInput className="w-fit" variant="solid" />
             <PasswordInput className="w-fit" variant="outline" />
             <PasswordInput className="w-fit" variant="ghost" />
-            <PasswordInput className="w-fit" variant="unstyled" />
+            <PasswordInput className="w-fit" variant="soft" />
           </Stack>
         </TabPanel>
         <TabPanel>
@@ -41,7 +41,7 @@ const Demo = () => {
       <PasswordInput className="w-fit" variant="solid" />
       <PasswordInput className="w-fit" variant="outline" />
       <PasswordInput className="w-fit" variant="ghost" />
-      <PasswordInput className="w-fit" variant="unstyled" />
+      <PasswordInput className="w-fit" variant="soft" />
    </Stack>
  )
 }`;

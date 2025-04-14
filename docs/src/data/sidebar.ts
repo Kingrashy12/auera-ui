@@ -54,7 +54,10 @@ export const sideBarLinks = [
   },
   {
     header: "Customization",
-    links: [{ label: "Design ", uri: "/docs/customization/design" }],
+    links: [
+      { label: "Design ", uri: "/docs/customization/design" },
+      { label: "Style Rules", uri: "/docs/customization/style-rules" },
+    ],
   },
   {
     header: "Components",
@@ -157,8 +160,14 @@ export const sideBarLinks = [
         soon: true,
       },
       {
-        label: "paginate",
-        uri: "/docs/utilities/paginate",
+        label: "formatNumber",
+        uri: "/docs/utilities/format-number",
+        docs_soon: true,
+        soon: true,
+      },
+      {
+        label: "formatBytes",
+        uri: "/docs/utilities/format-bytes",
         docs_soon: true,
         soon: true,
       },

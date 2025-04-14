@@ -171,6 +171,10 @@ import DisabledSelect from "@/components/example/select/disabled";
 import TriggerVariants from "@/components/example/select/variants";
 import ContentVariants from "@/components/example/select/content-variant";
 import SelectRadius from "../components/example/select/radius";
+import {
+  FieldBreakdown,
+  StyleRulesGuide,
+} from "@/components/guide/style-rules";
 
 export const components = {
   DetailCard,
@@ -349,6 +353,9 @@ export const components = {
   TriggerVariants,
   ContentVariants,
   SelectRadius,
+  FieldBreakdown,
+  HowItWorks: StyleRulesGuide.HowItWorks,
+  UsageExample: StyleRulesGuide.UsageExample,
 };
 
 export const MDXRemote = dynamic(() =>

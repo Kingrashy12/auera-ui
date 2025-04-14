@@ -11,7 +11,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
   onClick,
   ...props
 }) => {
-  const { onClose, useColorOnHover } = useMenu();
+  const { onClose, useColorOnHover, mode } = useMenu();
 
   const Component = useComputeItem({
     className,
@@ -26,7 +26,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
   };
 
   return (
-    <Component {...props} onClick={killMenu}>
+    <Component mode={mode} {...props} onClick={killMenu}>
       {children}
     </Component>
   );

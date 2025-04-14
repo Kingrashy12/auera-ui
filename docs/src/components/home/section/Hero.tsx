@@ -27,7 +27,7 @@ const Hero = () => {
                 radius="xl"
                 className="font-inter"
                 size="xl"
-                flavour="frost"
+                design="frost"
                 rightIcon={FiArrowRight}
               >
                 Get Started

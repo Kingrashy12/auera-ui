@@ -25,7 +25,7 @@ const button_corporate = cva("active:scale-95", {
     {
       variant: "solid",
       colorScheme: "primary",
-      class: "bg-blue-700 hover:bg-blue-800",
+      class: "bg-blue-600 hover:bg-blue-700",
     },
     {
       variant: "solid",

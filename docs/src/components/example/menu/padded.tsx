@@ -1,10 +1,11 @@
 import CodeBlock from "@/components/layout/code/Block";
 import CardContent from "@/components/lib/CardContent";
 import {
+  Divider,
   IconButton,
   Menu,
-  MenuDivider,
   MenuItem,
+  MenuPad,
   MenuTrigger,
   TabHandle,
   TabPanel,
@@ -35,10 +36,10 @@ const PaddedMenu = () => {
             <MenuItem>View Details</MenuItem>
             <MenuItem>Edit</MenuItem>
             <MenuItem>Share</MenuItem>
-            <MenuDivider />
-            <MenuItem color="danger" type="padded">
-              Delete
-            </MenuItem>
+            <Divider />
+            <MenuPad>
+              <MenuItem color="danger">Delete</MenuItem>
+            </MenuPad>
           </Menu>
         </TabPanel>
         <TabPanel>

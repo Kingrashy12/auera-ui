@@ -108,7 +108,7 @@ const PricingCard = () => {
               <Button
                 className="font-inter text-sm items-center"
                 radius="xl"
-                flavour="frost"
+                design="frost"
               >
                 Select plan
               </Button>
