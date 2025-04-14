@@ -3,14 +3,14 @@ import { Box, IconButton } from "auera-ui";
 import Link from "next/link";
 import React from "react";
 import { FaGithub } from "react-icons/fa";
-import { IoSearchOutline } from "react-icons/io5";
+// import { IoSearchOutline } from "react-icons/io5";
 
 const Community = ({ className }: { className?: string }) => {
   return (
     <Box className={`gap-3 items-center ${className}`}>
-      <IconButton variant="ghost" radius="xl">
+      {/* <IconButton variant="ghost" radius="xl">
         <IoSearchOutline size={19} />
-      </IconButton>
+      </IconButton> */}
 
       <Link href={github_url} rel="noreferel" target="_blank">
         <IconButton variant="outline" radius="xl">
