@@ -1,7 +1,7 @@
 export const textinputRef = [
   {
     prop: "variant",
-    type: '"solid" | "outline" | "ghost" | "unstyled"',
+    type: '"solid" | "outline" | "ghost" | "soft"',
     description: "Defines the visual style of the input interface.",
     default: "outline",
   },

@@ -21,8 +21,8 @@ export interface ApplyBy {
     | "colorScheme"
     | "design"
     | "mode";
-  Card: "variant" | "id" | "class" | "design" | "mode";
-  Input: "variant" | "id" | "class" | "design" | "mode" | "radius";
+  Card: "all" | "variant" | "id" | "class" | "design" | "mode";
+  Input: "all" | "variant" | "id" | "class" | "design" | "mode" | "radius";
 }
 
 /**
@@ -35,7 +35,7 @@ export type StyleRule<A, V> = {
   /**
    * Defines the attribute by which this rule is applied (e.g., "id", "variant").
    */
-  applyBy?: A;
+  applyBy: A;
 
   /**
    * The value to be applied if the rule conditions are met.

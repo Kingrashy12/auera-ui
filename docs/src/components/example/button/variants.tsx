@@ -19,7 +19,6 @@ const ButtonVariants = () => {
           <Stack wrap align="horizontal">
             <Button>Solid</Button>
             <Button variant="outline">Outline</Button>
-            <Button variant="light">Light</Button>
             <Button variant="ghost">Ghost</Button>
             <Button variant="flat">Flat</Button>
           </Stack>

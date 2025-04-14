@@ -7,12 +7,15 @@ import { tw } from "stywind";
 import Menu from "./Menu";
 import { Box } from "auera-ui";
 import { MenuContext } from "@/context/menu";
+import { useMode } from "@/hook/use";
 
 const Provider: React.FC<MenuProps> = ({
   children,
   useColorOnHover,
+  mode,
   ...props
 }) => {
+  const { currentMode } = useMode(mode);
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -60,7 +63,6 @@ const Provider: React.FC<MenuProps> = ({
             key={index}
             {...item.props}
             className={tw(
-              //   isEdge && index === 0 ? "rounded-t-xl" : "rounded-b-xl",
               isEdge && index === 0
                 ? "rounded-t-xl"
                 : isEdge
@@ -74,7 +76,7 @@ const Provider: React.FC<MenuProps> = ({
         );
       }
 
-      return child; // if it's a MenuTrigger or anything else, render as-is
+      return child;
     });
   };
 
@@ -84,7 +86,14 @@ const Provider: React.FC<MenuProps> = ({
 
   return (
     <MenuContext.Provider
-      value={{ isOpen, isVisible, onClose, onOpen, useColorOnHover }}
+      value={{
+        isOpen,
+        isVisible,
+        onClose,
+        onOpen,
+        useColorOnHover,
+        mode: currentMode,
+      }}
     >
       <Box className="flex-col gap-4">
         {trigger}

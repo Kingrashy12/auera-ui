@@ -77,12 +77,12 @@ const ButtonColors = () => {
 }`,
   flavours: `import { Button, Stack } from "auera-ui";
   
-const ButtonFlavours = () => {
+const ButtonDesigns = () => {
   return (
     <Stack wrap align="horizontal">
       <Button>Corporate</Button>
-      <Button flavour="frost">Frost</Button>
-      <Button flavour="neumorphic">Neumorphic</Button>
+      <Button design="frost">Frost</Button>
+      <Button design="neobrutalism">Neobrutalism</Button>
     </Stack>
   )
 }`,

@@ -36,7 +36,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const slugs = ["design"];
+  const slugs = ["design", "style-rules"];
 
   const paths = slugs.map((slug) => ({
     params: { slug },

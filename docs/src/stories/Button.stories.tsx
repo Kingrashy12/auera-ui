@@ -41,7 +41,7 @@ const meta = {
       table: { defaultValue: { summary: "sm" } },
       type: "string",
     },
-    flavour: {
+    design: {
       control: "radio",
       options: ["corporate", "frost", "neumorphic"],
       table: { defaultValue: { summary: "corporate" } },
@@ -87,12 +87,6 @@ export const Ghost: Story = {
     variant: "ghost",
   },
 };
-export const Light: Story = {
-  args: {
-    children: "Light",
-    variant: "light",
-  },
-};
 
 export const Loading: Story = {
   args: {
@@ -103,12 +97,12 @@ export const Loading: Story = {
 export const Frost: Story = {
   args: {
     children: "Frost Flavour",
-    flavour: "frost",
+    design: "frost",
   },
 };
 export const Neumorphic: Story = {
   args: {
-    children: "Neumorphic",
-    flavour: "neumorphic",
+    children: "Neobrutalism",
+    design: "neobrutalism",
   },
 };

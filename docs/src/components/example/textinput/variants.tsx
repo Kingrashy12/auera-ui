@@ -20,7 +20,7 @@ const TextInputVariants = () => {
             <TextInput className="w-fit" variant="solid" />
             <TextInput className="w-fit" variant="outline" />
             <TextInput className="w-fit" variant="ghost" />
-            <TextInput className="w-fit" variant="unstyled" />
+            <TextInput className="w-fit" variant="soft" />
           </Stack>
         </TabPanel>
         <TabPanel>
@@ -41,7 +41,7 @@ const Demo = () => {
       <TextInput className="w-fit" variant="solid" />
       <TextInput className="w-fit" variant="outline" />
       <TextInput className="w-fit" variant="ghost" />
-      <TextInput className="w-fit" variant="unstyled" />
+      <TextInput className="w-fit" variant="soft" />
    </Stack>
  )
 }`;

@@ -16,10 +16,10 @@ const ButtonFlavours = () => {
           Code
         </TabHandle>
         <TabPanel className="mt-3">
-          <Stack wrap align="horizontal">
+          <Stack wrap align="horizontal" className="py-2">
             <Button>Corporate</Button>
-            <Button flavour="frost">Frost</Button>
-            <Button flavour="neumorphic">Neumorphic</Button>
+            <Button design="frost">Frost</Button>
+            <Button design="neobrutalism">Neobrutalism</Button>
           </Stack>
         </TabPanel>
         <TabPanel>

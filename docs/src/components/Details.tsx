@@ -6,7 +6,7 @@ const Details = ({ children, ...props }: BoxProps) => {
   const id = props.id ? StrFun.slugify(props.id) : "";
   return (
     <Box
-      id={id}
+      id={id.toLowerCase()}
       direction={props.direction || "column"}
       className={tw("gap-4 px-3 max-[550px]:px-1", props.className)}
     >

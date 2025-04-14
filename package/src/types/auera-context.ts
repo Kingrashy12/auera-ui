@@ -25,4 +25,5 @@ export interface MenuContextProps {
   onOpen: () => void;
   onClose: () => void;
   useColorOnHover?: boolean;
+  mode: "light" | "dark";
 }

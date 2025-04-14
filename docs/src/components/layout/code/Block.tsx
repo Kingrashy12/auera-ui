@@ -38,14 +38,6 @@ const CodeBlock = ({
     }
   };
 
-  // const lgIcon = {
-  //   tsx: { icon: BiLogoTypescript, color: "blue" },
-  //   ts: { icon: BiLogoTypescript, color: "blue" },
-  //   jsx: { icon: RiJavascriptFill, color: "yellow" },
-  //   css: { icon: BiLogoTailwindCss, color: "blue" },
-  //   bash: { icon: SiGnubash, color: "green" },
-  // };
-
   const icon = getIcon();
   return (
     <Box
