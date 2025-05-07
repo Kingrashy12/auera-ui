@@ -8,6 +8,7 @@ import {
   PanelVariants,
 } from "./modal-variants";
 import { createStyle, tw } from "stywind";
+import { AueraDiv } from "@/core/AueraElement";
 
 const useComputePanel = (props: PanelVariants) => {
   const {
@@ -15,14 +16,13 @@ const useComputePanel = (props: PanelVariants) => {
     align,
     transition,
     size,
-    mode,
     design,
     isVisible,
     radius,
     placement,
   } = props;
 
-  const Panel = createStyle("div");
+  const Panel = createStyle(AueraDiv);
 
   const styles = useMemo(
     () =>
@@ -31,7 +31,7 @@ const useComputePanel = (props: PanelVariants) => {
           align,
           transition,
           size,
-          mode,
+
           design,
           isVisible,
           radius,
@@ -39,40 +39,30 @@ const useComputePanel = (props: PanelVariants) => {
         }),
         className
       ),
-    [
-      className,
-      align,
-      transition,
-      size,
-      mode,
-      design,
-      isVisible,
-      radius,
-      placement,
-    ]
+    [className, align, transition, size, design, isVisible, radius, placement]
   );
 
   return useMemo(() => Panel.classname(styles), [styles]);
 };
 
 const useComputeFooter = (props: FooterVariants) => {
-  const { className, position, showBorder, mode } = props;
+  const { className, position, showBorder } = props;
 
   return useMemo(
     () =>
-      createStyle("div").classname(
-        footer({ className, position, showBorder, mode })
+      createStyle(AueraDiv).classname(
+        footer({ className, position, showBorder })
       ),
-    [className, position, showBorder, mode]
+    [className, position, showBorder]
   );
 };
 
 const useComputeHeader = (props: HeaderVariants) => {
-  const { className, showBorder, mode } = props;
+  const { className, showBorder } = props;
 
   return useMemo(
-    () => createStyle("div").classname(header({ className, showBorder, mode })),
-    [className, showBorder, mode]
+    () => createStyle(AueraDiv).classname(header({ className, showBorder })),
+    [className, showBorder]
   );
 };
 

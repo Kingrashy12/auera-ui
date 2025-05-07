@@ -175,6 +175,10 @@ import {
   FieldBreakdown,
   StyleRulesGuide,
 } from "@/components/guide/style-rules";
+import SwitchVariant from "@/components/example/switch/variant";
+import FormatNumberUsage from "@/utilities/format-number/usage";
+import FormatBytesUsage from "@/utilities/format-bytes/usage";
+import CoreUtilsUsage from "@/utilities/core-utils/usage";
 
 export const components = {
   DetailCard,
@@ -356,6 +360,10 @@ export const components = {
   FieldBreakdown,
   HowItWorks: StyleRulesGuide.HowItWorks,
   UsageExample: StyleRulesGuide.UsageExample,
+  SwitchVariant,
+  FormatNumberUsage,
+  FormatBytesUsage,
+  CoreUtilsUsage,
 };
 
 export const MDXRemote = dynamic(() =>

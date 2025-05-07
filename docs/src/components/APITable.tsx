@@ -34,13 +34,13 @@ const APITable = ({ reference }: ReferenceType) => {
       <Box
         fullWidth
         direction="column"
-        className="gap-2 border-l-1.7 theme-dark:border-l-neutral-800"
+        className="gap-2 border-l-1.7 theme-dark:border-l-neutral-800/ border-l-border"
       >
         {Object.entries(ref.properties).map(([key, value]) => (
           <Box
             key={key}
             direction="column"
-            className="gap-1 border-b theme-dark:border-neutral-800"
+            className="gap-1 border-b theme-dark:border-neutral-800/ border-border"
             fullWidth
           >
             <RefCell>
@@ -78,7 +78,7 @@ const APITable = ({ reference }: ReferenceType) => {
   return (
     <Box
       direction="column"
-      className="mt-2 overflow-hidden rounded-lg border border-[var(--auera-card-border)] shadow-card theme-dark:shadow-md"
+      className="mt-2 overflow-hidden rounded-lg border border-border bg-content shadow-card theme-dark:shadow-md"
     >
       <Box direction="column" className="gap-3 overflow-x-auto">
         {reference?.map((ref, index) => (

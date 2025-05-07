@@ -3,6 +3,7 @@ import { Box } from "auera-ui";
 import React from "react";
 import { HiOutlineArrowUpCircle } from "react-icons/hi2";
 import { IoIosArrowForward } from "react-icons/io";
+import { LiaPagerSolid } from "react-icons/lia";
 import { createStyle, tw } from "stywind";
 
 const TableOfContent = () => {
@@ -11,18 +12,21 @@ const TableOfContent = () => {
   const { headings, activeId } = useTableOfContents();
 
   const Table = createStyle("aside").classname(
-    "h-[90vh] sticky bg-sidebar border-l/ flex flex-col border-l-sidebar px-6 py-4 top-16 \
-     z-20 w-[250px] flex-shrink-0 p-8 max-lg:hidden"
+    "h-[90vh] sticky bg-sidebar border-l flex flex-col border-l-sidebar px-6 py-4 top-16 \
+     z-20 w-[250px] flex-shrink-0 max-lg:hidden"
   );
 
   return (
     <Table>
-      <p className="font-inter text-primary font-semibold text-sm">
-        On this page
-      </p>
+      <Box className="gap-2 items-center">
+        <LiaPagerSolid className="text-dimBlack" size={23} />
+        <p className="font-inter text-primary font-semibold text-sm">
+          On this page
+        </p>
+      </Box>
       <Box
         direction="column"
-        className="gap-3 mt-4 overflow-y-auto mb-3 overflow-x-hidden"
+        className="gap-3 mt-4 overflow-y-auto mb-3 overflow-x-hidden w-full p-2 flex-shrink-0 flex-grow"
       >
         {headings &&
           headings?.map((heading) => (

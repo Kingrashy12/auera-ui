@@ -1,38 +1,56 @@
-import { ReactNode, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { ThemeContext, ThemeContextType } from "../../context/theme";
-import { storageActions } from "../../hook/useStorage";
-import { ModeType } from "../../types/auera-system";
+import {
+  ModeType,
+  ThemeProviderProps,
+  ThemeVariant,
+} from "../../types/auera-system";
 import { getDisplayName } from "@/utils/displayname";
 import { WINDOW_ACTIVE } from "@/utils";
+import { InjectTheme } from "@/core/theme/Theme";
+import ThemeManager from "@/core/theme/manager";
 
-type ThemeProviderProps = {
-  children: ReactNode;
-  mode?: "light" | "dark";
-};
-
-const ThemeProvider = ({ children, mode: customMode }: ThemeProviderProps) => {
-  const THEME_KEY = "aueraui.theme";
+const ThemeProvider = ({
+  children,
+  mode: customMode,
+  themeVariant: _themeVariant,
+}: ThemeProviderProps) => {
   const [system, setSystem] = useState(false);
+  const [themeVariant, setThemeVariant] = useState<ThemeVariant>(() => {
+    if (!WINDOW_ACTIVE) return _themeVariant;
+
+    const storedVariant = ThemeManager.getThemeVariant();
+    if (storedVariant) return storedVariant;
+
+    return _themeVariant;
+  });
 
   const setSystemTheme = (isSystem: boolean) => {
     setSystem(isSystem);
-    storageActions.set("aueraui.theme.isSystem", isSystem);
+    ThemeManager.setSystem(isSystem);
   };
 
   const [mode, setMode] = useState<ModeType>(() => {
     if (!WINDOW_ACTIVE) return "light";
 
-    const storedTheme = storageActions.get(THEME_KEY) as ModeType;
+    const storedTheme = ThemeManager.getTheme();
     if (storedTheme) return storedTheme;
 
-    const systemPreference = window.matchMedia("(prefers-color-scheme: dark)")
-      .matches
-      ? "dark"
-      : "light";
-    storageActions.set(THEME_KEY, systemPreference);
+    const systemPreference = ThemeManager.getPreferedTheme();
+    ThemeManager.setTheme(systemPreference);
     setSystemTheme(true);
     return systemPreference;
   });
+
+  useEffect(() => {
+    ThemeManager.setThemeVariant(themeVariant);
+  }, [themeVariant]);
+
+  useEffect(() => {
+    if (_themeVariant && _themeVariant !== themeVariant) {
+      setThemeVariant(_themeVariant);
+    }
+  }, [_themeVariant]);
 
   useEffect(() => {
     if (customMode && customMode !== mode) {
@@ -42,26 +60,26 @@ const ThemeProvider = ({ children, mode: customMode }: ThemeProviderProps) => {
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", mode);
-  }, [mode]);
+    document.documentElement.setAttribute("data-theme-variant", themeVariant);
+    ThemeManager.setThemeVariant(themeVariant);
+  }, [mode, themeVariant]);
 
   useEffect(() => {
-    const isSystem = storageActions.get("aueraui.theme.isSystem") === "true";
+    const isSystem = ThemeManager.getSystem();
     setSystemTheme(isSystem);
   }, []);
 
   const toggleTheme: ThemeContextType["toggleTheme"] = {
     system() {
-      const newMode = window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "dark"
-        : "light";
-      storageActions.set(THEME_KEY, newMode);
+      const newMode = ThemeManager.getPreferedTheme();
+      ThemeManager.setTheme(newMode);
       setMode(newMode);
       setSystemTheme(true);
     },
     main() {
       setMode((prev) => {
         const newMode = prev === "light" ? "dark" : "light";
-        storageActions.set(THEME_KEY, newMode);
+        ThemeManager.setTheme(newMode);
         setSystemTheme(false);
         return newMode;
       });
@@ -69,7 +87,7 @@ const ThemeProvider = ({ children, mode: customMode }: ThemeProviderProps) => {
     dark() {
       setMode(() => {
         const newMode = "dark";
-        storageActions.set(THEME_KEY, newMode);
+        ThemeManager.setTheme(newMode);
         setSystemTheme(false);
         return newMode;
       });
@@ -77,15 +95,25 @@ const ThemeProvider = ({ children, mode: customMode }: ThemeProviderProps) => {
     light() {
       setMode(() => {
         const newMode = "light";
-        storageActions.set(THEME_KEY, newMode);
+        ThemeManager.setTheme(newMode);
         setSystemTheme(false);
         return newMode;
       });
     },
   };
 
+  const changeThemeVariant: ThemeContextType["changeThemeVariant"] = (
+    variant
+  ) => {
+    setThemeVariant(variant);
+    ThemeManager.setThemeVariant(variant);
+  };
+
   return (
-    <ThemeContext.Provider value={{ mode, toggleTheme, system }}>
+    <ThemeContext.Provider
+      value={{ mode, toggleTheme, system, changeThemeVariant, themeVariant }}
+    >
+      <InjectTheme variant={themeVariant} mode={mode} />
       {children}
     </ThemeContext.Provider>
   );

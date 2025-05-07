@@ -1,13 +1,14 @@
 import CodeBlock from "@/components/layout/code/Block";
+import CardContent from "@/components/lib/CardContent";
 import { buttonCode } from "@/data/code/button";
-import { Button, Card, Stack, Tabs, TabHandle, TabPanel } from "auera-ui";
+import { Button, Stack, Tabs, TabHandle, TabPanel } from "auera-ui";
 import React from "react";
 import { IoCodeSlash } from "react-icons/io5";
 import { LuEye } from "react-icons/lu";
 
 const ButtonRadius = () => {
   return (
-    <Card>
+    <CardContent>
       <Tabs variant="solid" rounded>
         <TabHandle icon={LuEye} iconSize={19} value="preview">
           Preview
@@ -33,7 +34,7 @@ const ButtonRadius = () => {
           />
         </TabPanel>
       </Tabs>
-    </Card>
+    </CardContent>
   );
 };
 

@@ -16,8 +16,8 @@ import { TiUser } from "react-icons/ti";
 
 const FormModal = () => {
   return (
-    <Modal value="form-modal">
-      <ModalPanel size="md">
+    <Modal value="form-modal" preventScroll>
+      <ModalPanel size="sm">
         <ModalHeader>
           <h1 className="text-xl font-inter font-semibold theme-dark:text-white">
             Login

@@ -58,12 +58,10 @@ const lightButtonStyles = {
 };
 
 const hoverStylesGhost = {
-  primary: defineClass("hover:bg-blue-100 tone-dark:hover:bg-dark-soft-blue"),
-  success: defineClass("hover:bg-green-100 tone-dark:hover:bg-dark-soft-green"),
-  danger: defineClass("hover:bg-red-100 tone-dark:hover:bg-dark-soft-red"),
-  warning: defineClass(
-    "hover:bg-yellow-100 tone-dark:hover:bg-dark-soft-yellow"
-  ),
+  primary: defineClass("hover:bg-blue-100 tone-dark:hover:bg-blue-800/30"),
+  success: defineClass("hover:bg-green-100 tone-dark:hover:bg-green-800/30"),
+  danger: defineClass("hover:bg-red-100 tone-dark:hover:bg-red-800/30"),
+  warning: defineClass("hover:bg-yellow-100 tone-dark:hover:bg-yellow-800/30"),
 };
 
 const flatHoverStyles = {

@@ -18,7 +18,7 @@ const ModalDemo = () => {
 
   return (
     <Modal value="modal-demo">
-      <ModalPanel size="lg">
+      <ModalPanel size="md">
         <ModalHeader>
           <h1 className="text-xl font-poppins font-semibold theme-dark:text-white">
             Confirm Action

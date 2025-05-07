@@ -2,6 +2,7 @@ import React from "react";
 import { colors } from "../utils";
 import { HTMLMotionProps } from "motion/react";
 import { VariantProps } from "class-variance-authority";
+import { zIndex } from "./keys";
 
 export type DesignVariant = "corporate" | "frost" | "neobrutalism";
 // | "material"
@@ -23,6 +24,20 @@ export interface ApplyBy {
     | "mode";
   Card: "all" | "variant" | "id" | "class" | "design" | "mode";
   Input: "all" | "variant" | "id" | "class" | "design" | "mode" | "radius";
+  Badge: "all" | "colorScheme" | "variant" | "id" | "mode";
+  Fab:
+    | "all"
+    | "design"
+    | "id"
+    | "variant"
+    | "className"
+    | "mode"
+    | "colorScheme";
+  IconButton: "all" | "variant" | "id" | "class" | "design" | "mode" | "radius";
+  Tabs: "all" | "variant" | "id" | "class" | "mode";
+  TabsContainer: "all" | "class" | "id";
+  TabHandle: "all" | "variant" | "id" | "class" | "mode";
+  OTPInput: "all" | "id" | "class" | "mode";
 }
 
 /**
@@ -70,6 +85,7 @@ export type ProviderProps = {
   mode?: "light" | "dark";
   children: React.ReactNode;
   styleRules?: GlobalUI["styleRules"];
+  themeVariant?: ThemeVariant;
 };
 
 type ContextAction = "create" | "use";
@@ -117,6 +133,7 @@ export type AueraElementProps<T extends keyof JSX.IntrinsicElements> =
   React.ComponentPropsWithRef<T> & {
     tag?: keyof JSX.IntrinsicElements;
     mode?: ModeType;
+    themeVariant?: ThemeVariant;
     hidden?: boolean;
     disabled?: boolean;
   };
@@ -125,6 +142,7 @@ export type AueraElementPropsWithMotion<T extends keyof HTMLElements> =
   HTMLMotionProps<T> & {
     tag?: keyof HTMLElements;
     mode?: ModeType;
+    themeVariant?: ThemeVariant;
     hidden?: boolean;
   };
 
@@ -256,9 +274,6 @@ export interface GlobalUI {
    * Each key represents a component and its associated conditional style rules.
    */
   styleRules?: {
-    /**
-     * Style rules for the `Button` component.
-     */
     button?: {
       variant?: StyleRule<ApplyBy["Button"], ButtonVariant>[];
       radius?: StyleRule<ApplyBy["Button"], Radius>[];
@@ -268,9 +283,6 @@ export interface GlobalUI {
       design?: StyleRule<ApplyBy["Button"], DesignVariant>[];
       mode?: StyleRule<ApplyBy["Button"], ModeType>[];
     };
-    /**
-     * Style rules for the `Card` component.
-     */
     card?: {
       variant?: StyleRule<ApplyBy["Card"], "flat" | "raised">[];
       design?: StyleRule<ApplyBy["Card"], DesignVariant>[];
@@ -291,5 +303,113 @@ export interface GlobalUI {
         "none" | "sm" | "md" | "lg" | "xl" | "full"
       >[];
     };
+    badge?: {
+      variant?: StyleRule<ApplyBy["Badge"], "solid" | "outline" | "soft">[];
+      className?: StyleRule<ApplyBy["Badge"], string>[];
+      mode?: StyleRule<ApplyBy["Badge"], ModeType>[];
+      colorScheme?: StyleRule<
+        ApplyBy["Badge"],
+        | "blue"
+        | "red"
+        | "yellow"
+        | "green"
+        | "neutral"
+        | "thick"
+        | "teal"
+        | "gray"
+      >[];
+    };
+    fab?: {
+      variant?: StyleRule<ApplyBy["Fab"], "solid" | "outline" | "soft">[];
+      color?: StyleRule<
+        ApplyBy["Fab"],
+        | "blue"
+        | "red"
+        | "yellow"
+        | "green"
+        | "neutral"
+        | "thick"
+        | "teal"
+        | "gray"
+      >[];
+      mode?: StyleRule<ApplyBy["Fab"], ModeType>[];
+      className?: StyleRule<ApplyBy["Fab"], string>[];
+      type?: StyleRule<
+        ApplyBy["Fab"],
+        "fixed" | "sticky" | "relative" | "absolute" | "static"
+      >[];
+      zIndex?: StyleRule<ApplyBy["Fab"], zIndex>[];
+      design?: StyleRule<ApplyBy["Fab"], DesignVariant>[];
+    };
+    iconbutton?: {
+      mode?: StyleRule<ApplyBy["IconButton"], ModeType>[];
+      className?: StyleRule<ApplyBy["IconButton"], string>[];
+      design?: StyleRule<ApplyBy["IconButton"], DesignVariant>[];
+      radius?: StyleRule<
+        ApplyBy["IconButton"],
+        "none" | "sm" | "md" | "lg" | "xl" | "full" | "2xl"
+      >[];
+      variant?: StyleRule<
+        ApplyBy["IconButton"],
+        "subtle" | "outline" | "ghost"
+      >[];
+    };
+    tabs?: {
+      mode?: StyleRule<ApplyBy["Tabs"], ModeType>[];
+      className?: StyleRule<ApplyBy["Tabs"], string>[];
+      variant?: StyleRule<ApplyBy["Tabs"], "solid" | "line">[];
+      rounded?: StyleRule<ApplyBy["Tabs"], boolean>[];
+    };
+    tabsContainer?: {
+      className?: StyleRule<ApplyBy["TabsContainer"], string>[];
+    };
+    tabHandle?: {
+      className?: StyleRule<ApplyBy["TabHandle"], string>[];
+      variant?: StyleRule<ApplyBy["TabHandle"], "solid" | "line">[];
+      rounded?: StyleRule<ApplyBy["TabHandle"], boolean>[];
+    };
+    otpInput?: {
+      interface?: {
+        className?: StyleRule<ApplyBy["OTPInput"], string>[];
+      };
+      input?: {
+        className?: StyleRule<ApplyBy["OTPInput"], string>[];
+        radius?: StyleRule<ApplyBy["OTPInput"], "md" | "lg" | "xl" | "full">[];
+        mode?: StyleRule<ApplyBy["OTPInput"], ModeType>[];
+      };
+    };
   };
+}
+
+export type ThemeVariant = "corporate" | "obsidian";
+
+export type ThemeColors = {
+  background: string;
+  sidebar: string;
+  modal: string;
+  border: string;
+  hover: string;
+  input: string;
+  shadow: string;
+  text: string;
+  content: string;
+  bg_btn: string;
+  hover_btn: string;
+  border_btn: string;
+  shadow_btn: string;
+};
+
+export type ThemePaletteSet<T extends ModeType, K extends ThemeVariant, V> = {
+  [key in T]: { [variant in K]: V };
+};
+
+export interface InjectThemeProps {
+  variant: ThemeVariant;
+  mode: ModeType;
+}
+
+export interface ThemeProviderProps {
+  children: React.ReactNode;
+  mode?: ModeType;
+  themeVariant: ThemeVariant;
 }

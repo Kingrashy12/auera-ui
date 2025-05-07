@@ -202,6 +202,22 @@ export const groupData = <T>({
 export const handleFileUpload = (fileHandler: FileHandler): FileHandler =>
   fileHandler;
 
+/**
+ * Paginates an array of data by slicing it according to the current page and the number of items per page.
+ *
+ * @template T - The type of the data being paginated.
+ * @param {T[]} data - The array of data to paginate.
+ * @param {number} currentPage - The current page number (1-based index).
+ * @param {number} itemsPerPage - The number of items to display per page.
+ * @returns {T[]} A sliced array of data corresponding to the specified page and items per page.
+ *
+ * @example
+ * const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+ * paginate(data, 1, 3); // => [1, 2, 3]
+ * paginate(data, 2, 3); // => [4, 5, 6]
+ * paginate(data, 3, 3); // => [7, 8, 9]
+ * paginate(data, 4, 3); // => [10]
+ */
 export const paginate = <T>(
   data: T[],
   currentPage: number,
@@ -212,20 +228,28 @@ export const paginate = <T>(
   return data.slice(startIndex, endIndex);
 };
 
-export const hasEmptyFields = <T>(arg: T, fields: Array<keyof T>): boolean => {
-  const hasAllFields = fields.every((val) => arg[val]);
-  return !hasAllFields;
-};
-
-export const formatNumber = (num: number): string => {
+/**
+ * Formats a number into a human-readable string with "K", "M", or "B" suffixes.
+ *
+ * @param {number} num - The number to format.
+ * @param {number} [decimals=2] - The number of decimal places to include (default is 2).
+ * @returns {string} The formatted number as a string.
+ *
+ * @example
+ * formatNumber(950);        // => "950"
+ * formatNumber(1500);       // => "1.50K"
+ * formatNumber(2500000);    // => "2.50M"
+ * formatNumber(5300000000); // => "5.30B"
+ */
+export const formatNumber = (num: number, decimals: number = 2): string => {
   if (num < 1000) {
     return num.toString();
   } else if (num >= 1000 && num < 1000000) {
-    return (num / 1000).toFixed(2) + "K";
+    return (num / 1000).toFixed(decimals) + "K";
   } else if (num >= 1000000 && num < 1000000000) {
-    return (num / 1000000).toFixed(2) + "M";
+    return (num / 1000000).toFixed(decimals) + "M";
   } else if (num >= 1000000000) {
-    return (num / 1000000000).toFixed(2) + "B";
+    return (num / 1000000000).toFixed(decimals) + "B";
   }
   return num.toString();
 };
@@ -242,6 +266,20 @@ export const removeDuplicates = <T>(arr: T[]): T[] => {
   return [...new Set(arr)];
 };
 
+/**
+ * Converts a byte value into a human-readable string with appropriate size units (KB, MB, GB, etc.).
+ *
+ * @param {number} bytes - The number of bytes to convert.
+ * @param {number} [decimals=2] - The number of decimal places to include (default is 2).
+ * @returns {string} The formatted size as a string with the appropriate unit (e.g., "1.23 MB").
+ *
+ * @example
+ * formatBytes(1024);          // => "1 KB"
+ * formatBytes(1048576);       // => "1 MB"
+ * formatBytes(123456789);     // => "117.74 MB"
+ * formatBytes(9876543210);    // => "9.21 GB"
+ * formatBytes(0);             // => "0 Bytes"
+ */
 export const formatBytes = (bytes: number, decimals: number = 2): string => {
   if (bytes === 0) return "0 Bytes";
   const k = 1024;
@@ -251,15 +289,113 @@ export const formatBytes = (bytes: number, decimals: number = 2): string => {
   return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + " " + sizes[i];
 };
 
-export const removeDuplicatesObjFromArr = <T>(arr: T[], key: keyof T) => {
+/**
+ * Removes duplicate objects from an array based on a nested key path.
+ *
+ * @template T - The type of the objects in the array.
+ * @param {T[]} arr - The array of objects to filter.
+ * @param {string} path - The path to the key (supports nested keys with dot notation, e.g., "address.street").
+ * @returns {T[]} A new array containing only unique objects based on the specified key path.
+ *
+ * @example
+ * const arr = [
+ *   { name: "John", address: { street: "st1" } },
+ *   { name: "Jane", address: { street: "st2" } },
+ *   { name: "Doe", address: { street: "st1" } }
+ * ];
+ *
+ * removeDuplicatesByPath(arr, "address.street");
+ * // => [{ name: "John", address: { street: "st1" } }, { name: "Jane", address: { street: "st2" } }]
+ */
+export const removeDuplicatesByPath = <T>(arr: T[], path: string): T[] => {
   const uniqueMap = new Map<string | number, T>();
 
+  const getValueByPath = (obj: any, path: string): any => {
+    return path.split(".").reduce((acc, key) => acc?.[key], obj);
+  };
+
   for (const item of arr) {
-    const keyValue = item[key as never];
-    if (!uniqueMap.has(keyValue)) {
+    const keyValue = getValueByPath(item, path);
+    if (keyValue !== undefined && !uniqueMap.has(keyValue)) {
       uniqueMap.set(keyValue, item);
     }
   }
 
   return Array.from(uniqueMap.values());
+};
+
+/**
+ * Checks if any of the specified fields are empty or falsy in the given object.
+ *
+ * @template T - The type of the object being checked.
+ * @param {T} currentValues - The object containing values to check.
+ * @param {Array<keyof T>} fieldsToCheck - An array of field names to validate for non-empty values.
+ * @returns {boolean} Returns `true` if any field is empty or falsy; otherwise, `false`.
+ *
+ * @example
+ * const form = { name: "John", email: "" };
+ * disableOnEmptyValues(form, ["name", "email"]); // => true (email is empty)
+ *
+ * const form2 = { name: "Jane", email: "jane@example.com" };
+ * disableOnEmptyValues(form2, ["name", "email"]); // => false (all fields filled)
+ */
+export const disableOnEmptyValues = <T>(
+  currentValues: T,
+  fieldsToCheck: Array<keyof T>
+) => {
+  const allFieldsFilled = fieldsToCheck.every((field) => currentValues[field]);
+  return !allFieldsFilled;
+};
+
+/**
+ * Checks if specified fields have equal values between two objects.
+ *
+ * @template T - The type of the objects being compared.
+ * @param {T} currentValues - The current object containing values to check.
+ * @param {Array<keyof T>} fieldsToCompare - An array of field names to compare between the two objects.
+ * @param {T} referenceValues - The reference object to compare against.
+ * @returns {boolean} Returns `true` if all specified fields have equal values; otherwise, `false`.
+ *
+ * @example
+ * const current = { name: "John", age: 25 };
+ * const reference = { name: "John", age: 25 };
+ * disableOnEqualValues(current, ["name", "age"], reference); // => true
+ *
+ * const current2 = { name: "Jane", age: 30 };
+ * disableOnEqualValues(current2, ["name", "age"], reference); // => false
+ */
+export const disableOnEqualValues = <T>(
+  currentValues: T,
+  fieldsToCompare: Array<keyof T>,
+  referenceValues: T
+) => {
+  const areValuesEqual = fieldsToCompare.every(
+    (field) => currentValues[field] === referenceValues[field]
+  );
+  return areValuesEqual;
+};
+
+/**
+ * Formats a duration in seconds into a human-readable time format (HH:MM:SS).
+ *
+ * @param {number} time - The time duration in seconds.
+ * @returns {string} A string representing the duration in the format HH:MM:SS, or MM:SS if hours are 0.
+ *
+ * @example
+ * formatDuration(3600);    // => "01:00:00"
+ * formatDuration(3661);    // => "01:01:01"
+ * formatDuration(59);      // => "00:59"
+ * formatDuration(732);     // => "12:12"
+ */
+export const formatDuration = (time: number): string => {
+  const hours = Math.floor(time / 3600);
+  const minutes = Math.floor((time % 3600) / 60);
+  const seconds = Math.floor(time % 60);
+  return [
+    hours > 0 ? String(hours).padStart(2, "0") : null,
+    String(minutes).padStart(2, "0"),
+    String(seconds).padStart(2, "0"),
+  ]
+    .filter(Boolean)
+    .join(":");
 };

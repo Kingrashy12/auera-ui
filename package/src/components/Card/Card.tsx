@@ -4,7 +4,7 @@ import { CardWithMotion, AueraMotionDivRef } from "../../types/auera-motion";
 import { useCard } from "./use-card";
 import { Image } from "../Image";
 import { tw } from "stywind";
-import { useMode } from "@/hook/use";
+import { useDesign, useMode } from "@/hook/use";
 
 /** Card component for displaying content in an organized way.*/
 const Card = forwardRef<HTMLDivElement, CardWithMotion>(
@@ -26,6 +26,7 @@ const Card = forwardRef<HTMLDivElement, CardWithMotion>(
     ref
   ) => {
     const { currentMode } = useMode(props.mode);
+    const { currentDesign } = useDesign(design);
 
     const { Root, Body } = useCard({
       centerContent,
@@ -34,7 +35,7 @@ const Card = forwardRef<HTMLDivElement, CardWithMotion>(
       direction,
       fullWidth,
       variant,
-      design,
+      design: currentDesign,
       id: String(props.id),
       mode: currentMode,
     });

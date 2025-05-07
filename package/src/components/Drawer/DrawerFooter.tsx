@@ -9,16 +9,19 @@ const DrawerFooter = ({
   position,
   ...props
 }: ModalFooterProps) => {
-  const mode = useDrawerPanel().mode;
+  const { mode, themeVariant } = useDrawerPanel();
 
   const Footer = useDrawerFooter({
     className: props.className,
     showBorder,
     position,
-    mode,
   });
 
-  return <Footer {...props}>{children}</Footer>;
+  return (
+    <Footer mode={mode} themeVariant={themeVariant} {...props}>
+      {children}
+    </Footer>
+  );
 };
 
 export default DrawerFooter;

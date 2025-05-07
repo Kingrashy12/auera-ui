@@ -12,7 +12,6 @@ const switchContinaer = (
         variant: {
           padded: "p-1",
           flush: `p-0.5 data-[ison=true]:pr-0.5 data-[ison=false]:pl-0.5`,
-          lined: "",
         },
         size: {
           sm: "",
@@ -70,27 +69,6 @@ const switchContinaer = (
           size: "xl",
           class: "w-[66px] h-9",
         },
-        // Lined
-        {
-          variant: "lined",
-          size: "sm",
-          class: "w-8 h-2",
-        },
-        {
-          variant: "lined",
-          size: "md",
-          class: "w-10 h-2.5",
-        },
-        {
-          variant: "lined",
-          size: "lg",
-          class: "w-11 h-2.5",
-        },
-        {
-          variant: "lined",
-          size: "xl",
-          class: "w-14 h-3",
-        },
       ],
       defaultVariants: {
         variant: "padded",
@@ -106,7 +84,6 @@ const checker = cva("bg-white rounded-full", {
     variant: {
       padded: "",
       flush: "",
-      lined: "border border-gray-300 shadow-md",
     },
     size: {
       sm: "",
@@ -155,27 +132,6 @@ const checker = cva("bg-white rounded-full", {
       variant: "flush",
       size: "xl",
       class: "w-8 h-8",
-    },
-    // Lined
-    {
-      variant: "lined",
-      size: "sm",
-      class: "w-4 h-4",
-    },
-    {
-      variant: "lined",
-      size: "md",
-      class: "w-5 h-5",
-    },
-    {
-      variant: "lined",
-      size: "lg",
-      class: "w-6 h-6",
-    },
-    {
-      variant: "lined",
-      size: "xl",
-      class: "w-7 h-7",
     },
   ],
   defaultVariants: {

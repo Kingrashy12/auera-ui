@@ -47,10 +47,10 @@ const useComputeInput = (
     () =>
       tw(
         input_interface({
-          variant: appliedVariant?.value ?? variant,
+          variant: appliedVariant?.value || variant,
           disabled,
-          radius: appliedRadius?.value ?? radius,
-          design: appliedDesign?.value ?? design,
+          radius: appliedRadius?.value || radius,
+          design: appliedDesign?.value || design,
         }),
         appliedClassName?.value,
         className

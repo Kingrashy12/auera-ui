@@ -44,15 +44,15 @@ const useButton = ({
       tw(
         generateButtonClass({
           colorScheme,
-          variant: appliedVariant?.value ?? variant,
+          variant: appliedVariant?.value || variant,
         })({
-          design: appliedDesign?.value ?? currentDesign,
+          design: appliedDesign?.value || currentDesign,
           fullWidth: props.fullWidth,
-          size: appliedSize?.value ?? size,
+          size: appliedSize?.value || size,
           className: tw(appliedClassName?.value, className),
           hidden: props.hidden,
           disabled,
-          radius: appliedRadius?.value ?? radius,
+          radius: appliedRadius?.value || radius,
         }),
         {
           "relative svg:absolute svg:right-4": props.rightIcon,
@@ -98,7 +98,7 @@ const useButton = ({
       <>
         {props.isLoading ? (
           <>
-            {spinner ?? <CgSpinner size={20} className="animate-spin" />}
+            {spinner || <CgSpinner size={20} className="animate-spin" />}
             {!hideChildOnLoad && children}
           </>
         ) : (

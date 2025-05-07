@@ -39,7 +39,7 @@ const Toast = ({ className }: { className?: string }) => {
     getToast();
 
   // Show toast
-  const show = (newToast: ToastNotification, duration: number = 4000) => {
+  const show = (newToast: ToastNotification, duration: number = 5000) => {
     setToasts((prevToasts) => {
       if (prevToasts.length === 0) {
         return [newToast];
@@ -74,7 +74,7 @@ const Toast = ({ className }: { className?: string }) => {
           prevToasts.filter((t) => t.id !== newToast.id || t.type === "loading")
         );
         delete toastTimeouts.current[newToast.id];
-      }, 300);
+      }, 500);
     }, duration);
     // Store timeout ID
     toastTimeouts.current[newToast.id] = timeoutId;
@@ -93,7 +93,7 @@ const Toast = ({ className }: { className?: string }) => {
         updatedToasts.filter(
           (t) => toast.type === "loading" || t.id !== toast.id
         );
-      }, 300);
+      }, 500);
       return updatedToasts;
     });
   };

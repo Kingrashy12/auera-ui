@@ -1,6 +1,7 @@
+import theme from "@/_styles_/theme";
 import { VProps } from "@/types/auera-system";
 import { cva } from "class-variance-authority";
-import { defineClass } from "stywind";
+import { defineClass, tw } from "stywind";
 
 type DrawerContentVariants = VProps<typeof content>;
 type DrawerHeaderVariants = VProps<typeof header>;
@@ -29,23 +30,8 @@ const header = cva(
         true: "border-b",
         false: "",
       },
-      mode: {
-        dark: "",
-        light: "",
-      },
     },
-    compoundVariants: [
-      {
-        showBorder: true,
-        mode: "dark",
-        class: "border-b border-b-neutral-800",
-      },
-      {
-        showBorder: true,
-        mode: "light",
-        class: "border-b border-b-neutral-200",
-      },
-    ],
+    compoundVariants: [{ showBorder: true, class: theme.__border }],
     defaultVariants: {
       showBorder: true,
     },
@@ -62,23 +48,8 @@ const footer = cva("flex w-full p-3 gap-3 rounded-b-lg bg-drawer-content", {
       true: "border-t",
       false: "",
     },
-    mode: {
-      dark: "",
-      light: "",
-    },
   },
-  compoundVariants: [
-    {
-      showBorder: true,
-      mode: "dark",
-      class: "border-t border-t-neutral-800",
-    },
-    {
-      showBorder: true,
-      mode: "light",
-      class: "border-t border-t-neutral-200",
-    },
-  ],
+  compoundVariants: [{ showBorder: true, class: theme.__border }],
   defaultVariants: {
     position: "left",
     showBorder: true,
@@ -86,19 +57,20 @@ const footer = cva("flex w-full p-3 gap-3 rounded-b-lg bg-drawer-content", {
 });
 
 const floatShared = defineClass(
-  "max-[550px]:w-[98%] max-[550px]:rounded-[9px] border-solid max-[550px]:right-1 max-[550px]:left-1 rounded-lg h-[97%]"
+  "max-[550px]:w-[98%] max-[550px]:rounded-[9px] border-solid border-1.9 max-[550px]:right-1 max-[550px]:left-1 rounded-lg h-[97%]"
 );
 
 const stickyShared = defineClass("max-[550px]:w-full max-[550px]:rounded-none");
 
 const panel = cva(
-  "flex flex-col fixed w-[450px] transition-all duration-300 ease-in-out max-[1024px]:w-[60%] max-[768px]:w-[80%]",
+  tw(
+    "flex flex-col fixed w-[450px] transition-all duration-300 ease-in-out max-[1024px]:w-[60%] max-[768px]:w-[80%]",
+    theme.__content_bg,
+    theme.__border,
+    theme.__shadow
+  ),
   {
     variants: {
-      mode: {
-        light: "bg-white border border-neutral-200",
-        dark: "bg-black border-neutral-800",
-      },
       isVisible: {
         true: "",
         false: "",
@@ -113,12 +85,6 @@ const panel = cva(
       },
     },
     compoundVariants: [
-      {
-        type: "float",
-        mode: "dark",
-        class: "border-[1.33px]",
-      },
-
       {
         isVisible: true,
         position: "left",
@@ -153,12 +119,12 @@ const panel = cva(
       {
         type: "sticky",
         position: "left",
-        class: `${stickyShared} h-full left-0 top-0 bottom-0 border-r`,
+        class: `${stickyShared} h-full left-0 top-0 bottom-0 border-r-1.9`,
       },
       {
         type: "sticky",
         position: "right",
-        class: `${stickyShared} top-0 bottom-0 right-0 h-full border-l`,
+        class: `${stickyShared} top-0 bottom-0 right-0 h-full border-l-1.9`,
       },
     ],
     defaultVariants: {

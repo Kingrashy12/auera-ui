@@ -9,6 +9,26 @@ export const aueraTw = ({
   addVariant("theme-light", '[data-theme="light"] &');
   addVariant("tone-dark", ['&[data-theme="dark"]&']);
   addVariant("tone-light", ['&[data-theme="light"]&']);
+  addVariant("theme-obsidian", ['[data-theme-variant="obsidian"] &']);
+  addVariant("theme-corporate", ['[data-theme-variant="corporate"] &']);
+  addVariant("tone-obsidian", ['&[data-theme-variant="obsidian"]&']);
+  addVariant("tone-corporate", ['&[data-theme-variant="corporate"]&']);
+  addVariant(
+    "dark-obsidian",
+    '[data-theme="dark"][data-theme-variant="obsidian"] &'
+  );
+  addVariant(
+    "light-obsidian",
+    '[data-theme="light"][data-theme-variant="obsidian"] &'
+  );
+  addVariant(
+    "self-light-obsidian",
+    '&[data-theme="light"][data-theme-variant="obsidian"]&'
+  );
+  addVariant(
+    "self-dark-obsidian",
+    '&[data-theme="dark"][data-theme-variant="obsidian"]&'
+  );
   addVariant("scrollbar", ["::-webkit-scrollbar&"]);
   addVariant("scrollbar-thumb", ["::-webkit-scrollbar-thumb&"]);
   addVariant("scrollbar-track", ["::-webkit-scrollbar-track&"]);

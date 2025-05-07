@@ -1,4 +1,4 @@
-import { ModalHeaderType } from "../../types/auera-ui";
+import { ModalHeaderProps } from "../../types/auera-ui";
 import { getDisplayName } from "@/utils/displayname";
 import { usePanel } from "@/hook/usePanel";
 import { useComputeHeader } from "./use-modal";
@@ -7,16 +7,19 @@ const ModalHeader = ({
   children,
   showBorder = true,
   ...props
-}: ModalHeaderType) => {
-  const { mode } = usePanel();
+}: ModalHeaderProps) => {
+  const { mode, themeVariant } = usePanel();
 
   const Header = useComputeHeader({
-    mode,
     showBorder,
     className: props.className,
   });
 
-  return <Header {...props}>{children}</Header>;
+  return (
+    <Header mode={mode} themeVariant={themeVariant} {...props}>
+      {children}
+    </Header>
+  );
 };
 
 export default ModalHeader;

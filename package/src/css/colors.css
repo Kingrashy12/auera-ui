@@ -146,8 +146,6 @@
   --auera-frost-light-warn-hover: var(--auera-yellow-50);
   --auera-frost-light-primary-hover: var(--auera-blue-50);
 
-  background: #fff;
-
   --auera-card-sh: rgba(0, 0, 0, 0.05);
 }
 
@@ -179,8 +177,6 @@ html[data-theme="dark"] {
   --auera-frost-light-success-hover: var(--auera-slate-900);
   --auera-frost-light-warn-hover: var(--auera-slate-900);
   --auera-frost-light-primary-hover: var(--auera-slate-900);
-
-  background: #000;
 
   /* Shadow */
   --auera-card-sh: var(--auera-slate-950);

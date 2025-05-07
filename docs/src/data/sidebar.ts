@@ -130,12 +130,6 @@ export const sideBarLinks = [
     links: [
       { label: "StrFun", uri: "/docs/utilities/strfun" },
       {
-        label: "groupData",
-        uri: "/docs/utilities/group-data",
-        docs_soon: true,
-        soon: true,
-      },
-      {
         label: "formatDate",
         uri: "/docs/utilities/format-date",
       },
@@ -148,28 +142,16 @@ export const sideBarLinks = [
         uri: "/docs/utilities/format-time-ago",
       },
       {
-        label: "formatTimeDiff",
-        uri: "/docs/utilities/format-time-diff",
-        soon: true,
-        docs_soon: true,
-      },
-      {
-        label: "Overlay Utils",
-        uri: "/docs/utilities/overlay-utils",
-        docs_soon: true,
-        soon: true,
+        label: "Core Utils",
+        uri: "/docs/utilities/core-utils",
       },
       {
         label: "formatNumber",
         uri: "/docs/utilities/format-number",
-        docs_soon: true,
-        soon: true,
       },
       {
         label: "formatBytes",
         uri: "/docs/utilities/format-bytes",
-        docs_soon: true,
-        soon: true,
       },
 
       // {

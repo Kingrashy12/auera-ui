@@ -1,4 +1,4 @@
-import { useMode } from "../../hook/use";
+import { useMode, useThemeVariant } from "../../hook/use";
 import { DrawerPanelProps } from "../../types/auera-ui";
 import { getDisplayName } from "@/utils/displayname";
 import { useDrawerPanel } from "@/hook/usePanel";
@@ -12,25 +12,31 @@ const DrawerPanel = ({
   position = "right",
   children,
   mode,
+  themeVariant,
   ...props
 }: DrawerPanelProps) => {
   const { isVisible } = Drawer();
   const { currentMode } = useMode(mode);
-  const { collectMode } = useDrawerPanel();
+  const _themeVariant = useThemeVariant(themeVariant);
+  const { collectMode, collectThemeVariant } = useDrawerPanel();
 
   useEffect(() => {
     collectMode(currentMode);
-  }, [currentMode]);
+    collectThemeVariant(_themeVariant);
+  }, [currentMode, themeVariant]);
 
   const Panel = ComputePanel({
     className: props.className,
-    mode: currentMode,
     position,
     type,
     isVisible,
   });
 
-  return <Panel {...props}>{children}</Panel>;
+  return (
+    <Panel mode={currentMode} themeVariant={themeVariant} {...props}>
+      {children}
+    </Panel>
+  );
 };
 
 export default DrawerPanel;

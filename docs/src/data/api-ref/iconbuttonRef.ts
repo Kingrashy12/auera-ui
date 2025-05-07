@@ -24,6 +24,12 @@ export const i_buttonRef = [
     default: "system",
   },
   {
+    prop: "themeVariant",
+    type: '"corporate" | "obsidian"',
+    description: ".",
+    default: "corporate",
+  },
+  {
     prop: "active",
     type: "boolean",
     description: "",

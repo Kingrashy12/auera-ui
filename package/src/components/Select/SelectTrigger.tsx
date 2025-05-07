@@ -14,7 +14,7 @@ const SelectTrigger: React.FC<SelectTriggerProps> = ({
   variant,
   disabled,
 }) => {
-  const { onClose, onOpen, open, radius, currentValue, mode } =
+  const { onClose, onOpen, open, radius, themeVariant, currentValue, mode } =
     useSelectState();
   const Trigger = useComputeTrigger({ radius, className, variant });
 
@@ -26,7 +26,7 @@ const SelectTrigger: React.FC<SelectTriggerProps> = ({
   };
 
   return (
-    <Trigger onClick={trigger} data-theme={mode}>
+    <Trigger onClick={trigger} mode={mode} themeVariant={themeVariant}>
       {children ?? (
         <span
           data-theme={mode}

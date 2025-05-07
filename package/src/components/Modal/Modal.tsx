@@ -1,12 +1,12 @@
 import { tw } from "stywind";
 import { useModal } from "../../hook/useModal";
 import { useTheme } from "../../hook/useTheme";
-import { ModalType } from "../../types/auera-ui";
+import { ModalProps } from "../../types/auera-ui";
 import Backdrop from "../Backdrop/Backdrop";
 import { getDisplayName } from "@/utils/displayname";
 import { FC } from "react";
 
-const Modal: FC<ModalType> = ({
+const Modal: FC<ModalProps> = ({
   children,
   preventClose,
   intensity = "md",
