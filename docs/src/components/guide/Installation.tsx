@@ -28,7 +28,10 @@ const Installation = () => {
             className="text-lg"
             hideLink
           >
-            Install <CodeTag className="cb text-base">auera-ui</CodeTag>
+            Install{" "}
+            <CodeTag className="text-base p-[3px_8px_3px_8px] rounded-sm bg-[var(--cb)] border-border">
+              auera-ui
+            </CodeTag>
           </HeaderLabel>
 
           <Terminal
@@ -107,7 +110,9 @@ const Installation = () => {
             hideLink
           >
             Update{" "}
-            <CodeTag className="cb text-[15px]">tailwind.config.ts</CodeTag>
+            <CodeTag className="text-base p-[3px_8px_3px_8px] rounded-sm bg-[var(--cb)] border-border">
+              tailwind.config.ts
+            </CodeTag>
           </HeaderLabel>
           <p className="text">
             Next, update your Tailwind configuration to include AueraUI&apos;s
