@@ -1,7 +1,7 @@
 import React from "react";
-import { Card, TabsType, Tabs, TabHandle, TabPanel } from "auera-ui";
+import { Card, TabsProps, Tabs, TabHandle, TabPanel } from "auera-ui";
 
-const Tab = ({ variant, ...props }: TabsType<{}>) => {
+const Tab = ({ variant, ...props }: TabsProps<{}>) => {
   return (
     <>
       <Card fullWidth className="w-[250px]">

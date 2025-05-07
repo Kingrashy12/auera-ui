@@ -1,5 +1,5 @@
 import CodeTag from "@/components/CodeTag";
-import DashedBorder from "@/components/dashedBorder";
+import DashedBorder from "../../components/dashedBorder";
 import Details from "@/components/Details";
 import HeaderLabel from "@/components/HeaderLabel";
 import CodeBlock from "@/components/layout/code/Block";
