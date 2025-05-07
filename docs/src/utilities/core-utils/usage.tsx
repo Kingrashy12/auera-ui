@@ -1,8 +1,8 @@
 import CodeTag from "@/components/CodeTag";
-import DashedBorder from "@/components/dashedBorder";
 import Details from "@/components/Details";
 import HeaderLabel from "@/components/HeaderLabel";
 import CodeBlock from "@/components/layout/code/Block";
+import DashedBorder from "@/components/layout/DashedBorder";
 import TabLayout from "@/components/layout/TabLayout";
 import TabLink from "@/components/TabLink";
 import { Box, Button, openDrawer, openModal, Stack } from "auera-ui";
