@@ -1,9 +1,10 @@
 import { sideBarLinks } from "@/data/sidebar";
 import { Router } from "@/utils/router";
-import { Box, Button } from "auera-ui";
+import { Box, IconButton } from "auera-ui";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { createStyle } from "stywind";
 
 type LinkType = {
   uri: string;
@@ -49,32 +50,38 @@ const PageNavigator = () => {
     getPage();
   }, [pathname]);
   return (
-    <Box fullWidth className="items-center justify-between">
+    <Box
+      fullWidth
+      className="items-center justify-between max-[350px]:flex-col gap-6 mb-5"
+    >
       {prevPage ? (
-        <Link href={prevPage?.uri}>
-          <Button
-            leftIcon={IoIosArrowBack}
-            radius="full"
-            size="lg"
-            variant="ghost"
-          >
+        <CustomLink href={prevPage?.uri}>
+          <div className="flex items-start justify-start self-start">
+            <IconButton variant="outline" radius="full">
+              <IoIosArrowBack size={18} />
+            </IconButton>
+          </div>
+          <p className="font-inter text-primary font-medium">
             {prevPage.label}
-          </Button>
-        </Link>
+          </p>
+        </CustomLink>
       ) : (
         <div />
       )}
       {nextPage ? (
-        <Link href={nextPage?.uri}>
-          <Button
-            rightIcon={IoIosArrowForward}
-            radius="full"
-            size="lg"
-            variant="ghost"
-          >
+        <CustomLink
+          href={nextPage?.uri}
+          className="flex-row-reverse hover:last:translate-x-1"
+        >
+          <div className="flex items-end justify-end self-end">
+            <IconButton variant="outline" radius="full">
+              <IoIosArrowForward size={18} />
+            </IconButton>
+          </div>
+          <p className="font-inter text-primary font-medium">
             {nextPage.label}
-          </Button>
-        </Link>
+          </p>
+        </CustomLink>
       ) : (
         <div />
       )}
@@ -83,3 +90,7 @@ const PageNavigator = () => {
 };
 
 export default PageNavigator;
+
+const CustomLink = createStyle(Link).classname(
+  "flex items-center gap-3 hover:gap-5 hover:first:-translate-x-1 transition-all duration-400 bg-transparent"
+);

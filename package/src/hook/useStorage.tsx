@@ -2,6 +2,7 @@ type StorageActionType = {
   get: (key: string) => string | boolean | unknown;
   set: (key: string, value: any) => void;
   set_stringify: (key: string, value: any) => void;
+  remove: (key: string) => void;
 };
 
 export const storageActions: StorageActionType = {
@@ -19,6 +20,11 @@ export const storageActions: StorageActionType = {
   set_stringify: (key, value) => {
     if (typeof window !== "undefined") {
       localStorage.setItem(key, JSON.stringify(value));
+    }
+  },
+  remove: (key) => {
+    if (typeof window !== "undefined") {
+      localStorage.removeItem(key);
     }
   },
 };

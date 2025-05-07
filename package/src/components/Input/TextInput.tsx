@@ -19,6 +19,7 @@ const TextInput = forwardRef<HTMLInputElement, InputProp>(
       value,
       onChange,
       name,
+      endContent,
       ...props
     },
     ref
@@ -53,6 +54,7 @@ const TextInput = forwardRef<HTMLInputElement, InputProp>(
           name={name}
           {...props}
         />
+        {endContent && endContent}
       </InputInterface>
     );
   }

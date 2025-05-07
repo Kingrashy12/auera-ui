@@ -1,5 +1,4 @@
 import {
-  Divider,
   Icon,
   IconButton,
   Menu,
@@ -21,10 +20,7 @@ const ToggleTheme = () => {
     dark: MdWbSunny,
   };
   return (
-    <Menu
-      zIndex="200"
-      className="-left-28 w-[150px] shadow-[4px_5px_10px_rgba(255,255,255,0.05)] gap-0 border tone-dark:!bg-neutral-900 tone-dark:!border-neutral-700"
-    >
+    <Menu zIndex="200" className="-left-28 w-[150px]" showDivider>
       <MenuTrigger>
         <IconButton variant="outline" radius="xl">
           <Icon icon={icon[mode]} size={18} />
@@ -46,7 +42,7 @@ const ToggleTheme = () => {
           <p className="font-inter font-medium text-sm">Light</p>
         </MenuItem>
       </MenuPad>
-      <Divider />
+      {/* <Divider /> */}
       <MenuPad>
         <MenuItem
           onClick={toggleTheme.system}

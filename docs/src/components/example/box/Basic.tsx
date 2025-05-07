@@ -1,13 +1,14 @@
 import CodeBlock from "@/components/layout/code/Block";
+import CardContent from "@/components/lib/CardContent";
 import { boxCode } from "@/data/code/box";
-import { Box, Card, Stack, Tabs, TabHandle, TabPanel } from "auera-ui";
+import { Box, Stack, Tabs, TabHandle, TabPanel } from "auera-ui";
 import React from "react";
 import { IoCodeSlash } from "react-icons/io5";
 import { LuEye } from "react-icons/lu";
 
 const BoxBasic = () => {
   return (
-    <Card>
+    <CardContent>
       <Tabs variant="solid" rounded>
         <TabHandle icon={LuEye} iconSize={19} value="preview">
           Preview
@@ -26,7 +27,7 @@ const BoxBasic = () => {
           <CodeBlock fileName="BasicBox.tsx" lg="tsx" code={boxCode.basic} />
         </TabPanel>
       </Tabs>
-    </Card>
+    </CardContent>
   );
 };
 

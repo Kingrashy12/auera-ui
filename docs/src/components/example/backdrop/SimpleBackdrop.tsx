@@ -1,4 +1,5 @@
 import CodeBlock from "@/components/layout/code/Block";
+import CardContent from "@/components/lib/CardContent";
 import { useDocState } from "@/hooks/docs";
 import { replaceInCode } from "@/utils/global";
 import {
@@ -74,7 +75,7 @@ const SimpleBackdrop = () => {
   };
 
   return (
-    <Card>
+    <CardContent>
       <Tabs variant="solid" rounded>
         <TabHandle icon={LuEye} iconSize={19} value="preview">
           Preview
@@ -84,7 +85,9 @@ const SimpleBackdrop = () => {
         </TabHandle>
         <TabPanel>
           <Stack>
-            <Button onClick={handleOpen}>Open Backdrop</Button>
+            <Button onClick={handleOpen} radius="lg">
+              Open Backdrop
+            </Button>
           </Stack>
           <Backdrop open={open} onClose={handleClose} centerContent>
             <Card>
@@ -102,7 +105,7 @@ const SimpleBackdrop = () => {
           />
         </TabPanel>
       </Tabs>
-    </Card>
+    </CardContent>
   );
 };
 

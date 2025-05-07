@@ -12,8 +12,8 @@ import Drawer_Content from "../example/DrawerContent";
 
 const DrawerDemo = () => {
   return (
-    <Drawer value="drawer-demo">
-      <DrawerPanel>
+    <Drawer value="drawer-demo" preventScroll>
+      <DrawerPanel className="bg-content border-border shadow-shadow">
         <DrawerHeader>
           <h1 className="font-medium text-lg theme-dark:text-white">
             Notifications

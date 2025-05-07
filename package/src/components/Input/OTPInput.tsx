@@ -11,16 +11,19 @@ const OTPInput: FC<OTPInputProps> = ({
   radius,
   error,
   mode,
+  id,
 }) => {
   const { currentMode } = useMode(mode);
   const [otp, setOtp] = useState<string[]>(new Array(length).fill(""));
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
 
-  const { Input, Interface } = useComputeInput({
+  const { Input, Interface, InputMode } = useComputeInput({
     error,
     className: classNames?.interface,
     radius,
     inputClass: classNames?.input,
+    id,
+    mode: currentMode,
   });
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>, index: number) => {
@@ -57,8 +60,8 @@ const OTPInput: FC<OTPInputProps> = ({
       {otp.map((digit, index) => (
         <Input
           key={index}
-          mode={currentMode}
-          // @ts-expect-error gene
+          mode={InputMode || currentMode}
+          // @ts-ignore
           ref={(el) => (inputRefs.current[index] = el)}
           type="text"
           value={digit}

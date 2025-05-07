@@ -5,7 +5,7 @@ import { useFile } from "@/hook/useFile";
 import MapItems from "../utils/MapItems";
 import Box from "../Box/Box";
 import Icon from "../Icon/Icon";
-import { StrFun } from "@/utils";
+import { formatBytes, StrFun } from "@/utils";
 import { IconButton } from "../Button";
 import { FileContruct, FileListProps, FileType } from "../../types/auera-ui";
 import fileType from "./file-type";
@@ -19,11 +19,11 @@ const FileUploadList: React.FC<FileListProps> = ({
   const { file, files, removeFile, mode: currentMode } = useFile();
 
   const getFileSize = (size: number) => {
-    const fileSizeInMB = (size / (1024 * 1024)).toFixed(2);
+    const fileSize = formatBytes(size);
 
     return (
       <p className="font-inter font-normal text-neutral-500 text-xs">
-        {fileSizeInMB} MB
+        {fileSize}
       </p>
     );
   };

@@ -1,3 +1,4 @@
+import { ThemeVariant } from "@/types/auera-system";
 import { createContext, RefObject, useContext } from "react";
 
 interface SelectContextInterface {
@@ -8,6 +9,7 @@ interface SelectContextInterface {
   onOpen: () => void;
   onClose: () => void;
   mode?: "light" | "dark";
+  themeVariant?: ThemeVariant;
   width: number;
   selectRef: RefObject<HTMLDivElement | null>;
   contentVariant: "padded" | "flush";

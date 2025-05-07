@@ -13,8 +13,15 @@ const SelectItem: React.FC<SelectItemProps> = ({
   onSelect,
   disabled,
 }) => {
-  const { radius, currentValue, setValue, onClose, mode, contentVariant } =
-    useSelectState();
+  const {
+    radius,
+    currentValue,
+    setValue,
+    onClose,
+    mode,
+    themeVariant,
+    contentVariant,
+  } = useSelectState();
   const Component = useComputeItem({
     radius,
     className,
@@ -36,7 +43,7 @@ const SelectItem: React.FC<SelectItemProps> = ({
   const active = isCurrent || currentValue === value;
 
   return (
-    <Component onClick={select} data-theme={mode}>
+    <Component onClick={select} mode={mode} themeVariant={themeVariant}>
       {children}
       {active && <FaCheck data-theme={mode} className="tone-dark:text-white" />}
     </Component>

@@ -7,4 +7,7 @@ export default {
   __CARD: defineClass(
     "border-2 border-black tone-dark:border-neutral-800 shadow-[6px_6px_0px_black] tone-dark:shadow-neutral-800"
   ),
+  __MODAL_PANEL: defineClass(
+    "border-2 border-black tone-dark:border-neutral-800 shadow-[6px_6px_0px_black] tone-dark:shadow-neutral-800"
+  ),
 };

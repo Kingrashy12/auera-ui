@@ -1,13 +1,14 @@
 import React from "react";
 import CodeBlock from "@/components/layout/code/Block";
 import { boxCode } from "@/data/code/box";
-import { Box, Card, Stack, Tabs, TabHandle, TabPanel } from "auera-ui";
+import { Box, Stack, Tabs, TabHandle, TabPanel } from "auera-ui";
 import { LuEye } from "react-icons/lu";
 import { IoCodeSlash } from "react-icons/io5";
+import CardContent from "@/components/lib/CardContent";
 
 const BoxWithDirection = () => {
   return (
-    <Card>
+    <CardContent>
       <Tabs variant="solid" rounded>
         <TabHandle icon={LuEye} iconSize={19} value="preview">
           Preview
@@ -27,7 +28,7 @@ const BoxWithDirection = () => {
           <CodeBlock fileName="BoxDemo.tsx" lg="tsx" code={boxCode.direction} />
         </TabPanel>
       </Tabs>
-    </Card>
+    </CardContent>
   );
 };
 

@@ -8,6 +8,7 @@ import {
   DesignVariant,
   ModeType,
   SchemeVariant,
+  ThemeVariant,
 } from "./auera-system";
 import { InputProps } from "./element-props";
 import { zIndex } from "./keys";
@@ -83,7 +84,7 @@ export interface Drop extends DivProps {
   preventScroll?: boolean;
 }
 
-export type ModalType = {
+export type ModalProps = {
   /**
    * Prevents the modal from closing when clicked outside.
    *
@@ -114,7 +115,7 @@ export type ModalType = {
   preventScroll?: boolean;
 };
 
-export type ModalPanelType = {
+export type ModalPanelProps = {
   size?: "auto" | "sm" | "md" | "lg" | "xl" | "full" | "full-screen";
   placement?: "top" | "center" | "bottom";
   radius?: "md" | "lg" | "xl" | "2xl" | "3xl";
@@ -125,12 +126,13 @@ export type ModalPanelType = {
   align?: "vertical" | "horizontal";
   design?: DesignVariant;
   mode?: "light" | "dark";
+  themeVariant?: ThemeVariant;
 };
 
-export interface ModalContentType extends DivProps {
+export interface ModalContentProps extends DivProps {
   centerContent?: boolean;
 }
-export interface ModalTriggerType extends DivProps {
+export interface ModalTriggerProps extends DivProps {
   type?: "open" | "close";
   /**
    * Provides the modal's value, typically used for managing the active state.
@@ -141,7 +143,7 @@ export interface ModalTriggerType extends DivProps {
   value: string;
   disabled?: boolean;
 }
-export interface ModalHeaderType extends DivProps {
+export interface ModalHeaderProps extends DivProps {
   showBorder?: boolean;
 }
 
@@ -158,12 +160,13 @@ export interface IconButtonProps {
   mode?: "light" | "dark";
   active?: boolean;
   as?: "button" | "div";
+  themeVariant?: ThemeVariant;
 }
 
 export type IconButtonPropsExtended<T extends "button" | "div"> =
   T extends "div" ? IconButtonProps & DivProps : IconButtonProps & BtnProps;
 
-export interface DrawerProps extends ModalType {
+export interface DrawerProps extends ModalProps {
   backdropClass?: string;
   /**
    * @prop {boolean} preventScroll - Controls whether background scrolling is disabled when the modal is open.
@@ -182,9 +185,10 @@ export interface DrawerPanelProps extends DivProps {
   type?: "float" | "sticky";
   design?: DesignVariant;
   mode?: "light" | "dark";
+  themeVariant?: ThemeVariant;
 }
 
-export interface DrawerTriggerType extends DivProps {
+export interface DrawerTriggerProps extends DivProps {
   type?: "open" | "close";
   /**
    * Provides the drawer's value, typically used for managing the active state.
@@ -205,7 +209,7 @@ export type SwitchProps = {
   disabled?: boolean;
   children?: React.ReactNode;
   className?: string;
-  variant?: "padded" | "flush" | "lined";
+  variant?: "padded" | "flush";
 };
 
 export type CheckBoxProps = {
@@ -223,7 +227,7 @@ export type CheckBoxProps = {
   checked?: boolean;
 };
 
-export type TabsType<Comp> = {
+export type TabsProps<Comp> = {
   children?: React.ReactNode;
   variant?: "line" | "solid";
   mode?: "light" | "dark";
@@ -234,9 +238,10 @@ export type TabsType<Comp> = {
   containerClass?: string;
   hideBorder?: boolean;
   panel?: React.FunctionComponent<Comp>;
+  id?: string;
 };
 
-export type TabHandleType = {
+export type TabHandleProps = {
   children?: React.ReactNode;
   activeColor?: ColorPair;
   activeSolidColor?: ColorPair;
@@ -249,6 +254,7 @@ export type TabHandleType = {
   isActive?: boolean;
   icon?: React.ElementType;
   iconSize?: number;
+  id?: string;
 };
 
 export interface StackProps extends BoxProps {
@@ -393,6 +399,7 @@ export interface InputProp extends InputProps {
   radius?: "none" | "sm" | "md" | "lg" | "xl" | "full";
   variant?: "solid" | "outline" | "ghost" | "soft";
   mode?: ModeType;
+  endContent?: React.ReactNode;
 }
 
 export interface PasswordProps extends InputProp {
@@ -496,6 +503,7 @@ export interface OTPInputProps {
   error?: boolean;
   radius?: "md" | "lg" | "xl" | "full";
   mode?: "light" | "dark";
+  id?: string;
 }
 
 export interface LoaderProp {
@@ -525,6 +533,7 @@ export interface SelectProps {
   children?: React.ReactNode;
   radius?: "none" | "sm" | "md" | "lg" | "xl" | "2xl";
   mode?: "light" | "dark";
+  themeVariant?: ThemeVariant;
 }
 
 export interface SelectState {
@@ -573,6 +582,7 @@ export interface BadgeProps {
   children?: React.ReactNode;
   asDiv?: boolean;
   mode?: ModeType;
+  id?: string;
 }
 
 export interface TextProps

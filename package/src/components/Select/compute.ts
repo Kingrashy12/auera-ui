@@ -8,11 +8,12 @@ import {
   trigger,
 } from "./select-variants";
 import { useMemo } from "react";
+import { AueraButton, AueraDiv } from "@/core/AueraElement";
 
 const useComputeTrigger = (props: SelectTriggerVariants) => {
   const { className, radius, variant, disabled } = props;
 
-  const Trigger = createStyle("button");
+  const Trigger = createStyle(AueraButton);
 
   const styles = useMemo(
     () => tw(trigger({ radius, variant, disabled }), className),
@@ -25,7 +26,7 @@ const useComputeTrigger = (props: SelectTriggerVariants) => {
 const useComputeContent = (props: SelectContentVariants) => {
   const { radius, className, open, variant } = props;
 
-  const Content = createStyle("div");
+  const Content = createStyle(AueraDiv);
 
   const styles = useMemo(
     () => tw(content({ radius, variant, open }), className),
@@ -38,7 +39,7 @@ const useComputeContent = (props: SelectContentVariants) => {
 const useComputeItem = (props: SelectItemVariants) => {
   const { radius, className, active, variant, disabled } = props;
 
-  const Item = createStyle("div");
+  const Item = createStyle(AueraDiv);
 
   const styles = useMemo(
     () => tw(item({ radius, variant, disabled, active }), className),

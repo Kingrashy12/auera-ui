@@ -8,6 +8,9 @@ body[select-open="true"] {
 }
 
 @layer utilities {
+  body {
+    @apply bg-background;
+  }
   .border-image {
     border-image: initial;
   }

@@ -1,8 +1,10 @@
+import { useIconButtonRules } from "@/hook/useStyleRules";
 import { AueraButton, AueraDiv } from "../../core/AueraElement";
-import { VProps } from "../../types/auera-system";
+import { ModeType, VProps } from "../../types/auera-system";
 import { cva } from "class-variance-authority";
 import { useMemo } from "react";
 import { createStyle, tw } from "stywind";
+import theme from "@/_styles_/theme";
 
 const ibutton = cva(
   "active:scale-95 transition-transform relative flex items-center tone-dark:text-white tone-light:text-black",
@@ -32,8 +34,13 @@ const ibutton = cva(
       variant: {
         subtle:
           "bg-gray-50 hover:bg-gray-100 border-none outline-none tone-dark:bg-neutral-700 tone-dark:hover:bg-neutral-800",
-        outline:
-          "border-[1.5px] bg-neutral-50 tone-dark:bg-neutral-900 border-gray-300 hover:bg-gray-100 tone-dark:border-neutral-700 tone-dark:hover:bg-neutral-800",
+        outline: tw(
+          "border-1.9 shadow-sm",
+          theme.__btn_bg,
+          theme.__btn_border,
+          theme.__btn_hover,
+          theme.__btn_shadow
+        ),
         ghost:
           "bg-transparent hover:bg-gray-100 border-none outline-none tone-dark:hover:bg-neutral-800",
       },
@@ -65,7 +72,9 @@ const ibutton = cva(
 export default ibutton;
 export type IconButtonVariants = VProps<typeof ibutton>;
 
-export const useComputeIButton = (props: IconButtonVariants) => {
+export const useComputeIButton = (
+  props: IconButtonVariants & { id: string; mode: ModeType }
+) => {
   const {
     as,
     variant,
@@ -76,18 +85,23 @@ export const useComputeIButton = (props: IconButtonVariants) => {
     subtle_active,
     size,
     radius,
+    id,
+    mode,
   } = props;
 
   const Comp = as === "div" ? AueraDiv : AueraButton;
 
   const ButtonInterface = createStyle(Comp);
 
+  const { appliedClassName, appliedRadius, appliedVariant } =
+    useIconButtonRules(id, className, variant!, mode, "corporate");
+
   const styles = useMemo(
     () =>
       tw(
         ibutton({
-          variant,
-          radius,
+          variant: appliedVariant?.value || variant,
+          radius: appliedRadius?.value || radius,
           size,
           disabled,
           ghost_active,
@@ -95,6 +109,7 @@ export const useComputeIButton = (props: IconButtonVariants) => {
           outline_active,
           as,
         }),
+        appliedClassName?.value,
         className
       ),
     [

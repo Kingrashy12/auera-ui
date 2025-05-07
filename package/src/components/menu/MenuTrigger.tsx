@@ -4,12 +4,23 @@ import { DivProps, tw } from "stywind";
 
 interface MenuTriggerProps extends DivProps {
   children: React.ReactNode;
+  disabled?: boolean;
 }
 
-const MenuTrigger: React.FC<MenuTriggerProps> = ({ children, ...props }) => {
+const MenuTrigger: React.FC<MenuTriggerProps> = ({
+  children,
+  disabled,
+  ...props
+}) => {
   const { onOpen } = useMenu();
+
+  const handleOpen = () => {
+    if (disabled) return;
+    onOpen();
+  };
+
   return (
-    <div onClick={onOpen} className={tw("w-fit", props.className)}>
+    <div onClick={handleOpen} className={tw("w-fit", props.className)}>
       {children}
     </div>
   );

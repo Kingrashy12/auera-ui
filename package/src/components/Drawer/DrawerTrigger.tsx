@@ -1,9 +1,9 @@
 import { FC } from "react";
 import { useDrawer } from "../../hook/useDrawer";
-import { DrawerTriggerType } from "../../types/auera-ui";
+import { DrawerTriggerProps } from "../../types/auera-ui";
 import { getDisplayName } from "@/utils/displayname";
 
-const DrawerTrigger: FC<DrawerTriggerType> = ({
+const DrawerTrigger: FC<DrawerTriggerProps> = ({
   value,
   children,
   type = "open",

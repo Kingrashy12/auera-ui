@@ -1,3 +1,4 @@
+import { ThemeVariant } from "../types/auera-system";
 import { createContext } from "react";
 export type ThemeContextType = {
   mode: "light" | "dark";
@@ -8,6 +9,8 @@ export type ThemeContextType = {
     dark: () => void;
     light: () => void;
   };
+  changeThemeVariant: (variant: ThemeVariant) => void;
+  themeVariant: ThemeVariant;
 };
 
 export const ThemeContext = createContext<ThemeContextType | undefined>(

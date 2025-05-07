@@ -1,4 +1,4 @@
-import { useMode } from "@/hook/use";
+import { useMode, useThemeVariant } from "@/hook/use";
 import {
   AueraElementPropsWithMotion,
   HTMLElements,
@@ -13,27 +13,27 @@ const ElementWithmotion = <T extends keyof HTMLElements>({
   tag: Tag = "div",
   children,
   mode,
+  themeVariant: TVariant,
   ...props
-}: AueraElementPropsWithMotion<T>) =>
-  // ref: React.Ref<HTMLElement>
-  {
-    const { currentMode } = useMode(mode);
+}: AueraElementPropsWithMotion<T>) => {
+  const { currentMode } = useMode(mode);
+  const themeVariant = useThemeVariant(TVariant);
 
-    const Props = useProps(props, Tag);
+  const Props = useProps(props, Tag);
 
-    const Element = motion[Tag];
+  const Element = motion[Tag];
 
-    return (
-      <Element
-        // ref={ref}
-        data-theme={currentMode}
-        className={tw(props.hidden && "hidden", props.className)}
-        {...Props}
-      >
-        {children}
-      </Element>
-    );
-  };
+  return (
+    <Element
+      data-theme={currentMode}
+      data-theme-variant={themeVariant}
+      className={tw(props.hidden && "hidden", props.className)}
+      {...Props}
+    >
+      {children}
+    </Element>
+  );
+};
 
 export default ElementWithmotion;
 ElementWithmotion.displayName = getDisplayName("ElementWithMotion");
@@ -42,6 +42,14 @@ export const AueraDivWithMotion = forwardRef<
   HTMLDivElement,
   AueraElementPropsWithMotion<"div">
 >(({ ...props }, ref) => {
-  const { tag, mode, ...rest } = props;
-  return <ElementWithmotion ref={ref} tag="div" mode={mode} {...rest} />;
+  const { tag, mode, themeVariant, ...rest } = props;
+  return (
+    <ElementWithmotion
+      ref={ref}
+      tag="div"
+      mode={mode}
+      themeVariant={themeVariant}
+      {...rest}
+    />
+  );
 });

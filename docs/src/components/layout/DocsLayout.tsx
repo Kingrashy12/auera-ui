@@ -19,7 +19,7 @@ const DocsLayout = ({ children, hideNavigator }: Props) => {
   }, [HAS_PAGE_RENDERED]);
 
   return (
-    <Box className="gap-0 px-3 max-[550px]:px-0" fullWidth>
+    <Box className="gap-0 max-[550px]:px-0" fullWidth>
       <SideBar />
       <Box
         direction="column"
@@ -37,7 +37,7 @@ const DocsLayout = ({ children, hideNavigator }: Props) => {
             hideNavigator && "hidden"
           )}
         >
-          <div className="w-full border-t border-t-sidebar" />
+          <div className="w-full border-t border-border border-dashed mb-6" />
           <PageNavigator />
         </Box>
       </Box>

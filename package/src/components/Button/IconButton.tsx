@@ -1,6 +1,8 @@
+import { useIconButtonRules } from "@/hook/useStyleRules";
 import { IconButtonPropsExtended } from "../../types/auera-ui";
 import { getDisplayName } from "../../utils/displayname";
 import { useComputeIButton } from "./iconbutton-variants";
+import { useMode } from "@/hook/use";
 
 const IconButton = <T extends "button" | "div">({
   variant = "subtle",
@@ -9,9 +11,11 @@ const IconButton = <T extends "button" | "div">({
   className,
   children,
   disabled,
-  as,
+  as = "button",
+  themeVariant,
   ...props
 }: IconButtonPropsExtended<T>) => {
+  const { currentMode } = useMode(props.mode);
   const Comp = useComputeIButton({
     className,
     variant,
@@ -22,10 +26,24 @@ const IconButton = <T extends "button" | "div">({
     subtle_active: props.active && variant === "subtle",
     outline_active: props.active && variant === "outline",
     as,
+    id: props.id!,
+    mode: currentMode,
   });
 
+  const { appliedMode } = useIconButtonRules(
+    props.id!,
+    className,
+    variant!,
+    currentMode,
+    "corporate"
+  );
+
   return (
-    <Comp mode={props.mode} {...(props as any)}>
+    <Comp
+      mode={appliedMode?.value || props.mode}
+      themeVariant={themeVariant}
+      {...(props as any)}
+    >
       {children}
     </Comp>
   );

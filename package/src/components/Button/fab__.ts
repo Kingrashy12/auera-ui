@@ -4,8 +4,16 @@ import { AueraDiv } from "../../core/AueraElement";
 import { useMemo } from "react";
 import { zIndexKeys } from "../../utils/keys";
 import { zIndex } from "../../types/keys";
+import { ModeType } from "@/types/auera-system";
+import { useFabRules } from "@/hook/useStyleRules";
 
-const useComputeFab = (props: FabVariants & { zIndex: zIndex }) => {
+const useComputeFab = (
+  props: FabVariants & {
+    zIndex: zIndex;
+    currentMode: ModeType;
+    id: string | undefined;
+  }
+) => {
   const {
     className,
     variant,
@@ -16,15 +24,35 @@ const useComputeFab = (props: FabVariants & { zIndex: zIndex }) => {
     position,
     zIndex,
     design,
+    currentMode,
+    id,
   } = props;
+
+  const {
+    appliedClassName,
+    appliedColor,
+    appliedDesign,
+    appliedType,
+    appliedVariant,
+    appliedZindex,
+  } = useFabRules(id!, className, variant!, currentMode, color, design!);
 
   const FabComp = createStyle(AueraDiv);
 
   const styles = useMemo(
     () =>
       tw(
-        fab({ variant, size, disabled, color, type, position, design }),
-        zIndexKeys[zIndex],
+        fab({
+          variant: appliedVariant?.value || variant,
+          size,
+          disabled,
+          color: appliedColor?.value || color,
+          type: appliedType?.value || type,
+          position,
+          design: appliedDesign?.value || design,
+        }),
+        zIndexKeys[appliedZindex?.value || zIndex],
+        appliedClassName?.value,
         className
       ),
     [className, color, disabled, size, variant, type, position, zIndex, design]

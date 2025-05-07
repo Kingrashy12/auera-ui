@@ -9,15 +9,18 @@ const ModalFooter = ({
   position,
   ...props
 }: ModalFooterProps) => {
-  const { mode } = usePanel();
+  const { mode, themeVariant } = usePanel();
 
   const Footer = useComputeFooter({
-    mode,
     showBorder,
     className: props.className,
   });
 
-  return <Footer {...props}>{children}</Footer>;
+  return (
+    <Footer mode={mode} themeVariant={themeVariant} {...props}>
+      {children}
+    </Footer>
+  );
 };
 
 export default ModalFooter;

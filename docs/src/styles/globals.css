@@ -12,9 +12,9 @@
   --cmd-bg: #eeeeef;
   --cmd-code: var(--auera-gray-800);
   --scrollbar-thumb: var(--auera-neutral-300);
-  --scrollbar-thumb-hover: var(--auera-neutral-500);
-  --sidebar-border: var(--auera-neutral-200);
-  --sidebar: white;
+  --scrollbar-thumb-hover: var(--auera-neutral-400);
+  --sidebar-border: var(--auera-border);
+  --sidebar: var(--auera-sidebar);
   --side-icon: var(--auera-neutral-50);
   --dc-first-bg: #fff;
   --dc-second-bg: var(--auera-blue-50);
@@ -32,8 +32,6 @@ html[data-theme="dark"] {
   --cmd-code: white;
   --scrollbar-thumb: var(--auera-neutral-500);
   --scrollbar-thumb-hover: var(--auera-neutral-700);
-  --sidebar-border: var(--auera-neutral-800);
-  --sidebar: #000;
   --side-icon: var(--auera-slate-900);
   --dc-first-bg: #000005;
   --dc-second-bg: var(--auera-soft-blue);
@@ -42,11 +40,12 @@ html[data-theme="dark"] {
   --cb: var(--auera-neutral-900);
   --cb-border: var(--auera-neutral-800);
   --block: var(--auera-neutral-900);
-  --block-border: var(--auera-neutral-800);
+  --block-border: var(--auera-neutral-700);
 }
 
-html {
+body {
   scroll-behavior: smooth;
+  /* background: var(--auera-background); */
 }
 
 .colored {
@@ -113,10 +112,10 @@ html {
     @apply text-primary font-semibold leading-normal text-[1.45rem] font-inter tracking-[0.1px];
   }
   .cb {
-    @apply border-[1.2px] p-[1px_5px_1px_5px] rounded-[0.37rem] bg-[var(--cb)] border-[var(--cb-border)] font-normal text-[13px] !text-primary;
+    @apply border-[1.2px] p-[1px_5px_1px_5px] rounded-[0.37rem] bg-[var(--cb)] border-border font-normal text-[13px] !text-primary;
   }
   .block-cmd {
-    @apply border-[var(--block-border)] bg-[var(--block)];
+    @apply border-border bg-[var(--block)] shadow-sm shadow-shadow;
   }
   .nav-hover {
     @apply relative after:absolute after:-bottom-0.5 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-blue-500 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100;

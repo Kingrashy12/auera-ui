@@ -1,11 +1,12 @@
 import React from "react";
 import { useTabList } from "./Provider";
 import { createStyle, merge, tw } from "stywind";
-import { TabHandleType } from "../../types/auera-ui";
+import { TabHandleProps } from "../../types/auera-ui";
 import Icon from "../Icon/Icon";
 import { getDisplayName } from "@/utils/displayname";
+import { useTabHandleRules } from "@/hook/useStyleRules";
 
-const TabHandle: React.FC<TabHandleType> = ({
+const TabHandle: React.FC<TabHandleProps> = ({
   children,
   activeColor,
   activeSolidColor,
@@ -18,6 +19,7 @@ const TabHandle: React.FC<TabHandleType> = ({
   isActive,
   icon,
   iconSize = 16,
+  id,
 }) => {
   const { onSwitch, variant, themeMode, fullWidth, rounded } = useTabList();
 
@@ -42,6 +44,12 @@ const TabHandle: React.FC<TabHandleType> = ({
   const activeColorScheme =
     variant === "solid" ? getColor.activeSolid : getColor.active;
 
+  const { appliedClassName, appliedRounded, appliedVariant } =
+    useTabHandleRules(id!, className, variant, themeMode);
+
+  const _rounded = appliedRounded?.value || rounded;
+  const _variant = appliedVariant?.value || variant;
+
   const isCurrent = isActive as boolean;
   const variantStyle = {
     line: tw(
@@ -57,7 +65,7 @@ const TabHandle: React.FC<TabHandleType> = ({
       isCurrent
         ? `text-${activeColorScheme} bg-white shadow drop-shadow-tab`
         : `text-${inActiveColor} bg-transparent hover:bg-gray-200 tone-dark:hover:bg-gray-500`,
-      rounded ? "rounded-full" : "rounded-md",
+      _rounded ? "rounded-full" : "rounded-md",
       disabled
         ? "opacity-50 cursor-not-allowed pointer-events-none select-none"
         : "opacity-100 cursor-pointer"
@@ -76,8 +84,9 @@ const TabHandle: React.FC<TabHandleType> = ({
       `gap-[7px] flex items-center outline-none font-medium whitespace-nowrap font-inter p-[9px]
        h-[30px] justify-center leading-[1.2rem] text-sm transition-all duration-500`,
       fullWidth ? "w-full" : "w-auto",
-      variant === "solid" ? "border-none" : "",
+      _variant === "solid" ? "border-none" : "",
       merge.single(variantStyle, variant),
+      appliedClassName?.value,
       className
     )
   );

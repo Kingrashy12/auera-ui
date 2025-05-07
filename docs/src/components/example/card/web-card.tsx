@@ -85,7 +85,7 @@ const Web3Card = () => {
                   {wallet.hint && (
                     <p
                       className="font-poppins font-medium bg-blue-100 p-1 rounded-md
-                     theme-dark:bg-dark-soft-blue text-xs text-blue-500 ml-auto"
+                     theme-dark:bgblue-800/30 text-xs text-blue-500 ml-auto"
                     >
                       {wallet.hint}
                     </p>

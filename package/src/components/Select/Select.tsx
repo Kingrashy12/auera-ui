@@ -10,6 +10,7 @@ const Select: React.FC<SelectProps> = ({
   radius,
   mode,
   className,
+  themeVariant,
 }) => {
   const [value, setValue] = useState("");
   const [open, setOpen] = useState(false);
@@ -60,6 +61,7 @@ const Select: React.FC<SelectProps> = ({
         currentValue: value,
         open,
         onClose,
+        themeVariant,
         onOpen,
         mode: currentMode,
         contentVariant,

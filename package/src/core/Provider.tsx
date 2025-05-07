@@ -11,12 +11,13 @@ import PanelProvider, {
 import Toaster from "@/components/Toast/Toaster";
 import GlobalUIProvider from "./GlobalUIProvider";
 
-const Provider = ({
+const Provider: React.FC<ProviderProps> = ({
   children,
   design: Design = "corporate",
   mode,
   styleRules,
-}: ProviderProps) => {
+  themeVariant = "corporate",
+}) => {
   const [design, setDesign] = useState<DesignVariant>(Design);
 
   useEffect(() => {
@@ -27,7 +28,7 @@ const Provider = ({
 
   return (
     <AueraContext.Provider value={{ design, mode, changeDesign }}>
-      <ThemeProvider mode={mode}>
+      <ThemeProvider mode={mode} themeVariant={themeVariant}>
         <GlobalUIProvider styleRules={styleRules}>
           <Toaster />
           <PanelProvider>

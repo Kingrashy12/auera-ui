@@ -1,5 +1,8 @@
+import neobrutalism from "@/_styles_/neobrutalism";
+import theme from "@/_styles_/theme";
 import { VProps } from "@/types/auera-system";
 import { cva } from "class-variance-authority";
+import { tw } from "stywind";
 
 type FooterVariants = VProps<typeof footer>;
 type PanelVariants = VProps<typeof panel>;
@@ -15,23 +18,8 @@ const footer = cva("flex w-full p-3 gap-3", {
       true: "border-t",
       false: "",
     },
-    mode: {
-      dark: "",
-      light: "",
-    },
   },
-  compoundVariants: [
-    {
-      showBorder: true,
-      mode: "dark",
-      class: "border-t border-t-neutral-800",
-    },
-    {
-      showBorder: true,
-      mode: "light",
-      class: "border-t border-t-neutral-200",
-    },
-  ],
+  compoundVariants: [{ showBorder: true, class: theme.__border }],
   defaultVariants: {
     position: "left",
     showBorder: true,
@@ -44,44 +32,32 @@ const header = cva("flex items-center justify-between p-[13px] w-full", {
       true: "border-b",
       false: "",
     },
-    mode: {
-      dark: "",
-      light: "",
-    },
   },
-  compoundVariants: [
-    {
-      showBorder: true,
-      mode: "dark",
-      class: "border-b border-b-neutral-800",
-    },
-    {
-      showBorder: true,
-      mode: "light",
-      class: "border-b border-b-neutral-200",
-    },
-  ],
+  compoundVariants: [{ showBorder: true, class: theme.__border }],
   defaultVariants: {
     showBorder: true,
   },
 });
 
 const panel = cva(
-  "max-w-full max-h-[95%] h-auto flex relative z-[800] overflow-hidden",
+  tw(
+    "max-w-full max-h-[95%] h-auto flex relative z-[800] overflow-hidden border",
+    theme.__content_bg,
+    theme.__border,
+    theme.__shadow
+  ),
   {
     variants: {
       align: {
         vertical: "flex-col",
         horizontal: "flex-row",
       },
-      mode: {
-        light: "border border-neutral-200 bg-white",
-        dark: "border border-neutral-800 bg-black",
-      },
+
       design: {
-        neobrutalism: "",
+        neobrutalism: neobrutalism.__MODAL_PANEL,
         frost: "",
-        corporate: "",
+        corporate:
+          "shadow-[0_4px_10px_rgba(0,0,0,0.1)] tone-dark:shadow-[0_4px_8px_rgba(255,255,255,0.05)]",
       },
       size: {
         auto: "w-auto max-w-[95%]",
@@ -145,36 +121,6 @@ const panel = cva(
         isVisible: false,
         transition: "dropIn",
         class: "animate-dropOut",
-      },
-      {
-        mode: "light",
-        design: "neobrutalism",
-        class: "shadow-neobrutalism-outline",
-      },
-      {
-        mode: "dark",
-        design: "neobrutalism",
-        class: "shadow-neobrutalism-modal-dark",
-      },
-      {
-        mode: "light",
-        design: "frost",
-        class: "shadow-frost-outline",
-      },
-      {
-        mode: "dark",
-        design: "frost",
-        class: "shadow-frost-modal-dark",
-      },
-      {
-        mode: "light",
-        design: "corporate",
-        class: "shadow-[0_4px_10px_rgba(0,0,0,0.1)]",
-      },
-      {
-        mode: "dark",
-        design: "corporate",
-        class: "shadow-[0_4px_8px_rgba(255,255,255,0.05)]",
       },
     ],
     defaultVariants: {

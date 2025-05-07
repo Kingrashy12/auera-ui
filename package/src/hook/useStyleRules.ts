@@ -169,3 +169,221 @@ export const useInputRules = (
     appliedInputClassName,
   };
 };
+
+export const useBadgeRules = (
+  id: string,
+  className: string | undefined,
+  variant: string,
+  mode: ModeType,
+  colorScheme: string | any
+) => {
+  const { styleRules } = useGlobalUI();
+  const badgeRules = styleRules?.badge;
+
+  const appliedClassName = badgeRules?.className?.find((rule) =>
+    applyRule(rule, id, className, variant, colorScheme, "", mode)
+  );
+
+  const appliedMode = badgeRules?.mode?.find((rule) =>
+    applyRule(rule, id, className, variant, colorScheme, "", mode)
+  );
+
+  const appliedVariant = badgeRules?.variant?.find((rule) =>
+    applyRule(rule, id, className, variant, colorScheme, "", mode)
+  );
+
+  const appliedColorScheme = badgeRules?.colorScheme?.find((rule) =>
+    applyRule(rule, id, className, variant, colorScheme, "", mode)
+  );
+
+  return { appliedClassName, appliedVariant, appliedColorScheme, appliedMode };
+};
+
+export const useFabRules = (
+  id: string,
+  className: string | undefined,
+  variant: string,
+  mode: ModeType,
+  colorScheme: string | any,
+  design: DesignVariant
+) => {
+  const { styleRules } = useGlobalUI();
+  const fabRules = styleRules?.fab;
+
+  const appliedClassName = fabRules?.className?.find((rule) =>
+    applyRule(rule, id, className, variant, colorScheme, design, mode)
+  );
+
+  const appliedColor = fabRules?.color?.find((rule) =>
+    applyRule(rule, id, className, variant, colorScheme, design, mode)
+  );
+
+  const appliedDesign = fabRules?.design?.find((rule) =>
+    applyRule(rule, id, className, variant, colorScheme, design, mode)
+  );
+
+  const appliedMode = fabRules?.mode?.find((rule) =>
+    applyRule(rule, id, className, variant, colorScheme, design, mode)
+  );
+
+  const appliedZindex = fabRules?.zIndex?.find((rule) =>
+    applyRule(rule, id, className, variant, colorScheme, design, mode)
+  );
+
+  const appliedVariant = fabRules?.variant?.find((rule) =>
+    applyRule(rule, id, className, variant, colorScheme, design, mode)
+  );
+
+  const appliedType = fabRules?.type?.find((rule) =>
+    applyRule(rule, id, className, variant, colorScheme, design, mode)
+  );
+
+  return {
+    appliedClassName,
+    appliedColor,
+    appliedDesign,
+    appliedMode,
+    appliedType,
+    appliedZindex,
+    appliedVariant,
+  };
+};
+
+export const useIconButtonRules = (
+  id: string,
+  className: string | undefined,
+  variant: string,
+  mode: ModeType,
+  design: DesignVariant
+) => {
+  const { styleRules } = useGlobalUI();
+  const iconbuttonRules = styleRules?.iconbutton;
+
+  const appliedClassName = iconbuttonRules?.className?.find((rule) =>
+    applyRule(rule, id, className, variant, "", design, mode)
+  );
+
+  const appliedDesign = iconbuttonRules?.design?.find((rule) =>
+    applyRule(rule, id, className, variant, "", design, mode)
+  );
+
+  const appliedMode = iconbuttonRules?.mode?.find((rule) =>
+    applyRule(rule, id, className, variant, "", design, mode)
+  );
+
+  const appliedVariant = iconbuttonRules?.variant?.find((rule) =>
+    applyRule(rule, id, className, variant, "", design, mode)
+  );
+
+  const appliedRadius = iconbuttonRules?.radius?.find((rule) =>
+    applyRule(rule, id, className, variant, "", design, mode)
+  );
+
+  return {
+    appliedClassName,
+    appliedDesign,
+    appliedMode,
+    appliedRadius,
+    appliedVariant,
+  };
+};
+
+export const useTabsRules = (
+  id: string,
+  className: string | undefined,
+  variant: string,
+  mode: ModeType
+) => {
+  const { styleRules } = useGlobalUI();
+  const tabsRules = styleRules?.tabs;
+
+  const appliedClassName = tabsRules?.className?.find((rule) =>
+    applyRule(rule, id, className, variant, "", "", mode)
+  );
+
+  const appliedMode = tabsRules?.mode?.find((rule) =>
+    applyRule(rule, id, className, variant, "", "", mode)
+  );
+
+  const appliedVariant = tabsRules?.variant?.find((rule) =>
+    applyRule(rule, id, className, variant, "", "", mode)
+  );
+
+  const appliedRounded = tabsRules?.rounded?.find((rule) =>
+    applyRule(rule, id, className, variant, "", "", mode)
+  );
+
+  return {
+    appliedClassName,
+    appliedMode,
+    appliedVariant,
+    appliedRounded,
+  };
+};
+
+export const useTabsContainerRules = (
+  id: string,
+  className: string | undefined
+) => {
+  const { styleRules } = useGlobalUI();
+  const tabsRules = styleRules?.tabsContainer;
+
+  const appliedContainerClassName = tabsRules?.className?.find((rule) =>
+    applyRule(rule, id, className, "", "", "", "")
+  );
+
+  return { appliedContainerClassName };
+};
+
+export const useTabHandleRules = (
+  id: string,
+  className: string | undefined,
+  variant: string,
+  mode: ModeType
+) => {
+  const { styleRules } = useGlobalUI();
+  const tabsRules = styleRules?.tabHandle;
+
+  const appliedClassName = tabsRules?.className?.find((rule) =>
+    applyRule(rule, id, className, variant, "", "", mode)
+  );
+
+  const appliedVariant = tabsRules?.variant?.find((rule) =>
+    applyRule(rule, id, className, variant, "", "", mode)
+  );
+
+  const appliedRounded = tabsRules?.rounded?.find((rule) =>
+    applyRule(rule, id, className, variant, "", "", mode)
+  );
+
+  return { appliedClassName, appliedRounded, appliedVariant };
+};
+
+export const useOTPInputRules = (
+  id: string,
+  className: string | undefined,
+  mode: ModeType,
+  inputClassName: string | undefined
+) => {
+  const { styleRules } = useGlobalUI();
+  const otpInputRules = styleRules?.otpInput;
+
+  return {
+    interfaceRules: {
+      className: otpInputRules?.interface?.className?.find((rule) =>
+        applyRule(rule, id, className, "", "", "", mode)
+      ),
+    },
+    inputRules: {
+      className: otpInputRules?.input?.className?.find((rule) =>
+        applyRule(rule, id, inputClassName, "", "", "", mode)
+      ),
+      mode: otpInputRules?.input?.mode?.find((rule) =>
+        applyRule(rule, id, inputClassName, "", "", "", mode)
+      ),
+      radius: otpInputRules?.input?.radius?.find((rule) =>
+        applyRule(rule, id, inputClassName, "", "", "", mode)
+      ),
+    },
+  };
+};

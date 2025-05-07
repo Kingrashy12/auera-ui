@@ -13,8 +13,15 @@ const SelectContent: React.FC<SelectContentProps> = ({
   style,
   variant,
 }) => {
-  const { radius, open, width, selectRef, mode, setContentVariant } =
-    useSelectState();
+  const {
+    radius,
+    open,
+    width,
+    selectRef,
+    mode,
+    themeVariant,
+    setContentVariant,
+  } = useSelectState();
 
   useEffect(() => {
     setContentVariant(variant as "padded" | "flush");
@@ -76,7 +83,8 @@ const SelectContent: React.FC<SelectContentProps> = ({
 
   return (
     <Content
-      data-theme={mode}
+      mode={mode}
+      themeVariant={themeVariant}
       style={{
         width,
         top: Number(bottom) + 5,

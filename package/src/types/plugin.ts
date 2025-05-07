@@ -19,5 +19,6 @@ export interface AueraPlugin {
         respectImportant: boolean;
       }>
     ): void;
+    addBase(base: CSSRuleObject | CSSRuleObject[]): void;
   };
 }

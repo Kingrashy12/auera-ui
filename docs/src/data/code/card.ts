@@ -339,7 +339,7 @@ export const Web3Card = () => {
         <p className="font-inter font-medium">{wallet.name}</p>
         {wallet.hint && (
           <p
-            className="font-poppins font-medium bg-blue-100 p-1 rounded-md theme-dark:bg-dark-soft-blue text-xs text-blue-500 ml-auto"
+            className="font-poppins font-medium bg-blue-100 p-1 rounded-md theme-dark:bg-blue-800/30 text-xs text-blue-500 ml-auto"
           >
             {wallet.hint}
           </p>

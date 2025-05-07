@@ -4,15 +4,16 @@ import TabsProvider from "./Provider";
 import Box from "../Box/Box";
 import { getDisplayName } from "@/utils/displayname";
 import { useMode } from "@/hook/use";
-import { TabsType } from "../../types/auera-ui";
+import { TabHandleProps, TabsProps } from "../../types/auera-ui";
 import TabHandle from "./TabHandle";
 import TabPanel from "./TabPanel";
 import { ModeType } from "@/types/auera-system";
+import { useTabsContainerRules, useTabsRules } from "@/hook/useStyleRules";
 
 const getStylesWithMode = (
   mode: ModeType,
-  variant: TabsType<{}>["variant"],
-  rounded: TabsType<{}>["rounded"]
+  variant: TabsProps<{}>["variant"],
+  rounded: TabsProps<{}>["rounded"]
 ) => {
   const sharedStyle = {
     line: "bg-transparent rounded-none p-0 border-t-none border-b",
@@ -33,8 +34,8 @@ const getStylesWithMode = (
 };
 
 const getTabWidth = (
-  variant: TabsType<{}>["variant"],
-  fullWidth: TabsType<{}>["fullWidth"]
+  variant: TabsProps<{}>["variant"],
+  fullWidth: TabsProps<{}>["fullWidth"]
 ) => {
   switch (variant) {
     case "line":
@@ -57,34 +58,48 @@ const Tabs = <T,>({
   containerClass,
   hideBorder,
   panel,
-}: TabsType<T>) => {
+  id,
+}: TabsProps<T>) => {
   const { currentMode } = useMode(mode);
+
+  const { appliedContainerClassName } = useTabsContainerRules(
+    id!,
+    containerClass
+  );
+  const { appliedClassName, appliedMode, appliedRounded, appliedVariant } =
+    useTabsRules(id!, className, variant, mode!);
 
   const scrollBar = defineClass(
     `scrollbar:h-1 scrollbar-thumb:cursor-pointer scrollbar-thumb:rounded-[5px]
      scrollbar-track:bg-transparent scrollbar-thumb:bg-blue-500 scrollbar-thumb:hover:bg-blue-600`
   );
 
+  const _variant = appliedVariant?.value || variant;
+  const _mode = appliedMode?.value || currentMode;
+  const _rounded = appliedRounded?.value || rounded;
+
   const TabList = useMemo(() => {
     return createStyle("div").classname(
       tw(
         "max-w-full overflow-x-auto flex items-center relative gap-[1px]",
-        getStylesWithMode(currentMode, variant, rounded),
+        getStylesWithMode(_mode, _variant, _rounded),
         hideBorder && "border-none",
         hideScrollBar ? "scrollbar-none" : scrollBar,
-        getTabWidth(variant, fullWidth),
+        getTabWidth(_variant, fullWidth),
+        appliedClassName?.value,
         className
       )
     );
   }, [
     className,
-    variant,
-    rounded,
+    _variant,
+    _rounded,
     fullWidth,
     currentMode,
     hideBorder,
     hideScrollBar,
-    mode,
+    appliedClassName?.value,
+    _mode,
   ]);
 
   const [activeTabIndex, setActiveTabIndex] = useState(0);
@@ -108,30 +123,43 @@ const Tabs = <T,>({
     >
       <Box
         direction="column"
-        className={tw("gap-3 overflow-hidden", containerClass)}
+        className={tw(
+          "gap-3 overflow-hidden",
+          appliedContainerClassName?.value,
+          containerClass
+        )}
         fullWidth
       >
         <TabList>
-          {tabs.map((tab, index) => (
-            <TabHandle
-              key={index}
-              value={(tab as React.ReactElement).props.value}
-              isActive={index === activeTabIndex}
-              iconSize={(tab as React.ReactElement).props.iconSize}
-              icon={(tab as React.ReactElement).props.icon}
-              onClick={() => setActiveTabIndex(index)}
-              disabled={(tab as React.ReactElement).props.disabled}
-              activeColor={(tab as React.ReactElement).props.activeColor}
-              activeSolidColor={
-                (tab as React.ReactElement).props.activeSolidColor
+          {tabs.map((tab, index) => {
+            const typedElement = tab as React.ReactElement<TabHandleProps>;
+            const handleClick = () => {
+              setActiveTabIndex(index);
+              if (typedElement.props.onClick) {
+                typedElement.props.onClick();
               }
-              inActiveColor={(tab as React.ReactElement).props.inActiveColor}
-              className={(tab as React.ReactElement).props.className}
-              style={(tab as React.ReactElement).props.style}
-            >
-              {(tab as React.ReactElement).props.children}
-            </TabHandle>
-          ))}
+            };
+
+            return (
+              <TabHandle
+                key={index}
+                {...typedElement.props}
+                isActive={index === activeTabIndex}
+                onClick={handleClick}
+                // value={typedElement.props.value}
+                // iconSize={typedElement.props.iconSize}
+                // icon={typedElement.props.icon}
+                // disabled={typedElement.props.disabled}
+                // activeColor={typedElement.props.activeColor}
+                // activeSolidColor={typedElement.props.activeSolidColor}
+                // inActiveColor={typedElement.props.inActiveColor}
+                // className={typedElement.props.className}
+                // style={typedElement.props.style}
+              >
+                {typedElement.props.children}
+              </TabHandle>
+            );
+          })}
         </TabList>
         {tabsPanel[activeTabIndex]}
       </Box>

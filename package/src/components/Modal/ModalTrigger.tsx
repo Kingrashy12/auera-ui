@@ -1,9 +1,9 @@
 import { getDisplayName } from "@/utils/displayname";
 import { useModal } from "../../hook/useModal";
-import { ModalTriggerType } from "../../types/auera-ui";
+import { ModalTriggerProps } from "../../types/auera-ui";
 import { FC } from "react";
 
-const ModalTrigger: FC<ModalTriggerType> = ({
+const ModalTrigger: FC<ModalTriggerProps> = ({
   children,
   type = "open",
   value,

@@ -6,6 +6,12 @@ export const switchRef = [
     default: "md",
   },
   {
+    prop: "variant",
+    type: '"padded" | "flush"',
+    description: "Defines the visual style of the switch.",
+    default: "padded",
+  },
+  {
     prop: "on",
     type: "boolean",
     description: "Controls the switch default state.",

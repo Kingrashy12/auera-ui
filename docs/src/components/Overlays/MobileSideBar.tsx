@@ -16,7 +16,10 @@ import SideBarContent from "../SideBarContent";
 const MobileSideBar = () => {
   return (
     <Drawer value="tool-bar">
-      <DrawerPanel position="left">
+      <DrawerPanel
+        position="left"
+        className="bg-sidebar gap-0 tone-dark:border-neutral-700"
+      >
         <DrawerHeader>
           <Link href="/">
             <Box className="items-center gap-1">
@@ -27,11 +30,16 @@ const MobileSideBar = () => {
             </Box>
           </Link>
 
-          <IconButton onClick={closeDrawer} variant="outline" radius="xl">
+          <IconButton
+            onClick={closeDrawer}
+            variant="outline"
+            radius="xl"
+            className="tone-dark:shadow-black shadow-sm"
+          >
             <IoClose size={18} />
           </IconButton>
         </DrawerHeader>
-        <DrawerContent className="!p-0">
+        <DrawerContent className="!p-0 gap-0">
           <SideBarContent />
         </DrawerContent>
       </DrawerPanel>

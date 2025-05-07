@@ -61,7 +61,15 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const slugs = ["format-date", "format-time", "format-time-ago", "strfun"];
+  const slugs = [
+    "format-date",
+    "format-time",
+    "format-time-ago",
+    "strfun",
+    "format-bytes",
+    "format-number",
+    "core-utils",
+  ];
 
   const paths = slugs.map((slug) => ({
     params: { slug },

@@ -1,4 +1,4 @@
-import { DesignVariant, ModeType } from "../types/auera-system";
+import { DesignVariant, ModeType, ThemeVariant } from "../types/auera-system";
 import { useProvider } from "./provider";
 import { useTheme } from "./useTheme";
 import { useEffect, useState } from "react";
@@ -10,14 +10,20 @@ const useMode = (mode?: ModeType) => {
   return { currentMode };
 };
 
-const useDesign = (flavour?: DesignVariant) => {
+const useDesign = (design?: DesignVariant) => {
   const { design: AppDesign } = useProvider();
-  const currentDesign = flavour ?? AppDesign;
+  const currentDesign = design ?? AppDesign;
 
   return { currentDesign };
 };
 
-export { useMode, useDesign };
+const useThemeVariant = (variant?: ThemeVariant) => {
+  const { themeVariant } = useTheme();
+  const currentVariant = variant || themeVariant;
+  return currentVariant;
+};
+
+export { useMode, useDesign, useThemeVariant };
 
 export const useScrollTop = () => {
   const [visible, setVisible] = useState(false);

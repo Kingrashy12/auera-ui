@@ -41,3 +41,5 @@ next-env.d.ts
 /src/lab
 /src/components/lib/Skeleton.tsx
 /src/components/lib/Avatar.tsx
+
+en.run.mjs

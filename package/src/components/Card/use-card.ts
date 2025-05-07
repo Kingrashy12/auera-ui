@@ -37,9 +37,9 @@ export const useCard = (
         root({
           fullWidth,
           hidden,
-          variant: appliedVariant?.value ?? variant,
+          variant: appliedVariant?.value || variant,
           direction,
-          design: appliedDesign?.value ?? design,
+          design: appliedDesign?.value || design,
         }),
         appliedClassName?.value,
         classNames?.root

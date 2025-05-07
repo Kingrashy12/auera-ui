@@ -1,15 +1,19 @@
+import { tw } from "stywind";
 import { VProps } from "../../types/auera-system";
 import { cva } from "class-variance-authority";
+import theme from "@/_styles_/theme";
 
 type SelectTriggerVariants = VProps<typeof trigger>;
 type SelectContentVariants = VProps<typeof content>;
 type SelectItemVariants = VProps<typeof item>;
 
 const trigger = cva(
-  `flex items-center justify-between mt-1 cursor-pointer
+  tw(
+    `flex items-center justify-between mt-1 cursor-pointer
    gap-2 px-3 py-2 h-auto max-h-[70px] focus:outline-none focus:ring-0
-    hover:bg-gray-50 tone-dark:hover:bg-neutral-900 transition-transform
-    focus:ring-blue-500 font-inter`,
+   transition-transform font-inter`,
+    theme.__hover_select_trigger
+  ),
   {
     variants: {
       radius: {
@@ -23,10 +27,15 @@ const trigger = cva(
         full: "rounded-full",
       },
       variant: {
-        outline:
-          "bg-white border-1.9 shadow-sm tone-dark:bg-black border-neutral-200 tone-dark:border-neutral-900",
+        // "bg-white border-neutral-300 shadow-neutral-200 border-1.9 shadow-sm tone-dark:bg-neutral-900 tone-dark:border-neutral-700 tone-dark:hover:bg-neutral-800 tone-dark:shadow-black",
+        outline: tw(
+          "border-1.9 shadow-sm",
+          theme.__content_bg,
+          theme.__border,
+          theme.__shadow
+        ),
         ghost:
-          "bg-transparent border-1.9 border-transparent outline-none shadow-none",
+          "bg-transparent border-none border-transparent outline-none shadow-none",
       },
       size: {},
       disabled: {
@@ -42,9 +51,12 @@ const trigger = cva(
 );
 
 const content = cva(
-  `fixed z-400 bg-white shadow-card border-1.9 shrink-0 w-full tone-dark:bg-black
-  border-neutral-200 tone-dark:border-neutral-900 tone-dark:shadow-[0_4px_8px_rgba(255,255,255,0.05)]
-   flex-col`,
+  tw(
+    `fixed z-400 shadow-[0_4px_10px] border-1.9 shrink-0 w-full flex-col`,
+    theme.__border,
+    theme.__shadow,
+    theme.__content_bg
+  ),
   {
     variants: {
       radius: {
@@ -61,7 +73,7 @@ const content = cva(
       },
       variant: {
         padded: "p-2",
-        flush: "p-0 divide-y tone-dark:divide-neutral-900",
+        flush: tw("p-0 divide-y", theme.__divide),
       },
     },
     defaultVariants: {
@@ -73,8 +85,11 @@ const content = cva(
 );
 
 const item = cva(
-  `cursor-pointer hover:bg-gray-100 text-sm flex items-center
-   justify-between tone-dark:hover:bg-neutral-900 font-inter tone-dark:text-white`,
+  tw(
+    `cursor-pointer text-sm flex items-center
+   justify-between font-inter tone-dark:text-white`,
+    theme.__hover
+  ),
   {
     variants: {
       radius: {

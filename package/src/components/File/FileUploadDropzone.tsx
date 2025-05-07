@@ -57,7 +57,7 @@ const FileUploadDropzone: React.FC<UploadDropzone> = ({
           tone-dark:hover:bg-neutral-950`,
           {
             "cursor-not-allowed opacity-80 select-none": disabled,
-            "border-blue-500 bg-blue-100 tone-dark:border-blue-600 tone-dark:bg-dark-soft-blue":
+            "border-blue-500 bg-blue-100 tone-dark:border-blue-600 tone-dark:bg-blue-800/30":
               isDragging,
           },
           classNames?.root
@@ -70,7 +70,7 @@ const FileUploadDropzone: React.FC<UploadDropzone> = ({
         <Box
           centered
           data-theme={currentMode}
-          className="p-2 rounded-full bg-green-100 tone-dark:bg-dark-soft-green"
+          className="p-2 rounded-full bg-green-100 tone-dark:bg-green-800/30"
         >
           <IoCloudUpload size={23} className="text-green-600" />
         </Box>
