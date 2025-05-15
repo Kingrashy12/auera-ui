@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { useComputeTrigger } from "./compute";
 import { useSelectState } from "../../context/select";
 import { RiExpandUpDownLine } from "react-icons/ri";
@@ -20,10 +20,10 @@ const SelectTrigger: React.FC<SelectTriggerProps> = ({
 
   const splitBy = currentValue.includes("-") ? "-" : " ";
 
-  const trigger = () => {
+  const trigger = useCallback(() => {
     if (disabled) return;
     open ? onClose() : onOpen();
-  };
+  }, []);
 
   return (
     <Trigger onClick={trigger} mode={mode} themeVariant={themeVariant}>

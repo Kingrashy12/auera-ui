@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { DrawerContext } from "../../context/drawer";
 import { ContextProviderProps } from "../../types/auera-context";
 import { getDisplayName } from "@/utils/displayname";
@@ -11,22 +11,26 @@ const DrawerProvider = ({ children }: ContextProviderProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
-  onOpen = (value: string) => {
+  onOpen = useCallback((value: string) => {
     setIsOpen(true);
     setIsVisible(true);
     setActiveDrawerValue(value);
-  };
+  }, []);
 
-  onClose = () => {
+  onClose = useCallback(() => {
     setIsVisible(false);
     setTimeout(() => {
       setIsOpen(false);
     }, 300);
-  };
+  }, []);
+
+  const contextValue = useMemo(
+    () => ({ isOpen, isVisible, onClose, onOpen, activeDrawerValue }),
+    [isOpen, isVisible, onClose, onOpen, activeDrawerValue]
+  );
+
   return (
-    <DrawerContext.Provider
-      value={{ isOpen, isVisible, onClose, onOpen, activeDrawerValue }}
-    >
+    <DrawerContext.Provider value={contextValue}>
       {children}
     </DrawerContext.Provider>
   );
