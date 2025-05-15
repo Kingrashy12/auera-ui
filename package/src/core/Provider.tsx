@@ -2,7 +2,7 @@ import ModalProvider from "../components/Provider/Modal";
 import ThemeProvider from "../components/Provider/Theme";
 import { DesignVariant, ProviderProps } from "../types/auera-system";
 import { AueraContext } from "../context/provider";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { getDisplayName } from "@/utils/displayname";
 import DrawerProvider from "@/components/Provider/Drawer";
 import PanelProvider, {
@@ -24,10 +24,18 @@ const Provider: React.FC<ProviderProps> = ({
     setDesign(design);
   }, [design]);
 
-  const changeDesign = (_design: DesignVariant) => setDesign(_design);
+  const changeDesign = useCallback(
+    (_design: DesignVariant) => setDesign(_design),
+    []
+  );
+
+  const providerContext = useMemo(
+    () => ({ design, mode, changeDesign }),
+    [design, mode, changeDesign]
+  );
 
   return (
-    <AueraContext.Provider value={{ design, mode, changeDesign }}>
+    <AueraContext.Provider value={providerContext}>
       <ThemeProvider mode={mode} themeVariant={themeVariant}>
         <GlobalUIProvider styleRules={styleRules}>
           <Toaster />

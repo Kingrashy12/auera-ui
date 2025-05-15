@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { ThemeContext, ThemeContextType } from "../../context/theme";
 import {
   ModeType,
@@ -70,49 +70,57 @@ const ThemeProvider = ({
   }, []);
 
   const toggleTheme: ThemeContextType["toggleTheme"] = {
-    system() {
+    system: useCallback(() => {
       const newMode = ThemeManager.getPreferedTheme();
       ThemeManager.setTheme(newMode);
       setMode(newMode);
       setSystemTheme(true);
-    },
-    main() {
+    }, []),
+    main: useCallback(() => {
       setMode((prev) => {
         const newMode = prev === "light" ? "dark" : "light";
         ThemeManager.setTheme(newMode);
         setSystemTheme(false);
         return newMode;
       });
-    },
-    dark() {
+    }, []),
+    dark: useCallback(() => {
       setMode(() => {
         const newMode = "dark";
         ThemeManager.setTheme(newMode);
         setSystemTheme(false);
         return newMode;
       });
-    },
-    light() {
+    }, []),
+    light: useCallback(() => {
       setMode(() => {
         const newMode = "light";
         ThemeManager.setTheme(newMode);
         setSystemTheme(false);
         return newMode;
       });
-    },
+    }, []),
   };
 
-  const changeThemeVariant: ThemeContextType["changeThemeVariant"] = (
-    variant
-  ) => {
-    setThemeVariant(variant);
-    ThemeManager.setThemeVariant(variant);
-  };
+  const changeThemeVariant: ThemeContextType["changeThemeVariant"] =
+    useCallback((variant) => {
+      setThemeVariant(variant);
+      ThemeManager.setThemeVariant(variant);
+    }, []);
+
+  const themeValues = useMemo(
+    () => ({
+      mode,
+      toggleTheme,
+      system,
+      changeThemeVariant,
+      themeVariant,
+    }),
+    [mode, toggleTheme, system, changeThemeVariant, themeVariant]
+  );
 
   return (
-    <ThemeContext.Provider
-      value={{ mode, toggleTheme, system, changeThemeVariant, themeVariant }}
-    >
+    <ThemeContext.Provider value={themeValues}>
       <InjectTheme variant={themeVariant} mode={mode} />
       {children}
     </ThemeContext.Provider>

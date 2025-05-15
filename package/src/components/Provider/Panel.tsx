@@ -3,7 +3,7 @@ import { useMode, useThemeVariant } from "@/hook/use";
 import { ContextProviderProps } from "@/types/auera-context";
 import { ModeType, ThemeVariant } from "@/types/auera-system";
 import { getDisplayName } from "@/utils/displayname";
-import { useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 
 const PanelProvider = ({ children }: ContextProviderProps) => {
   const { currentMode } = useMode();
@@ -12,13 +12,19 @@ const PanelProvider = ({ children }: ContextProviderProps) => {
   const [mode, setMode] = useState<ModeType>(currentMode);
   const [variant, setVariant] = useState(themeVariant);
 
-  const collectMode = (value: ModeType) => setMode(value);
-  const collectThemeVariant = (value: ThemeVariant) => setVariant(value);
+  const collectMode = useCallback((value: ModeType) => setMode(value), []);
+  const collectThemeVariant = useCallback(
+    (value: ThemeVariant) => setVariant(value),
+    []
+  );
+
+  const contextValue = useMemo(
+    () => ({ mode, collectMode, collectThemeVariant, themeVariant: variant }),
+    [mode, collectMode, collectThemeVariant, variant]
+  );
 
   return (
-    <PanelContext.Provider
-      value={{ mode, collectMode, collectThemeVariant, themeVariant: variant }}
-    >
+    <PanelContext.Provider value={contextValue}>
       {children}
     </PanelContext.Provider>
   );
@@ -34,13 +40,19 @@ export const DrawerPanelProvider = ({ children }: ContextProviderProps) => {
   const [mode, setMode] = useState<ModeType>(currentMode);
   const [variant, setVariant] = useState(themeVariant);
 
-  const collectMode = (value: ModeType) => setMode(value);
-  const collectThemeVariant = (value: ThemeVariant) => setVariant(value);
+  const collectMode = useCallback((value: ModeType) => setMode(value), []);
+  const collectThemeVariant = useCallback(
+    (value: ThemeVariant) => setVariant(value),
+    []
+  );
+
+  const contextValue = useMemo(
+    () => ({ mode, collectMode, collectThemeVariant, themeVariant: variant }),
+    [mode, collectMode, collectThemeVariant, variant]
+  );
 
   return (
-    <DrawerPanelContext.Provider
-      value={{ mode, collectMode, collectThemeVariant, themeVariant: variant }}
-    >
+    <DrawerPanelContext.Provider value={contextValue}>
       {children}
     </DrawerPanelContext.Provider>
   );

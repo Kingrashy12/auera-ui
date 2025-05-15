@@ -1,6 +1,13 @@
 import { TabListContextType, TabsProviderType } from "@/types/auera-context";
 import { getDisplayName } from "@/utils/displayname";
-import { createContext, useContext, useEffect, useState } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 
 const ListContext = createContext<TabListContextType | undefined>(undefined);
 
@@ -41,23 +48,24 @@ const TabsProvider = ({
     }
   }, [activeTabValue]);
 
-  const onSwitch = (value: string) => {
+  const onSwitch = useCallback((value: string) => {
     setActiveTabValue(value);
-  };
+  }, []);
+
+  const tabsContext = useMemo(
+    () => ({
+      onSwitch,
+      themeMode,
+      activeTabValue,
+      variant,
+      fullWidth,
+      rounded,
+    }),
+    [onSwitch, themeMode, activeTabValue, variant, fullWidth, rounded]
+  );
 
   return (
-    <ListContext.Provider
-      value={{
-        onSwitch,
-        themeMode,
-        activeTabValue,
-        variant,
-        fullWidth,
-        rounded,
-      }}
-    >
-      {children}
-    </ListContext.Provider>
+    <ListContext.Provider value={tabsContext}>{children}</ListContext.Provider>
   );
 };
 
@@ -67,7 +75,9 @@ TabsProvider.displayName = getDisplayName("TabsProvider");
 export const useTabList = () => {
   const context = useContext(ListContext);
   if (context === undefined) {
-    throw new Error("TabHandle must be used within TabsList components");
+    throw new Error(
+      "Missing `Tabs`. Make sure you use a Tabs child component within `Tabs`."
+    );
   }
   return context;
 };
