@@ -133,7 +133,7 @@ const Installation = () => {
             <CodeTag>index.css</CodeTag>, add this:
           </p>
           <CodeBlock
-            code="@import 'auera-ui/dist/auera.css';"
+            code="@import 'auera-ui/auera.css';"
             lg="css"
             fileName="global.css"
           />

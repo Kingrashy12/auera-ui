@@ -1,26 +1,5 @@
 export const tailwindExtend = {
   boxShadow: {
-    // Button: Frost
-    "frost-blue":
-      "var(--auera-blue-900) 0px 1px 0px inset, rgba(0, 77, 153, 0.4) 0px -1px 0px 1px inset, rgba(9, 11, 11, 0.1) 0px 2px 4px 0px",
-    "frost-danger":
-      "var(--auera-red-900) 0px 1px 0px inset, var(--auera-red-400) 0px -1px 0px 1px inset, rgba(9, 11, 11, 0.1) 0px 2px 4px 0px",
-    "frost-success":
-      "var(--auera-green-900) 0px 1px 0px inset, var(--auera-green-400) 0px -1px 0px 1px inset, rgba(9, 11, 11, 0.1) 0px 2px 4px 0px",
-    "frost-warn":
-      "var(--auera-yellow-900) 0px 1px 0px inset, var(--auera-yellow-400) 0px -1px 0px 1px inset, rgba(9, 11, 11, 0.1) 0px 2px 4px 0px",
-    "frost-outline":
-      "var(--auera-frost-outline) 0 -1px 0 1px inset, var(--auera-frost-outline-out) 0 1px 2px 0",
-    "frost-light-primary":
-      "var(--auera-frost-light-primary) 0 -1px 0 1px inset, var(--auera-frost-light-primary-out) 0 1px 2px 0",
-    "frost-light-danger":
-      "var(--auera-frost-light-danger) 0 -1px 0 1px inset, var(--auera-frost-light-danger-out) 0 1px 2px 0",
-    "frost-light-success":
-      "var(--auera-frost-light-success) 0 -1px 0 1px inset, var(--auera-frost-light-success-out) 0 1px 2px 0",
-    "frost-light-warn":
-      "var(--auera-frost-light-warn) 0 -1px 0 1px inset, var(--auera-frost-light-warn-out) 0 1px 2px 0",
-    "frost-modal-dark":
-      "var(--auera-neutral-800) 0 -1px 0 1px inset, var(--auera-neutral-900) 0 1px 2px 0",
     card: "0 4px 10px var(--auera-card-sh)",
   },
   colors: {
@@ -31,38 +10,22 @@ export const tailwindExtend = {
     input: "var(--auera-input)",
     shadow: "var(--auera-shadow)",
     text: "var(--auera-text)",
-    btn_hover: "var(--auera-btn-hover)",
-    btn_shd: "var(--auera-btn-shadow)",
+    "btn-hover": "var(--auera-btn-hover)",
+    "btn-shadow": "var(--auera-btn-shadow)",
   },
   borderColor: {
-    "frost-blue": "var(--auera-blue-800)",
-    "frost-danger": "var(--auera-red-800)",
-    frost_success: "var(--auera-green-800)",
-    frost_warn: "var(--auera-yellow-800)",
-    "frost-outline": "var(--auera-frost-outline-border)",
-    "frost-light-primary": "var(--auera-frost-light-primary-border)",
-    "frost-light-danger": "var(--auera-frost-light-danger-border)",
-    "frost-light-success": "var(--auera-frost-light-success-border)",
-    "frost-light-warn": "var(--auera-frost-light-warn-border)",
     border: "var(--auera-border)",
-    btn: "var(--auera-btn-border)",
+    "btn-border": "var(--auera-btn-border)",
   },
   backgroundColor: {
-    "light-frost": "hsla(210, 100%, 96%, 0.2)",
-    "light-drop": "rgb(255,255,255,0.5)",
-    "dark-drop": "rgb(0,0,0,0.5)",
-    "frost-danger-hover": "var(--auera-frost-light-danger-hover)",
-    "frost-success-hover": "var(--auera-frost-light-success-hover)",
-    "frost-warn-hover": "var(--auera-frost-light-warn-hover)",
-    "frost-light-hover": "var(--auera-frost-light-primary-hover)",
     background: "var(--auera-background)",
     sidebar: "var(--auera-sidebar)",
     modal: "var(--auera-modal)",
     hover: "var(--auera-hover)",
     input: "var(--auera-input)",
     content: "var(--auera-content)",
-    btn: "var(--auera-bg-btn)",
-    btn_hover: "var(--auera-btn-hover)",
+    "btn-bg": "var(--auera-bg-btn)",
+    "btn-hover": "var(--auera-btn-hover)",
   },
   borderWidth: {
     1.7: "1.7px",
@@ -181,7 +144,7 @@ export const tailwindExtend = {
       },
     },
     shake: {
-      " 0%": {
+      "0%": {
         transform: "translateX(6px)",
       },
       "50%": {

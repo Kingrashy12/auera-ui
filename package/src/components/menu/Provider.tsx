@@ -8,6 +8,7 @@ import Menu from "./Menu";
 import { Box } from "auera-ui";
 import { MenuContext } from "@/context/menu";
 import { useMode } from "@/hook/use";
+import { useMenuItemRules } from "@/hook/useStyleRules";
 
 const Provider: React.FC<MenuProps> = ({
   children,
@@ -58,6 +59,10 @@ const Provider: React.FC<MenuProps> = ({
           validChildren.filter((c) => c.type === MenuItem).length === 1;
 
         const item = child as React.ReactElement<MenuItemProps>;
+        const { menuItemClass } = useMenuItemRules(
+          item.props.className,
+          item.props.id || ""
+        );
         return (
           <MenuItem
             key={index}
@@ -68,6 +73,7 @@ const Provider: React.FC<MenuProps> = ({
                 : isEdge
                 ? "rounded-b-xl"
                 : "",
+              menuItemClass?.value,
               item.props.className
             )}
           >

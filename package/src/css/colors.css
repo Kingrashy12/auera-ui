@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 :root {
   /* Primary colors */
   --auera-primary-50: #e3f2fd;
@@ -120,63 +122,22 @@
   --auera-soft-green: rgb(200, 230, 201, 0.2);
   --auera-soft-blue: rgb(187, 222, 251, 0.2);
 
-  --auera-frost-light-danger: var(--auera-red-100);
-  --auera-frost-light-danger-out: var(--auera-red-200);
-  --auera-frost-light-primary: hsla(210, 100%, 90%, 0.4);
-  --auera-frost-light-primary-out: hsla(210, 100%, 90%, 0.5);
-  --auera-frost-light-success: var(--auera-green-100);
-  --auera-frost-light-success-out: var(--auera-green-200);
-  --auera-frost-light-warn: var(--auera-yellow-100);
-  --auera-frost-light-warn-out: var(--auera-yellow-200);
-  --auera-frost-outline: var(--auera-neutral-100);
-  --auera-frost-outline-out: var(--auera-neutral-200);
-  --auera-drawer-content: white;
   --auera-text-color: black;
   --auera-text-muted: var(--auera-slate-700);
 
-  --auera-frost-light-danger-border: var(--auera-red-200);
-  --auera-frost-light-success-border: var(--auera-green-200);
-  --auera-frost-light-warn-border: var(--auera-yellow-200);
-  --auera-frost-light-primary-border: var(--auera-blue-100);
-  --auera-frost-outline-border: var(--auera-neutral-200);
   --auera-card-border: var(--auera-neutral-200);
-
-  --auera-frost-light-danger-hover: var(--auera-red-50);
-  --auera-frost-light-success-hover: var(--auera-green-50);
-  --auera-frost-light-warn-hover: var(--auera-yellow-50);
-  --auera-frost-light-primary-hover: var(--auera-blue-50);
 
   --auera-card-sh: rgba(0, 0, 0, 0.05);
 }
 
 html[data-theme="dark"] {
-  --auera-frost-light-danger: hsla(0, 100%, 50%, 0.4);
-  --auera-frost-light-danger-out: hsla(0, 100%, 55%, 0.5);
-  --auera-frost-light-primary: hsla(220, 90%, 60%, 0.4);
-  --auera-frost-light-primary-out: hsla(220, 90%, 65%, 0.5);
-  --auera-frost-light-success: hsla(140, 80%, 45%, 0.4);
-  --auera-frost-light-success-out: hsla(140, 80%, 50%, 0.5);
-  --auera-frost-light-warn: hsla(50, 100%, 50%, 0.4);
-  --auera-frost-light-warn-out: hsla(50, 100%, 55%, 0.5);
-  --auera-frost-outline: var(--auera-neutral-800);
-  --auera-frost-outline-out: var(--auera-neutral-900);
-  --auera-drawer-content: black;
   --auera-text-color: white;
   --auera-text-muted: #a1a1aa;
 
   /* Border color */
-  --auera-frost-light-danger-border: var(--auera-soft-red);
-  --auera-frost-light-success-border: var(--auera-soft-green);
-  --auera-frost-light-warn-border: var(--auera-soft-yellow);
-  --auera-frost-light-primary-border: var(--auera-soft-blue);
-  --auera-frost-outline-border: var(--auera-neutral-800);
   --auera-card-border: var(--auera-neutral-800);
 
   /* Hover color */
-  --auera-frost-light-danger-hover: var(--auera-slate-900);
-  --auera-frost-light-success-hover: var(--auera-slate-900);
-  --auera-frost-light-warn-hover: var(--auera-slate-900);
-  --auera-frost-light-primary-hover: var(--auera-slate-900);
 
   /* Shadow */
   --auera-card-sh: var(--auera-slate-950);

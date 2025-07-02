@@ -3,6 +3,7 @@ import { useComputeWrapper } from "./use-menu";
 import { tw } from "stywind";
 import { MenuProps } from "../../types/auera-ui";
 import { useMenu } from "@/hook/useMenu";
+import { useMenuContainerRules, useMenuRules } from "@/hook/useStyleRules";
 
 const Menu: React.FC<MenuProps> = ({
   children,
@@ -10,6 +11,7 @@ const Menu: React.FC<MenuProps> = ({
   className,
   showDivider,
   containerClassName,
+  ...props
 }) => {
   const { isVisible, isOpen, onClose, mode } = useMenu();
   const Wrapper = useComputeWrapper({
@@ -17,6 +19,8 @@ const Menu: React.FC<MenuProps> = ({
     className,
     showDivider,
     isVisible,
+    id: props.id || "",
+    mode,
   });
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -36,17 +40,27 @@ const Menu: React.FC<MenuProps> = ({
     };
   }, [isOpen, onClose]);
 
+  const { menuContainerClass } = useMenuContainerRules(
+    containerClassName,
+    props.id || ""
+  );
+
+  const { menuMode } = useMenuRules(className, props.id || "", mode);
+
   return (
     <>
       <div
         className={tw(
           "absolute z-100",
           isOpen ? "flex" : "hidden",
+          menuContainerClass?.value,
           containerClassName
         )}
         ref={menuRef}
       >
-        <Wrapper mode={mode}>{children}</Wrapper>
+        <Wrapper mode={menuMode?.value || mode} {...props}>
+          {children}
+        </Wrapper>
       </div>
     </>
   );

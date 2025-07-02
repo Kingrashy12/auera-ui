@@ -2,30 +2,41 @@ import { createStyle, tw } from "stywind";
 import { item, ItemVariants, list, ListVariants } from "./menu-variant";
 import { useMemo } from "react";
 import { AueraDiv } from "@/core/AueraElement";
+import { useMenuItemRules, useMenuRules } from "@/hook/useStyleRules";
 
-export const useComputeItem = (props: ItemVariants) => {
-  const { disabled, className, color, useColorOnHover } = props;
+export const useComputeItem = (props: ItemVariants & { id: string }) => {
+  const { disabled, className, color, useColorOnHover, id } = props;
 
-  // TODO: Use `AueraDiv`
   const StyledItem = createStyle(AueraDiv);
 
+  const { menuItemClass } = useMenuItemRules(className, id);
+
   const styles = useMemo(
-    () => tw(item({ color, disabled, useColorOnHover }), className),
-    [className, color, disabled, useColorOnHover]
+    () =>
+      tw(
+        item({ color, disabled, useColorOnHover }),
+        menuItemClass?.value,
+        className
+      ),
+    [className, color, disabled, useColorOnHover, menuItemClass?.value]
   );
 
   return StyledItem.classname(styles);
 };
 
-export const useComputeWrapper = (props: ListVariants) => {
-  const { zIndex, className, showDivider, isVisible } = props;
+export const useComputeWrapper = (
+  props: ListVariants & { id: string; mode: string }
+) => {
+  const { zIndex, className, showDivider, isVisible, id, mode } = props;
 
-  // TODO: Use `AueraDiv`
   const StyledIWrapper = createStyle(AueraDiv);
 
+  const { menuClass } = useMenuRules(className, id, mode);
+
   const styles = useMemo(
-    () => tw(list({ zIndex, showDivider, isVisible }), className),
-    [className, zIndex, showDivider, isVisible]
+    () =>
+      tw(list({ zIndex, showDivider, isVisible }), menuClass?.value, className),
+    [className, zIndex, showDivider, isVisible, menuClass?.value]
   );
 
   return StyledIWrapper.classname(styles);

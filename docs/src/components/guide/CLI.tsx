@@ -116,7 +116,7 @@ const CLI = () => {
             fileName="global.css"
             lg="css"
             code={`/* Replace this */
-@import 'auera-ui/dist/auera.css';
+@import 'auera-ui/auera.css';
 
 /* With */
 @import './auera.css';`}
