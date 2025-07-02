@@ -21,11 +21,12 @@ const Card = forwardRef<HTMLDivElement, CardWithMotion>(
       footer,
       img,
       design,
+      mode,
       ...props
     },
     ref
   ) => {
-    const { currentMode } = useMode(props.mode);
+    const { currentMode } = useMode(mode);
     const { currentDesign } = useDesign(design);
 
     const { Root, Body } = useCard({
@@ -60,7 +61,7 @@ const Card = forwardRef<HTMLDivElement, CardWithMotion>(
     };
 
     return (
-      <Root ref={ref as AueraMotionDivRef} {...props}>
+      <Root mode={currentMode} ref={ref as AueraMotionDivRef} {...props}>
         {header && header}
         {getImage()}
         <Body>{props.children}</Body>

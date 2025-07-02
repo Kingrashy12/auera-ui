@@ -11,7 +11,8 @@
       "require": "./dist/auera-ui.cjs",
       "types": "./dist/index.d.ts"
     },
-    "./dist/auera.css": "./dist/auera.css"
+    "./auera.css": "./dist/auera.css",
+    "./plugins/tw": "./dist/plugins/aueraTw.d.ts"
   },
   "scripts": {
     "build": "rm -rf .rollup.cache && rm -rf tsconfig.tsbuildinfo && rollup -c",

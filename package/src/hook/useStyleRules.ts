@@ -387,3 +387,57 @@ export const useOTPInputRules = (
     },
   };
 };
+
+export const useMenuItemRules = (className: string | undefined, id: string) => {
+  const { styleRules } = useGlobalUI();
+  const menuItemRules = styleRules?.menu?.item;
+
+  return {
+    menuItemClass: menuItemRules?.className?.find((rule) =>
+      applyRule(rule, id, className, "", "", "", "")
+    ),
+  };
+};
+
+export const useMenuPadRules = (className: string | undefined, id: string) => {
+  const { styleRules } = useGlobalUI();
+  const menuPadRules = styleRules?.menu?.pad;
+
+  return {
+    menuPadClass: menuPadRules?.className?.find((rule) =>
+      applyRule(rule, id, className, "", "", "", "")
+    ),
+  };
+};
+
+export const useMenuRules = (
+  className: string | undefined,
+  id: string,
+  mode: string
+) => {
+  const { styleRules } = useGlobalUI();
+  const menuRules = styleRules?.menu?.wrapper;
+
+  return {
+    menuClass: menuRules?.className?.find((rule) =>
+      applyRule(rule, id, className, "", "", "", mode)
+    ),
+    menuMode: menuRules?.mode?.find((rule) =>
+      applyRule(rule, id, className, "", "", "", mode)
+    ),
+  };
+};
+
+export const useMenuContainerRules = (
+  className: string | undefined,
+  id: string
+) => {
+  const { styleRules } = useGlobalUI();
+  const menuContainerRules = styleRules?.menu?.container;
+
+  return {
+    menuContainerClass: menuContainerRules?.className?.find((rule) =>
+      applyRule(rule, id, className, "", "", "", "")
+    ),
+  };
+};

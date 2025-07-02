@@ -37,6 +37,8 @@ export const aueraTw = ({
   addVariant("paragraph", "& p");
   addVariant("span", "& span");
 
+  addVariant("data-disabled", ['&[data-disabled="true"]&'])
+
   addUtilities({
     ".scrollbar-none": {
       "-ms-overflow-style": "none",

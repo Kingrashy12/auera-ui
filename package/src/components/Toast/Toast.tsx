@@ -252,10 +252,10 @@ const Toast = ({ className }: { className?: string }) => {
                 <CloseIcon>
                   <IconButton
                     mode="light"
-                    radius="xl"
+                    radius="sm"
                     onClick={() => removeToast(toast)}
                   >
-                    <HiOutlineX size={20} color="black" />
+                    <HiOutlineX size={17} color="black" />
                   </IconButton>
                 </CloseIcon>
               </div>

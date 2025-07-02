@@ -18,6 +18,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
     color,
     disabled,
     useColorOnHover,
+    id: props.id || "",
   });
 
   const killMenu = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {

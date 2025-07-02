@@ -4,7 +4,7 @@ import { HTMLMotionProps } from "motion/react";
 import { VariantProps } from "class-variance-authority";
 import { zIndex } from "./keys";
 
-export type DesignVariant = "corporate" | "frost" | "neobrutalism";
+export type DesignVariant = "corporate" | "neobrutalism";
 // | "material"
 // | "cream";
 
@@ -38,6 +38,10 @@ export interface ApplyBy {
   TabsContainer: "all" | "class" | "id";
   TabHandle: "all" | "variant" | "id" | "class" | "mode";
   OTPInput: "all" | "id" | "class" | "mode";
+  MenuItem: "all" | "className" | "id";
+  MenuPad: "all" | "className" | "id";
+  MenuContainer: "all" | "className" | "id";
+  Menu: "all" | "className" | "id" | "mode";
 }
 
 /**
@@ -376,6 +380,22 @@ export interface GlobalUI {
         className?: StyleRule<ApplyBy["OTPInput"], string>[];
         radius?: StyleRule<ApplyBy["OTPInput"], "md" | "lg" | "xl" | "full">[];
         mode?: StyleRule<ApplyBy["OTPInput"], ModeType>[];
+      };
+    };
+    menu?: {
+      item?: {
+        className?: StyleRule<ApplyBy["MenuItem"], string>[];
+      };
+      pad?: {
+        className?: StyleRule<ApplyBy["MenuPad"], string>[];
+      };
+      container?: {
+        className?: StyleRule<ApplyBy["MenuContainer"], string>[];
+      };
+      /** Main menu components */
+      wrapper?: {
+        className?: StyleRule<ApplyBy["Menu"], string>[];
+        mode?: StyleRule<ApplyBy["Menu"], ModeType>[];
       };
     };
   };

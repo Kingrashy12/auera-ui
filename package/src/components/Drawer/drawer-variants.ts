@@ -57,7 +57,7 @@ const footer = cva("flex w-full p-3 gap-3 rounded-b-lg bg-drawer-content", {
 });
 
 const floatShared = defineClass(
-  "max-[550px]:w-[98%] max-[550px]:rounded-[9px] border-solid border-1.9 max-[550px]:right-1 max-[550px]:left-1 rounded-lg h-[97%]"
+  "max-[550px]:w-[98%] max-[550px]:rounded-[9px] border-solid border-1.9 max-[550px]:right-1 max-[550px]:left-1 rounded-lg h-[97%] shadow-[4px_5px_10px]"
 );
 
 const stickyShared = defineClass("max-[550px]:w-full max-[550px]:rounded-none");
@@ -119,12 +119,12 @@ const panel = cva(
       {
         type: "sticky",
         position: "left",
-        class: `${stickyShared} h-full left-0 top-0 bottom-0 border-r-1.9`,
+        class: `${stickyShared} h-full left-0 top-0 bottom-0 border-r-1.9 shadow-[4px_5px_10px]`,
       },
       {
         type: "sticky",
         position: "right",
-        class: `${stickyShared} top-0 bottom-0 right-0 h-full border-l-1.9`,
+        class: `${stickyShared} top-0 bottom-0 right-0 h-full border-l-1.9 shadow-[0_4px_10px]`,
       },
     ],
     defaultVariants: {

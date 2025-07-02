@@ -145,10 +145,10 @@ AueraUI comes with its own CSS file that you can import to apply default styles 
 ### Importing in your project:
 
 ```javascript
-import 'auera-ui/dist/auera.css';
+import 'auera-ui/auera.css';
 
 // or in your main CSS file
-@import 'auera-ui/dist/auera.css';
+@import 'auera-ui/auera.css';
 ```
 
 ## Usage
