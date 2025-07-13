@@ -11,6 +11,10 @@ export const ejectedCodes = {
     --auera-text-color: #fff;
     --auera-text-muted: #a1a1aa;
     background: #000;
+  }
+    
+  @theme {
+   /* ... */
   }`,
   config: `export const tailwindExtend = {
   boxShadow: {...},

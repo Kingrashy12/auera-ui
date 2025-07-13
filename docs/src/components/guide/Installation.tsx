@@ -96,46 +96,30 @@ const Installation = () => {
           </ul>
         </GuideContainer>
       </StepGuide>
-      <StepGuide step={3} id="update-tailwind-config">
+      <StepGuide step={3} id="update-css-config">
         <GuideContainer
           direction="column"
-          id="update-tailwind-config"
+          id="update-css-config"
           fullWidth
           className="gap-4"
         >
           <HeaderLabel
-            id="update-tailwind-config"
+            id="update-css-config"
             as="h3"
             className="text-lg"
             hideLink
           >
-            Update{" "}
-            <CodeTag className="text-base p-[3px_8px_3px_8px] rounded-sm bg-[var(--cb)] border-border">
-              tailwind.config.ts
-            </CodeTag>
+            Update CSS config
           </HeaderLabel>
           <p className="text">
-            Next, update your Tailwind configuration to include AueraUI&apos;s
-            extended properties. This ensures that animations and styles are
-            applied correctly.
+            import css configuration to include AueraUI&apos;s extended
+            properties. This ensures that animations and styles are applied
+            correctly.
           </p>
           <CodeBlock
-            code={
-              ext === "tsx"
-                ? installationCodes.config
-                : installationCodes.config_js
-            }
-            lg="ts"
-            fileName="tailwind.config.ts"
-          />
-          <p className="text">
-            Then in your <CodeTag>global.css</CodeTag> or{" "}
-            <CodeTag>index.css</CodeTag>, add this:
-          </p>
-          <CodeBlock
-            code="@import 'auera-ui/auera.css';"
+            code={installationCodes.css_config}
             lg="css"
-            fileName="global.css"
+            fileName="globals.css"
           />
         </GuideContainer>
       </StepGuide>

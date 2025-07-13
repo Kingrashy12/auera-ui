@@ -25,13 +25,9 @@ const UsingNext = () => {
         code={ext === "tsx" ? code : code_js}
       />
       <p className="text">
-        Update the fontFamily inside your <CodeTag>tailwind.config.ts</CodeTag>
+        Update the fontFamily inside your <CodeTag>globals.css</CodeTag>
       </p>
-      <CodeBlock
-        fileName="tailwind.config.ts"
-        lg="ts"
-        code={ext === "tsx" ? tailwindConfig : config_js}
-      />
+      <CodeBlock fileName="globals.css" lg="css" code={cssConfig} />
     </Details>
   );
 };
@@ -82,87 +78,13 @@ export default function RootLayout({ children }) {
   );
 }`;
 
-const tailwindConfig = `import { tailwindExtend, aueraTw, SafeLists } from "auera-ui";
-import type { Config } from "tailwindcss";
+const cssConfig = `...
+@import 'auera-ui/auera.css';
+...
 
-const config: Config = {
-  content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
-    "./node_modules/auera-ui/**/*.{js,ts,jsx,tsx}",
-  ],
-  safelist: SafeLists(),
-  theme: {
-    extend: {
-      backgroundColor: {
-        ...tailwindExtend.backgroundColor,
-      },
-      boxShadow: {
-        ...tailwindExtend.boxShadow,
-      },
-      colors: {
-        ...tailwindExtend.colors,
-      },
-      borderColor: {
-        ...tailwindExtend.borderColor,
-      },
-      transitionProperty: {
-        ...tailwindExtend.transitionProperty,
-      },
-      borderWidth: {
-        ...tailwindExtend.borderWidth,
-      },
-      keyframes: { ...tailwindExtend.keyframes },
-      animation: { ...tailwindExtend.animation },
-      dropShadow: {...tailwindExtend.dropShadow},
-      fontFamily: {
-        // Add this to your fontFamily 
-        inter: ["var(--font-inter)", "sans-serif"],
-      },
-    },
-  },
-  plugins: [aueraTw], 
-};
-
-export default config;`;
-
-const config_js = `import { tailwindExtend, aueraTw, SafeLists } from "auera-ui";
-
-const config = {
-  content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
-    "./node_modules/auera-ui/**/*.{js,ts,jsx,tsx}",
-  ],
-  safelist: SafeLists(),
-  theme: {
-    extend: {
-      backgroundColor: {
-        ...tailwindExtend.backgroundColor,
-      },
-      boxShadow: {
-        ...tailwindExtend.boxShadow,
-      },
-      colors: {
-        ...tailwindExtend.colors,
-      },
-      borderColor: {
-        ...tailwindExtend.borderColor,
-      },
-      transitionProperty: {
-        ...tailwindExtend.transitionProperty,
-      },
-      borderWidth: {
-        ...tailwindExtend.borderWidth,
-      },
-      keyframes: { ...tailwindExtend.keyframes },
-      animation: { ...tailwindExtend.animation },
-      dropShadow: {...tailwindExtend.dropShadow},
-      fontFamily: {
-        // Add this to your fontFamily 
-        inter: ["var(--font-inter)", "sans-serif"],
-      },
-    },
-  },
-  plugins: [aueraTw], 
-};
-
-export default config;`;
+@theme {
+ ...
+ --font-inter: var(--font-inter);
+ ... 
+}
+`;

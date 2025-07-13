@@ -75,7 +75,7 @@ function RootLayout() {
 
 ## Importing CSS
 
-AueraUI comes with its own CSS file that you can import to apply default styles globally.
+AueraUI comes with its own CSS file that you can import to apply default styles and configurations globally.
 
 ### Importing in your project:
 
