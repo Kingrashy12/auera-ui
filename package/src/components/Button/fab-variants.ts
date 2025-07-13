@@ -45,7 +45,6 @@ const fab = cva(
         right: "right-6 bottom-6",
       },
       design: {
-        frost: "",
         corporate: "",
         neobrutalism: tw(neobrutalism.__DEFAULT, "shadow-[4px_4px_0px_black]"),
       },

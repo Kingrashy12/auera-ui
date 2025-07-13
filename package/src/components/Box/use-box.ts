@@ -1,6 +1,5 @@
 import { useMemo } from "react";
 import { createStyle, tw } from "stywind";
-import { motion } from "motion/react";
 import box, { BoxVariants } from "./box_variants";
 
 export const useBox = (props: BoxVariants) => {
@@ -9,7 +8,7 @@ export const useBox = (props: BoxVariants) => {
 
   const Base = useMemo(
     () =>
-      createStyle(motion.div).classname(
+      createStyle("div").classname(
         tw(
           box({
             direction,

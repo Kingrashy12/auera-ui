@@ -1,6 +1,5 @@
 import { cva } from "class-variance-authority";
 import button_corporate from "./button-corporate";
-import button_frost from "./button-frost";
 import { ButtonVariant, SchemeVariant } from "@/types/auera-system";
 import { tw } from "stywind";
 import button_neobrutalism from "./button-neobrutalism";
@@ -9,9 +8,10 @@ type Cls = {
   colorScheme: SchemeVariant;
   variant: ButtonVariant;
   className?: string;
+  as?: string;
 };
 
-const generateButtonClass = ({ colorScheme, variant, className }: Cls) => {
+const generateButtonClass = ({ colorScheme, variant, className, as }: Cls) => {
   return cva(
     `flex justify-center items-center shrink-0 font-medium font-inter
     transition-layer duration-300 gap-2 text-sm relative cursor-pointer`,
@@ -19,7 +19,6 @@ const generateButtonClass = ({ colorScheme, variant, className }: Cls) => {
       variants: {
         design: {
           corporate: tw(button_corporate({ variant, colorScheme }), className),
-          frost: tw(button_frost({ colorScheme })({ variant }), className),
           neobrutalism: tw(
             button_neobrutalism({
               variant,
@@ -52,7 +51,10 @@ const generateButtonClass = ({ colorScheme, variant, className }: Cls) => {
           true: "hidden",
         },
         disabled: {
-          true: "cursor-not-allowed pointer-events-none opacity-75 select-none",
+          true: tw(
+            "cursor-not-allowed opacity-75",
+            as && as !== "button" && "pointer-events-none"
+          ),
         },
       },
       defaultVariants: {

@@ -1,13 +1,22 @@
 import { forwardRef } from "react";
 import { getDisplayName } from "@/utils/displayname";
-import { CardWithMotion, AueraMotionDivRef } from "../../types/auera-motion";
 import { useCard } from "./use-card";
 import { Image } from "../Image";
 import { tw } from "stywind";
 import { useDesign, useMode } from "@/hook/use";
+import { CardProps } from "../../types/auera-ui";
+import { AueraElementProps } from "@/types/auera-system";
+
+type Ref =
+  | React.LegacyRef<
+      React.ForwardRefExoticComponent<
+        Omit<AueraElementProps<"div">, "ref"> & React.RefAttributes<HTMLElement>
+      >
+    >
+  | undefined;
 
 /** Card component for displaying content in an organized way.*/
-const Card = forwardRef<HTMLDivElement, CardWithMotion>(
+const Card = forwardRef<HTMLDivElement, CardProps>(
   (
     {
       centerContent,
@@ -61,7 +70,7 @@ const Card = forwardRef<HTMLDivElement, CardWithMotion>(
     };
 
     return (
-      <Root mode={currentMode} ref={ref as AueraMotionDivRef} {...props}>
+      <Root mode={currentMode} ref={ref as Ref} {...props}>
         {header && header}
         {getImage()}
         <Body>{props.children}</Body>

@@ -109,11 +109,12 @@ export const useComputeIButton = (
           outline_active,
           as,
         }),
-        appliedClassName?.value,
+        appliedClassName,
         className
       ),
     [
       as,
+      appliedClassName,
       className,
       variant,
       radius,

@@ -12,6 +12,8 @@
   --color-text: var(--auera-text);
   --color-btn-hover: var(--auera-btn-hover);
   --color-btn-shadow: var(--auera-btn-shadow);
+  --color-dark-drop: rgb(0, 0, 0, 0.5);
+  --color-light-drop: rgb(255, 255, 255, 0.5);
 
   --color-sidebar: var(--auera-sidebar);
   --color-modal: var(--auera-modal);

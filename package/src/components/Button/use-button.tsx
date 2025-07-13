@@ -16,7 +16,7 @@ const useButton = ({
   design,
   className,
   ...props
-}: ButtonProps) => {
+}: ButtonProps<"button">) => {
   const { currentDesign } = useDesign(design);
   const { currentMode } = useMode(props.mode);
 
@@ -45,11 +45,13 @@ const useButton = ({
         generateButtonClass({
           colorScheme,
           variant: appliedVariant?.value || variant,
+          as: props.as,
+          className: tw(appliedClassName, className),
         })({
           design: appliedDesign?.value || currentDesign,
           fullWidth: props.fullWidth,
           size: appliedSize?.value || size,
-          className: tw(appliedClassName?.value, className),
+          className: tw(appliedClassName, className),
           hidden: props.hidden,
           disabled,
           radius: appliedRadius?.value || radius,
@@ -59,7 +61,7 @@ const useButton = ({
           "relative svg:absolute svg:left-4": props.leftIcon,
           "justify-between": props.leftIcon && props.rightIcon,
         },
-        appliedClassName?.value,
+        appliedClassName,
         className
       ),
     [
@@ -76,8 +78,9 @@ const useButton = ({
       appliedVariant?.value,
       appliedSize?.value,
       appliedRadius?.value,
-      appliedClassName?.value,
+      appliedClassName,
       appliedDesign?.value,
+      props.as,
     ]
   );
 
@@ -93,7 +96,7 @@ const useButton = ({
     rightIcon,
     rightIconColor,
     rightIconSize,
-  }: ButtonProps) => {
+  }: ButtonProps<"button">) => {
     return (
       <>
         {props.isLoading ? (
@@ -106,6 +109,7 @@ const useButton = ({
             {leftIcon && (
               <Icon size={leftIconSize} color={leftIconColor} icon={leftIcon} />
             )}
+
             {children}
             {rightIcon && (
               <Icon

@@ -15,16 +15,19 @@ const applyRule = <T, K extends keyof ApplyBy>(
   variant: string,
   colorScheme: string,
   design: string,
-  mode: string
+  mode: string,
+  obj: Record<string, string> = {}
 ) => {
   // Conditions array - each condition has a key (attr) and its value
   const conditions = [
     { attr: "id", value: id },
-    { attr: "class", value: className },
+    { attr: "className", value: className },
     { attr: "colorScheme", value: colorScheme },
     { attr: "variant", value: variant },
     { attr: "design", value: design },
     { attr: "mode", value: mode },
+    { attr: "position", value: obj["position"] },
+    { attr: "type", value: obj["type"] },
   ];
 
   // Always apply if 'applyBy' is 'all'
@@ -36,11 +39,13 @@ const applyRule = <T, K extends keyof ApplyBy>(
   // Check if the rule is based on 'applyBy' (either 'id', 'class', 'design', etc.)
   if (
     rule.applyBy === "id" ||
-    rule.applyBy === "class" ||
     rule.applyBy === "design" ||
     rule.applyBy === "variant" ||
     rule.applyBy === "colorScheme" ||
-    rule.applyBy === "mode"
+    rule.applyBy === "mode" ||
+    rule.applyBy === "className" ||
+    rule.applyBy === "position" ||
+    rule.applyBy === "type"
   ) {
     // Find the corresponding condition based on 'applyBy'
     const condition = conditions
@@ -78,8 +83,11 @@ export const useButtonRules = (
     applyRule(rule, id, className, variant, colorScheme, design, mode)
   );
 
-  const appliedClassName = buttonRules.className?.find((rule) =>
-    applyRule(rule, id, className, variant, colorScheme, design, mode)
+  const classnames = buttonRules.className?.map((rule) =>
+    getClassValue(
+      applyRule(rule, id, className, variant, colorScheme, design, mode),
+      rule
+    )
   );
 
   const appliedDesign = buttonRules.design?.find((rule) =>
@@ -92,7 +100,7 @@ export const useButtonRules = (
 
   return {
     appliedVariant,
-    appliedClassName,
+    appliedClassName: joinValues(classnames),
     appliedSize: size,
     appliedDesign,
     appliedRadius,
@@ -118,11 +126,18 @@ export const useCardRules = (
     applyRule(rule, id, className, variant, "", design, mode)
   );
 
-  const appliedClassName = cardRules?.className?.find((rule) =>
-    applyRule(rule, id, className, variant, "", design, mode)
+  const classnames = cardRules?.className?.map((rule) =>
+    getClassValue(
+      applyRule(rule, id, className, variant, "", design, mode),
+      rule
+    )
   );
 
-  return { appliedDesign, appliedVariant, appliedClassName };
+  return {
+    appliedDesign,
+    appliedVariant,
+    appliedClassName: joinValues(classnames),
+  };
 };
 
 export const useInputRules = (
@@ -144,8 +159,11 @@ export const useInputRules = (
     applyRule(rule, id, className, variant, "", design, mode)
   );
 
-  const appliedClassName = inputRules?.className?.find((rule) =>
-    applyRule(rule, id, className, variant, "", design, mode)
+  const classnames = inputRules?.className?.map((rule) =>
+    getClassValue(
+      applyRule(rule, id, className, variant, "", design, mode),
+      rule
+    )
   );
 
   const appliedRadius = inputRules?.radius?.find((rule) =>
@@ -163,7 +181,7 @@ export const useInputRules = (
   return {
     appliedDesign,
     appliedVariant,
-    appliedClassName,
+    appliedClassName: joinValues(classnames),
     appliedRadius,
     appliedMode,
     appliedInputClassName,
@@ -180,8 +198,11 @@ export const useBadgeRules = (
   const { styleRules } = useGlobalUI();
   const badgeRules = styleRules?.badge;
 
-  const appliedClassName = badgeRules?.className?.find((rule) =>
-    applyRule(rule, id, className, variant, colorScheme, "", mode)
+  const classnames = badgeRules?.className?.map((rule) =>
+    getClassValue(
+      applyRule(rule, id, className, variant, colorScheme, "", mode),
+      rule
+    )
   );
 
   const appliedMode = badgeRules?.mode?.find((rule) =>
@@ -196,7 +217,12 @@ export const useBadgeRules = (
     applyRule(rule, id, className, variant, colorScheme, "", mode)
   );
 
-  return { appliedClassName, appliedVariant, appliedColorScheme, appliedMode };
+  return {
+    appliedClassName: joinValues(classnames),
+    appliedVariant,
+    appliedColorScheme,
+    appliedMode,
+  };
 };
 
 export const useFabRules = (
@@ -210,8 +236,11 @@ export const useFabRules = (
   const { styleRules } = useGlobalUI();
   const fabRules = styleRules?.fab;
 
-  const appliedClassName = fabRules?.className?.find((rule) =>
-    applyRule(rule, id, className, variant, colorScheme, design, mode)
+  const classnames = fabRules?.className?.map((rule) =>
+    getClassValue(
+      applyRule(rule, id, className, variant, colorScheme, design, mode),
+      rule
+    )
   );
 
   const appliedColor = fabRules?.color?.find((rule) =>
@@ -239,7 +268,7 @@ export const useFabRules = (
   );
 
   return {
-    appliedClassName,
+    appliedClassName: joinValues(classnames),
     appliedColor,
     appliedDesign,
     appliedMode,
@@ -259,8 +288,11 @@ export const useIconButtonRules = (
   const { styleRules } = useGlobalUI();
   const iconbuttonRules = styleRules?.iconbutton;
 
-  const appliedClassName = iconbuttonRules?.className?.find((rule) =>
-    applyRule(rule, id, className, variant, "", design, mode)
+  const classnames = iconbuttonRules?.className?.map((rule) =>
+    getClassValue(
+      applyRule(rule, id, className, variant, "", design, mode),
+      rule
+    )
   );
 
   const appliedDesign = iconbuttonRules?.design?.find((rule) =>
@@ -280,7 +312,7 @@ export const useIconButtonRules = (
   );
 
   return {
-    appliedClassName,
+    appliedClassName: joinValues(classnames),
     appliedDesign,
     appliedMode,
     appliedRadius,
@@ -297,8 +329,8 @@ export const useTabsRules = (
   const { styleRules } = useGlobalUI();
   const tabsRules = styleRules?.tabs;
 
-  const appliedClassName = tabsRules?.className?.find((rule) =>
-    applyRule(rule, id, className, variant, "", "", mode)
+  const classnames = tabsRules?.className?.map((rule) =>
+    getClassValue(applyRule(rule, id, className, variant, "", "", mode), rule)
   );
 
   const appliedMode = tabsRules?.mode?.find((rule) =>
@@ -314,7 +346,7 @@ export const useTabsRules = (
   );
 
   return {
-    appliedClassName,
+    appliedClassName: joinValues(classnames),
     appliedMode,
     appliedVariant,
     appliedRounded,
@@ -328,11 +360,11 @@ export const useTabsContainerRules = (
   const { styleRules } = useGlobalUI();
   const tabsRules = styleRules?.tabsContainer;
 
-  const appliedContainerClassName = tabsRules?.className?.find((rule) =>
-    applyRule(rule, id, className, "", "", "", "")
+  const classnames = tabsRules?.className?.map((rule) =>
+    getClassValue(applyRule(rule, id, className, "", "", "", ""), rule)
   );
 
-  return { appliedContainerClassName };
+  return { appliedContainerClassName: joinValues(classnames) };
 };
 
 export const useTabHandleRules = (
@@ -344,8 +376,8 @@ export const useTabHandleRules = (
   const { styleRules } = useGlobalUI();
   const tabsRules = styleRules?.tabHandle;
 
-  const appliedClassName = tabsRules?.className?.find((rule) =>
-    applyRule(rule, id, className, variant, "", "", mode)
+  const classnames = tabsRules?.className?.map((rule) =>
+    getClassValue(applyRule(rule, id, className, variant, "", "", mode), rule)
   );
 
   const appliedVariant = tabsRules?.variant?.find((rule) =>
@@ -356,7 +388,11 @@ export const useTabHandleRules = (
     applyRule(rule, id, className, variant, "", "", mode)
   );
 
-  return { appliedClassName, appliedRounded, appliedVariant };
+  return {
+    appliedClassName: joinValues(classnames),
+    appliedRounded,
+    appliedVariant,
+  };
 };
 
 export const useOTPInputRules = (
@@ -368,6 +404,10 @@ export const useOTPInputRules = (
   const { styleRules } = useGlobalUI();
   const otpInputRules = styleRules?.otpInput;
 
+  const inputClassNames = otpInputRules?.input?.className?.map((rule) =>
+    getClassValue(applyRule(rule, id, inputClassName, "", "", "", mode), rule)
+  );
+
   return {
     interfaceRules: {
       className: otpInputRules?.interface?.className?.find((rule) =>
@@ -375,9 +415,7 @@ export const useOTPInputRules = (
       ),
     },
     inputRules: {
-      className: otpInputRules?.input?.className?.find((rule) =>
-        applyRule(rule, id, inputClassName, "", "", "", mode)
-      ),
+      className: joinValues(inputClassNames),
       mode: otpInputRules?.input?.mode?.find((rule) =>
         applyRule(rule, id, inputClassName, "", "", "", mode)
       ),
@@ -392,10 +430,12 @@ export const useMenuItemRules = (className: string | undefined, id: string) => {
   const { styleRules } = useGlobalUI();
   const menuItemRules = styleRules?.menu?.item;
 
+  const classnames = menuItemRules?.className?.map((rule) =>
+    getClassValue(applyRule(rule, id, className, "", "", "", ""), rule)
+  );
+
   return {
-    menuItemClass: menuItemRules?.className?.find((rule) =>
-      applyRule(rule, id, className, "", "", "", "")
-    ),
+    menuItemClass: joinValues(classnames),
   };
 };
 
@@ -403,10 +443,12 @@ export const useMenuPadRules = (className: string | undefined, id: string) => {
   const { styleRules } = useGlobalUI();
   const menuPadRules = styleRules?.menu?.pad;
 
+  const classnames = menuPadRules?.className?.map((rule) =>
+    getClassValue(applyRule(rule, id, className, "", "", "", ""), rule)
+  );
+
   return {
-    menuPadClass: menuPadRules?.className?.find((rule) =>
-      applyRule(rule, id, className, "", "", "", "")
-    ),
+    menuPadClass: joinValues(classnames),
   };
 };
 
@@ -418,10 +460,12 @@ export const useMenuRules = (
   const { styleRules } = useGlobalUI();
   const menuRules = styleRules?.menu?.wrapper;
 
+  const classnames = menuRules?.className?.map((rule) =>
+    getClassValue(applyRule(rule, id, className, "", "", "", mode), rule)
+  );
+
   return {
-    menuClass: menuRules?.className?.find((rule) =>
-      applyRule(rule, id, className, "", "", "", mode)
-    ),
+    menuClass: joinValues(classnames),
     menuMode: menuRules?.mode?.find((rule) =>
       applyRule(rule, id, className, "", "", "", mode)
     ),
@@ -435,9 +479,52 @@ export const useMenuContainerRules = (
   const { styleRules } = useGlobalUI();
   const menuContainerRules = styleRules?.menu?.container;
 
+  const classnames = menuContainerRules?.className?.map((rule) =>
+    getClassValue(applyRule(rule, id, className, "", "", "", ""), rule)
+  );
+
   return {
-    menuContainerClass: menuContainerRules?.className?.find((rule) =>
-      applyRule(rule, id, className, "", "", "", "")
-    ),
+    menuContainerClass: joinValues(classnames),
   };
+};
+
+export const useDrawerPanelRules = (
+  className: string | undefined,
+  id: string,
+  position: "left" | "right" | null | undefined,
+  type: "sticky" | "float" | null | undefined
+) => {
+  const { styleRules } = useGlobalUI();
+  const drawerPanelRules = styleRules?.drawerPanel;
+
+  const panelClassName = drawerPanelRules?.className?.map((rule) =>
+    getClassValue(
+      applyRule(rule, id, className, "", "", "", "", {
+        position: position || "",
+        type: type || "",
+      }),
+      rule
+    )
+  );
+
+  return { panelClassName: joinValues(panelClassName) };
+};
+
+export const joinValues = (values: string[] | undefined) => {
+  if (values) {
+    return values.join(" ");
+  }
+
+  return "";
+};
+
+const getClassValue = <T, K extends keyof ApplyBy>(
+  match: boolean,
+  rule: StyleRule<ApplyBy[K], T>
+) => {
+  if (match) {
+    return rule.value;
+  }
+
+  return "";
 };

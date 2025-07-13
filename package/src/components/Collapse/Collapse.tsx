@@ -20,11 +20,6 @@ const Collapse: React.FC<CollapseProps> = ({
   const [visible, setVisible] = useState(false);
   const { currentMode } = useMode(mode);
 
-  const openVariant = {
-    open: { height: "auto", opacity: 1, transition: { duration: 0.5 } },
-    closed: { height: 0, opacity: 0, transition: { duration: 0.3 } },
-  };
-
   const getIcon = () => {
     const icon = open ? IoIosArrowUp : IoIosArrowDown;
     const cIcon = open ? openIcon : closeIcon;
@@ -83,11 +78,13 @@ const Collapse: React.FC<CollapseProps> = ({
       </Box>
 
       <Box
-        variants={openVariant}
-        initial="closed"
-        animate={visible ? "open" : "closed"}
         style={{ overflow: "hidden" }}
-        className={tw(!open && "hidden")}
+        className={tw(
+          !open && "hidden",
+          visible
+            ? "h-auto opacity-100 duration-500"
+            : "h-0 opacity-0 duration-300"
+        )}
       >
         {children}
       </Box>

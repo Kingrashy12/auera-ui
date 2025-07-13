@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@source "../node_modules/auera-ui";
+
 :root {
   /* Primary colors */
   --auera-primary-50: #e3f2fd;
@@ -136,8 +138,6 @@ html[data-theme="dark"] {
 
   /* Border color */
   --auera-card-border: var(--auera-neutral-800);
-
-  /* Hover color */
 
   /* Shadow */
   --auera-card-sh: var(--auera-slate-950);

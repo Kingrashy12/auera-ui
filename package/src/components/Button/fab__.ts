@@ -52,10 +52,21 @@ const useComputeFab = (
           design: appliedDesign?.value || design,
         }),
         zIndexKeys[appliedZindex?.value || zIndex],
-        appliedClassName?.value,
+        appliedClassName,
         className
       ),
-    [className, color, disabled, size, variant, type, position, zIndex, design]
+    [
+      appliedClassName,
+      className,
+      color,
+      disabled,
+      size,
+      variant,
+      type,
+      position,
+      zIndex,
+      design,
+    ]
   );
 
   return useMemo(() => FabComp.classname(styles), [styles]);

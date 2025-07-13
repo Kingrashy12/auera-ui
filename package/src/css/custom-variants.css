@@ -1,7 +1,3 @@
-@import "./config.css";
-
-@source "../node_modules/auera-ui";
-
 /* Custom Variants using @slot */
 @custom-variant theme-dark {
   &:where([data-theme="dark"] *) {

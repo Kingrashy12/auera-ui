@@ -28,7 +28,7 @@ const Badge: React.FC<BadgeProps> = ({
           variant: appliedVariant?.value || variant,
           colorScheme: appliedColorScheme?.value || colorScheme,
         }),
-        appliedClassName?.value,
+        appliedClassName,
         className
       )}
     >

@@ -1,7 +1,7 @@
 import Box from "../Box/Box";
 import { tw } from "stywind";
 import { getDisplayName } from "@/utils/displayname";
-import { StackWithMotion } from "../../types/auera-motion";
+import { StackProps } from "../../types/auera-ui";
 
 const Stack = ({
   children,
@@ -9,7 +9,7 @@ const Stack = ({
   align = "vertical",
   className,
   ...props
-}: StackWithMotion) => {
+}: StackProps) => {
   return (
     <Box
       className={tw(

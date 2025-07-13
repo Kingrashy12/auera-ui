@@ -39,13 +39,15 @@ const BreadcrumbItem = React.forwardRef<
 ));
 BreadcrumbItem.displayName = getDisplayName("BreadcrumbItem");
 
+type BreadcrumbLinkProps<T extends React.ElementType> = {
+  as?: T;
+} & React.ComponentPropsWithoutRef<T>;
+
 const BreadcrumbLink = React.forwardRef<
   HTMLAnchorElement,
-  React.ComponentPropsWithoutRef<"a"> & {
-    asChild?: boolean;
-  }
+  BreadcrumbLinkProps<"a">
 >(({ className, ...props }, ref) => {
-  const Comp = "a";
+  const Comp = props.as || "a";
 
   return (
     <Comp

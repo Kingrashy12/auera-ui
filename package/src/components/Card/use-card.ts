@@ -1,9 +1,9 @@
 import { useMemo } from "react";
 import { RootVariants, root, body, BodyVariants } from "./card-variants";
 import { createStyle, tw } from "stywind";
-import { AueraDivWithMotion } from "../../core/ElementWithmotion";
 import { useCardRules } from "@/hook/useStyleRules";
 import { ModeType } from "@/types/auera-system";
+import { AueraDiv } from "@/core/AueraElement";
 
 export const useCard = (
   props: RootVariants & BodyVariants & { id: string; mode: ModeType }
@@ -20,7 +20,7 @@ export const useCard = (
     mode,
   } = props;
 
-  const StyledRoot = createStyle(AueraDivWithMotion);
+  const StyledRoot = createStyle(AueraDiv);
   const StyledChildren = createStyle("div");
 
   const { appliedDesign, appliedVariant, appliedClassName } = useCardRules(
@@ -41,7 +41,7 @@ export const useCard = (
           direction,
           design: appliedDesign?.value || design,
         }),
-        appliedClassName?.value,
+        appliedClassName,
         classNames?.root
       ),
     [
@@ -51,7 +51,7 @@ export const useCard = (
       hidden,
       direction,
       design,
-      appliedClassName?.value,
+      appliedClassName,
       appliedDesign?.value,
       appliedVariant?.value,
     ]
