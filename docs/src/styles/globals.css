@@ -1,4 +1,4 @@
-@import "auera-ui/dist/auera.css";
+@import "auera-ui/auera.css";
 @import "./toc.css";
 
 @tailwind base;

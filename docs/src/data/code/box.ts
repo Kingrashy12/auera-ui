@@ -19,31 +19,4 @@ const DirectionDemo = () => {
   </Box>
  )
 };`,
-  with_motion: `import { Box, Stack } from "auera-ui";
-    
-const MotionDemo = () => {
- return (
-   <Stack>
-    <Box
-     initial={{ opacity: 0, x: -50 }}
-     animate={{ opacity: 1, x: 0 }}
-     whileHover={{ scale: 1.05 }}
-     transition={{ duration: 0.5, ease: "easeOut" }}
-     className="p-4 shadow-md rounded-md bg-blue-500 text-white text-center font-poppins cursor-pointer"
-    >
-      Sliding In From Left
-    </Box>
-
-    <Box
-     initial={{ opacity: 0, x: 50 }}
-     animate={{ opacity: 1, x: 0 }}
-     whileHover={{ scale: 1.05, translateX: 10, translateY: -20 }}
-     transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
-     className="p-4 shadow-md rounded-md bg-green-500 text-white text-center font-poppins cursor-pointer"
-    >
-      Sliding In From Right
-    </Box>
-  </Stack>
- )
-};`,
 };

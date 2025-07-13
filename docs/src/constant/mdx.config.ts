@@ -25,7 +25,6 @@ import LoadingButton from "@/components/example/button/loading";
 import CustomSpinner from "@/components/example/button/custom-spinner";
 import ButtonWithIcon from "@/components/example/button/icon";
 import OverlayStructure from "@/components/guide/overlay-structure";
-import BoxWithMotion from "@/components/example/box/WithMotion";
 import CardDemo from "@/components/example/card/demo";
 import CardWithImage from "@/components/example/card/with-image";
 import CardWithCustomImage from "@/components/example/card/custom-image-render";
@@ -143,7 +142,6 @@ import SkeletonWithCard from "../components/example/skeleton/skeleton-card";
 import AvatarSkeleton from "@/components/example/skeleton/skeleton-avatar";
 import InteractivePost from "@/components/example/skeleton/interactive-post";
 import LoadingImage from "@/components/example/image/isloading";
-import ImageWithMotion from "@/components/example/image/with-motion";
 import ImageDemo from "@/components/example/image/demo";
 import FabDemo from "@/components/example/fab/demo";
 import FabColors from "@/components/example/fab/colors";
@@ -214,7 +212,6 @@ export const components = {
   CustomSpinner,
   ButtonWithIcon,
   OverlayStructure,
-  BoxWithMotion,
   CardDemo,
   CardWithImage,
   CardWithCustomImage,
@@ -329,7 +326,6 @@ export const components = {
   AvatarSkeleton,
   InteractivePost,
   LoadingImage,
-  ImageWithMotion,
   ImageDemo,
   FabDemo,
   FabColors,

@@ -21,7 +21,6 @@ const ButtonVariants = () => {
             <Button>Solid</Button>
             <Button variant="outline">Outline</Button>
             <Button variant="ghost">Ghost</Button>
-            <Button variant="flat">Flat</Button>
           </Stack>
         </TabPanel>
         <TabPanel>

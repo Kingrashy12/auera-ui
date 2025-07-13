@@ -1,8 +1,8 @@
-import { Box, BoxWithMotion } from "auera-ui";
+import { Box, CardProps } from "auera-ui";
 import React from "react";
 import { tw } from "stywind";
 
-const CardContent: React.FC<BoxWithMotion> = (props) => {
+const CardContent: React.FC<CardProps> = (props) => {
   return (
     <Box
       className={tw(
