@@ -1,137 +1,79 @@
-@import "auera-ui/auera.css";
+@import "tailwindcss";
+
+/* @import "auera-ui/auera.css"; */
 @import "./toc.css";
+@import "./toc.utilities.css";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@config '../../tailwind.config.ts';
 
-:root {
-  --nav-bar: rgb(255, 255, 255, 0.5);
-  --text-color: black;
-  --text-muted: var(--auera-slate-700);
-  --cmd-bg: #eeeeef;
-  --cmd-code: var(--auera-gray-800);
-  --scrollbar-thumb: var(--auera-neutral-300);
-  --scrollbar-thumb-hover: var(--auera-neutral-400);
-  --sidebar-border: var(--auera-border);
-  --sidebar: var(--auera-sidebar);
-  --side-icon: var(--auera-neutral-50);
-  --dc-first-bg: #fff;
-  --dc-second-bg: var(--auera-blue-50);
-  --dc-border: var(--auera-blue-200);
-  --dim-black: #52525b;
-  --cb: var(--auera-gray-100);
-  --cb-border: var(--auera-neutral-200);
-  --block: #000;
-}
-html[data-theme="dark"] {
-  --nav-bar: rgb(0, 0, 0, 0.5);
-  --text-color: white;
-  --text-muted: #a1a1aa;
-  --cmd-bg: #19191c;
-  --cmd-code: white;
-  --scrollbar-thumb: var(--auera-neutral-500);
-  --scrollbar-thumb-hover: var(--auera-neutral-700);
-  --side-icon: var(--auera-slate-900);
-  --dc-first-bg: #000005;
-  --dc-second-bg: var(--auera-soft-blue);
-  --dc-border: var(--auera-blue-800);
-  --dim-black: #b6bec9;
-  --cb: var(--auera-neutral-900);
-  --cb-border: var(--auera-neutral-800);
-  --block: var(--auera-neutral-900);
-  --block-border: var(--auera-neutral-700);
-}
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
 
-body {
-  scroll-behavior: smooth;
-  /* background: var(--auera-background); */
-}
-
-.colored {
-  background: linear-gradient(
-    to bottom,
-    var(--auera-blue-400),
-    var(--auera-blue-700)
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-::-webkit-scrollbar {
-  width: 6px;
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--scrollbar-thumb);
-  border-radius: 8px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--scrollbar-thumb-hover);
-}
-
-.tag {
-  position: relative;
-}
-.tag::before {
-  content: "";
-  position: absolute;
-  top: 13rem;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background: var(--auera-blue-700);
-  transform: perspective(10px) rotateX(10deg) scale(1, 0.2);
-  filter: blur(1em);
-  opacity: 0.5;
-}
-
-@layer utilities {
-  .detailCard {
-    background: linear-gradient(var(--dc-first-bg), var(--dc-second-bg));
-    border-color: var(--dc-border);
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
   }
-  .text {
-    @apply text-dimBlack font-inter font-normal text-base;
-  }
-  .header-link {
-    @apply no-underline items-center flex w-full h-auto gap-2;
-  }
-  .header-link svg {
+}
+
+@utility detailCard {
+  background: linear-gradient(var(--dc-first-bg), var(--dc-second-bg));
+  border-color: var(--dc-border);
+}
+
+@utility text {
+  @apply text-dim-black font-inter font-normal text-base;
+}
+
+@utility header-link {
+  @apply no-underline items-center flex w-full h-auto gap-2;
+  & svg {
     @apply hidden absolute -left-2 translate-y-[1.15re];
   }
-  .header-link:hover svg {
+  &:hover svg {
     display: block;
   }
-  .header-3 {
-    @apply text-primary font-semibold leading-normal text-lg font-inter tracking-[0.1px];
-  }
-  .header-2 {
-    @apply text-primary font-semibold leading-normal text-[1.45rem] font-inter tracking-[0.1px];
-  }
-  .cb {
-    @apply border-[1.2px] p-[1px_5px_1px_5px] rounded-[0.37rem] bg-[var(--cb)] border-border font-normal text-[13px] !text-primary;
-  }
-  .block-cmd {
-    @apply border-border bg-[var(--block)] shadow-sm shadow-shadow;
-  }
-  .nav-hover {
-    @apply relative after:absolute after:-bottom-0.5 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-blue-500 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100;
-  }
+}
 
-  .skeleton {
-    @apply overflow-hidden relative animate-pulse inline-block p-1 theme-light:bg-slate-200 theme-dark:bg-neutral-700;
-  }
+@utility header-3 {
+  @apply text-primary font-semibold leading-normal text-lg font-inter tracking-[0.1px];
+}
 
-  .drawer-demo-card {
-    @apply theme-dark:bg-neutral-900 theme-light:bg-white theme-dark:hover:from-neutral-800 theme-dark:hover:to-slate-900;
-  }
-  .tblink {
-    position: relative;
-  }
-  .tblink::before {
+@utility header-2 {
+  @apply text-primary font-semibold leading-normal text-[1.45rem] font-inter tracking-[0.1px];
+}
+
+@utility cb {
+  @apply border-[1.2px] p-[1px_5px_1px_5px] rounded-[0.37rem] bg-(--cb) border-border font-normal text-[13px] text-primary!;
+}
+
+@utility block-cmd {
+  @apply border-border bg-(--block) shadow-xs shadow-shadow;
+}
+
+@utility nav-hover {
+  @apply relative after:absolute after:-bottom-0.5 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-blue-500 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100;
+}
+
+@utility skeleton {
+  @apply overflow-hidden relative animate-pulse inline-block p-1 theme-light:bg-slate-200 theme-dark:bg-neutral-700;
+}
+
+@utility drawer-demo-card {
+  @apply theme-dark:bg-neutral-900 theme-light:bg-white hover:theme-dark:from-neutral-800 hover:theme-dark:to-slate-900;
+}
+
+@utility tblink {
+  position: relative;
+  &::before {
     position: absolute;
     content: "";
     width: 100%;
@@ -140,8 +82,93 @@ body {
     bottom: 1px;
     z-index: 1;
   }
-  .tblink:hover::before {
+  &:hover::before {
     background: var(--auera-blue-600);
+  }
+}
+
+@layer utilities {
+  :root {
+    --nav-bar: rgb(255, 255, 255, 0.5);
+    --text-color: black;
+    --text-muted: var(--auera-slate-700);
+    --cmd-bg: #eeeeef;
+    --cmd-code: var(--auera-gray-800);
+    --scrollbar-thumb: var(--auera-neutral-300);
+    --scrollbar-thumb-hover: var(--auera-neutral-400);
+    --sidebar-border: var(--auera-border);
+    --sidebar: var(--auera-sidebar);
+    --side-icon: var(--auera-neutral-50);
+    --dc-first-bg: #fff;
+    --dc-second-bg: var(--auera-blue-50);
+    --dc-border: var(--auera-blue-200);
+    --dim-black: #52525b;
+    --cb: var(--auera-gray-100);
+    --cb-border: var(--auera-neutral-200);
+    --block: #000;
+  }
+  html[data-theme="dark"] {
+    --nav-bar: rgb(0, 0, 0, 0.5);
+    --text-color: white;
+    --text-muted: #a1a1aa;
+    --cmd-bg: #19191c;
+    --cmd-code: white;
+    --scrollbar-thumb: var(--auera-neutral-500);
+    --scrollbar-thumb-hover: var(--auera-neutral-700);
+    --side-icon: var(--auera-slate-900);
+    --dc-first-bg: #000005;
+    --dc-second-bg: var(--auera-soft-blue);
+    --dc-border: var(--auera-blue-800);
+    --dim-black: #b6bec9;
+    --cb: var(--auera-neutral-900);
+    --cb-border: var(--auera-neutral-800);
+    --block: var(--auera-neutral-900);
+    --block-border: var(--auera-neutral-700);
+  }
+
+  body {
+    scroll-behavior: smooth;
+    /* background: var(--auera-background); */
+  }
+
+  .colored {
+    background: linear-gradient(
+      to bottom,
+      var(--auera-blue-400),
+      var(--auera-blue-700)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 8px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover);
+  }
+
+  .tag {
+    position: relative;
+  }
+  .tag::before {
+    content: "";
+    position: absolute;
+    top: 13rem;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: var(--auera-blue-700);
+    transform: perspective(10px) rotateX(10deg) scale(1, 0.2);
+    filter: blur(1em);
+    opacity: 0.5;
   }
 }
 
