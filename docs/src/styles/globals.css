@@ -29,6 +29,10 @@
   border-color: var(--dc-border);
 }
 
+@utility li {
+  @apply font-medium text-xs font-inter flex items-center gap-1;
+}
+
 @utility text {
   @apply text-dim-black font-inter font-normal text-base;
 }

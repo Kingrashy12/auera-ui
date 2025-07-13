@@ -2,10 +2,6 @@
   @apply list-none p-0;
 }
 
-@utility li {
-  @apply font-medium text-xs font-inter flex items-center gap-1;
-}
-
 @utility a {
   @apply text-muted no-underline block hover:text-primary hover:scale-105 transition-colors;
 
