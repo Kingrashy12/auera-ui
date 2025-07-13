@@ -12,7 +12,12 @@ import {
 } from "./auera-system";
 import { InputProps } from "./element-props";
 import { zIndex } from "./keys";
-import { TableProps, TableRowProps, THeadProps } from "stywind";
+import {
+  ImageProps as IMGProps,
+  TableProps,
+  TableRowProps,
+  THeadProps,
+} from "stywind";
 
 export type DivProps = React.HTMLAttributes<HTMLDivElement>;
 export type BtnProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
@@ -36,7 +41,7 @@ export declare type SizeVariantType =
   | "4xl"
   | "5xl";
 
-export interface ButtonProps extends BtnProps {
+export type ButtonProps<T extends React.ElementType> = {
   variant?: ButtonVariant;
   colorScheme?: SchemeVariant;
   radius?: "none" | "sm" | "md" | "lg" | "xl" | "full";
@@ -56,7 +61,8 @@ export interface ButtonProps extends BtnProps {
   fullWidth?: boolean;
   hideChildOnLoad?: boolean;
   mode?: "light" | "dark";
-}
+  as?: T;
+} & React.ComponentPropsWithoutRef<T>;
 
 export interface Drop extends DivProps {
   design?: DesignVariant;
@@ -385,10 +391,10 @@ export type StatusBadgeProps = {
   animate?: boolean;
 };
 
-export interface ImageProps {
+export interface ImageProps extends IMGProps {
   fullWidth?: boolean;
   isLoading?: boolean;
-  radius?: ButtonProps["radius"];
+  radius?: "none" | "sm" | "md" | "lg" | "xl" | "full";
   styles?: React.CSSProperties;
 }
 

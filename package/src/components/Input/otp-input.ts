@@ -57,10 +57,10 @@ export const useComputeInput = (
     () =>
       tw(
         input({ error, radius: inputRules.radius?.value || radius }),
-        inputRules.className?.value,
+        inputRules.className,
         inputClass
       ),
-    [inputClass, error, radius]
+    [inputRules.className, inputClass, error, radius]
   );
   const interfaceStyles = useMemo(
     () =>

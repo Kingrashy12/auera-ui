@@ -16,7 +16,7 @@ const MenuPad: React.FC<MenuPadProps> = ({ children, className, ...props }) => {
   const { menuPadClass } = useMenuPadRules(className, props.id || "");
 
   return (
-    <div className={tw("px-2 py-2", className, menuPadClass?.value)}>
+    <div className={tw("px-2 py-2", className, menuPadClass)}>
       {header}
       {items.map((element, index) => {
         const typedElement = element as React.ReactElement<MenuItemProps>;
@@ -30,7 +30,7 @@ const MenuPad: React.FC<MenuPadProps> = ({ children, className, ...props }) => {
             {...typedElement.props}
             className={tw(
               "rounded-lg",
-              menuItemClass?.value,
+              menuItemClass,
               typedElement.props.className
             )}
           >

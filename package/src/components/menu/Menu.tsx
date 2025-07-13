@@ -53,7 +53,7 @@ const Menu: React.FC<MenuProps> = ({
         className={tw(
           "absolute z-100",
           isOpen ? "flex" : "hidden",
-          menuContainerClass?.value,
+          menuContainerClass,
           containerClassName
         )}
         ref={menuRef}

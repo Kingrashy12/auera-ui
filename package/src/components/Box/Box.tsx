@@ -1,10 +1,10 @@
 import { getDisplayName } from "../../utils/displayname";
 import { forwardRef } from "react";
-import { BoxWithMotion, MotionDivRef } from "../../types/auera-motion";
 import { useProps } from "../../utils";
 import { useBox } from "./use-box";
+import { BoxProps } from "../../types/auera-ui";
 
-const Box = forwardRef<HTMLDivElement, BoxWithMotion>(
+const Box = forwardRef<HTMLDivElement, BoxProps>(
   ({ children, ...props }, ref) => {
     const { Base } = useBox({
       direction: props.direction,
@@ -18,7 +18,7 @@ const Box = forwardRef<HTMLDivElement, BoxWithMotion>(
 
     const Props = useProps(props, "div");
     return (
-      <Base ref={ref as MotionDivRef} {...Props}>
+      <Base ref={ref as React.LegacyRef<"div">} {...Props}>
         {children}
       </Base>
     );

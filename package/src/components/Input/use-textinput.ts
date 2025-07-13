@@ -52,14 +52,14 @@ const useComputeInput = (
           radius: appliedRadius?.value || radius,
           design: appliedDesign?.value || design,
         }),
-        appliedClassName?.value,
+        appliedClassName,
         className
       ),
     [
       variant,
       disabled,
       radius,
-      appliedClassName?.value,
+      appliedClassName,
       className,
       appliedDesign?.value,
       appliedVariant?.value,

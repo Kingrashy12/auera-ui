@@ -1,6 +1,5 @@
 import React from "react";
 import { colors } from "../utils";
-import { HTMLMotionProps } from "motion/react";
 import { VariantProps } from "class-variance-authority";
 import { zIndex } from "./keys";
 
@@ -9,7 +8,7 @@ export type DesignVariant = "corporate" | "neobrutalism";
 // | "cream";
 
 export type SchemeVariant = "primary" | "success" | "danger" | "warning";
-export type ButtonVariant = "solid" | "flat" | "outline" | "ghost" | "unstyled";
+export type ButtonVariant = "solid" | "outline" | "ghost" | "unstyled";
 export type Radius = "none" | "sm" | "md" | "lg" | "xl" | "full";
 export type Sizes = "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
 
@@ -17,13 +16,13 @@ export interface ApplyBy {
   Button:
     | "all"
     | "id"
-    | "class"
+    | "className"
     | "variant"
     | "colorScheme"
     | "design"
     | "mode";
-  Card: "all" | "variant" | "id" | "class" | "design" | "mode";
-  Input: "all" | "variant" | "id" | "class" | "design" | "mode" | "radius";
+  Card: "all" | "variant" | "id" | "className" | "design" | "mode";
+  Input: "all" | "variant" | "id" | "className" | "design" | "mode" | "radius";
   Badge: "all" | "colorScheme" | "variant" | "id" | "mode";
   Fab:
     | "all"
@@ -33,15 +32,23 @@ export interface ApplyBy {
     | "className"
     | "mode"
     | "colorScheme";
-  IconButton: "all" | "variant" | "id" | "class" | "design" | "mode" | "radius";
-  Tabs: "all" | "variant" | "id" | "class" | "mode";
-  TabsContainer: "all" | "class" | "id";
-  TabHandle: "all" | "variant" | "id" | "class" | "mode";
-  OTPInput: "all" | "id" | "class" | "mode";
+  IconButton:
+    | "all"
+    | "variant"
+    | "id"
+    | "className"
+    | "design"
+    | "mode"
+    | "radius";
+  Tabs: "all" | "variant" | "id" | "className" | "mode";
+  TabsContainer: "all" | "className" | "id";
+  TabHandle: "all" | "variant" | "id" | "className" | "mode";
+  OTPInput: "all" | "id" | "className" | "mode";
   MenuItem: "all" | "className" | "id";
   MenuPad: "all" | "className" | "id";
   MenuContainer: "all" | "className" | "id";
   Menu: "all" | "className" | "id" | "mode";
+  DrawerPanel: "all" | "className" | "id" | "position" | "type";
 }
 
 /**
@@ -133,22 +140,13 @@ export type ModalPanelSize = "auto" | "sm" | "md" | "lg" | "xl" | "full";
 export type TransitionType = "walkIn" | "dropIn" | "slideIn";
 export type Trigger = "modal" | "drawer";
 
-export type AueraElementProps<T extends keyof JSX.IntrinsicElements> =
-  React.ComponentPropsWithRef<T> & {
-    tag?: keyof JSX.IntrinsicElements;
-    mode?: ModeType;
-    themeVariant?: ThemeVariant;
-    hidden?: boolean;
-    disabled?: boolean;
-  };
-
-export type AueraElementPropsWithMotion<T extends keyof HTMLElements> =
-  HTMLMotionProps<T> & {
-    tag?: keyof HTMLElements;
-    mode?: ModeType;
-    themeVariant?: ThemeVariant;
-    hidden?: boolean;
-  };
+export type AueraElementProps<T extends React.ElementType> = {
+  mode?: ModeType;
+  themeVariant?: ThemeVariant;
+  hidden?: boolean;
+  disabled?: boolean;
+  as?: T;
+} & React.ComponentPropsWithRef<T>;
 
 export interface HTMLElements {
   a: HTMLAnchorElement;
@@ -397,6 +395,9 @@ export interface GlobalUI {
         className?: StyleRule<ApplyBy["Menu"], string>[];
         mode?: StyleRule<ApplyBy["Menu"], ModeType>[];
       };
+    };
+    drawerPanel?: {
+      className?: StyleRule<ApplyBy["DrawerPanel"], string>[];
     };
   };
 }

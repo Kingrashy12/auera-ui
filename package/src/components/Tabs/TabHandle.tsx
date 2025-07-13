@@ -86,7 +86,7 @@ const TabHandle: React.FC<TabHandleProps> = ({
       fullWidth ? "w-full" : "w-auto",
       _variant === "solid" ? "border-none" : "",
       merge.single(variantStyle, variant),
-      appliedClassName?.value,
+      appliedClassName,
       className
     )
   );

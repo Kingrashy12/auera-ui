@@ -73,7 +73,7 @@ const Provider: React.FC<MenuProps> = ({
                 : isEdge
                 ? "rounded-b-xl"
                 : "",
-              menuItemClass?.value,
+              menuItemClass,
               item.props.className
             )}
           >

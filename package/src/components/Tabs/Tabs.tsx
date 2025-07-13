@@ -78,29 +78,36 @@ const Tabs = <T,>({
   const _mode = appliedMode?.value || currentMode;
   const _rounded = appliedRounded?.value || rounded;
 
-  const TabList = useMemo(() => {
-    return createStyle("div").classname(
+  const ListInterface = createStyle("div");
+
+  const listStyles = useMemo(
+    () =>
       tw(
         "max-w-full overflow-x-auto flex items-center relative gap-[1px]",
         getStylesWithMode(_mode, _variant, _rounded),
         hideBorder && "border-none",
         hideScrollBar ? "scrollbar-none" : scrollBar,
         getTabWidth(_variant, fullWidth),
-        appliedClassName?.value,
+        appliedClassName,
         className
-      )
-    );
-  }, [
-    className,
-    _variant,
-    _rounded,
-    fullWidth,
-    currentMode,
-    hideBorder,
-    hideScrollBar,
-    appliedClassName?.value,
-    _mode,
-  ]);
+      ),
+    [
+      className,
+      _variant,
+      _rounded,
+      fullWidth,
+      currentMode,
+      hideBorder,
+      hideScrollBar,
+      appliedClassName,
+      _mode,
+    ]
+  );
+
+  const TabList = useMemo(
+    () => ListInterface.classname(listStyles),
+    [listStyles]
+  );
 
   const [activeTabIndex, setActiveTabIndex] = useState(0);
 
@@ -125,7 +132,7 @@ const Tabs = <T,>({
         direction="column"
         className={tw(
           "gap-3 overflow-hidden",
-          appliedContainerClassName?.value,
+          appliedContainerClassName,
           containerClass
         )}
         fullWidth
@@ -146,15 +153,6 @@ const Tabs = <T,>({
                 {...typedElement.props}
                 isActive={index === activeTabIndex}
                 onClick={handleClick}
-                // value={typedElement.props.value}
-                // iconSize={typedElement.props.iconSize}
-                // icon={typedElement.props.icon}
-                // disabled={typedElement.props.disabled}
-                // activeColor={typedElement.props.activeColor}
-                // activeSolidColor={typedElement.props.activeSolidColor}
-                // inActiveColor={typedElement.props.inActiveColor}
-                // className={typedElement.props.className}
-                // style={typedElement.props.style}
               >
                 {typedElement.props.children}
               </TabHandle>

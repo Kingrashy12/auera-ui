@@ -1,10 +1,9 @@
 import React from "react";
 import Skeleton from "../loader/Skeleton";
 import { getDisplayName } from "@/utils/displayname";
-import { motion } from "motion/react";
-import { ImageWithMotion } from "../../types/auera-motion";
+import { ImageProps } from "../../types/auera-ui";
 
-const Image: React.FC<ImageWithMotion> = ({
+const Image: React.FC<ImageProps> = ({
   fullWidth,
   radius = "none",
   isLoading,
@@ -22,7 +21,7 @@ const Image: React.FC<ImageWithMotion> = ({
           style={props.styles}
         />
       ) : (
-        <motion.img className={props.className} {...props} loading="lazy" />
+        <img className={props.className} {...props} loading="lazy" />
       )}
     </>
   );

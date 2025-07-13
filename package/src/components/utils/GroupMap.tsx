@@ -1,7 +1,7 @@
 import React from "react";
 import Box from "../Box/Box";
 import { getDisplayName } from "@/utils/displayname";
-import { BoxWithMotion } from "../../types/auera-motion";
+import { BoxProps } from "../../types/auera-ui";
 
 type GroupMapType<T> = {
   /**
@@ -97,7 +97,7 @@ const GroupMap = <T,>({
   className,
   direction = "column",
   ...props
-}: GroupMapType<T> & BoxWithMotion) => {
+}: GroupMapType<T> & BoxProps) => {
   const groupedData: Record<string, T[]> = {};
 
   data.forEach((item) => {

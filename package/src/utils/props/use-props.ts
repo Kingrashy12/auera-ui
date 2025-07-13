@@ -9,6 +9,7 @@ export const useProps = (props: any, tag: keyof JSX.IntrinsicElements) => {
   }>(
     (acc, [key, value]) => {
       if (
+        typeof tag !== "function" &&
         key !== "children" &&
         !validElementProps.includes(key) &&
         !key.startsWith("data-") &&

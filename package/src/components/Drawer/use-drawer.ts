@@ -9,8 +9,9 @@ import {
   header,
   panel,
 } from "./drawer-variants";
-import { createStyle } from "stywind";
+import { createStyle, tw } from "stywind";
 import { AueraDiv } from "@/core/AueraElement";
+import { useDrawerPanelRules } from "@/hook/useStyleRules";
 
 const useDrawerContent = (props: DrawerContentVariants) => {
   const { centerContent, className } = props;
@@ -49,16 +50,19 @@ const useDrawerFooter = (props: DrawerFooterVariants) => {
   );
 };
 
-const ComputePanel = (props: DrawerPanelVariants) => {
-  const { className, position, type, isVisible } = props;
+const ComputePanel = (props: DrawerPanelVariants & { id: string }) => {
+  const { className, position, type, isVisible, id } = props;
 
-  return useMemo(
-    () =>
-      createStyle(AueraDiv).classname(
-        panel({ position, type, isVisible, className })
-      ),
-    [position, type, isVisible, className]
+  const { panelClassName } = useDrawerPanelRules(className, id, position, type);
+
+  const PanelInterface = createStyle(AueraDiv);
+
+  const panelStyles = useMemo(
+    () => tw(panel({ position, type, isVisible }), panelClassName, className),
+    [position, type, isVisible, panelClassName, className]
   );
+
+  return useMemo(() => PanelInterface.classname(panelStyles), [panelStyles]);
 };
 
 export { useDrawerContent, useDrawerFooter, useDrawerHeader, ComputePanel };

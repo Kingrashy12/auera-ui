@@ -1,6 +1,6 @@
 import { cva, VariantProps } from "class-variance-authority";
 import { useMemo } from "react";
-import { createStyle } from "stywind";
+import { createStyle, tw } from "stywind";
 
 const drop = cva("w-full fixed h-full inset-0", {
   variants: {
@@ -61,7 +61,7 @@ const useDrop = (props: DropVariant & { className?: string }) => {
   const Drop = useMemo(
     () =>
       createStyle("div").classname(
-        drop({ intensity, centerContent, mode, open, zIndex, className })
+        tw(drop({ intensity, centerContent, mode, open, zIndex }), className)
       ),
     [zIndex, centerContent, intensity, mode, open, className]
   );

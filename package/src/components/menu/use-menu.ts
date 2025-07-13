@@ -13,12 +13,8 @@ export const useComputeItem = (props: ItemVariants & { id: string }) => {
 
   const styles = useMemo(
     () =>
-      tw(
-        item({ color, disabled, useColorOnHover }),
-        menuItemClass?.value,
-        className
-      ),
-    [className, color, disabled, useColorOnHover, menuItemClass?.value]
+      tw(item({ color, disabled, useColorOnHover }), menuItemClass, className),
+    [className, color, disabled, useColorOnHover, menuItemClass]
   );
 
   return StyledItem.classname(styles);
@@ -34,9 +30,8 @@ export const useComputeWrapper = (
   const { menuClass } = useMenuRules(className, id, mode);
 
   const styles = useMemo(
-    () =>
-      tw(list({ zIndex, showDivider, isVisible }), menuClass?.value, className),
-    [className, zIndex, showDivider, isVisible, menuClass?.value]
+    () => tw(list({ zIndex, showDivider, isVisible }), menuClass, className),
+    [className, zIndex, showDivider, isVisible, menuClass]
   );
 
   return StyledIWrapper.classname(styles);

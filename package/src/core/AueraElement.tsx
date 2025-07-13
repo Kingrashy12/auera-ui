@@ -2,10 +2,10 @@ import { useMode, useThemeVariant } from "@/hook/use";
 import { AueraElementProps } from "@/types/auera-system";
 import { useProps } from "@/utils";
 import { getDisplayName } from "@/utils/displayname";
+import { forwardRef } from "react";
 import { tw } from "stywind";
 
-export const AueraElement = <T extends keyof JSX.IntrinsicElements>({
-  tag: Element = "div",
+export const AueraElement = <T extends React.ElementType = "div">({
   children,
   mode,
   themeVariant: TVariant,
@@ -13,6 +13,8 @@ export const AueraElement = <T extends keyof JSX.IntrinsicElements>({
 }: AueraElementProps<T>) => {
   const { currentMode } = useMode(mode);
   const themeVariant = useThemeVariant(TVariant);
+
+  const Element = props.as;
 
   const Props = useProps(props, Element);
 
@@ -31,10 +33,10 @@ export const AueraElement = <T extends keyof JSX.IntrinsicElements>({
 AueraElement.displayName = getDisplayName("Element");
 
 export const AueraButton = (props: AueraElementProps<"button">) => {
-  const { tag, mode, themeVariant, ...rest } = props;
+  const { mode, themeVariant, ...rest } = props;
   return (
     <AueraElement
-      tag="button"
+      as="button"
       mode={mode}
       themeVariant={themeVariant}
       {...rest}
@@ -42,18 +44,26 @@ export const AueraButton = (props: AueraElementProps<"button">) => {
   );
 };
 
-export const AueraDiv = (props: AueraElementProps<"div">) => {
-  const { tag, mode, themeVariant, ...rest } = props;
-  return (
-    <AueraElement tag="div" mode={mode} themeVariant={themeVariant} {...rest} />
-  );
-};
+export const AueraDiv = forwardRef<HTMLElement, AueraElementProps<"div">>(
+  (props, ref) => {
+    const { mode, as, themeVariant, ...rest } = props;
+    return (
+      <AueraElement
+        as="div"
+        ref={ref}
+        mode={mode}
+        themeVariant={themeVariant}
+        {...rest}
+      />
+    );
+  }
+);
 
 export const AueraInput = (props: AueraElementProps<"input">) => {
-  const { tag, mode, themeVariant, ...rest } = props;
+  const { mode, as, themeVariant, ...rest } = props;
   return (
     <AueraElement
-      tag="input"
+      as="input"
       mode={mode}
       themeVariant={themeVariant}
       {...rest}
@@ -62,13 +72,8 @@ export const AueraInput = (props: AueraElementProps<"input">) => {
 };
 
 export const AueraSpan = (props: AueraElementProps<"span">) => {
-  const { tag, mode, themeVariant, ...rest } = props;
+  const { mode, themeVariant, ...rest } = props;
   return (
-    <AueraElement
-      tag="span"
-      mode={mode}
-      themeVariant={themeVariant}
-      {...rest}
-    />
+    <AueraElement as="span" mode={mode} themeVariant={themeVariant} {...rest} />
   );
 };

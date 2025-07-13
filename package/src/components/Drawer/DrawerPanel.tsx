@@ -13,6 +13,7 @@ const DrawerPanel = ({
   children,
   mode,
   themeVariant,
+  id,
   ...props
 }: DrawerPanelProps) => {
   const { isVisible } = Drawer();
@@ -30,6 +31,7 @@ const DrawerPanel = ({
     position,
     type,
     isVisible,
+    id: id || "",
   });
 
   return (

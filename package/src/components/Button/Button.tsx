@@ -2,7 +2,7 @@ import { ButtonProps } from "../../types/auera-ui";
 import { getDisplayName } from "../../utils/displayname";
 import { useButton } from "./use-button";
 
-const Button: React.FC<ButtonProps> = ({
+const Button = <T extends React.ElementType = "button">({
   children,
   variant = "solid",
   colorScheme = "primary",
@@ -19,7 +19,7 @@ const Button: React.FC<ButtonProps> = ({
   hideChildOnLoad,
   className,
   ...props
-}) => {
+}: ButtonProps<T>) => {
   const { Button, getContent } = useButton({
     radius,
     variant,
@@ -30,8 +30,16 @@ const Button: React.FC<ButtonProps> = ({
     ...props,
   });
 
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    if (props.disabled) return;
+
+    if (props.onClick) {
+      props.onClick(event);
+    }
+  };
+
   return (
-    <Button {...props}>
+    <Button onClick={handleClick} {...props}>
       {getContent({
         spinner,
         hideChildOnLoad,

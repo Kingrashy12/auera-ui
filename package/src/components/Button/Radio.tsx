@@ -52,6 +52,7 @@ const Radio: React.FC<RadioProps> = ({
       type="radio"
       name={name}
       checked={checked}
+      onChange={handleCheck}
       onClick={handleCheck}
       {...props}
     />

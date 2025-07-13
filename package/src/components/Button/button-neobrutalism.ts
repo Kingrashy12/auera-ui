@@ -2,7 +2,7 @@ import neobrutalism from "@/_styles_/neobrutalism";
 import { cva } from "class-variance-authority";
 
 const button_neobrutalism = cva(
-  `active:scale-[.99] ${neobrutalism.__DEFAULT}`,
+  `active:scale-[.99] data-[disabled=true]:active:scale-100 ${neobrutalism.__DEFAULT}`,
   {
     variants: {
       colorScheme: {
@@ -13,9 +13,7 @@ const button_neobrutalism = cva(
       },
       variant: {
         solid: "text-white",
-        light: "",
         outline: "text-black tone-dark:text-gray-300 bg-transparent",
-        flat: "",
         ghost: "",
         unstyled: "",
       },
@@ -64,30 +62,6 @@ const button_neobrutalism = cva(
         colorScheme: "warning",
         class:
           "border-none shadow-none tone-dark:shadow-none hover:bg-yellow-100 tone-dark:hover:bg-yellow-800/30 hover:shadow-[4px_4px_0px_var(--auera-yellow-300)] tone-dark:hover:shadow-[4px_4px_0px] tone-dark:hover:shadow-yellow-800/60 text-yellow-500 tone-dark:text-yellow-600",
-      },
-      {
-        variant: "flat",
-        colorScheme: "primary",
-        class:
-          "text-blue-500 tone-dark:text-blue-600 bg-blue-100 tone-dark:bg-blue-600/30 hover:bg-blue-200 tone-dark:hover:bg-blue-800/30 shadow-blue-400 tone-dark:shadow-blue-800/30",
-      },
-      {
-        variant: "flat",
-        colorScheme: "warning",
-        class:
-          "text-yellow-500 tone-dark:text-yellow-600 bg-yellow-100 tone-dark:bg-yellow-600/30 hover:bg-yellow-200 tone-dark:hover:bg-yellow-800/30 shadow-yellow-600 tone-dark:shadow-yellow-800/30",
-      },
-      {
-        variant: "flat",
-        colorScheme: "success",
-        class:
-          "text-green-500 tone-dark:text-green-600 bg-green-100 tone-dark:bg-green-600/30 hover:bg-green-200 tone-dark:hover:bg-green-800/30 shadow-green-600 tone-dark:shadow-green-800/30",
-      },
-      {
-        variant: "flat",
-        colorScheme: "danger",
-        class:
-          "text-red-500 tone-dark:text-red-600 bg-red-100 tone-dark:bg-red-600/30 hover:bg-red-200 tone-dark:hover:bg-red-800/30 shadow-red-600 tone-dark:shadow-red-800/30",
       },
     ],
     defaultVariants: {
