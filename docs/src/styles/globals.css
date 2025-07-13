@@ -33,6 +33,47 @@
   @apply font-medium text-xs font-inter flex items-center gap-1;
 }
 
+@utility ul {
+  @apply list-none p-0;
+}
+
+@utility a {
+  @apply text-muted no-underline block hover:text-primary hover:scale-105 transition-colors;
+
+  &.active {
+    @apply font-normal text-blue-500 relative;
+  }
+}
+
+@utility active {
+  &.a {
+    @apply font-normal text-blue-500 relative;
+  }
+}
+
+@utility level-h2 {
+  @apply pl-0;
+  & .level-icon {
+    @apply hidden;
+  }
+}
+
+@utility level-icon {
+  .level-h2 & {
+    @apply hidden;
+  }
+  .level-h3 & {
+    @apply block;
+  }
+}
+
+@utility level-h3 {
+  @apply relative;
+  & .level-icon {
+    @apply block;
+  }
+}
+
 @utility text {
   @apply text-dim-black font-inter font-normal text-base;
 }
