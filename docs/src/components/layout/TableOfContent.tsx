@@ -13,20 +13,20 @@ const TableOfContent = () => {
 
   const Table = createStyle("aside").classname(
     "h-[90vh] sticky bg-sidebar border-l flex flex-col border-l-sidebar px-6 py-4 top-16 \
-     z-20 w-[250px] flex-shrink-0 max-lg:hidden"
+     z-20 w-[250px] shrink-0 max-lg:hidden"
   );
 
   return (
     <Table>
       <Box className="gap-2 items-center">
-        <LiaPagerSolid className="text-dimBlack" size={23} />
+        <LiaPagerSolid className="text-dim-black" size={23} />
         <p className="font-inter text-primary font-semibold text-sm">
           On this page
         </p>
       </Box>
       <Box
         direction="column"
-        className="gap-3 mt-4 overflow-y-auto mb-3 overflow-x-hidden w-full p-2 flex-shrink-0 flex-grow"
+        className="gap-3 mt-4 overflow-y-auto mb-3 overflow-x-hidden w-full p-2 shrink-0 grow"
       >
         {headings &&
           headings?.map((heading) => (
@@ -35,7 +35,7 @@ const TableOfContent = () => {
               className={`li level-${heading.level.toLowerCase()}`}
             >
               <IoIosArrowForward
-                className="text-dimBlack level-icon"
+                className="text-dim-black level-icon"
                 size={12}
               />
               <a
@@ -49,7 +49,7 @@ const TableOfContent = () => {
       </Box>
       <Box className="mt-auto py-5 px-3 border-t border-t-sidebar">
         <Box
-          className="items-center gap-1 text-dimBlack cursor-pointer"
+          className="items-center gap-1 text-dim-black cursor-pointer"
           onClick={scrollToTop}
         >
           <HiOutlineArrowUpCircle size={19} />

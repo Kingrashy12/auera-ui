@@ -29,7 +29,7 @@ const Installation = () => {
             hideLink
           >
             Install{" "}
-            <CodeTag className="text-base p-[3px_8px_3px_8px] rounded-sm bg-[var(--cb)] border-border">
+            <CodeTag className="text-base p-[3px_8px_3px_8px] rounded-sm bg-(--cb) border-border">
               auera-ui
             </CodeTag>
           </HeaderLabel>

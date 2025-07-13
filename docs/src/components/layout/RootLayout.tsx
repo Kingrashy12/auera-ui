@@ -72,7 +72,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div
       className={tw(
-        "h-full flex flex-col w-full",
+        "h-full flex flex-col w-full antialiased",
         montserrat.variable,
         inter.variable,
         interTight.variable,

@@ -95,7 +95,7 @@ const PricingCard = () => {
                       className={tw(
                         "text-neutral-500 theme-dark:text-neutral-400 font-poppins",
                         {
-                          "line-through text-neutral-300 theme-dark:!text-neutral-600":
+                          "line-through text-neutral-300 theme-dark:text-neutral-600!":
                             !plan.included,
                         }
                       )}
@@ -105,11 +105,7 @@ const PricingCard = () => {
                   </Box>
                 )}
               />
-              <Button
-                className="font-inter text-sm items-center"
-                radius="xl"
-                design="frost"
-              >
+              <Button className="font-inter text-sm items-center" radius="xl">
                 Select plan
               </Button>
             </Card>

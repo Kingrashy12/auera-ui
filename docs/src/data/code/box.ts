@@ -4,7 +4,7 @@ export const boxCode = {
 const BasicBox = () => {
  return (
    <Box className="border-dashed border font-inter text-muted
-   text-base p-4 border-[var(--auera-text-muted)]" >
+   text-base p-4 border-(--auera-text-muted)" >
     This is a basic Box content.
    </Box>
  )

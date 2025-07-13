@@ -103,19 +103,19 @@ const styleRules = defineStyleRules({
 export const HowItWorks = () => {
   return (
     <Box className="flex-col gap-2 px-1">
-      <p className="text !font-medium">
+      <p className="text font-medium!">
         1. Look for <CodeTag>styleRules.button</CodeTag>.
       </p>
-      <p className="text !font-medium">
+      <p className="text font-medium!">
         2. Filter rules by <CodeTag>applyBy</CodeTag> (like{" "}
         <CodeTag>id</CodeTag>, <CodeTag>variant</CodeTag> or{" "}
         <CodeTag>class</CodeTag>).
       </p>
-      <p className="text !font-medium">
+      <p className="text font-medium!">
         3. Check if <CodeTag>$where</CodeTag> matches the component’s current
         attributes.
       </p>
-      <p className="text !font-medium">
+      <p className="text font-medium!">
         4. Apply the corresponding <CodeTag>value</CodeTag> (e.g., class name,
         radius, etc).
       </p>

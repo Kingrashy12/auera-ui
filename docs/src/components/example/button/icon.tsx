@@ -19,15 +19,13 @@ const ButtonWithIcon = () => {
         </TabHandle>
         <TabPanel className="mt-3">
           <Stack wrap align="horizontal">
-            <Button leftIcon={HiOutlineMail} leftIconSize={20}>
+            <Button>
+              <HiOutlineMail size={20} />
               Email
             </Button>
-            <Button
-              colorScheme="danger"
-              rightIcon={HiOutlineTrash}
-              rightIconSize={20}
-            >
+            <Button colorScheme="danger">
               Delete
+              <HiOutlineTrash size={20} />
             </Button>
           </Stack>
         </TabPanel>

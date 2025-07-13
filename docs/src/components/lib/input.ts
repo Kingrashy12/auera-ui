@@ -5,7 +5,7 @@ const Component = createStyle("div").classname(
 );
 
 const Input = createStyle("input").classname(
-  "w-full h-full outline-none border-none flex-1 text-[var(--input-color)] bg-transparent caret-blue-500 font-inter-tight font-medium placeholder:text-neutral-400 text-sm"
+  "w-full h-full outline-none border-none flex-1 text-(--input-color) bg-transparent caret-blue-500 font-inter-tight font-medium placeholder:text-neutral-400 text-sm"
 );
 
 export { Component, Input };

@@ -38,7 +38,7 @@ const Code: React.FC<CodeProps> = ({ code, lang = "tsx" }) => {
           <Skeleton width={`30%`} height={15} />
         </Box>
       ) : (
-        <div dangerouslySetInnerHTML={{ __html: html }} className="!text-sm" />
+        <div dangerouslySetInnerHTML={{ __html: html }} className="text-sm!" />
       )}
     </>
   );

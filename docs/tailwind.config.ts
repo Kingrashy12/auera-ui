@@ -1,12 +1,10 @@
 import type { Config } from "tailwindcss";
-import { aueraTw, SafeLists, tailwindExtend } from "auera-ui";
+import { tailwindExtend } from "auera-ui";
 
+/// <reference types="tailwindcss/types/config" />
 const config: Config = {
-  content: [
-    "./src/**/*.{js,jsx,ts,tsx,mdx}",
-    "./node_modules/auera-ui/dist/**/*.{js,jsx,ts,tsx}",
-  ],
-  safelist: SafeLists(),
+  content: ["./src/**/*.{js,jsx,ts,tsx,mdx}"],
+
   theme: {
     extend: {
       colors: {
@@ -52,6 +50,6 @@ const config: Config = {
       dropShadow: { ...tailwindExtend.dropShadow },
     },
   },
-  plugins: [aueraTw],
+  // plugins: [aueraTw],
 };
 export default config;

@@ -79,7 +79,7 @@ const SideBarLinks = ({ data }: { data: typeof sideBarLinks }) => {
                   "w-full py-2 px-3 -ml-0.5 hover:text-blue-600 hover:border-l-2 hover:border-blue-600 flex justify-between transition-transform duration-300",
                   getActiveLink(link.uri)
                     ? "border-l-2 text-blue-600 border-l-blue-600"
-                    : "text-dimBlack",
+                    : "text-dim-black",
                   link.soon || link.docs_soon
                     ? "cursor-not-allowed pointer-events-none opacity-75"
                     : "cursor-pointer"

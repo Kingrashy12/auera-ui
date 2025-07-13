@@ -74,7 +74,7 @@ const CodeBlock = ({
         <Tooltip label="Copy" position="left" showPointer={false}>
           <Clipboard
             content={code}
-            className="theme-light:hover:bg-neutral-800 !text-white"
+            className="theme-light:hover:bg-neutral-800 text-white!"
           />
         </Tooltip>
       </div>

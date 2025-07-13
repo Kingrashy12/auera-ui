@@ -25,7 +25,7 @@ const GroupMapDemo = () => {
         className="
         gap-2 p-4 rounded-xl cursor-pointer flex-col
         border border-neutral-200 theme-dark:border-neutral-700
-        hover:bg-gradient-to-r hover:from-indigo-50 hover:to-purple-50 
+        hover:bg-linear-to-r hover:from-indigo-50 hover:to-purple-50 
         transition-all duration-300 ease-in-out shadow-md 
         hover:shadow-lg transform mb-2 active:scale-90 drawer-demo-card
         "
@@ -72,7 +72,7 @@ const data: typeof notifications = [];
         className="
         gap-2 p-4 rounded-xl cursor-pointer flex-col
         border border-neutral-200 theme-dark:border-neutral-700
-        hover:bg-gradient-to-r hover:from-indigo-50 hover:to-purple-50 
+        hover:bg-linear-to-r hover:from-indigo-50 hover:to-purple-50 
         transition-all duration-300 ease-in-out shadow-md 
         hover:shadow-lg transform mb-2 active:scale-90 drawer-demo-card
         "
