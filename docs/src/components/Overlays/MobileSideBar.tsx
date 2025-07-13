@@ -39,7 +39,7 @@ const MobileSideBar = () => {
             <IoClose size={18} />
           </IconButton>
         </DrawerHeader>
-        <DrawerContent className="!p-0 gap-0">
+        <DrawerContent className="p-0! gap-0">
           <SideBarContent />
         </DrawerContent>
       </DrawerPanel>

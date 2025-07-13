@@ -19,7 +19,6 @@ const ButtonFlavours = () => {
         <TabPanel className="mt-3">
           <Stack wrap align="horizontal" className="py-2">
             <Button>Corporate</Button>
-            <Button design="frost">Frost</Button>
             <Button design="neobrutalism">Neobrutalism</Button>
           </Stack>
         </TabPanel>

@@ -95,7 +95,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
                 size={14}
                 className={tw(
                   "text-muted",
-                  separator === "splash" ? "-rotate-[10deg]" : ""
+                  separator === "splash" ? "-rotate-10" : ""
                 )}
                 icon={separatorType[separator]}
               />

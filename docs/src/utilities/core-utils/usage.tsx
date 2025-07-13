@@ -13,7 +13,7 @@ const CoreUtilsUsage = () => {
     <Box className="flex-col gap-10">
       <Details id="open-modal">
         <HeaderLabel id="open-modal" as="h3">
-          <CodeTag className="text-base p-[3px_8px_3px_8px] rounded-sm bg-[var(--cb)] border-border">
+          <CodeTag className="text-base p-[3px_8px_3px_8px] rounded-sm bg-(--cb) border-border">
             openModal
           </CodeTag>
         </HeaderLabel>
@@ -37,7 +37,7 @@ const CoreUtilsUsage = () => {
       <DashedBorder />
       <Details id="close-modal">
         <HeaderLabel id="close-modal" as="h3">
-          <CodeTag className="text-base p-[3px_8px_3px_8px] rounded-sm bg-[var(--cb)] border-border">
+          <CodeTag className="text-base p-[3px_8px_3px_8px] rounded-sm bg-(--cb) border-border">
             closeModal
           </CodeTag>
         </HeaderLabel>
@@ -50,7 +50,7 @@ const CoreUtilsUsage = () => {
       <DashedBorder />
       <Details id="open-drawer">
         <HeaderLabel id="open-drawer" as="h3">
-          <CodeTag className="text-base p-[3px_8px_3px_8px] rounded-sm bg-[var(--cb)] border-border">
+          <CodeTag className="text-base p-[3px_8px_3px_8px] rounded-sm bg-(--cb) border-border">
             openDrawer
           </CodeTag>
         </HeaderLabel>
@@ -76,7 +76,7 @@ const CoreUtilsUsage = () => {
       <DashedBorder />
       <Details id="close-drawer">
         <HeaderLabel id="close-drawer" as="h3">
-          <CodeTag className="text-base p-[3px_8px_3px_8px] rounded-sm bg-[var(--cb)] border-border">
+          <CodeTag className="text-base p-[3px_8px_3px_8px] rounded-sm bg-(--cb) border-border">
             closeDrawer
           </CodeTag>
         </HeaderLabel>
@@ -89,7 +89,7 @@ const CoreUtilsUsage = () => {
       <DashedBorder />
       <Details id="handle-file-upload">
         <HeaderLabel id="handle-file-upload" as="h3">
-          <CodeTag className="text-base p-[3px_8px_3px_8px] rounded-sm bg-[var(--cb)] border-border">
+          <CodeTag className="text-base p-[3px_8px_3px_8px] rounded-sm bg-(--cb) border-border">
             handleFileUpload
           </CodeTag>
         </HeaderLabel>

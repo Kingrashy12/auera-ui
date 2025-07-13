@@ -13,7 +13,6 @@ const nextConfig = {
       },
     ],
   },
-  turbopack: true,
 };
 
 const withMDX = createMDX({});

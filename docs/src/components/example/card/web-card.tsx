@@ -75,7 +75,7 @@ const Web3Card = () => {
               className="gap-4"
               renderItem={(wallet, index) => (
                 <IconButton
-                  className="gap-3 !justify-start"
+                  className="gap-3 justify-start!"
                   as="div"
                   radius="2xl"
                   key={index}

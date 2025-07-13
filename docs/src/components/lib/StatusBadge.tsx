@@ -60,7 +60,7 @@ const StatusBadge = ({
     "right-bottom": defineClass("right-0 bottom-0"),
   };
   const Badge = createStyle("div").classname(
-    "relative w-auto flex flex-shrink-0"
+    "relative w-auto flex shrink-0"
   );
   const BadgeStatus = createStyle("div").classname(
     tw(

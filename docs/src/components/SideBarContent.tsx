@@ -41,7 +41,7 @@ const SideBarContent = () => {
     <>
       <Box
         fullWidth
-        className="sticky flex-shrink-0 px-3 top-0 py-4 bg-sidebar z-20 border-b border-b-sidebar flex-col gap-5 shadow-sm theme-dark:shadow-black"
+        className="sticky shrink-0 px-3 top-0 py-4 bg-sidebar z-20 border-b border-b-sidebar flex-col gap-5 shadow-sm theme-dark:shadow-black"
       >
         <TextInput
           icon={IoSearch}
@@ -84,7 +84,7 @@ const SideBarContent = () => {
                 key={index}
               >
                 <Box className="items-center gap-3">
-                  <div className="p-[6px] bg-sideIcon rounded-md border shadow-sm border-sidebar">
+                  <div className="p-[6px] bg-side-icon rounded-md border shadow-sm border-sidebar">
                     <Icon icon={item.icon} color={item.color} />
                   </div>
                   <p className="font-inter font-medium text-sm">{item.label}</p>

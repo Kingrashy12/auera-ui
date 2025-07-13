@@ -75,12 +75,7 @@ export const Outline: Story = {
     variant: "outline",
   },
 };
-export const Flat: Story = {
-  args: {
-    children: "Flat Button",
-    variant: "flat",
-  },
-};
+
 export const Ghost: Story = {
   args: {
     children: "Ghost",
@@ -94,12 +89,7 @@ export const Loading: Story = {
     isLoading: true,
   },
 };
-export const Frost: Story = {
-  args: {
-    children: "Frost Flavour",
-    design: "frost",
-  },
-};
+
 export const Neumorphic: Story = {
   args: {
     children: "Neobrutalism",

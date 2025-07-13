@@ -8,7 +8,7 @@ const BadgeWithIndicator = () => {
     <CardContent>
       <TabLayout code={code}>
         <Badge asDiv variant="soft" colorScheme="green">
-          <StatusBadge badgeClassName="!relative !w-[9px] !h-[9px]" size="md" />
+          <StatusBadge badgeClassName="!relative w-[9px]! h-[9px]!" size="md" />
           Badge
         </Badge>
       </TabLayout>

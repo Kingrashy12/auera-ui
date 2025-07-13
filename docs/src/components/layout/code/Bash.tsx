@@ -12,7 +12,7 @@ const Bash = ({ code }: { code: string }) => {
       <Box className="w-10/12 max-[550px]:w-[80%] h-full p-4 overflow-x-auto">
         <Code code={code} lang="bash" />
       </Box>
-      <div className="h-auto absolute text-white p-3 bg-[var(--block)] right-0 -top-[2px]">
+      <div className="h-auto absolute text-white p-3 bg-(--block) right-0 -top-[2px]">
         <Clipboard
           content={code}
           className="theme-light:hover:bg-neutral-800"

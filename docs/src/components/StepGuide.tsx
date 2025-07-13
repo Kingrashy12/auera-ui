@@ -28,9 +28,9 @@ const StepGuide = ({
     >
       <Box
         direction="column"
-        className="flex-shrink-0 items-center max-[550px]:hidden"
+        className="shrink-0 items-center max-[550px]:hidden"
       >
-        <Box className="bg-sidebar items-center justify-center h-8 p-3 flex-shrink-0 rounded-lg border-2 border-sidebar">
+        <Box className="bg-sidebar items-center justify-center h-8 p-3 shrink-0 rounded-lg border-2 border-sidebar">
           <p className="font-poppins font-medium text-sm text-primary">
             {step}
           </p>

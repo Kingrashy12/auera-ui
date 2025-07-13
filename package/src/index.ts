@@ -1,6 +1,7 @@
 import "./css/colors.css";
 import "./css/base.css";
 import "./css/config.css";
+import "./css/safelist.css";
 import "./css/custom-variants.css";
 
 export * from "./components";
