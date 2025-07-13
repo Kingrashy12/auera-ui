@@ -82,8 +82,8 @@ const Collapse: React.FC<CollapseProps> = ({
         className={tw(
           !open && "hidden",
           visible
-            ? "h-auto opacity-100 duration-500"
-            : "h-0 opacity-0 duration-300"
+            ? "h-auto opacity-100 duration-500 animate-drop-in"
+            : "h-0 opacity-0 duration-300 animate-drop-out"
         )}
       >
         {children}

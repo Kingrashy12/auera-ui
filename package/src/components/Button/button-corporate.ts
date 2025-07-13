@@ -7,9 +7,9 @@ const button_corporate = cva(
     variants: {
       variant: {
         outline: [
-          `border-2 shadow-sm bg-white text-black hover:bg-gray-100 
+          `border-1.9 shadow-sm bg-white text-black hover:bg-gray-100/50 
              border-neutral-300 tone-dark:bg-black tone-dark:text-white 
-              tone-dark:hover:bg-neutral-700 tone-dark:border-neutral-800`,
+              tone-dark:hover:bg-neutral-700/30 tone-dark:border-neutral-800`,
         ],
         solid: "text-white",
         ghost: "bg-transparent",
