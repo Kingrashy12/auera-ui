@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 import { tw } from "stywind";
 import { getDisplayName } from "../../utils/displayname";
 import { SwitchProps } from "../../types/auera-ui";
-import { checker, switchContinaer } from "./switch-variant";
+import { checker, switchContainer } from "./switch-variant";
 
 const Switch: React.FC<SwitchProps> = ({
   size = "md",
@@ -42,7 +42,7 @@ const Switch: React.FC<SwitchProps> = ({
     >
       <div
         className={tw(
-          switchContinaer(
+          switchContainer(
             color,
             unCheckColor
           )({ variant, disabled, size, isOn })

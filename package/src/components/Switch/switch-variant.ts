@@ -1,7 +1,7 @@
 import { cva } from "class-variance-authority";
 import { ColorPair } from "../../types/auera-system";
 
-const switchContinaer = (
+const switchContainer = (
   color: ColorPair = "blue-600",
   unCheckColor: ColorPair = "gray-300"
 ) =>
@@ -140,4 +140,4 @@ const checker = cva("bg-white rounded-full", {
   },
 });
 
-export { switchContinaer, checker };
+export { switchContainer, checker };
