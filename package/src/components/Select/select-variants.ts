@@ -27,7 +27,6 @@ const trigger = cva(
         full: "rounded-full",
       },
       variant: {
-        // "bg-white border-neutral-300 shadow-neutral-200 border-1.9 shadow-sm tone-dark:bg-neutral-900 tone-dark:border-neutral-700 tone-dark:hover:bg-neutral-800 tone-dark:shadow-black",
         outline: tw(
           "border-1.9 shadow-sm",
           theme.__content_bg,

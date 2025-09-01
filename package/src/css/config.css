@@ -20,6 +20,7 @@
   --color-content: var(--auera-content);
   --color-btn-bg: var(--auera-bg-btn);
   --color-btn-border: var(--auera-btn-border);
+  --color-background: var(--auera-background);
 
   @keyframes slideIn {
     from {

@@ -1,6 +1,6 @@
 {
   "name": "auera-ui",
-  "version": "0.1.51",
+  "version": "0.1.52",
   "main": "dist/auera-ui.cjs",
   "module": "dist/auera-ui.es.js",
   "types": "dist/index.d.ts",
